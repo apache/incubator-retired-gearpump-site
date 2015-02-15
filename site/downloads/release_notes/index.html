@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-        <title>IDE setup - /Gearpump/</title>
+        <title>Release Notes - /Gearpump/</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -53,64 +53,64 @@
                 <ul class="nav navbar-nav">
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">User Guide <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             <li >
-                                <a href="../getstarted">Get Started</a>
+                                <a href="../../documents/getstarted">Get Started</a>
                             </li>
                         
                             <li >
-                                <a href="../dag_api">DAG API</a>
+                                <a href="../../documents/dag_api">DAG API</a>
                             </li>
                         
                             <li >
-                                <a href="../how_to_build">How to Build</a>
+                                <a href="../../documents/how_to_build">How to Build</a>
                             </li>
                         
                             <li >
-                                <a href="../configuration">Gearpump Configuration</a>
+                                <a href="../../documents/configuration">Gearpump Configuration</a>
                             </li>
                         
                             <li >
-                                <a href="../run_time_model_description">Runtime Model</a>
+                                <a href="../../documents/run_time_model_description">Runtime Model</a>
                             </li>
                         
                             <li >
-                                <a href="../high_availability_guide">High Availability Guide</a>
+                                <a href="../../documents/high_availability_guide">High Availability Guide</a>
                             </li>
                         
                             <li >
-                                <a href="../kafka_tutorial_walk_through">Kafka Source and Sink Example Walk through</a>
+                                <a href="../../documents/kafka_tutorial_walk_through">Kafka Source and Sink Example Walk through</a>
                             </li>
                         
                             <li >
-                                <a href="../how_gearpump_do_fail_over">How Gearpump do Fail Over</a>
+                                <a href="../../documents/how_gearpump_do_fail_over">How Gearpump do Fail Over</a>
                             </li>
                         
                             <li >
-                                <a href="../how_to_write_a_streaming_application">How to Write a Streaming Application</a>
+                                <a href="../../documents/how_to_write_a_streaming_application">How to Write a Streaming Application</a>
                             </li>
                         
                             <li >
-                                <a href="../how_to_write_a_general_distributed_application">How to Write a General Distributed Application</a>
+                                <a href="../../documents/how_to_write_a_general_distributed_application">How to Write a General Distributed Application</a>
                             </li>
                         
                             <li >
-                                <a href="../serialization_guide">Write your customized serializer</a>
-                            </li>
-                        
-                            <li class="active">
-                                <a href=".">IDE setup</a>
+                                <a href="../../documents/serialization_guide">Write your customized serializer</a>
                             </li>
                         
                             <li >
-                                <a href="../performance">Performance Benchmarks</a>
+                                <a href="../../documents/intellij_eclipse_development_environment_setup">IDE setup</a>
                             </li>
                         
                             <li >
-                                <a href="../faq">FAQ</a>
+                                <a href="../../documents/performance">Performance Benchmarks</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../../documents/faq">FAQ</a>
                             </li>
                         
                         </ul>
@@ -118,16 +118,16 @@
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Downloads <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             <li >
-                                <a href="../../downloads/downloads">Latest Version</a>
+                                <a href="../downloads">Latest Version</a>
                             </li>
                         
-                            <li >
-                                <a href="../../downloads/release_notes">Release Notes</a>
+                            <li class="active">
+                                <a href=".">Release Notes</a>
                             </li>
                         
                         </ul>
@@ -176,12 +176,12 @@
                 
                 
                 <li >
-                    <a rel="next" href="../serialization_guide">
+                    <a rel="next" href="../downloads">
                         <i class="fa fa-arrow-left"></i> Previous
                     </a>
                 </li>
                 <li >
-                    <a rel="prev" href="../performance">
+                    <a rel="prev" href="../../publications/publications">
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
                 </li>
@@ -207,34 +207,18 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#intellij-ide-setup">Intellij IDE setup</a></li>
-        
-    
-        <li class="main "><a href="#eclipse-ide-setup">Eclipse IDE setup:</a></li>
-        
-    
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="intellij-ide-setup">Intellij IDE setup</h1>
-<ol>
-<li>In intellij, download scala plugin.  We are using scala version 2.11</li>
-<li>Open menu "File-&gt;Open" to open gearpump root project, the choose the gearpump source folder. </li>
-<li>All set.</li>
-</ol>
-<h1 id="eclipse-ide-setup">Eclipse IDE setup:</h1>
-<p>I will show how to do this in eclipse LUNA.</p>
-<p>There is a sbt-eclipse plugin to generate eclipse project files, but seems there are some bugs, and some manual fix is still required. Here is the steps that works for me:</p>
-<ol>
-<li>Install latest version eclipse luna</li>
-<li>Install latest scala-IDE http://scala-ide.org/download/current.html   I use update site address: http://download.scala-ide.org/sdk/lithium/e44/scala211/stable/site</li>
-<li>Open a sbt shell under the root folder of gearpump. enter "eclipse", then we get all eclipse project file generated.</li>
-<li>Use eclipse import wizard. File-&gt;Import-&gt;Exising projects into Workspace, make sure to tick the option "Search for nested projects"</li>
-<li>Then it may starts to complain about encoding error, like "IO error while decoding". You need to fix the eclipse default text encoding by changing config at "Window-&gt;Preference-&gt;General-&gt;Workspace-&gt;Text file encoding" to UTF-8.</li>
-<li>Then the project gearpump-external-kafka may still cannot compile. The reason is that there is some dependencies missing in generated .classpath file by sbt-eclipse. We need to do some manual fix. Right click on project icon of gearpump-external-kafka in eclipse, then choose menu "Build Path-&gt;Configure Build Path". A window will popup. Under the tab "projects", click add, choose "gearpump-streaming"</li>
-<li>All set. Now the project should compile OK in eclipse.</li>
-</ol>
+<p> Will redirect to <a href=https://github.com/intel-hadoop/gearpump/releases>github.com/intel-hadoop/gearpump</a> in 3 seconds, <a href="../../index.html">Cancel</a>...</p>
+
+<script>
+setTimeout(function () {
+   window.location.href= "https://github.com/intel-hadoop/gearpump/releases"; // the redirect goes here
+},5000);
+</script>
+
 </div>
             
         </div>

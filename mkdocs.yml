@@ -6,6 +6,8 @@ site_description: realtime, streaming
 
 dev_addr: 0.0.0.0:8000
 
+theme_dir: 'custom_theme'
+
 pages:
  - [index.md, Home]
  - [documents/getstarted.md, "User Guide", "Get Started"]
@@ -19,13 +21,13 @@ pages:
  - [documents/how_to_write_a_streaming_application.md, "User Guide", "How to Write a Streaming Application"]
  - [documents/how_to_write_a_general_distributed_application.md, "User Guide", "How to Write a General Distributed Application"]
  - [documents/serialization_guide.md, "User Guide", "Write your customized serializer"]
- - [documents/sbt_and_maven_depandency_setting.md, "User Guide", "sbt and Maven Dependencies settings"]
  - [documents/intellij_eclipse_development_environment_setup.md, "User Guide", "IDE setup"]
  - [documents/performance.md, "User Guide", "Performance Benchmarks"]
  - [documents/faq.md, "User Guide", "FAQ"]
  - [downloads/downloads.md, "Downloads", "Latest Version"]
- - [downloads/releasenotes.md, "Downloads", "Release Notes"]
+ - [downloads/release_notes.html, "Downloads", "Release Notes"]
+ - [publications/publications.md, Publications]
  - [usecases/use_cases.md, "Use Cases"]
  - [about/license.md, "About", "License"]
  - [about/acknowledge.md, "About", "Acknowledgement"]
- - [about/howto_get_help.md, "About", "Contact Us"]
+ - [about/contact_us.md, "About", "Contact Us"]

@@ -70,10 +70,6 @@
                             </li>
                         
                             <li >
-                                <a href="../../documents/document">Documents</a>
-                            </li>
-                        
-                            <li >
                                 <a href="../../documents/configuration">Gearpump Configuration</a>
                             </li>
                         
@@ -106,10 +102,6 @@
                             </li>
                         
                             <li >
-                                <a href="../../documents/sbt_and_maven_depandency_setting">sbt and Maven Dependencies settings</a>
-                            </li>
-                        
-                            <li >
                                 <a href="../../documents/intellij_eclipse_development_environment_setup">IDE setup</a>
                             </li>
                         
@@ -135,10 +127,16 @@
                             </li>
                         
                             <li >
-                                <a href="../releasenotes">Release Notes</a>
+                                <a href="../release_notes">Release Notes</a>
                             </li>
                         
                         </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../publications/publications">Publications</a>
                     </li>
                 
                 
@@ -162,7 +160,7 @@
                             </li>
                         
                             <li >
-                                <a href="../../about/howto_get_help">Contact Us</a>
+                                <a href="../../about/contact_us">Contact Us</a>
                             </li>
                         
                         </ul>
@@ -183,7 +181,7 @@
                     </a>
                 </li>
                 <li >
-                    <a rel="prev" href="../releasenotes">
+                    <a rel="prev" href="../release_notes">
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
                 </li>
@@ -209,15 +207,102 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#030-snapshot">0.3.0-SNAPSHOT</a></li>
+        <li class="main active"><a href="#release-023">Release 0.2.3</a></li>
+        
+            <li><a href="#maven">Maven</a></li>
+        
+    
+        <li class="main "><a href="#snapshot-024-snpashot">Snapshot 0.2.4-SNPASHOT</a></li>
+        
+            <li><a href="#maven_1">Maven</a></li>
         
     
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h2 id="030-snapshot">0.3.0-SNAPSHOT</h2>
+<h2 id="release-023">Release 0.2.3</h2>
 <p><a href="https://github.com/intel-hadoop/gearpump/releases"><img alt="download" src="https://raw.githubusercontent.com/clockfly/icons/master/gearpump-0.2-rc1.jpg" /></a></p>
+<h3 id="maven">Maven</h3>
+<p>This contains latest release. 
+<strong>Note:</strong> There maybe delay in updating this document, you can still find the latest stable version by checking https://github.com/intel-hadoop/gearpump/releases .</p>
+<pre><code class="xml">&lt;repositories&gt;
+&lt;repository&gt;
+&lt;id&gt;releases-oss.sonatype.org&lt;/id&gt;
+&lt;name&gt;Sonatype Releases Repository&lt;/name&gt;
+&lt;url&gt;http://oss.sonatype.org/content/repositories/releases/&lt;/url&gt;
+&lt;/repository&gt;
+&lt;/repositories&gt;
+&lt;dependencies&gt;
+&lt;dependency&gt;
+&lt;groupId&gt;com.github.intel-hadoop&lt;/groupId&gt;
+&lt;artifactId&gt;gearpump-core_2.11&lt;/artifactId&gt;
+&lt;version&gt;0.2.3&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+&lt;groupId&gt;com.github.intel-hadoop&lt;/groupId&gt;
+&lt;artifactId&gt;gearpump-streaming_2.11&lt;/artifactId&gt;
+&lt;version&gt;0.2.3&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+&lt;groupId&gt;com.github.intel-hadoop&lt;/groupId&gt;
+&lt;artifactId&gt;gearpump-rest_2.11&lt;/artifactId&gt;
+&lt;version&gt;0.2.3&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+&lt;groupId&gt;com.github.intel-hadoop&lt;/groupId&gt;
+&lt;artifactId&gt;gearpump-external-kafka_2.11&lt;/artifactId&gt;
+&lt;version&gt;0.2.3&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+&lt;groupId&gt;com.github.intel-hadoop&lt;/groupId&gt;
+&lt;artifactId&gt;gearpump-experiments-distributedshell_2.11&lt;/artifactId&gt;
+&lt;version&gt;0.2.3&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;/dependencies&gt;
+</code></pre>
+
+<h2 id="snapshot-024-snpashot">Snapshot 0.2.4-SNPASHOT</h2>
+<h3 id="maven_1">Maven</h3>
+<p>The snapshot contains the latest code in master branch.</p>
+<p><strong>Note:</strong> There maybe delay in updating this document, you can still find the snapshot version by checking https://github.com/intel-hadoop/gearpump/blob/master/version.sbt</p>
+<pre><code class="xml">&lt;repositories&gt;
+&lt;repository&gt;
+  &lt;id&gt;sonatype-nexus-releases&lt;/id&gt;
+  &lt;name&gt;Sonatype Nexus Snapshots&lt;/name&gt;
+  &lt;url&gt;https://oss.sonatype.org/content/repositories/snapshots&lt;/url&gt;
+&lt;/repository&gt;
+&lt;/repositories&gt;
+
+&lt;dependencies&gt;
+&lt;dependency&gt;
+&lt;groupId&gt;com.github.intel-hadoop&lt;/groupId&gt;
+&lt;artifactId&gt;gearpump-core_2.11&lt;/artifactId&gt;
+&lt;version&gt;0.2.4-SNAPSHOT&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+&lt;groupId&gt;com.github.intel-hadoop&lt;/groupId&gt;
+&lt;artifactId&gt;gearpump-streaming_2.11&lt;/artifactId&gt;
+&lt;version&gt;0.2.4-SNAPSHOT&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+&lt;groupId&gt;com.github.intel-hadoop&lt;/groupId&gt;
+&lt;artifactId&gt;gearpump-rest_2.11&lt;/artifactId&gt;
+&lt;version&gt;0.2.4-SNAPSHOT&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+&lt;groupId&gt;com.github.intel-hadoop&lt;/groupId&gt;
+&lt;artifactId&gt;gearpump-external-kafka_2.11&lt;/artifactId&gt;
+&lt;version&gt;0.2.4-SNAPSHOT&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+&lt;groupId&gt;com.github.intel-hadoop&lt;/groupId&gt;
+&lt;artifactId&gt;gearpump-experiments-distributedshell_2.11&lt;/artifactId&gt;
+&lt;version&gt;0.2.4-SNAPSHOT&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;/dependencies&gt;
+</code></pre>
+
 </div>
             
         </div>
