@@ -53,44 +53,39 @@
                 <ul class="nav navbar-nav">
                 
                 
-                    <li >
-                        <a href="../../about">About</a>
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documents <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            <li >
+                                <a href="../getstarted">Get Started</a>
+                            </li>
+                        
+                            <li class="active">
+                                <a href=".">Documents</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../how_to_write_a_streaming_application">How to write a Streaming App</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../intellij_eclipse_development_environment_setup">IDE setup</a>
+                            </li>
+                        
+                        </ul>
                     </li>
                 
                 
                 
                     <li >
-                        <a href="../../download">Download</a>
+                        <a href="../../downloads">Downloads</a>
                     </li>
                 
                 
                 
                     <li >
-                        <a href="../../release_notes">Release notes</a>
-                    </li>
-                
-                
-                
-                    <li class="active">
-                        <a href=".">Documents</a>
-                    </li>
-                
-                
-                
-                    <li >
-                        <a href="../getstarted">Documents</a>
-                    </li>
-                
-                
-                
-                    <li >
-                        <a href="../howto_get_help">Documents</a>
-                    </li>
-                
-                
-                
-                    <li >
-                        <a href="../intellij_eclipse_development_environment_setup">Documents</a>
+                        <a href="../../about">About Us</a>
                     </li>
                 
                 
@@ -103,12 +98,12 @@
                 
                 
                 <li >
-                    <a rel="next" href="../../release_notes">
+                    <a rel="next" href="../getstarted">
                         <i class="fa fa-arrow-left"></i> Previous
                     </a>
                 </li>
                 <li >
-                    <a rel="prev" href="../getstarted">
+                    <a rel="prev" href="../how_to_write_a_streaming_application">
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
                 </li>
@@ -154,17 +149,6 @@
         
     
         <li class="main "><a href="#master-ha">Master HA</a></li>
-        
-    
-        <li class="main "><a href="#how-to-write-your-own-gearpump-application">How to Write your own Gearpump Application</a></li>
-        
-            <li><a href="#split-processor">Split processor</a></li>
-        
-            <li><a href="#sum-processor">Sum Processor</a></li>
-        
-            <li><a href="#partitioner">Partitioner</a></li>
-        
-            <li><a href="#weave-together">Weave together</a></li>
         
     
         <li class="main "><a href="#metrics">Metrics</a></li>
@@ -377,122 +361,6 @@ cluster {
 <ol>
 <li>You can kill any node, the master HA will take effect. It can take up to 15 seconds for master node to fail-over. You can change the fail-over timeout time by setting <code>master.akka.cluster.auto-down-unreachable-after</code></li>
 </ol>
-<h1 id="how-to-write-your-own-gearpump-application">How to Write your own Gearpump Application</h1>
-<p>We'll use <a href="https://github.com/intel-hadoop/gearpump/tree/master/examples/wordcount/src/main/scala/org/apache/gearpump/streaming/examples/wordcount">wordcount</a> as an example to illustrate how to write GearPump applications.</p>
-<p>An application is a Directed Acyclic Graph (DAG) of processors (Please refer to <a href="https://github.com/intel-hadoop/gearpump/wiki/DAG-API">DAG API</a>) . In the wordcount example, We will firstly define two processors <code>Split</code> and <code>Sum</code>, and then weave them together. </p>
-<h3 id="split-processor">Split processor</h3>
-<p>In the Split processor, we simply split a predefined text (the content is simplified for conciseness) and send out each split word to Sum.</p>
-<pre><code class="scala">class Split(taskContext : TaskContext, conf: UserConfig) extends TaskActor(taskContext, conf) {
-
-  override def onStart(startTime : StartTime) : Unit = {
-    self ! Message(&quot;start&quot;)
-  }
-
-  override def onNext(msg : Message) : Unit = {
-    Split.TEXT_TO_SPLIT.lines.foreach { line =&gt;
-      line.split(&quot; &quot;).foreach { msg =&gt;
-        output(new Message(msg, System.currentTimeMillis()))
-      }
-    }
-    self ! Message(&quot;continue&quot;, System.currentTimeMillis())
-  }
-}
-
-object Split {
-  val TEXT_TO_SPLIT = &quot;some text&quot;
-}
-</code></pre>
-
-<p>Like Split, every processor extends a <code>TaskActor</code>.  The <code>onStart</code> method is called once before any message comes in; <code>onNext</code> method is called to process every incoming message. Note that GearPump employs the message-driven model and that's why Split sends itself a message at the end of <code>onStart</code> and <code>onNext</code> to trigger next message processing.</p>
-<h3 id="sum-processor">Sum Processor</h3>
-<p>The structure of Sum processor looks much alike. Sum does not need to send messages to itself since it receives messages from Split. </p>
-<pre><code class="scala">class Sum (taskContext : TaskContext, conf: UserConfig) extends TaskActor(taskContext, conf) {
-  import org.apache.gearpump.streaming.ConfigsHelper._
-
-  private val map : mutable.HashMap[String, Long] = new mutable.HashMap[String, Long]()
-
-  private var wordCount : Long = 0
-  private var snapShotTime : Long = System.currentTimeMillis()
-  private var snapShotWordCount : Long = 0
-
-  private var scheduler : Cancellable = null
-
-  override def onStart(startTime : StartTime) : Unit = {
-    import context.dispatcher
-    scheduler = context.system.scheduler.schedule(new FiniteDuration(5, TimeUnit.SECONDS),
-      new FiniteDuration(5, TimeUnit.SECONDS))(reportWordCount)
-  }
-
-  override def onNext(msg : Message) : Unit = {
-    if (null == msg) {
-      return
-    }
-    val current = map.getOrElse(msg.msg.asInstanceOf[String], 0L)
-    wordCount += 1
-    map.put(msg.msg.asInstanceOf[String], current + 1)
-  }
-
-  override def onStop() : Unit = {
-    scheduler.cancel()
-  }
-
-  def reportWordCount() : Unit = {
-    val current : Long = System.currentTimeMillis()
-    LOG.info(s&quot;Task ${taskContext.taskId} Throughput: ${(wordCount - snapShotWordCount, (current - snapShotTime) / 1000)} (words, second)&quot;)
-    snapShotWordCount = wordCount
-    snapShotTime = current
-  }
-}
-</code></pre>
-
-<p>Besides counting the sum, we also define a scheduler to report throughput every 5 seconds. The scheduler should be cancelled when the computation completes, which could be accomplished overriding the <code>onStop</code> method. The default implementation of <code>onStop</code> is a no-op.</p>
-<h3 id="partitioner">Partitioner</h3>
-<p>A processor could be parallelized to a list of tasks. A <code>Partitioner</code> defines how the data is shuffled among tasks of Split and Sum. GearPump has already provided two partitioners </p>
-<ul>
-<li><code>HashPartitioner</code>: partitions data based on the message's hashcode</li>
-<li><code>ShufflePartitioner</code>: partitions data in a round-robin way.</li>
-</ul>
-<p>You could define your own partitioner by extending the <code>Partitioner</code> trait and overriding the <code>getPartition</code> method.</p>
-<pre><code class="scala">trait Partitioner extends Serializable {
-  def getPartition(msg : Message, partitionNum : Int) : Int
-}
-</code></pre>
-
-<h3 id="weave-together">Weave together</h3>
-<p>Now, we are able to write our application class, weaving the above components together.</p>
-<p>The application class extends <code>App</code> and `ArgumentsParser which make it easier to parse arguments and run main functions.</p>
-<pre><code class="scala">object WordCount extends App with ArgumentsParser {
-  private val LOG: Logger = LogUtil.getLogger(getClass)
-  val RUN_FOR_EVER = -1
-
-  override val options: Array[(String, CLIOption[Any])] = Array(
-    &quot;master&quot; -&gt; CLIOption[String](&quot;&lt;host1:port1,host2:port2,host3:port3&gt;&quot;, required = true),
-    &quot;split&quot; -&gt; CLIOption[Int](&quot;&lt;how many split tasks&gt;&quot;, required = false, defaultValue = Some(4)),
-    &quot;sum&quot; -&gt; CLIOption[Int](&quot;&lt;how many sum tasks&gt;&quot;, required = false, defaultValue = Some(4)),
-    &quot;runseconds&quot;-&gt; CLIOption[Int](&quot;&lt;how long to run this example, set to -1 if run forever&gt;&quot;, required = false, defaultValue = Some(60))
-  )
-
-  def application(config: ParseResult) : AppDescription = {
-    val splitNum = config.getInt(&quot;split&quot;)
-    val sumNum = config.getInt(&quot;sum&quot;)
-    val partitioner = new HashPartitioner()
-    val split = TaskDescription(classOf[Split].getName, splitNum)
-    val sum = TaskDescription(classOf[Sum].getName, sumNum)
-    val app = AppDescription(&quot;wordCount&quot;, classOf[AppMaster].getName, UserConfig.empty, Graph(split ~ partitioner ~&gt; sum))
-    app
-  }
-
-  val config = parse(args)
-  val context = ClientContext(config.getString(&quot;master&quot;))
-  val appId = context.submit(application(config))
-  Thread.sleep(config.getInt(&quot;runseconds&quot;) * 1000)
-  context.shutdown(appId)
-  context.close()
-}
-</code></pre>
-
-<p>We override <code>options</code> value and define an array of command line arguments to parse. We want application users to pass in masters' hosts and ports, the parallelism of split and sum tasks, and how long to run the example. We also specify whether an option is <code>required</code> and provide <code>defaultValue</code> for some arguments.</p>
-<p>Given the <code>ParseResult</code> of command line arguments, we create <code>TaskDescription</code>s for Split and Sum processors, and connect them with <code>HashPartitioner</code> using DAG API. The graph is wrapped in an <code>AppDescrition</code> , which is finally submit to master.</p>
 <h1 id="metrics">Metrics</h1>
 <p>We use codahale metrics library. Gearpump support to use Graphite to visualize the metrics data. Metrics is disabled by default. To use it, you need to configure the <code>core/src/main/resources/reference.conf</code></p>
 <p><code>gearpump.metrics.enabled = true         ## Default is false, thus metrics is not enabled.
