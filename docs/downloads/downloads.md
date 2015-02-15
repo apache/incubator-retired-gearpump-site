@@ -1,6 +1,6 @@
 ## Release 0.2.3
 
-[![download](https://raw.githubusercontent.com/clockfly/icons/master/gearpump-0.2-rc1.jpg)](https://github.com/intel-hadoop/gearpump/releases)
+![](img/download.jpg)
 
 ###Maven
 

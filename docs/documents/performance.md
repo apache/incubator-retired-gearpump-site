@@ -32,4 +32,4 @@ For guide about how to install and configure Graphite, please check the Graphite
 
 Here is how it looks like for grafana dashboard:
 
-![](https://raw.githubusercontent.com/intel-hadoop/gearpump/master/doc/dashboard.png)
+![](img/dashboard.png)

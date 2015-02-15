@@ -2,7 +2,7 @@
 
 GearPump models streaming within the Akka actory hierarchy.
 
-![](https://raw.githubusercontent.com/intel-hadoop/gearpump/master/doc/actor_hierarchy.png)
+![](img/actor_hierarchy.png)
 
 Everything in the above diagram is an actor. The Actors fall into two categories, Cluster Actors and Application Actors.
 

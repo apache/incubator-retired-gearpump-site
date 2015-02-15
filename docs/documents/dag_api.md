@@ -2,11 +2,11 @@
 
 An application is a DAG of processors. Each processor handles messages.
 
-![](https://raw.githubusercontent.com/intel-hadoop/gearpump/master/doc/dag.png)
+![](img/dag.png)
 
 At runtime, each processor can be parallelized to a list of tasks; each task is an actor within the data pipeline. Data is passed between tasks. The Partitioner defines how data is transferred.
 
-![](https://raw.githubusercontent.com/intel-hadoop/gearpump/master/doc/shuffle.png)
+![](img/shuffle.png)
 
 We have an easy syntax to express the computation. To represent the DAG above, we define the computation as:
 

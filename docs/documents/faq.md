@@ -1,3 +1,5 @@
-Q: Why we name it GearPump
+## FAQ
 
-A: The name GearPump is a reference the engineering term "Gear Pump", which is a super simple pump that consists of only two gears, but is very powerful at streaming water from left to right.
+#### Why we name it GearPump?
+
+The name GearPump is a reference the engineering term "Gear Pump", which is a super simple pump that consists of only two gears, but is very powerful at streaming water from left to right.
