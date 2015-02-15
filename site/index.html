@@ -54,12 +54,6 @@
                 
                 
                     <li >
-                        <a href="document/">Documents</a>
-                    </li>
-                
-                
-                
-                    <li >
                         <a href="download/">Downloads</a>
                     </li>
                 
@@ -84,7 +78,7 @@
                     </a>
                 </li>
                 <li >
-                    <a rel="prev" href="document/">
+                    <a rel="prev" href="download/">
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
                 </li>
@@ -104,31 +98,20 @@
         <li class="main active"><a href="#welcome-to-gearpump">Welcome to Gearpump</a></li>
         
     
-        <li class="main "><a href="#commands3">Commands3</a></li>
-        
-    
-        <li class="main "><a href="#project-layout">Project layout</a></li>
-        
-    
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h2 id="welcome-to-gearpump">Welcome to Gearpump</h2>
-<p>For full documentation visit <a href="http://mkdocs.org">mkdocs.org</a>.</p>
-<h2 id="commands3">Commands3</h2>
-<ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site.</li>
-<li><code>mkdocs help</code> - Print this help message.</li>
-</ul>
-<h2 id="project-layout">Project layout</h2>
-<pre><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md  # The documentation homepage.
-    ...       # Other markdown pages, images and other files.
-</code></pre>
+<h1 id="welcome-to-gearpump">Welcome to Gearpump</h1>
+<p>GearPump is a lightweight real-time big data streaming engine. It is inspired by recent advances in the <a href="https://github.com/akka/akka">Akka</a> framework and a desire to improve on existing streaming frameworks.</p>
+<p>The name    GearPump    is  a   reference to    the engineering term “gear  pump,”  which   is  a   super simple
+pump    that    consists of only    two gears,  but is  very    powerful at streaming water.</p>
+<p><img alt="" src="https://raw.githubusercontent.com/clockfly/gearpump/master/doc/logo/logo.png" /></p>
+<p>We model streaming within the Akka actor hierarchy.</p>
+<p><img alt="" src="https://raw.githubusercontent.com/intel-hadoop/gearpump/master/doc/actor_hierarchy.png" /></p>
+<p>Per initial benchmarks we are able to process 11 million messages/second (100 bytes per message) with a 17ms latency on a 4-node cluster.</p>
+<p><img alt="" src="https://raw.githubusercontent.com/intel-hadoop/gearpump/master/doc/dashboard.png" /></p>
+<p>For steps to reproduce the performance test, please check <a href="https://github.com/intel-hadoop/gearpump/wiki#how-do-we-do-benchmark">Performance benchmark</a></p>
 </div>
             
         </div>
