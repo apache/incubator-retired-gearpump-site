@@ -1,4 +1,4 @@
-# Welcome to Gearpump
+## Welcome to Gearpump
 
 GearPump is a lightweight real-time big data streaming engine. It is inspired by recent advances in the [Akka](https://github.com/akka/akka) framework and a desire to improve on existing streaming frameworks.
 
@@ -22,3 +22,10 @@ GearPump is a lightweight, real-time, big data streaming engine. It is inspired 
 
 Many of the information in this page can also be found at the technical whitepaper:
 [https://typesafe.com/blog/gearpump-real-time-streaming-engine-using-akka](https://typesafe.com/blog/gearpump-real-time-streaming-engine-using-akka)
+
+## Why we do this?
+
+## Which area is it best applied for?
+
+## What is the key highlights?
+
