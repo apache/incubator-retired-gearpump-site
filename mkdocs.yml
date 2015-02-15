@@ -2,6 +2,5 @@ site_name: Gearpump
 
 pages:
  - [index.md, Home]
- - [document.md, Documents] 
  - [download.md, Downloads]
  - [about.md, About]
