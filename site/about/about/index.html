@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-        <title>IDE setup - Gearpump</title>
+        <title>About Us - Gearpump</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -53,28 +53,28 @@
                 <ul class="nav navbar-nav">
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">User Guide <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             <li >
-                                <a href="../getstarted">Get Started</a>
+                                <a href="../../documents/getstarted">Get Started</a>
                             </li>
                         
                             <li >
-                                <a href="../document">Documents</a>
+                                <a href="../../documents/document">Documents</a>
                             </li>
                         
                             <li >
-                                <a href="../configuration">Gearpump Configuration</a>
+                                <a href="../../documents/configuration">Gearpump Configuration</a>
                             </li>
                         
                             <li >
-                                <a href="../how_to_write_a_streaming_application">How to write a Streaming App</a>
+                                <a href="../../documents/how_to_write_a_streaming_application">How to write a Streaming App</a>
                             </li>
                         
-                            <li class="active">
-                                <a href=".">IDE setup</a>
+                            <li >
+                                <a href="../../documents/intellij_eclipse_development_environment_setup">IDE setup</a>
                             </li>
                         
                         </ul>
@@ -105,20 +105,20 @@
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             <li >
-                                <a href="../../about/license">License</a>
+                                <a href="../license">License</a>
                             </li>
                         
                             <li >
-                                <a href="../../about/acknowledge">Acknowledgement</a>
+                                <a href="../acknowledge">Acknowledgement</a>
                             </li>
                         
-                            <li >
-                                <a href="../../about/about">About Us</a>
+                            <li class="active">
+                                <a href=".">About Us</a>
                             </li>
                         
                         </ul>
@@ -134,12 +134,12 @@
                 
                 
                 <li >
-                    <a rel="next" href="../how_to_write_a_streaming_application">
+                    <a rel="next" href="../acknowledge">
                         <i class="fa fa-arrow-left"></i> Previous
                     </a>
                 </li>
-                <li >
-                    <a rel="prev" href="../../downloads/downloads">
+                <li class="disabled">
+                    <a rel="prev" >
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
                 </li>
@@ -165,34 +165,10 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#intellij-ide-setup">Intellij IDE setup</a></li>
-        
-    
-        <li class="main "><a href="#eclipse-ide-setup">Eclipse IDE setup:</a></li>
-        
-    
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="intellij-ide-setup">Intellij IDE setup</h1>
-<ol>
-<li>In intellij, download scala plugin.  We are using scala version 2.11</li>
-<li>Open menu "File-&gt;Open" to open gearpump root project, the choose the gearpump source folder. </li>
-<li>All set.</li>
-</ol>
-<h1 id="eclipse-ide-setup">Eclipse IDE setup:</h1>
-<p>I will show how to do this in eclipse LUNA.</p>
-<p>There is a sbt-eclipse plugin to generate eclipse project files, but seems there are some bugs, and some manual fix is still required. Here is the steps that works for me:</p>
-<ol>
-<li>Install latest version eclipse luna</li>
-<li>Install latest scala-IDE http://scala-ide.org/download/current.html   I use update site address: http://download.scala-ide.org/sdk/lithium/e44/scala211/stable/site</li>
-<li>Open a sbt shell under the root folder of gearpump. enter "eclipse", then we get all eclipse project file generated.</li>
-<li>Use eclipse import wizard. File-&gt;Import-&gt;Exising projects into Workspace, make sure to tick the option "Search for nested projects"</li>
-<li>Then it may starts to complain about encoding error, like "IO error while decoding". You need to fix the eclipse default text encoding by changing config at "Window-&gt;Preference-&gt;General-&gt;Workspace-&gt;Text file encoding" to UTF-8.</li>
-<li>Then the project gearpump-external-kafka may still cannot compile. The reason is that there is some dependencies missing in generated .classpath file by sbt-eclipse. We need to do some manual fix. Right click on project icon of gearpump-external-kafka in eclipse, then choose menu "Build Path-&gt;Configure Build Path". A window will popup. Under the tab "projects", click add, choose "gearpump-streaming"</li>
-<li>All set. Now the project should compile OK in eclipse.</li>
-</ol>
 </div>
             
         </div>

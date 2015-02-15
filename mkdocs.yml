@@ -1,10 +1,21 @@
 site_name: Gearpump
 
+repo_url: http://github.com/intel-hadoop/gearpump
+
+site_description: realtime, streaming
+
+dev_addr: 0.0.0.0:8000
+
 pages:
  - [index.md, Home]
- - [documents/getstarted.md, "Documents", "Get Started"]
- - [documents/document.md, "Documents", "Documents"]
- - [documents/how_to_write_a_streaming_application.md, "Documents", "How to write a Streaming App"]
- - [documents/intellij_eclipse_development_environment_setup.md, "Documents", "IDE setup"]
- - [downloads.md, Downloads]
- - [about.md, About Us]
+ - [documents/getstarted.md, "User Guide", "Get Started"]
+ - [documents/document.md, "User Guide", "Documents"]
+ - [documents/configuration.md, "User Guide", "Gearpump Configuration"]
+ - [documents/how_to_write_a_streaming_application.md, "User Guide", "How to write a Streaming App"]
+ - [documents/intellij_eclipse_development_environment_setup.md, "User Guide", "IDE setup"]
+ - [downloads/downloads.md, "Downloads", "Latest Version"]
+ - [downloads/releasenotes.md, "Downloads", "Release Notes"]
+ - [usecases/use_cases.md, "Use Cases"]
+ - [about/license.md, "About", "License"]
+ - [about/acknowledge.md, "About", "Acknowledgement"]
+ - [about/about.md, "About", "About Us"]
