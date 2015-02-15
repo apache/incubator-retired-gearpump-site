@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+
+        <title>Documents - Gearpump</title>
+
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../..">Gearpump</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../../about">About</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../download">Download</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../release_notes">Release notes</a>
+                    </li>
+                
+                
+                
+                    <li class="active">
+                        <a href=".">Documents</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../getstarted">Documents</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../howto_get_help">Documents</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../intellij_eclipse_development_environment_setup">Documents</a>
+                    </li>
+                
+                
+                </ul>
+            
+
+            
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                
+                
+                <li >
+                    <a rel="next" href="../../release_notes">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../getstarted">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+                
+            </ul>
+            
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#dag">DAG</a></li>
+        
+    
+        <li class="main "><a href="#gearpump-hierarchy">Gearpump Hierarchy</a></li>
+        
+            <li><a href="#cluster-actors">Cluster Actors</a></li>
+        
+            <li><a href="#application-actors">Application Actors</a></li>
+        
+    
+        <li class="main "><a href="#build">Build</a></li>
+        
+            <li><a href="#how-to-build-gearpump">How to Build Gearpump</a></li>
+        
+            <li><a href="#how-to-test">How to test</a></li>
+        
+            <li><a href="#how-to-package-for-distribution">How to Package for distribution</a></li>
+        
+            <li><a href="#how-to-install-to-usrlocal">How to Install to /usr/local</a></li>
+        
+    
+        <li class="main "><a href="#how-to-run-gearpump">How to Run Gearpump</a></li>
+        
+            <li><a href="#local-mode">Local Mode</a></li>
+        
+            <li><a href="#cluster-mode">Cluster Mode</a></li>
+        
+    
+        <li class="main "><a href="#master-ha">Master HA</a></li>
+        
+    
+        <li class="main "><a href="#how-to-write-your-own-gearpump-application">How to Write your own Gearpump Application</a></li>
+        
+            <li><a href="#split-processor">Split processor</a></li>
+        
+            <li><a href="#sum-processor">Sum Processor</a></li>
+        
+            <li><a href="#partitioner">Partitioner</a></li>
+        
+            <li><a href="#weave-together">Weave together</a></li>
+        
+    
+        <li class="main "><a href="#metrics">Metrics</a></li>
+        
+    
+        <li class="main "><a href="#serialization">Serialization</a></li>
+        
+    
+        <li class="main "><a href="#benchmark">Benchmark</a></li>
+        
+            <li><a href="#how-do-we-do-benchmark">How do we do benchmark?</a></li>
+        
+    
+        <li class="main "><a href="#maven-dependencies">Maven dependencies</a></li>
+        
+            <li><a href="#snapshot-package">Snapshot package</a></li>
+        
+            <li><a href="#release-package">Release package</a></li>
+        
+    
+        <li class="main "><a href="#faq">FAQ</a></li>
+        
+    
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<p>GearPump is a lightweight, real-time, big data streaming engine. It is inspired by recent advances in the Akka framework and a desire to improve on existing streaming frameworks. GearPump draws from a number of existing frameworks including MillWheel, Apache Storm, Spark Streaming, Apache Samza, Apache Tez, and Hadoop YARN while leveraging Akka actors throughout its architecture.</p>
+<p>Many of the information in this page can also be found at the technical whitepaper:
+<a href="https://typesafe.com/blog/gearpump-real-time-streaming-engine-using-akka">https://typesafe.com/blog/gearpump-real-time-streaming-engine-using-akka</a></p>
+<h1 id="dag">DAG</h1>
+<p>An application is a DAG of processors. Each processor handles messages.</p>
+<p><img alt="" src="https://raw.githubusercontent.com/intel-hadoop/gearpump/master/doc/dag.png" /></p>
+<p>At runtime, each processor can be parallelized to a list of tasks; each task is an actor within the data pipeline. Data is passed between tasks. The Partitioner defines how data is transferred.</p>
+<p><img alt="" src="https://raw.githubusercontent.com/intel-hadoop/gearpump/master/doc/shuffle.png" /></p>
+<p>We have an easy syntax to express the computation. To represent the DAG above, we define the computation as:</p>
+<p><code>Graph(A~&gt;B~&gt;C~&gt;D, A~&gt; C, B~&gt;E~&gt;D)</code></p>
+<p><code>A~&gt;B~&gt;C~&gt;D</code> is a Path of Processors, and Graph is composed of this Path list. This representation should be cleaner than that of vertex and edge set.</p>
+<h1 id="gearpump-hierarchy">Gearpump Hierarchy</h1>
+<p>GearPump models streaming within the Akka actory hierarchy.</p>
+<p><img alt="" src="https://raw.githubusercontent.com/intel-hadoop/gearpump/master/doc/actor_hierarchy.png" /></p>
+<p>Everything in the above diagram is an actor. The Actors fall into two categories, Cluster Actors and Application Actors.</p>
+<h3 id="cluster-actors">Cluster Actors</h3>
+<ul>
+<li>
+<p>Worker: Maps to a physical worker machine. It is responsible for managing resources and reporting metrics on that machine.</p>
+</li>
+<li>
+<p>Master: Heart of the cluster, which manages workers, resources, and applications. The main function is delegated to three child actors: App Manager, Worker Manager, and Resource Scheduler.</p>
+</li>
+</ul>
+<h3 id="application-actors">Application Actors</h3>
+<ul>
+<li>
+<p>AppMaster: Responsible for scheduling the tasks to workers and managing the state of the application. Different applications have different AppMaster instances and are isolated.</p>
+</li>
+<li>
+<p>Executor: Child of AppMaster, represents a JVM process. Its job is to manage the lifecycle of tasks and recover them in case of failure.</p>
+</li>
+<li>
+<p>Task: Child of Executor, does the real job. Every task actor has a global unique address. One task actor can send data to any other task actors. This gives us great flexibility of how the computation DAG is distributed.</p>
+</li>
+</ul>
+<p>All actors in the graph are woven together with actor supervision; actor watching and all errors are handled properly via supervisors. In a master, a risky job is isolated and delegated to child actors, so it's more robust. In the application, an extra intermediate layer, "Executor," is created so that we can do fine-grained and fast recovery in case of task failure. A master watches the lifecycle of AppMaster and Worker to handle the failures, but the lifecycle of Worker and AppMaster are not bound to a Master Actor by supervision, so that Master node can fail independently. Several Master Actors form an Akka cluster, the Master state is exchanged using the Gossip protocol in a conflict-free consistent way so that there is no single point of failure. With this hierarchy design, we are able to achieve high availability.</p>
+<h1 id="build">Build</h1>
+<h2 id="how-to-build-gearpump">How to Build Gearpump</h2>
+<p><code>bash
+  ## Build Gearpump
+  sbt clean publishLocal assembly packArchive</code></p>
+<p>This will generate package folder under target/pack/</p>
+<h2 id="how-to-test">How to test</h2>
+<p><code>bash
+  ## Build Gearpump
+  sbt test</code></p>
+<h2 id="how-to-package-for-distribution">How to Package for distribution</h2>
+<p><code>bash
+  ## Package Gearpump
+  sbt assembly clean packArchive</code>
+  This will produce <code>target/gearpump-$VERSION.tar.gz</code> which contains the <code>./bin</code> and <code>./lib</code> files.</p>
+<h2 id="how-to-install-to-usrlocal">How to Install to /usr/local</h2>
+<p><code>bash
+  ## Run Build step above
+  cd target/pack
+  sudo make install PREFIX="/usr/local"</code>
+  This will install scripts to run local, master or shell to <code>/usr/local/bin</code> and jars to <code>/usr/local/lib</code>.</p>
+<h1 id="how-to-run-gearpump">How to Run Gearpump</h1>
+<h2 id="local-mode">Local Mode</h2>
+<ol>
+<li>
+<p>Start Local Cluster in same process
+  <code>bash
+  ## By default, it will create 4 workers
+  ./target/pack/bin/local -port 3000</code></p>
+</li>
+<li>
+<p>Start an Example</p>
+</li>
+<li>
+<p>Run WordCount example
+  <code>bash
+  ./target/pack/bin/gear app -jar ./examples/wordcount/target/scala-${SCALA_VERSION_MAJOR}/gearpump-examples-wordcount_${SCALA_VERSION_MAJOR}-${VERSION}.jar org.apache.gearpump.streaming.examples.wordcount.WordCount -master 127.0.0.1:3000</code></p>
+</li>
+<li>
+<p>Run SOL example
+  <code>bash
+  ./target/pack/bin/gear app -jar ./examples/sol/target/scala-${SCALA_VERSION_MAJOR}/gearpump-examples-sol_${SCALA_VERSION_MAJOR}-${VERSION}.jar org.apache.gearpump.streaming.examples.sol.SOL -master 127.0.0.1:3000</code></p>
+</li>
+<li>
+<p>Run complexdag example
+  <code>bash
+  ./target/pack/bin/gear app -jar ./examples/complexdag/target/scala-${SCALA_VERSION_MAJOR}/gearpump-examples-complexdag_${SCALA_VERSION_MAJOR}-${VERSION}.jar org.apache.gearpump.streaming.examples.complexdag.Dag -master 127.0.0.1:3000</code></p>
+</li>
+<li>
+<p><a href="https://github.com/intel-hadoop/gearpump/tree/master/examples/fsio">Run Fsio example</a></p>
+</li>
+<li>
+<p><a href="https://github.com/intel-hadoop/gearpump/blob/master/examples/kafka/README.md">Run KafkaWordCount example</a></p>
+</li>
+</ol>
+<h2 id="cluster-mode">Cluster Mode</h2>
+<ol>
+<li>Distribute the package to all nodes. Modify <code>conf/gear.conf</code> on all nodes. You MUST configure <code>akka.remote.netty.tcp.hostname</code> to make it point to your hostname(or ip), and <code>gearpump.cluster.masters</code> to represent a list of master nodes.</li>
+</ol>
+<p>```
+  ### Put Akka configuration here
+  base {</p>
+<pre><code>##############################
+### Required to change!!
+### You need to set the ip address or hostname of this machine
+###
+akka.remote.netty.tcp.hostname = "127.0.0.1"
+</code></pre>
+<p>}</p>
+<p>#########################################
+  ### This is the default configuration for gearpump
+  ### To use the application, you at least need to change gearpump.cluster to point to right master
+  #########################################
+  gearpump {</p>
+<pre><code>##############################
+### Required to change!!
+### You need to set the master cluster address here
+###
+###
+### For example, you may start three master
+### on node1: bin/master -ip node1 -port 3000
+### on node2: bin/master -ip node2 -port 3000
+### on node3: bin/master -ip node3 -port 3000
+###
+### Then you need to set the cluster.masters = ["node1:3000","node2:3000","node3:3000"]
+cluster {
+  masters = ["127.0.0.1:3000"]
+}
+</code></pre>
+<p>}
+  ```</p>
+<ol>
+<li>Start Master nodes</li>
+</ol>
+<p>Start the master daemon on all nodes you have configured in <code>gearpump.cluster.masters</code>. If you have configured <code>gearpump.cluster.masters</code> to:</p>
+<p><code>gearpump{
+     cluster {
+      masters = ["node1:3000", "node2:3000"]
+    }
+  }</code></p>
+<p>Then start master daemon on <code>node1</code> and <code>node2</code>.</p>
+<p>```bash
+  ## on node1
+  cd gearpump-$VERSION
+  bin/master -ip node1 -port 3000</p>
+<p>## on node2
+  cd gearpump-$VERSION
+  bin/master -ip node1 -port 3000
+  ```</p>
+<p>We support <a href="https://github.com/intel-hadoop/gearpump/wiki/Run-Examples#master-ha">Master HA</a> and allow master to start on multiple nodes. </p>
+<ol>
+<li>Start worker</li>
+</ol>
+<p>Start multiple workers on one or more nodes. </p>
+<p><code>bash
+  bin/worker</code></p>
+<ol>
+<li>Submit application jar and run</li>
+</ol>
+<p>You can submit your application to cluster by providing an application jar. For example, for built-in examples, the jar is located at <code>examples/gearpump-examples-assembly-$VERSION.jar</code></p>
+<p><code>bash
+  ## To run WordCount example
+  bin/gear app -jar examples/gearpump-examples-assembly-$VERSION.jar org.apache.gearpump.streaming.examples.wordcount.WordCount -master node1:3000</code></p>
+<h1 id="master-ha">Master HA</h1>
+<p>We allow to start master on multiple nodes. For example, if we start master on 5 nodes, then we can at most tolerate 2 master nodes failure. </p>
+<ol>
+<li>modify <code>core/src/main/resources/reference.conf</code> and set "gearpump.cluster.masters" to a list of master nodes.</li>
+</ol>
+<p><code>gearpump {
+   ...
+  cluster {
+    masters = ["node1:3000", "node2:3000", "node3:3000"]
+  }
+  }</code></p>
+<ol>
+<li>On node1, node2, node3, Start Master
+  ```bash
+  ## on node1
+  bin/master -ip node1 -port 3000</li>
+</ol>
+<p>## on node2
+  bin/master -ip node2 -port 3000</p>
+<p>## on node3
+  bin/master -ip node3 -port 3000
+  ```  </p>
+<ol>
+<li>You can kill any node, the master HA will take effect. It can take up to 15 seconds for master node to fail-over. You can change the fail-over timeout time by setting <code>master.akka.cluster.auto-down-unreachable-after</code></li>
+</ol>
+<h1 id="how-to-write-your-own-gearpump-application">How to Write your own Gearpump Application</h1>
+<p>We'll use <a href="https://github.com/intel-hadoop/gearpump/tree/master/examples/wordcount/src/main/scala/org/apache/gearpump/streaming/examples/wordcount">wordcount</a> as an example to illustrate how to write GearPump applications.</p>
+<p>An application is a Directed Acyclic Graph (DAG) of processors (Please refer to <a href="https://github.com/intel-hadoop/gearpump/wiki/DAG-API">DAG API</a>) . In the wordcount example, We will firstly define two processors <code>Split</code> and <code>Sum</code>, and then weave them together. </p>
+<h3 id="split-processor">Split processor</h3>
+<p>In the Split processor, we simply split a predefined text (the content is simplified for conciseness) and send out each split word to Sum.</p>
+<pre><code class="scala">class Split(taskContext : TaskContext, conf: UserConfig) extends TaskActor(taskContext, conf) {
+
+  override def onStart(startTime : StartTime) : Unit = {
+    self ! Message(&quot;start&quot;)
+  }
+
+  override def onNext(msg : Message) : Unit = {
+    Split.TEXT_TO_SPLIT.lines.foreach { line =&gt;
+      line.split(&quot; &quot;).foreach { msg =&gt;
+        output(new Message(msg, System.currentTimeMillis()))
+      }
+    }
+    self ! Message(&quot;continue&quot;, System.currentTimeMillis())
+  }
+}
+
+object Split {
+  val TEXT_TO_SPLIT = &quot;some text&quot;
+}
+</code></pre>
+
+<p>Like Split, every processor extends a <code>TaskActor</code>.  The <code>onStart</code> method is called once before any message comes in; <code>onNext</code> method is called to process every incoming message. Note that GearPump employs the message-driven model and that's why Split sends itself a message at the end of <code>onStart</code> and <code>onNext</code> to trigger next message processing.</p>
+<h3 id="sum-processor">Sum Processor</h3>
+<p>The structure of Sum processor looks much alike. Sum does not need to send messages to itself since it receives messages from Split. </p>
+<pre><code class="scala">class Sum (taskContext : TaskContext, conf: UserConfig) extends TaskActor(taskContext, conf) {
+  import org.apache.gearpump.streaming.ConfigsHelper._
+
+  private val map : mutable.HashMap[String, Long] = new mutable.HashMap[String, Long]()
+
+  private var wordCount : Long = 0
+  private var snapShotTime : Long = System.currentTimeMillis()
+  private var snapShotWordCount : Long = 0
+
+  private var scheduler : Cancellable = null
+
+  override def onStart(startTime : StartTime) : Unit = {
+    import context.dispatcher
+    scheduler = context.system.scheduler.schedule(new FiniteDuration(5, TimeUnit.SECONDS),
+      new FiniteDuration(5, TimeUnit.SECONDS))(reportWordCount)
+  }
+
+  override def onNext(msg : Message) : Unit = {
+    if (null == msg) {
+      return
+    }
+    val current = map.getOrElse(msg.msg.asInstanceOf[String], 0L)
+    wordCount += 1
+    map.put(msg.msg.asInstanceOf[String], current + 1)
+  }
+
+  override def onStop() : Unit = {
+    scheduler.cancel()
+  }
+
+  def reportWordCount() : Unit = {
+    val current : Long = System.currentTimeMillis()
+    LOG.info(s&quot;Task ${taskContext.taskId} Throughput: ${(wordCount - snapShotWordCount, (current - snapShotTime) / 1000)} (words, second)&quot;)
+    snapShotWordCount = wordCount
+    snapShotTime = current
+  }
+}
+</code></pre>
+
+<p>Besides counting the sum, we also define a scheduler to report throughput every 5 seconds. The scheduler should be cancelled when the computation completes, which could be accomplished overriding the <code>onStop</code> method. The default implementation of <code>onStop</code> is a no-op.</p>
+<h3 id="partitioner">Partitioner</h3>
+<p>A processor could be parallelized to a list of tasks. A <code>Partitioner</code> defines how the data is shuffled among tasks of Split and Sum. GearPump has already provided two partitioners </p>
+<ul>
+<li><code>HashPartitioner</code>: partitions data based on the message's hashcode</li>
+<li><code>ShufflePartitioner</code>: partitions data in a round-robin way.</li>
+</ul>
+<p>You could define your own partitioner by extending the <code>Partitioner</code> trait and overriding the <code>getPartition</code> method.</p>
+<pre><code class="scala">trait Partitioner extends Serializable {
+  def getPartition(msg : Message, partitionNum : Int) : Int
+}
+</code></pre>
+
+<h3 id="weave-together">Weave together</h3>
+<p>Now, we are able to write our application class, weaving the above components together.</p>
+<p>The application class extends <code>App</code> and `ArgumentsParser which make it easier to parse arguments and run main functions.</p>
+<pre><code class="scala">object WordCount extends App with ArgumentsParser {
+  private val LOG: Logger = LogUtil.getLogger(getClass)
+  val RUN_FOR_EVER = -1
+
+  override val options: Array[(String, CLIOption[Any])] = Array(
+    &quot;master&quot; -&gt; CLIOption[String](&quot;&lt;host1:port1,host2:port2,host3:port3&gt;&quot;, required = true),
+    &quot;split&quot; -&gt; CLIOption[Int](&quot;&lt;how many split tasks&gt;&quot;, required = false, defaultValue = Some(4)),
+    &quot;sum&quot; -&gt; CLIOption[Int](&quot;&lt;how many sum tasks&gt;&quot;, required = false, defaultValue = Some(4)),
+    &quot;runseconds&quot;-&gt; CLIOption[Int](&quot;&lt;how long to run this example, set to -1 if run forever&gt;&quot;, required = false, defaultValue = Some(60))
+  )
+
+  def application(config: ParseResult) : AppDescription = {
+    val splitNum = config.getInt(&quot;split&quot;)
+    val sumNum = config.getInt(&quot;sum&quot;)
+    val partitioner = new HashPartitioner()
+    val split = TaskDescription(classOf[Split].getName, splitNum)
+    val sum = TaskDescription(classOf[Sum].getName, sumNum)
+    val app = AppDescription(&quot;wordCount&quot;, classOf[AppMaster].getName, UserConfig.empty, Graph(split ~ partitioner ~&gt; sum))
+    app
+  }
+
+  val config = parse(args)
+  val context = ClientContext(config.getString(&quot;master&quot;))
+  val appId = context.submit(application(config))
+  Thread.sleep(config.getInt(&quot;runseconds&quot;) * 1000)
+  context.shutdown(appId)
+  context.close()
+}
+</code></pre>
+
+<p>We override <code>options</code> value and define an array of command line arguments to parse. We want application users to pass in masters' hosts and ports, the parallelism of split and sum tasks, and how long to run the example. We also specify whether an option is <code>required</code> and provide <code>defaultValue</code> for some arguments.</p>
+<p>Given the <code>ParseResult</code> of command line arguments, we create <code>TaskDescription</code>s for Split and Sum processors, and connect them with <code>HashPartitioner</code> using DAG API. The graph is wrapped in an <code>AppDescrition</code> , which is finally submit to master.</p>
+<h1 id="metrics">Metrics</h1>
+<p>We use codahale metrics library. Gearpump support to use Graphite to visualize the metrics data. Metrics is disabled by default. To use it, you need to configure the <code>core/src/main/resources/reference.conf</code></p>
+<p><code>gearpump.metrics.enabled = true         ## Default is false, thus metrics is not enabled.
+  gearpump.metrics.graphite.host = "your actual graphite host name or ip"  
+  gearpump.metrics.graphite.port = 2003   ## Your graphite port
+  gearpump.metrics.sample.rate = 10       ## this means we will sample 1 message for every 10 messages</code></p>
+<p>For guide about how to install and configure Graphite, please check the Graphite website http://graphite.wikidot.com/.  For guide about how to use Grafana, please check guide in <a href="https://github.com/intel-hadoop/gearpump/blob/master/doc/dashboard/README.md">doc/dashboard/readme.md</a></p>
+<p>Here is how it looks like for grafana dashboard:</p>
+<p><img alt="" src="https://raw.githubusercontent.com/intel-hadoop/gearpump/master/doc/dashboard.png" /></p>
+<h1 id="serialization">Serialization</h1>
+<p>We use library <a href="https://github.com/EsotericSoftware/kryo">kryo</a> and <a href="https://github.com/romix/akka-kryo-serialization">akka-kryo library</a>. If you have cutomized the Message, you need to define the serializer explicitly.</p>
+<p>The configuration for serialization is in gear.conf:</p>
+<pre><code>gearpump {
+  serializers {
+    &quot;org.apache.gearpump.Message&quot; = &quot;org.apache.gearpump.streaming.MessageSerializer&quot;
+    &quot;org.apache.gearpump.streaming.task.AckRequest&quot; = &quot;org.apache.gearpump.streaming.AckRequestSerializer&quot;
+    &quot;org.apache.gearpump.streaming.task.Ack&quot; = &quot;org.apache.gearpump.streaming.AckSerializer&quot;
+
+    ## Use default serializer for this type
+    &quot;scala.Tuple2&quot; = &quot;&quot;
+  }
+}
+</code></pre>
+
+<p>akka-kryo-serialization has built-in support for many data types.</p>
+<pre><code>
+# gearpump types
+Message
+AckRequest
+Ack
+
+# akka types
+akka.actor.ActorRef
+
+# scala types
+scala.Enumeration#Value
+scala.collection.mutable.Map[_, _]
+scala.collection.immutable.SortedMap[_, _]
+scala.collection.immutable.Map[_, _]
+scala.collection.immutable.SortedSet[_]
+scala.collection.immutable.Set[_]
+scala.collection.mutable.SortedSet[_]
+scala.collection.mutable.Set[_]
+scala.collection.generic.MapFactory[scala.collection.Map]
+scala.collection.generic.SetFactory[scala.collection.Set]
+scala.collection.Traversable[_]
+Tuple2
+Tuple3
+
+
+# java complex types
+byte[]
+char[]
+short[]
+int[]
+long[]
+float[]
+double[]
+boolean[]
+String[]
+Object[]
+BigInteger
+BigDecimal
+Class
+Date
+Enum
+EnumSet
+Currency
+StringBuffer
+StringBuilder
+TreeSet
+Collection
+TreeMap
+Map
+TimeZone
+Calendar
+Locale
+
+## Primitive types
+int
+String
+float
+boolean
+byte
+char
+short
+long
+double
+void
+</code></pre>
+
+<h1 id="benchmark">Benchmark</h1>
+<h2 id="how-do-we-do-benchmark">How do we do benchmark?</h2>
+<ol>
+<li>
+<p>Set up a node running Graphite, see guide doc/dashboard/README.md. </p>
+</li>
+<li>
+<p>Set up a 4-nodes Gearpump cluster with 10GbE network which have 3 Workers on each node. In our test environment, each node has 128GB memory and Intel? Xeon? 32-core processor E5-2680 2.70GHz. Make sure the metrics is enabled in Gearpump, check <a href="https://github.com/intel-hadoop/gearpump/wiki/Metrics-and-Dashboard">guide</a></p>
+</li>
+<li>
+<p>Submit a SOL application with 32 SteamProducers and 32 StreamProcessors:
+  <code>bash
+  bin/gear app -jar ./examples/sol/target/pack/lib/gearpump-examples-$VERSION.jar org.apache.gearpump.streaming.examples.sol.SOL -master $HOST:PORT -streamProducer 32 -streamProcessor 32 -runseconds 600</code></p>
+</li>
+<li>
+<p>Browser http://$HOST:801/, you should see a grafana dashboard. The HOST should be the node runs Graphite.</p>
+</li>
+<li>
+<p>Copy the config file doc/dashboard/graphana_dashboard, and modify the <code>host</code> filed to the actual hosts which runs Gearpump and the <code>source</code> and <code>target</code> fields. Please note that the format of the value should exactly the same as existing format and you also need to manually add the rest task ID to the value of <code>All</code> under <code>source</code> and <code>target</code> filed since now the number of each task type is 32.</p>
+</li>
+<li>
+<p>In the Grafana web page, click the "search" button and then import the config file mentioned above.</p>
+</li>
+</ol>
+<h1 id="maven-dependencies">Maven dependencies</h1>
+<h2 id="snapshot-package">Snapshot package</h2>
+<p>The snapshot contains the latest code in master branch.</p>
+<p>Latest version: 0.2.4-SNAPSHOT</p>
+<p><strong>Note:</strong> There maybe delay in updating this document, you can still find the snapshot version by checking https://github.com/intel-hadoop/gearpump/blob/master/version.sbt</p>
+<pre><code class="xml">&lt;repositories&gt;
+&lt;repository&gt;
+  &lt;id&gt;sonatype-nexus-releases&lt;/id&gt;
+  &lt;name&gt;Sonatype Nexus Snapshots&lt;/name&gt;
+  &lt;url&gt;https://oss.sonatype.org/content/repositories/snapshots&lt;/url&gt;
+&lt;/repository&gt;
+&lt;/repositories&gt;
+
+&lt;dependencies&gt;
+&lt;dependency&gt;
+&lt;groupId&gt;com.github.intel-hadoop&lt;/groupId&gt;
+&lt;artifactId&gt;gearpump-core_2.11&lt;/artifactId&gt;
+&lt;version&gt;0.2.4-SNAPSHOT&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+&lt;groupId&gt;com.github.intel-hadoop&lt;/groupId&gt;
+&lt;artifactId&gt;gearpump-streaming_2.11&lt;/artifactId&gt;
+&lt;version&gt;0.2.4-SNAPSHOT&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+&lt;groupId&gt;com.github.intel-hadoop&lt;/groupId&gt;
+&lt;artifactId&gt;gearpump-rest_2.11&lt;/artifactId&gt;
+&lt;version&gt;0.2.4-SNAPSHOT&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+&lt;groupId&gt;com.github.intel-hadoop&lt;/groupId&gt;
+&lt;artifactId&gt;gearpump-external-kafka_2.11&lt;/artifactId&gt;
+&lt;version&gt;0.2.4-SNAPSHOT&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+&lt;groupId&gt;com.github.intel-hadoop&lt;/groupId&gt;
+&lt;artifactId&gt;gearpump-experiments-distributedshell_2.11&lt;/artifactId&gt;
+&lt;version&gt;0.2.4-SNAPSHOT&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;/dependencies&gt;
+</code></pre>
+
+<h2 id="release-package">Release package</h2>
+<p>This contains latest release. 
+<strong>Note:</strong> There maybe delay in updating this document, you can still find the latest stable version by checking https://github.com/intel-hadoop/gearpump/releases .</p>
+<p>Latest version: 0.2.3</p>
+<pre><code class="xml">&lt;repositories&gt;
+&lt;repository&gt;
+&lt;id&gt;releases-oss.sonatype.org&lt;/id&gt;
+&lt;name&gt;Sonatype Releases Repository&lt;/name&gt;
+&lt;url&gt;http://oss.sonatype.org/content/repositories/releases/&lt;/url&gt;
+&lt;/repository&gt;
+&lt;/repositories&gt;
+&lt;dependencies&gt;
+&lt;dependency&gt;
+&lt;groupId&gt;com.github.intel-hadoop&lt;/groupId&gt;
+&lt;artifactId&gt;gearpump-core_2.11&lt;/artifactId&gt;
+&lt;version&gt;0.2.3&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+&lt;groupId&gt;com.github.intel-hadoop&lt;/groupId&gt;
+&lt;artifactId&gt;gearpump-streaming_2.11&lt;/artifactId&gt;
+&lt;version&gt;0.2.3&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+&lt;groupId&gt;com.github.intel-hadoop&lt;/groupId&gt;
+&lt;artifactId&gt;gearpump-rest_2.11&lt;/artifactId&gt;
+&lt;version&gt;0.2.3&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+&lt;groupId&gt;com.github.intel-hadoop&lt;/groupId&gt;
+&lt;artifactId&gt;gearpump-external-kafka_2.11&lt;/artifactId&gt;
+&lt;version&gt;0.2.3&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+&lt;groupId&gt;com.github.intel-hadoop&lt;/groupId&gt;
+&lt;artifactId&gt;gearpump-experiments-distributedshell_2.11&lt;/artifactId&gt;
+&lt;version&gt;0.2.3&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;/dependencies&gt;
+</code></pre>
+
+<h1 id="faq">FAQ</h1>
+<p>Q: Why we name it GearPump</p>
+<p>A: The name GearPump is a reference the engineering term "Gear Pump", which is a super simple pump that consists of only two gears, but is very powerful at streaming water from left to right.</p>
+</div>
+            
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+
+        
+
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/prettify-1.0.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script src="../../js/base.js"></script>
+    </body>
+</html>

@@ -1,1 +1,10 @@
 site_name: Gearpump
+
+pages:
+ - [index.md, Home]
+ - [documents/getstarted.md, "Documents", "Get Started"]
+ - [documents/document.md, "Documents", "Documents"]
+ - [documents/how_to_write_a_streaming_application.md], "Documents", "How to write a Streaming App"]
+ - [documents/intellij_eclipse_development_environment_setup.md, "Documents", "IDE setup"]
+ - [downloads.md, Downloads]
+ - [about.md, About Us]

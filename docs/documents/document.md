@@ -44,7 +44,7 @@ Everything in the above diagram is an actor. The Actors fall into two categories
 
 * Task: Child of Executor, does the real job. Every task actor has a global unique address. One task actor can send data to any other task actors. This gives us great flexibility of how the computation DAG is distributed.
 
-All actors in the graph are woven together with actor supervision; actor watching and all errors are handled properly via supervisors. In a master, a risky job is isolated and delegated to child actors, so it¡¯s more robust. In the application, an extra intermediate layer, ¡°Executor,¡± is created so that we can do fine-grained and fast recovery in case of task failure. A master watches the lifecycle of AppMaster and Worker to handle the failures, but the lifecycle of Worker and AppMaster are not bound to a Master Actor by supervision, so that Master node can fail independently. Several Master Actors form an Akka cluster, the Master state is exchanged using the Gossip protocol in a conflict-free consistent way so that there is no single point of failure. With this hierarchy design, we are able to achieve high availability.
+All actors in the graph are woven together with actor supervision; actor watching and all errors are handled properly via supervisors. In a master, a risky job is isolated and delegated to child actors, so it's more robust. In the application, an extra intermediate layer, "Executor," is created so that we can do fine-grained and fast recovery in case of task failure. A master watches the lifecycle of AppMaster and Worker to handle the failures, but the lifecycle of Worker and AppMaster are not bound to a Master Actor by supervision, so that Master node can fail independently. Several Master Actors form an Akka cluster, the Master state is exchanged using the Gossip protocol in a conflict-free consistent way so that there is no single point of failure. With this hierarchy design, we are able to achieve high availability.
 # Build
 
 ## How to Build Gearpump
@@ -218,141 +218,6 @@ We allow to start master on multiple nodes. For example, if we start master on 5
 
 3. You can kill any node, the master HA will take effect. It can take up to 15 seconds for master node to fail-over. You can change the fail-over timeout time by setting `master.akka.cluster.auto-down-unreachable-after`
 
-# How to Write your own Gearpump Application
-
-We'll use [wordcount](https://github.com/intel-hadoop/gearpump/tree/master/examples/wordcount/src/main/scala/org/apache/gearpump/streaming/examples/wordcount) as an example to illustrate how to write GearPump applications.
-
-An application is a Directed Acyclic Graph (DAG) of processors (Please refer to [DAG API](https://github.com/intel-hadoop/gearpump/wiki/DAG-API)) . In the wordcount example, We will firstly define two processors `Split` and `Sum`, and then weave them together. 
-
-###Split processor
-
-In the Split processor, we simply split a predefined text (the content is simplified for conciseness) and send out each split word to Sum.
-
-```scala
-class Split(taskContext : TaskContext, conf: UserConfig) extends TaskActor(taskContext, conf) {
-
-  override def onStart(startTime : StartTime) : Unit = {
-    self ! Message("start")
-  }
-
-  override def onNext(msg : Message) : Unit = {
-    Split.TEXT_TO_SPLIT.lines.foreach { line =>
-      line.split(" ").foreach { msg =>
-        output(new Message(msg, System.currentTimeMillis()))
-      }
-    }
-    self ! Message("continue", System.currentTimeMillis())
-  }
-}
-
-object Split {
-  val TEXT_TO_SPLIT = "some text"
-}
-```
-
-Like Split, every processor extends a `TaskActor`.  The `onStart` method is called once before any message comes in; `onNext` method is called to process every incoming message. Note that GearPump employs the message-driven model and that's why Split sends itself a message at the end of `onStart` and `onNext` to trigger next message processing.
-
-###Sum Processor
-
-The structure of Sum processor looks much alike. Sum does not need to send messages to itself since it receives messages from Split. 
-
-```scala
-class Sum (taskContext : TaskContext, conf: UserConfig) extends TaskActor(taskContext, conf) {
-  import org.apache.gearpump.streaming.ConfigsHelper._
-
-  private val map : mutable.HashMap[String, Long] = new mutable.HashMap[String, Long]()
-
-  private var wordCount : Long = 0
-  private var snapShotTime : Long = System.currentTimeMillis()
-  private var snapShotWordCount : Long = 0
-
-  private var scheduler : Cancellable = null
-
-  override def onStart(startTime : StartTime) : Unit = {
-    import context.dispatcher
-    scheduler = context.system.scheduler.schedule(new FiniteDuration(5, TimeUnit.SECONDS),
-      new FiniteDuration(5, TimeUnit.SECONDS))(reportWordCount)
-  }
-
-  override def onNext(msg : Message) : Unit = {
-    if (null == msg) {
-      return
-    }
-    val current = map.getOrElse(msg.msg.asInstanceOf[String], 0L)
-    wordCount += 1
-    map.put(msg.msg.asInstanceOf[String], current + 1)
-  }
-
-  override def onStop() : Unit = {
-    scheduler.cancel()
-  }
-
-  def reportWordCount() : Unit = {
-    val current : Long = System.currentTimeMillis()
-    LOG.info(s"Task ${taskContext.taskId} Throughput: ${(wordCount - snapShotWordCount, (current - snapShotTime) / 1000)} (words, second)")
-    snapShotWordCount = wordCount
-    snapShotTime = current
-  }
-}
-```
-
-Besides counting the sum, we also define a scheduler to report throughput every 5 seconds. The scheduler should be cancelled when the computation completes, which could be accomplished overriding the `onStop` method. The default implementation of `onStop` is a no-op.
-
-###Partitioner
-
-A processor could be parallelized to a list of tasks. A `Partitioner` defines how the data is shuffled among tasks of Split and Sum. GearPump has already provided two partitioners 
-
-* `HashPartitioner`: partitions data based on the message's hashcode
-* `ShufflePartitioner`: partitions data in a round-robin way.
-
-You could define your own partitioner by extending the `Partitioner` trait and overriding the `getPartition` method.
-
-```scala
-trait Partitioner extends Serializable {
-  def getPartition(msg : Message, partitionNum : Int) : Int
-}
-```
-
-###Weave together
-
-Now, we are able to write our application class, weaving the above components together.
-
-The application class extends `App` and `ArgumentsParser which make it easier to parse arguments and run main functions.
-
-```scala
-object WordCount extends App with ArgumentsParser {
-  private val LOG: Logger = LogUtil.getLogger(getClass)
-  val RUN_FOR_EVER = -1
-
-  override val options: Array[(String, CLIOption[Any])] = Array(
-    "master" -> CLIOption[String]("<host1:port1,host2:port2,host3:port3>", required = true),
-    "split" -> CLIOption[Int]("<how many split tasks>", required = false, defaultValue = Some(4)),
-    "sum" -> CLIOption[Int]("<how many sum tasks>", required = false, defaultValue = Some(4)),
-    "runseconds"-> CLIOption[Int]("<how long to run this example, set to -1 if run forever>", required = false, defaultValue = Some(60))
-  )
-
-  def application(config: ParseResult) : AppDescription = {
-    val splitNum = config.getInt("split")
-    val sumNum = config.getInt("sum")
-    val partitioner = new HashPartitioner()
-    val split = TaskDescription(classOf[Split].getName, splitNum)
-    val sum = TaskDescription(classOf[Sum].getName, sumNum)
-    val app = AppDescription("wordCount", classOf[AppMaster].getName, UserConfig.empty, Graph(split ~ partitioner ~> sum))
-    app
-  }
-
-  val config = parse(args)
-  val context = ClientContext(config.getString("master"))
-  val appId = context.submit(application(config))
-  Thread.sleep(config.getInt("runseconds") * 1000)
-  context.shutdown(appId)
-  context.close()
-}
-```
-
-We override `options` value and define an array of command line arguments to parse. We want application users to pass in masters' hosts and ports, the parallelism of split and sum tasks, and how long to run the example. We also specify whether an option is `required` and provide `defaultValue` for some arguments.
-
-Given the `ParseResult` of command line arguments, we create `TaskDescription`s for Split and Sum processors, and connect them with `HashPartitioner` using DAG API. The graph is wrapped in an `AppDescrition` , which is finally submit to master.
 
 # Metrics
 
@@ -365,7 +230,7 @@ We use codahale metrics library. Gearpump support to use Graphite to visualize t
   gearpump.metrics.sample.rate = 10       ## this means we will sample 1 message for every 10 messages
   ```
   
-For guide about how to install and configure Graphite, please check the Graphite website http://graphite.wikidot.com/.	For guide about how to use Grafana, please check guide in [doc/dashboard/README.md](doc/dashboard/README.md)
+For guide about how to install and configure Graphite, please check the Graphite website http://graphite.wikidot.com/.	For guide about how to use Grafana, please check guide in [doc/dashboard/readme.md](https://github.com/intel-hadoop/gearpump/blob/master/doc/dashboard/README.md)
 
 Here is how it looks like for grafana dashboard:
 
@@ -574,4 +439,4 @@ Latest version: 0.2.3
 
 Q: Why we name it GearPump
 
-A: The name GearPump is a reference the engineering term ¡°Gear Pump¡±, which is a super simple pump that consists of only two gears, but is very powerful at streaming water from left to right.
+A: The name GearPump is a reference the engineering term "Gear Pump", which is a super simple pump that consists of only two gears, but is very powerful at streaming water from left to right.
