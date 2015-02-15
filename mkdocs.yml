@@ -14,7 +14,7 @@ pages:
  - [documents/document.md, "User Guide", "Documents"]
  - [documents/configuration.md, "User Guide", "Gearpump Configuration"]
  - [documents/run_time_model_description.md, "User Guide", "Runtime Model"]
- - [documents/high_availability.md, "User Guide", "High Availability Guide"]
+ - [documents/high_availability_guide.md, "User Guide", "High Availability Guide"]
  - [documents/kafka_tutorial_walk_through.md, "User Guide", "Kafka Source and Sink Example Walk through"]
  - [documents/how_gearpump_do_fail_over.md, "User Guide", "How Gearpump do Fail Over"]
  - [documents/how_to_write_a_streaming_application.md, "User Guide", "How to Write a Streaming Application"]

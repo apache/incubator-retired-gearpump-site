@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-        <title>Latest Version - /Gearpump/</title>
+        <title>Runtime Model - /Gearpump/</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -53,72 +53,72 @@
                 <ul class="nav navbar-nav">
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">User Guide <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             <li >
-                                <a href="../../documents/getstarted">Get Started</a>
+                                <a href="../getstarted">Get Started</a>
                             </li>
                         
                             <li >
-                                <a href="../../documents/dag_api">DAG API</a>
+                                <a href="../dag_api">DAG API</a>
                             </li>
                         
                             <li >
-                                <a href="../../documents/how_to_build">How to Build</a>
+                                <a href="../how_to_build">How to Build</a>
                             </li>
                         
                             <li >
-                                <a href="../../documents/document">Documents</a>
+                                <a href="../document">Documents</a>
                             </li>
                         
                             <li >
-                                <a href="../../documents/configuration">Gearpump Configuration</a>
+                                <a href="../configuration">Gearpump Configuration</a>
+                            </li>
+                        
+                            <li class="active">
+                                <a href=".">Runtime Model</a>
                             </li>
                         
                             <li >
-                                <a href="../../documents/run_time_model_description">Runtime Model</a>
+                                <a href="../high_availability_guide">High Availability Guide</a>
                             </li>
                         
                             <li >
-                                <a href="../../documents/high_availability_guide">High Availability Guide</a>
+                                <a href="../kafka_tutorial_walk_through">Kafka Source and Sink Example Walk through</a>
                             </li>
                         
                             <li >
-                                <a href="../../documents/kafka_tutorial_walk_through">Kafka Source and Sink Example Walk through</a>
+                                <a href="../how_gearpump_do_fail_over">How Gearpump do Fail Over</a>
                             </li>
                         
                             <li >
-                                <a href="../../documents/how_gearpump_do_fail_over">How Gearpump do Fail Over</a>
+                                <a href="../how_to_write_a_streaming_application">How to Write a Streaming Application</a>
                             </li>
                         
                             <li >
-                                <a href="../../documents/how_to_write_a_streaming_application">How to Write a Streaming Application</a>
+                                <a href="../how_to_write_a_general_distributed_application">How to Write a General Distributed Application</a>
                             </li>
                         
                             <li >
-                                <a href="../../documents/how_to_write_a_general_distributed_application">How to Write a General Distributed Application</a>
+                                <a href="../serialization_guide">Write your customized serializer</a>
                             </li>
                         
                             <li >
-                                <a href="../../documents/serialization_guide">Write your customized serializer</a>
+                                <a href="../sbt_and_maven_depandency_setting">sbt and Maven Dependencies settings</a>
                             </li>
                         
                             <li >
-                                <a href="../../documents/sbt_and_maven_depandency_setting">sbt and Maven Dependencies settings</a>
+                                <a href="../intellij_eclipse_development_environment_setup">IDE setup</a>
                             </li>
                         
                             <li >
-                                <a href="../../documents/intellij_eclipse_development_environment_setup">IDE setup</a>
+                                <a href="../performance">Performance Benchmarks</a>
                             </li>
                         
                             <li >
-                                <a href="../../documents/performance">Performance Benchmarks</a>
-                            </li>
-                        
-                            <li >
-                                <a href="../../documents/faq">FAQ</a>
+                                <a href="../faq">FAQ</a>
                             </li>
                         
                         </ul>
@@ -126,16 +126,16 @@
                 
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Downloads <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
-                            <li class="active">
-                                <a href=".">Latest Version</a>
+                            <li >
+                                <a href="../../downloads/downloads">Latest Version</a>
                             </li>
                         
                             <li >
-                                <a href="../releasenotes">Release Notes</a>
+                                <a href="../../downloads/releasenotes">Release Notes</a>
                             </li>
                         
                         </ul>
@@ -178,12 +178,12 @@
                 
                 
                 <li >
-                    <a rel="next" href="../../documents/faq">
+                    <a rel="next" href="../configuration">
                         <i class="fa fa-arrow-left"></i> Previous
                     </a>
                 </li>
                 <li >
-                    <a rel="prev" href="../releasenotes">
+                    <a rel="prev" href="../high_availability_guide">
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
                 </li>
@@ -209,15 +209,43 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#030-snapshot">0.3.0-SNAPSHOT</a></li>
+        <li class="main active"><a href="#gearpump-hierarchy">Gearpump Hierarchy</a></li>
+        
+            <li><a href="#cluster-actors">Cluster Actors</a></li>
+        
+            <li><a href="#application-actors">Application Actors</a></li>
         
     
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h2 id="030-snapshot">0.3.0-SNAPSHOT</h2>
-<p><a href="https://github.com/intel-hadoop/gearpump/releases"><img alt="download" src="https://raw.githubusercontent.com/clockfly/icons/master/gearpump-0.2-rc1.jpg" /></a></p>
+<h1 id="gearpump-hierarchy">Gearpump Hierarchy</h1>
+<p>GearPump models streaming within the Akka actory hierarchy.</p>
+<p><img alt="" src="https://raw.githubusercontent.com/intel-hadoop/gearpump/master/doc/actor_hierarchy.png" /></p>
+<p>Everything in the above diagram is an actor. The Actors fall into two categories, Cluster Actors and Application Actors.</p>
+<h3 id="cluster-actors">Cluster Actors</h3>
+<ul>
+<li>
+<p>Worker: Maps to a physical worker machine. It is responsible for managing resources and reporting metrics on that machine.</p>
+</li>
+<li>
+<p>Master: Heart of the cluster, which manages workers, resources, and applications. The main function is delegated to three child actors: App Manager, Worker Manager, and Resource Scheduler.</p>
+</li>
+</ul>
+<h3 id="application-actors">Application Actors</h3>
+<ul>
+<li>
+<p>AppMaster: Responsible for scheduling the tasks to workers and managing the state of the application. Different applications have different AppMaster instances and are isolated.</p>
+</li>
+<li>
+<p>Executor: Child of AppMaster, represents a JVM process. Its job is to manage the lifecycle of tasks and recover them in case of failure.</p>
+</li>
+<li>
+<p>Task: Child of Executor, does the real job. Every task actor has a global unique address. One task actor can send data to any other task actors. This gives us great flexibility of how the computation DAG is distributed.</p>
+</li>
+</ul>
+<p>All actors in the graph are woven together with actor supervision; actor watching and all errors are handled properly via supervisors. In a master, a risky job is isolated and delegated to child actors, so it's more robust. In the application, an extra intermediate layer, "Executor," is created so that we can do fine-grained and fast recovery in case of task failure. A master watches the lifecycle of AppMaster and Worker to handle the failures, but the lifecycle of Worker and AppMaster are not bound to a Master Actor by supervision, so that Master node can fail independently. Several Master Actors form an Akka cluster, the Master state is exchanged using the Gossip protocol in a conflict-free consistent way so that there is no single point of failure. With this hierarchy design, we are able to achieve high availability.</p>
 </div>
             
         </div>

@@ -82,6 +82,10 @@
                             </li>
                         
                             <li >
+                                <a href="../high_availability_guide">High Availability Guide</a>
+                            </li>
+                        
+                            <li >
                                 <a href="../kafka_tutorial_walk_through">Kafka Source and Sink Example Walk through</a>
                             </li>
                         
@@ -95,6 +99,14 @@
                         
                             <li >
                                 <a href="../how_to_write_a_general_distributed_application">How to Write a General Distributed Application</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../serialization_guide">Write your customized serializer</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../sbt_and_maven_depandency_setting">sbt and Maven Dependencies settings</a>
                             </li>
                         
                             <li >
@@ -197,255 +209,9 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#master-ha">Master HA</a></li>
-        
-    
-        <li class="main "><a href="#metrics">Metrics</a></li>
-        
-    
-        <li class="main "><a href="#serialization">Serialization</a></li>
-        
-    
-        <li class="main "><a href="#benchmark">Benchmark</a></li>
-        
-            <li><a href="#how-do-we-do-benchmark">How do we do benchmark?</a></li>
-        
-    
-        <li class="main "><a href="#maven-dependencies">Maven dependencies</a></li>
-        
-            <li><a href="#snapshot-package">Snapshot package</a></li>
-        
-            <li><a href="#release-package">Release package</a></li>
-        
-    
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
-
-<p>GearPump is a lightweight, real-time, big data streaming engine. It is inspired by recent advances in the Akka framework and a desire to improve on existing streaming frameworks. GearPump draws from a number of existing frameworks including MillWheel, Apache Storm, Spark Streaming, Apache Samza, Apache Tez, and Hadoop YARN while leveraging Akka actors throughout its architecture.</p>
-<p>Many of the information in this page can also be found at the technical whitepaper:
-<a href="https://typesafe.com/blog/gearpump-real-time-streaming-engine-using-akka">https://typesafe.com/blog/gearpump-real-time-streaming-engine-using-akka</a></p>
-<h1 id="master-ha">Master HA</h1>
-<p>We allow to start master on multiple nodes. For example, if we start master on 5 nodes, then we can at most tolerate 2 master nodes failure. </p>
-<ol>
-<li>modify <code>core/src/main/resources/reference.conf</code> and set "gearpump.cluster.masters" to a list of master nodes.</li>
-</ol>
-<p><code>gearpump {
-   ...
-  cluster {
-    masters = ["node1:3000", "node2:3000", "node3:3000"]
-  }
-  }</code></p>
-<ol>
-<li>On node1, node2, node3, Start Master
-  ```bash
-  ## on node1
-  bin/master -ip node1 -port 3000</li>
-</ol>
-<p>## on node2
-  bin/master -ip node2 -port 3000</p>
-<p>## on node3
-  bin/master -ip node3 -port 3000
-  ```  </p>
-<ol>
-<li>You can kill any node, the master HA will take effect. It can take up to 15 seconds for master node to fail-over. You can change the fail-over timeout time by setting <code>master.akka.cluster.auto-down-unreachable-after</code></li>
-</ol>
-<h1 id="metrics">Metrics</h1>
-<p>We use codahale metrics library. Gearpump support to use Graphite to visualize the metrics data. Metrics is disabled by default. To use it, you need to configure the <code>core/src/main/resources/reference.conf</code></p>
-<p><code>gearpump.metrics.enabled = true         ## Default is false, thus metrics is not enabled.
-  gearpump.metrics.graphite.host = "your actual graphite host name or ip"  
-  gearpump.metrics.graphite.port = 2003   ## Your graphite port
-  gearpump.metrics.sample.rate = 10       ## this means we will sample 1 message for every 10 messages</code></p>
-<p>For guide about how to install and configure Graphite, please check the Graphite website http://graphite.wikidot.com/.  For guide about how to use Grafana, please check guide in <a href="https://github.com/intel-hadoop/gearpump/blob/master/doc/dashboard/README.md">doc/dashboard/readme.md</a></p>
-<p>Here is how it looks like for grafana dashboard:</p>
-<p><img alt="" src="https://raw.githubusercontent.com/intel-hadoop/gearpump/master/doc/dashboard.png" /></p>
-<h1 id="serialization">Serialization</h1>
-<p>We use library <a href="https://github.com/EsotericSoftware/kryo">kryo</a> and <a href="https://github.com/romix/akka-kryo-serialization">akka-kryo library</a>. If you have cutomized the Message, you need to define the serializer explicitly.</p>
-<p>The configuration for serialization is in gear.conf:</p>
-<pre><code>gearpump {
-  serializers {
-    &quot;org.apache.gearpump.Message&quot; = &quot;org.apache.gearpump.streaming.MessageSerializer&quot;
-    &quot;org.apache.gearpump.streaming.task.AckRequest&quot; = &quot;org.apache.gearpump.streaming.AckRequestSerializer&quot;
-    &quot;org.apache.gearpump.streaming.task.Ack&quot; = &quot;org.apache.gearpump.streaming.AckSerializer&quot;
-
-    ## Use default serializer for this type
-    &quot;scala.Tuple2&quot; = &quot;&quot;
-  }
-}
-</code></pre>
-
-<p>akka-kryo-serialization has built-in support for many data types.</p>
-<pre><code>
-# gearpump types
-Message
-AckRequest
-Ack
-
-# akka types
-akka.actor.ActorRef
-
-# scala types
-scala.Enumeration#Value
-scala.collection.mutable.Map[_, _]
-scala.collection.immutable.SortedMap[_, _]
-scala.collection.immutable.Map[_, _]
-scala.collection.immutable.SortedSet[_]
-scala.collection.immutable.Set[_]
-scala.collection.mutable.SortedSet[_]
-scala.collection.mutable.Set[_]
-scala.collection.generic.MapFactory[scala.collection.Map]
-scala.collection.generic.SetFactory[scala.collection.Set]
-scala.collection.Traversable[_]
-Tuple2
-Tuple3
-
-
-# java complex types
-byte[]
-char[]
-short[]
-int[]
-long[]
-float[]
-double[]
-boolean[]
-String[]
-Object[]
-BigInteger
-BigDecimal
-Class
-Date
-Enum
-EnumSet
-Currency
-StringBuffer
-StringBuilder
-TreeSet
-Collection
-TreeMap
-Map
-TimeZone
-Calendar
-Locale
-
-## Primitive types
-int
-String
-float
-boolean
-byte
-char
-short
-long
-double
-void
-</code></pre>
-
-<h1 id="benchmark">Benchmark</h1>
-<h2 id="how-do-we-do-benchmark">How do we do benchmark?</h2>
-<ol>
-<li>
-<p>Set up a node running Graphite, see guide doc/dashboard/README.md. </p>
-</li>
-<li>
-<p>Set up a 4-nodes Gearpump cluster with 10GbE network which have 3 Workers on each node. In our test environment, each node has 128GB memory and Intel? Xeon? 32-core processor E5-2680 2.70GHz. Make sure the metrics is enabled in Gearpump, check <a href="https://github.com/intel-hadoop/gearpump/wiki/Metrics-and-Dashboard">guide</a></p>
-</li>
-<li>
-<p>Submit a SOL application with 32 SteamProducers and 32 StreamProcessors:
-  <code>bash
-  bin/gear app -jar ./examples/sol/target/pack/lib/gearpump-examples-$VERSION.jar org.apache.gearpump.streaming.examples.sol.SOL -master $HOST:PORT -streamProducer 32 -streamProcessor 32 -runseconds 600</code></p>
-</li>
-<li>
-<p>Browser http://$HOST:801/, you should see a grafana dashboard. The HOST should be the node runs Graphite.</p>
-</li>
-<li>
-<p>Copy the config file doc/dashboard/graphana_dashboard, and modify the <code>host</code> filed to the actual hosts which runs Gearpump and the <code>source</code> and <code>target</code> fields. Please note that the format of the value should exactly the same as existing format and you also need to manually add the rest task ID to the value of <code>All</code> under <code>source</code> and <code>target</code> filed since now the number of each task type is 32.</p>
-</li>
-<li>
-<p>In the Grafana web page, click the "search" button and then import the config file mentioned above.</p>
-</li>
-</ol>
-<h1 id="maven-dependencies">Maven dependencies</h1>
-<h2 id="snapshot-package">Snapshot package</h2>
-<p>The snapshot contains the latest code in master branch.</p>
-<p>Latest version: 0.2.4-SNAPSHOT</p>
-<p><strong>Note:</strong> There maybe delay in updating this document, you can still find the snapshot version by checking https://github.com/intel-hadoop/gearpump/blob/master/version.sbt</p>
-<pre><code class="xml">&lt;repositories&gt;
-&lt;repository&gt;
-  &lt;id&gt;sonatype-nexus-releases&lt;/id&gt;
-  &lt;name&gt;Sonatype Nexus Snapshots&lt;/name&gt;
-  &lt;url&gt;https://oss.sonatype.org/content/repositories/snapshots&lt;/url&gt;
-&lt;/repository&gt;
-&lt;/repositories&gt;
-
-&lt;dependencies&gt;
-&lt;dependency&gt;
-&lt;groupId&gt;com.github.intel-hadoop&lt;/groupId&gt;
-&lt;artifactId&gt;gearpump-core_2.11&lt;/artifactId&gt;
-&lt;version&gt;0.2.4-SNAPSHOT&lt;/version&gt;
-&lt;/dependency&gt;
-&lt;dependency&gt;
-&lt;groupId&gt;com.github.intel-hadoop&lt;/groupId&gt;
-&lt;artifactId&gt;gearpump-streaming_2.11&lt;/artifactId&gt;
-&lt;version&gt;0.2.4-SNAPSHOT&lt;/version&gt;
-&lt;/dependency&gt;
-&lt;dependency&gt;
-&lt;groupId&gt;com.github.intel-hadoop&lt;/groupId&gt;
-&lt;artifactId&gt;gearpump-rest_2.11&lt;/artifactId&gt;
-&lt;version&gt;0.2.4-SNAPSHOT&lt;/version&gt;
-&lt;/dependency&gt;
-&lt;dependency&gt;
-&lt;groupId&gt;com.github.intel-hadoop&lt;/groupId&gt;
-&lt;artifactId&gt;gearpump-external-kafka_2.11&lt;/artifactId&gt;
-&lt;version&gt;0.2.4-SNAPSHOT&lt;/version&gt;
-&lt;/dependency&gt;
-&lt;dependency&gt;
-&lt;groupId&gt;com.github.intel-hadoop&lt;/groupId&gt;
-&lt;artifactId&gt;gearpump-experiments-distributedshell_2.11&lt;/artifactId&gt;
-&lt;version&gt;0.2.4-SNAPSHOT&lt;/version&gt;
-&lt;/dependency&gt;
-&lt;/dependencies&gt;
-</code></pre>
-
-<h2 id="release-package">Release package</h2>
-<p>This contains latest release. 
-<strong>Note:</strong> There maybe delay in updating this document, you can still find the latest stable version by checking https://github.com/intel-hadoop/gearpump/releases .</p>
-<p>Latest version: 0.2.3</p>
-<pre><code class="xml">&lt;repositories&gt;
-&lt;repository&gt;
-&lt;id&gt;releases-oss.sonatype.org&lt;/id&gt;
-&lt;name&gt;Sonatype Releases Repository&lt;/name&gt;
-&lt;url&gt;http://oss.sonatype.org/content/repositories/releases/&lt;/url&gt;
-&lt;/repository&gt;
-&lt;/repositories&gt;
-&lt;dependencies&gt;
-&lt;dependency&gt;
-&lt;groupId&gt;com.github.intel-hadoop&lt;/groupId&gt;
-&lt;artifactId&gt;gearpump-core_2.11&lt;/artifactId&gt;
-&lt;version&gt;0.2.3&lt;/version&gt;
-&lt;/dependency&gt;
-&lt;dependency&gt;
-&lt;groupId&gt;com.github.intel-hadoop&lt;/groupId&gt;
-&lt;artifactId&gt;gearpump-streaming_2.11&lt;/artifactId&gt;
-&lt;version&gt;0.2.3&lt;/version&gt;
-&lt;/dependency&gt;
-&lt;dependency&gt;
-&lt;groupId&gt;com.github.intel-hadoop&lt;/groupId&gt;
-&lt;artifactId&gt;gearpump-rest_2.11&lt;/artifactId&gt;
-&lt;version&gt;0.2.3&lt;/version&gt;
-&lt;/dependency&gt;
-&lt;dependency&gt;
-&lt;groupId&gt;com.github.intel-hadoop&lt;/groupId&gt;
-&lt;artifactId&gt;gearpump-external-kafka_2.11&lt;/artifactId&gt;
-&lt;version&gt;0.2.3&lt;/version&gt;
-&lt;/dependency&gt;
-&lt;dependency&gt;
-&lt;groupId&gt;com.github.intel-hadoop&lt;/groupId&gt;
-&lt;artifactId&gt;gearpump-experiments-distributedshell_2.11&lt;/artifactId&gt;
-&lt;version&gt;0.2.3&lt;/version&gt;
-&lt;/dependency&gt;
-&lt;/dependencies&gt;
-</code></pre>
 
 </div>
             

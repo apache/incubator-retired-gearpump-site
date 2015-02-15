@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-        <title>Gearpump Configuration - /Gearpump/</title>
+        <title>How to Build - /Gearpump/</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -65,16 +65,16 @@
                                 <a href="../dag_api">DAG API</a>
                             </li>
                         
-                            <li >
-                                <a href="../how_to_build">How to Build</a>
+                            <li class="active">
+                                <a href=".">How to Build</a>
                             </li>
                         
                             <li >
                                 <a href="../document">Documents</a>
                             </li>
                         
-                            <li class="active">
-                                <a href=".">Gearpump Configuration</a>
+                            <li >
+                                <a href="../configuration">Gearpump Configuration</a>
                             </li>
                         
                             <li >
@@ -178,12 +178,12 @@
                 
                 
                 <li >
-                    <a rel="next" href="../document">
+                    <a rel="next" href="../dag_api">
                         <i class="fa fa-arrow-left"></i> Previous
                     </a>
                 </li>
                 <li >
-                    <a rel="prev" href="../run_time_model_description">
+                    <a rel="prev" href="../document">
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
                 </li>
@@ -209,10 +209,151 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
+        <li class="main active"><a href="#build">Build</a></li>
+        
+            <li><a href="#how-to-build-gearpump">How to Build Gearpump</a></li>
+        
+            <li><a href="#how-to-test">How to test</a></li>
+        
+            <li><a href="#how-to-package-for-distribution">How to Package for distribution</a></li>
+        
+            <li><a href="#how-to-install-to-usrlocal">How to Install to /usr/local</a></li>
+        
+    
+        <li class="main "><a href="#how-to-run-gearpump">How to Run Gearpump</a></li>
+        
+            <li><a href="#local-mode">Local Mode</a></li>
+        
+            <li><a href="#cluster-mode">Cluster Mode</a></li>
+        
+    
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
+<h1 id="build">Build</h1>
+<h2 id="how-to-build-gearpump">How to Build Gearpump</h2>
+<p><code>bash
+  ## Build Gearpump
+  sbt clean publishLocal assembly packArchive</code></p>
+<p>This will generate package folder under target/pack/</p>
+<h2 id="how-to-test">How to test</h2>
+<p><code>bash
+  ## Build Gearpump
+  sbt test</code></p>
+<h2 id="how-to-package-for-distribution">How to Package for distribution</h2>
+<p><code>bash
+  ## Package Gearpump
+  sbt assembly clean packArchive</code>
+  This will produce <code>target/gearpump-$VERSION.tar.gz</code> which contains the <code>./bin</code> and <code>./lib</code> files.</p>
+<h2 id="how-to-install-to-usrlocal">How to Install to /usr/local</h2>
+<p><code>bash
+  ## Run Build step above
+  cd target/pack
+  sudo make install PREFIX="/usr/local"</code>
+  This will install scripts to run local, master or shell to <code>/usr/local/bin</code> and jars to <code>/usr/local/lib</code>.</p>
+<h1 id="how-to-run-gearpump">How to Run Gearpump</h1>
+<h2 id="local-mode">Local Mode</h2>
+<ol>
+<li>
+<p>Start Local Cluster in same process
+  <code>bash
+  ## By default, it will create 4 workers
+  ./target/pack/bin/local -port 3000</code></p>
+</li>
+<li>
+<p>Start an Example</p>
+</li>
+<li>
+<p>Run WordCount example
+  <code>bash
+  ./target/pack/bin/gear app -jar ./examples/wordcount/target/scala-${SCALA_VERSION_MAJOR}/gearpump-examples-wordcount_${SCALA_VERSION_MAJOR}-${VERSION}.jar org.apache.gearpump.streaming.examples.wordcount.WordCount -master 127.0.0.1:3000</code></p>
+</li>
+<li>
+<p>Run SOL example
+  <code>bash
+  ./target/pack/bin/gear app -jar ./examples/sol/target/scala-${SCALA_VERSION_MAJOR}/gearpump-examples-sol_${SCALA_VERSION_MAJOR}-${VERSION}.jar org.apache.gearpump.streaming.examples.sol.SOL -master 127.0.0.1:3000</code></p>
+</li>
+<li>
+<p>Run complexdag example
+  <code>bash
+  ./target/pack/bin/gear app -jar ./examples/complexdag/target/scala-${SCALA_VERSION_MAJOR}/gearpump-examples-complexdag_${SCALA_VERSION_MAJOR}-${VERSION}.jar org.apache.gearpump.streaming.examples.complexdag.Dag -master 127.0.0.1:3000</code></p>
+</li>
+<li>
+<p><a href="https://github.com/intel-hadoop/gearpump/tree/master/examples/fsio">Run Fsio example</a></p>
+</li>
+<li>
+<p><a href="https://github.com/intel-hadoop/gearpump/blob/master/examples/kafka/README.md">Run KafkaWordCount example</a></p>
+</li>
+</ol>
+<h2 id="cluster-mode">Cluster Mode</h2>
+<ol>
+<li>Distribute the package to all nodes. Modify <code>conf/gear.conf</code> on all nodes. You MUST configure <code>akka.remote.netty.tcp.hostname</code> to make it point to your hostname(or ip), and <code>gearpump.cluster.masters</code> to represent a list of master nodes.</li>
+</ol>
+<p>```
+  ### Put Akka configuration here
+  base {</p>
+<pre><code>##############################
+### Required to change!!
+### You need to set the ip address or hostname of this machine
+###
+akka.remote.netty.tcp.hostname = "127.0.0.1"
+</code></pre>
+<p>}</p>
+<p>#########################################
+  ### This is the default configuration for gearpump
+  ### To use the application, you at least need to change gearpump.cluster to point to right master
+  #########################################
+  gearpump {</p>
+<pre><code>##############################
+### Required to change!!
+### You need to set the master cluster address here
+###
+###
+### For example, you may start three master
+### on node1: bin/master -ip node1 -port 3000
+### on node2: bin/master -ip node2 -port 3000
+### on node3: bin/master -ip node3 -port 3000
+###
+### Then you need to set the cluster.masters = ["node1:3000","node2:3000","node3:3000"]
+cluster {
+  masters = ["127.0.0.1:3000"]
+}
+</code></pre>
+<p>}
+  ```</p>
+<ol>
+<li>Start Master nodes</li>
+</ol>
+<p>Start the master daemon on all nodes you have configured in <code>gearpump.cluster.masters</code>. If you have configured <code>gearpump.cluster.masters</code> to:</p>
+<p><code>gearpump{
+     cluster {
+      masters = ["node1:3000", "node2:3000"]
+    }
+  }</code></p>
+<p>Then start master daemon on <code>node1</code> and <code>node2</code>.</p>
+<p>```bash
+  ## on node1
+  cd gearpump-$VERSION
+  bin/master -ip node1 -port 3000</p>
+<p>## on node2
+  cd gearpump-$VERSION
+  bin/master -ip node1 -port 3000
+  ```</p>
+<p>We support <a href="https://github.com/intel-hadoop/gearpump/wiki/Run-Examples#master-ha">Master HA</a> and allow master to start on multiple nodes. </p>
+<ol>
+<li>Start worker</li>
+</ol>
+<p>Start multiple workers on one or more nodes. </p>
+<p><code>bash
+  bin/worker</code></p>
+<ol>
+<li>Submit application jar and run</li>
+</ol>
+<p>You can submit your application to cluster by providing an application jar. For example, for built-in examples, the jar is located at <code>examples/gearpump-examples-assembly-$VERSION.jar</code></p>
+<p><code>bash
+  ## To run WordCount example
+  bin/gear app -jar examples/gearpump-examples-assembly-$VERSION.jar org.apache.gearpump.streaming.examples.wordcount.WordCount -master node1:3000</code></p>
 </div>
             
         </div>

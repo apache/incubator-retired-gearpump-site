@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-        <title>Latest Version - /Gearpump/</title>
+        <title>Performance Benchmarks - /Gearpump/</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -53,72 +53,72 @@
                 <ul class="nav navbar-nav">
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">User Guide <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             <li >
-                                <a href="../../documents/getstarted">Get Started</a>
+                                <a href="../getstarted">Get Started</a>
                             </li>
                         
                             <li >
-                                <a href="../../documents/dag_api">DAG API</a>
+                                <a href="../dag_api">DAG API</a>
                             </li>
                         
                             <li >
-                                <a href="../../documents/how_to_build">How to Build</a>
+                                <a href="../how_to_build">How to Build</a>
                             </li>
                         
                             <li >
-                                <a href="../../documents/document">Documents</a>
+                                <a href="../document">Documents</a>
                             </li>
                         
                             <li >
-                                <a href="../../documents/configuration">Gearpump Configuration</a>
+                                <a href="../configuration">Gearpump Configuration</a>
                             </li>
                         
                             <li >
-                                <a href="../../documents/run_time_model_description">Runtime Model</a>
+                                <a href="../run_time_model_description">Runtime Model</a>
                             </li>
                         
                             <li >
-                                <a href="../../documents/high_availability_guide">High Availability Guide</a>
+                                <a href="../high_availability_guide">High Availability Guide</a>
                             </li>
                         
                             <li >
-                                <a href="../../documents/kafka_tutorial_walk_through">Kafka Source and Sink Example Walk through</a>
+                                <a href="../kafka_tutorial_walk_through">Kafka Source and Sink Example Walk through</a>
                             </li>
                         
                             <li >
-                                <a href="../../documents/how_gearpump_do_fail_over">How Gearpump do Fail Over</a>
+                                <a href="../how_gearpump_do_fail_over">How Gearpump do Fail Over</a>
                             </li>
                         
                             <li >
-                                <a href="../../documents/how_to_write_a_streaming_application">How to Write a Streaming Application</a>
+                                <a href="../how_to_write_a_streaming_application">How to Write a Streaming Application</a>
                             </li>
                         
                             <li >
-                                <a href="../../documents/how_to_write_a_general_distributed_application">How to Write a General Distributed Application</a>
+                                <a href="../how_to_write_a_general_distributed_application">How to Write a General Distributed Application</a>
                             </li>
                         
                             <li >
-                                <a href="../../documents/serialization_guide">Write your customized serializer</a>
+                                <a href="../serialization_guide">Write your customized serializer</a>
                             </li>
                         
                             <li >
-                                <a href="../../documents/sbt_and_maven_depandency_setting">sbt and Maven Dependencies settings</a>
+                                <a href="../sbt_and_maven_depandency_setting">sbt and Maven Dependencies settings</a>
                             </li>
                         
                             <li >
-                                <a href="../../documents/intellij_eclipse_development_environment_setup">IDE setup</a>
+                                <a href="../intellij_eclipse_development_environment_setup">IDE setup</a>
+                            </li>
+                        
+                            <li class="active">
+                                <a href=".">Performance Benchmarks</a>
                             </li>
                         
                             <li >
-                                <a href="../../documents/performance">Performance Benchmarks</a>
-                            </li>
-                        
-                            <li >
-                                <a href="../../documents/faq">FAQ</a>
+                                <a href="../faq">FAQ</a>
                             </li>
                         
                         </ul>
@@ -126,16 +126,16 @@
                 
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Downloads <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
-                            <li class="active">
-                                <a href=".">Latest Version</a>
+                            <li >
+                                <a href="../../downloads/downloads">Latest Version</a>
                             </li>
                         
                             <li >
-                                <a href="../releasenotes">Release Notes</a>
+                                <a href="../../downloads/releasenotes">Release Notes</a>
                             </li>
                         
                         </ul>
@@ -178,12 +178,12 @@
                 
                 
                 <li >
-                    <a rel="next" href="../../documents/faq">
+                    <a rel="next" href="../intellij_eclipse_development_environment_setup">
                         <i class="fa fa-arrow-left"></i> Previous
                     </a>
                 </li>
                 <li >
-                    <a rel="prev" href="../releasenotes">
+                    <a rel="prev" href="../faq">
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
                 </li>
@@ -209,15 +209,51 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#030-snapshot">0.3.0-SNAPSHOT</a></li>
+        <li class="main active"><a href="#benchmark">Benchmark</a></li>
+        
+            <li><a href="#how-do-we-do-benchmark">How do we do benchmark?</a></li>
+        
+    
+        <li class="main "><a href="#metrics">Metrics</a></li>
         
     
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h2 id="030-snapshot">0.3.0-SNAPSHOT</h2>
-<p><a href="https://github.com/intel-hadoop/gearpump/releases"><img alt="download" src="https://raw.githubusercontent.com/clockfly/icons/master/gearpump-0.2-rc1.jpg" /></a></p>
+<h1 id="benchmark">Benchmark</h1>
+<h2 id="how-do-we-do-benchmark">How do we do benchmark?</h2>
+<ol>
+<li>
+<p>Set up a node running Graphite, see guide doc/dashboard/README.md. </p>
+</li>
+<li>
+<p>Set up a 4-nodes Gearpump cluster with 10GbE network which have 3 Workers on each node. In our test environment, each node has 128GB memory and Intel? Xeon? 32-core processor E5-2680 2.70GHz. Make sure the metrics is enabled in Gearpump, check <a href="https://github.com/intel-hadoop/gearpump/wiki/Metrics-and-Dashboard">guide</a></p>
+</li>
+<li>
+<p>Submit a SOL application with 32 SteamProducers and 32 StreamProcessors:
+  <code>bash
+  bin/gear app -jar ./examples/sol/target/pack/lib/gearpump-examples-$VERSION.jar org.apache.gearpump.streaming.examples.sol.SOL -master $HOST:PORT -streamProducer 32 -streamProcessor 32 -runseconds 600</code></p>
+</li>
+<li>
+<p>Browser http://$HOST:801/, you should see a grafana dashboard. The HOST should be the node runs Graphite.</p>
+</li>
+<li>
+<p>Copy the config file doc/dashboard/graphana_dashboard, and modify the <code>host</code> filed to the actual hosts which runs Gearpump and the <code>source</code> and <code>target</code> fields. Please note that the format of the value should exactly the same as existing format and you also need to manually add the rest task ID to the value of <code>All</code> under <code>source</code> and <code>target</code> filed since now the number of each task type is 32.</p>
+</li>
+<li>
+<p>In the Grafana web page, click the "search" button and then import the config file mentioned above.</p>
+</li>
+</ol>
+<h1 id="metrics">Metrics</h1>
+<p>We use codahale metrics library. Gearpump support to use Graphite to visualize the metrics data. Metrics is disabled by default. To use it, you need to configure the <code>core/src/main/resources/reference.conf</code></p>
+<p><code>gearpump.metrics.enabled = true         ## Default is false, thus metrics is not enabled.
+  gearpump.metrics.graphite.host = "your actual graphite host name or ip"  
+  gearpump.metrics.graphite.port = 2003   ## Your graphite port
+  gearpump.metrics.sample.rate = 10       ## this means we will sample 1 message for every 10 messages</code></p>
+<p>For guide about how to install and configure Graphite, please check the Graphite website http://graphite.wikidot.com/.  For guide about how to use Grafana, please check guide in <a href="https://github.com/intel-hadoop/gearpump/blob/master/doc/dashboard/README.md">doc/dashboard/readme.md</a></p>
+<p>Here is how it looks like for grafana dashboard:</p>
+<p><img alt="" src="https://raw.githubusercontent.com/intel-hadoop/gearpump/master/doc/dashboard.png" /></p>
 </div>
             
         </div>
