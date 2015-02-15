@@ -12,12 +12,10 @@ Please submit new issue to [https://github.com/intel-hadoop/gearpump/issues](htt
 
 ### Contribute code
 
-Contributions are warnly welcome! Please submit pull request at [https://github.com/intel-hadoop/gearpump/pulls](https://github.com/intel-hadoop/gearpump/pulls)
+Contributions are warnly welcome! To contribute to gearpump source code, please make a PR against [https://github.com/intel-hadoop/gearpump/pulls](https://github.com/intel-hadoop/gearpump/pulls)
+
+To contribute to the contents in this site, make a PR to [https://github.com/gearpump/gearpump.github.io](https://github.com/gearpump/gearpump.github.io)
 
 ### More Technical Support
 
-For potential cooperation and support, please contact <seanzhong@apache.org>
-
-
-
-
+For business cooperation and support, please contact <seanzhong@apache.org>
