@@ -1,2 +1,2 @@
-# gearpump.github.io
-Gearpump.io publishing site
+# gearpump.io
+Source code for site http://gearpump.io
