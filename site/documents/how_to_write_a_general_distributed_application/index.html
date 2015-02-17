@@ -135,14 +135,28 @@
                 
                 
                 
-                    <li >
-                        <a href="../../publications/publications">Publications</a>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Publications <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            <li >
+                                <a href="../../publications/publications">Publications</a>
+                            </li>
+                        
+                        </ul>
                     </li>
                 
                 
                 
-                    <li >
-                        <a href="../../usecases/use_cases">Use Cases</a>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Use Cases <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            <li >
+                                <a href="../../usecases/use_cases">Use cases</a>
+                            </li>
+                        
+                        </ul>
                     </li>
                 
                 
@@ -213,10 +227,131 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
+        <li class="main active"><a href="#how-to-write-a-general-distributed-application">How to Write a General Distributed Application</a></li>
+        
+            <li><a href="#shell-executor">Shell Executor</a></li>
+        
+            <li><a href="#distributed-shell-appmaster">Distributed Shell AppMaster</a></li>
+        
+            <li><a href="#weave-together">Weave together</a></li>
+        
+    
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
+<h1 id="how-to-write-a-general-distributed-application">How to Write a General Distributed Application</h1>
+<p>We'll use <a href="https://github.com/intel-hadoop/gearpump/tree/master/examples/distributedshell/src/main/scala/org/apache/gearpump/examples/distributedshell">Distributed Shell</a> as an example to illustrate how to do that.</p>
+<p>What Distributed Shell do is that user send a shell command to the cluster and the command will the executed on each node, then the result will be return to user.</p>
+<h3 id="shell-executor">Shell Executor</h3>
+<p>In this kind of distributed application, Task is not needed any more because the Executor can take over that role.</p>
+<pre><code class="scala">class ShellExecutor(executorContext: ExecutorContext, userConf : UserConfig) extends Actor{
+  import executorContext._
+
+  override def receive: Receive = {
+    case ShellCommand(command, args) =&gt;
+      val process = Try(s&quot;$command $args&quot; !!)
+      val result = process match {
+        case Success(msg) =&gt; msg
+        case Failure(ex) =&gt; ex.getMessage
+      }
+      sender ! ShellCommandResult(executorId, result)
+  }
+}
+</code></pre>
+
+<p>So ShellExecutor just receive the ShellCommand and try to execute it and return the result to the sender, which is quite simple.</p>
+<h3 id="distributed-shell-appmaster">Distributed Shell AppMaster</h3>
+<p>For a non-streaming application, you have to write your own AppMaster.</p>
+<p>Here is a typical user defined AppMaster, please note that some trivial codes are omitted.</p>
+<pre><code class="scala">class DistShellAppMaster(appContext : AppMasterContext, app : Application) extends ApplicationMaster {
+  protected var currentExecutorId = 0
+
+  override def preStart(): Unit = {
+    ActorUtil.launchExecutorOnEachWorker(masterProxy, getExecutorJvmConfig, self)
+  }
+
+  override def receive: Receive = {
+    case ExecutorSystemStarted(executorSystem) =&gt;
+      import executorSystem.{address, worker, resource =&gt; executorResource}
+      val executorContext = ExecutorContext(currentExecutorId, worker.workerId, appId, self, executorResource)
+      val executor = context.actorOf(Props(classOf[ShellExecutor], executorContext, app.userConfig)
+          .withDeploy(Deploy(scope = RemoteScope(address))), currentExecutorId.toString)
+      executorSystem.bindLifeCycleWith(executor)
+      currentExecutorId += 1
+    case StartExecutorSystemTimeout =&gt;
+      masterProxy ! ShutdownApplication(appId)
+      context.stop(self)
+    case msg: ShellCommand =&gt;
+      Future.fold(context.children.map(_ ? msg))(new ShellCommandResultAggregator) { (aggregator, response) =&gt;
+        aggregator.aggregate(response.asInstanceOf[ShellCommandResult])
+      }.map(_.toString()) pipeTo sender
+  }
+
+  private def getExecutorJvmConfig: ExecutorSystemJvmConfig = {
+    val config: Config = Option(app.clusterConfig).map(_.getConfig).getOrElse(ConfigFactory.empty())
+    val jvmSetting = Util.resolveJvmSetting(config.withFallback(context.system.settings.config)).executor
+    ExecutorSystemJvmConfig(jvmSetting.classPath, jvmSetting.vmargs,
+      appJar, username, config)
+  }
+}
+</code></pre>
+
+<p>So when this DistShellAppMaster started, first it will request resources to launch one executor on each node, which is done in method <code>preStart</code></p>
+<p>Then the DistShellAppMaster's receive handler will handle the allocated resource to launch the <code>ShellExecutor</code> we want. If you want to write your application, you can just use this part of code. The only thing needed is replacing the Executor class.</p>
+<p>There may be a situation that the resource allocation failed which will bring the message <code>StartExecutorSystemTimeout</code>, the normal pattern to handle that is just what we do: shut down the application.</p>
+<p>The real application logic part is in <code>ShellCommand</code> message handler, which is specific to different applications. Here we distribute the shell command to each executor and aggregate the results to the client.</p>
+<p>For method <code>getExecutorJvmConfig</code>, you can just use this part of code in your own application.</p>
+<h3 id="weave-together">Weave together</h3>
+<p>Now its time to launch the application.</p>
+<pre><code class="scala">object DistributedShell extends App with ArgumentsParser {
+  override val options: Array[(String, CLIOption[Any])] = Array(
+    &quot;master&quot; -&gt; CLIOption[String](&quot;&lt;host1:port1,host2:port2,host3:port3&gt;&quot;, required = true)
+  )
+
+  def application(config: ParseResult) : Application = {
+    Application(&quot;DistributedShell&quot;, classOf[DistShellAppMaster].getName, UserConfig.empty)
+  }
+
+  val config = parse(args)
+  val context = ClientContext(config.getString(&quot;master&quot;))
+  implicit val system = context.system
+  val appId = context.submit(application(config))
+  context.close()
+  LOG.info(s&quot;Distributed Shell Application started with appId $appId !&quot;)
+}
+</code></pre>
+
+<p>The application class extends <code>App</code> and `ArgumentsParser which make it easier to parse arguments and run main functions. This part is similar to the streaming applications.</p>
+<p>The main class DistributeShell will submit an Application, whose AppMaster is DistShellAppMaster.</p>
+<p>After set up the DistributedShell application, user can send shell command to it now.</p>
+<pre><code class="scala">object DistributedShellClient extends App with ArgumentsParser  {
+  implicit val timeout = Constants.FUTURE_TIMEOUT
+  import scala.concurrent.ExecutionContext.Implicits.global
+  private val LOG: Logger = LoggerFactory.getLogger(getClass)
+
+  override val options: Array[(String, CLIOption[Any])] = Array(
+    &quot;master&quot; -&gt; CLIOption[String](&quot;&lt;host1:port1,host2:port2,host3:port3&gt;&quot;, required = true),
+    &quot;appid&quot; -&gt; CLIOption[Int](&quot;&lt;the distributed shell appid&gt;&quot;, required = true),
+    &quot;command&quot; -&gt; CLIOption[String](&quot;&lt;shell command&gt;&quot;, required = true),
+    &quot;args&quot; -&gt; CLIOption[String](&quot;&lt;shell arguments&gt;&quot;, required = true)
+  )
+
+  val config = parse(args)
+  val context = ClientContext(config.getString(&quot;master&quot;))
+  val appid = config.getInt(&quot;appid&quot;)
+  val command = config.getString(&quot;command&quot;)
+  val arguments = config.getString(&quot;args&quot;)
+  val appMaster = context.resolveAppID(appid)
+  (appMaster ? ShellCommand(command, arguments)).map { reslut =&gt;
+    LOG.info(s&quot;Result: $reslut&quot;)
+    context.close()
+  }
+}
+</code></pre>
+
+<p>In the DistributedShellClient, it will resolve the appid to the real appmaster(the applicaton id will be printed when launching DistributedShell).</p>
+<p>Once we got the AppMaster, then we can send ShellCommand to it and wait for the result.</p>
 </div>
             
         </div>
