@@ -1,10 +1,14 @@
-# How to Write your own Gearpump Application
+# Streaming Application Developer Guide
 
 We'll use [wordcount](https://github.com/intel-hadoop/gearpump/tree/master/examples/wordcount/src/main/scala/org/apache/gearpump/streaming/examples/wordcount) as an example to illustrate how to write GearPump applications.
 
+## Maven/Sbt Settings
+
+## Define Processor(Task) class and Partitioner class
+
 An application is a Directed Acyclic Graph (DAG) of processors (Please refer to [DAG API](https://github.com/intel-hadoop/gearpump/wiki/DAG-API)) . In the wordcount example, We will firstly define two processors `Split` and `Sum`, and then weave them together. 
 
-###Split processor
+### Split processor
 
 In the Split processor, we simply split a predefined text (the content is simplified for conciseness) and send out each split word to Sum.
 
@@ -32,7 +36,7 @@ object Split {
 
 Like Split, every processor extends a `TaskActor`.  The `onStart` method is called once before any message comes in; `onNext` method is called to process every incoming message. Note that GearPump employs the message-driven model and that's why Split sends itself a message at the end of `onStart` and `onNext` to trigger next message processing.
 
-###Sum Processor
+### Sum Processor
 
 The structure of Sum processor looks much alike. Sum does not need to send messages to itself since it receives messages from Split. 
 
@@ -78,7 +82,7 @@ class Sum (taskContext : TaskContext, conf: UserConfig) extends TaskActor(taskCo
 
 Besides counting the sum, we also define a scheduler to report throughput every 5 seconds. The scheduler should be cancelled when the computation completes, which could be accomplished overriding the `onStop` method. The default implementation of `onStop` is a no-op.
 
-###Partitioner
+### Partitioner
 
 A processor could be parallelized to a list of tasks. A `Partitioner` defines how the data is shuffled among tasks of Split and Sum. GearPump has already provided two partitioners 
 
@@ -93,7 +97,7 @@ trait Partitioner extends Serializable {
 }
 ```
 
-###Weave together
+## Define TaskDescription and AppDescription
 
 Now, we are able to write our application class, weaving the above components together.
 
@@ -133,3 +137,101 @@ object WordCount extends App with ArgumentsParser {
 We override `options` value and define an array of command line arguments to parse. We want application users to pass in masters' hosts and ports, the parallelism of split and sum tasks, and how long to run the example. We also specify whether an option is `required` and provide `defaultValue` for some arguments.
 
 Given the `ParseResult` of command line arguments, we create `TaskDescription`s for Split and Sum processors, and connect them with `HashPartitioner` using DAG API. The graph is wrapped in an `AppDescrition` , which is finally submit to master.
+
+## Submit an application
+
+Please check [Application submission tool](commandlinesyntax#gear-app)
+
+## Advanced topics
+
+### Define Custom Message Serializer
+
+We use library [kryo](https://github.com/EsotericSoftware/kryo) and [akka-kryo library](https://github.com/romix/akka-kryo-serialization). If you have cutomized the Message, you need to define the serializer explicitly.
+
+The configuration for serialization is in gear.conf:
+
+```
+gearpump {
+  serializers {
+    "org.apache.gearpump.Message" = "org.apache.gearpump.streaming.MessageSerializer"
+    "org.apache.gearpump.streaming.task.AckRequest" = "org.apache.gearpump.streaming.AckRequestSerializer"
+    "org.apache.gearpump.streaming.task.Ack" = "org.apache.gearpump.streaming.AckSerializer"
+
+    ## Use default serializer for this type
+    "scala.Tuple2" = ""
+  }
+}
+```
+
+akka-kryo-serialization has built-in support for many data types.
+
+```
+
+# gearpump types
+Message
+AckRequest
+Ack
+
+# akka types
+akka.actor.ActorRef
+
+# scala types
+scala.Enumeration#Value
+scala.collection.mutable.Map[_, _]
+scala.collection.immutable.SortedMap[_, _]
+scala.collection.immutable.Map[_, _]
+scala.collection.immutable.SortedSet[_]
+scala.collection.immutable.Set[_]
+scala.collection.mutable.SortedSet[_]
+scala.collection.mutable.Set[_]
+scala.collection.generic.MapFactory[scala.collection.Map]
+scala.collection.generic.SetFactory[scala.collection.Set]
+scala.collection.Traversable[_]
+Tuple2
+Tuple3
+
+
+# java complex types
+byte[]
+char[]
+short[]
+int[]
+long[]
+float[]
+double[]
+boolean[]
+String[]
+Object[]
+BigInteger
+BigDecimal
+Class
+Date
+Enum
+EnumSet
+Currency
+StringBuffer
+StringBuilder
+TreeSet
+Collection
+TreeMap
+Map
+TimeZone
+Calendar
+Locale
+
+## Primitive types
+int
+String
+float
+boolean
+byte
+char
+short
+long
+double
+void
+```
+
+
+
+### Connect with Kafka

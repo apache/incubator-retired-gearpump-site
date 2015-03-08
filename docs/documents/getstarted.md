@@ -1,107 +1,115 @@
-## Getting Started
+# Get Started
 
-The latest release binary can be found at: https://github.com/intel-hadoop/gearpump/releases
+## Prepare the binary
+You can either download pre-build release package or choose to build from source code. 
 
-You can skip step 1 and step 2 if you are using pre-build binaries.
+### Download Release Binary
 
-The latest released version can be found at: https://github.com/intel-hadoop/gearpump/releases
+If you choose to use pre-build package, then you don’t need to build from source code. The release package can be downloaded from: 
 
-1. Clone the GearPump repository
+#### [http://www.gearpump.io/site/downloads/downloads/](http://www.gearpump.io/site/downloads/downloads/)
 
-  ```bash
+### Build from Source code
+
+If you choose to build the package from source code yourself, you can follow these steps:
+  
+1). Clone the GearPump repository
+
+```bash
   git clone https://github.com/intel-hadoop/gearpump.git
   cd gearpump
-  ```
+```
 
-2. Build package
+2). Build package
 
-  Build a package
-
-  ```bash
-  
+```bash
   ## Please use scala 2.11
   ## The target package path: target/gearpump-$VERSION.tar.gz
   sbt clean assembly packArchive ## Or use: sbt clean assembly pack-archive
-  ```
+```
 
-3. Configure
+  After the build, there will be a package file gearpump-${version}.tar.gz generated under target/ folder.
   
-  Distribute the package to all nodes. Modify `conf/gear.conf` on all nodes. You MUST configure ```akka.remote.netty.tcp.hostname``` to make it point to your hostname(or ip), and `gearpump.cluster.masters` to represent a list of master nodes.
+  **NOTE:**
+The build requires network connection. If you are behind an enterprise proxy, make sure you have set the proxy in your env before running the build commands. 
+For windows:
 
-  ```
-  ### Put Akka configuration here
-  base {
+```bash
+Set HTTP_PROXY=http://host:port
+set HTTPS_PROXT= http://host:port
+```
 
-    ##############################
-    ### Required to change!!
-    ### You need to set the ip address or hostname of this machine
-    ###
-    akka.remote.netty.tcp.hostname = "127.0.0.1"
-  }
+For Linux:
 
-  #########################################
-  ### This is the default configuration for gearpump
-  ### To use the application, you at least need to change gearpump.cluster to point to right master
-  #########################################
-  gearpump {
+```bash
+export HTTP_PROXY=http://host:port
+export HTTPS_PROXT= http://host:port
+```
 
-    ##############################
-    ### Required to change!!
-    ### You need to set the master cluster address here
-    ###
-    ###
-    ### For example, you may start three master
-    ### on node1: bin/master -ip node1 -port 3000
-    ### on node2: bin/master -ip node2 -port 3000
-    ### on node3: bin/master -ip node3 -port 3000
-    ###
-    ### Then you need to set the cluster.masters = ["node1:3000","node2:3000","node3:3000"]
-    cluster {
-      masters = ["127.0.0.1:3000"]
-    }
-  }
-  ```
+## Gearpump package structure
 
-4. Start Master nodes
+You need to flatten the .tar.gz file to use it, on Linux, you can
+
+```bash
+# pleaes replace ${version} below with actual version used
+tar  -zxvf gearpump-${version}.tar.gz
+```
+
+After decompression, the directory structure looks like picture 1.
+
+![](img/layout.png)
+  
+Under bin/ folder, there are script files for Linux(bash script) and Windows(.bat script). 
+
+script | function
+--------|------------
+local | You can start the Gearpump cluster in single JVM(local mode), or in a distributed cluster(cluster mode). To start the cluster in local mode, you can use the local /local.bat helper scripts, it is very useful for developing or troubleshooting. 
+master | To start Gearpump in cluster mode, you need to start one or more master nodes, which represent the global resource management center. master/master.bat is launcher script to boot the master node. 
+worker | To start Gearpump in cluster mode, you also need to start several workers, with each worker represent a set of local resources. worker/worker.bat is launcher script to start the worker node. 
+services | This script is used to start backend REST service and other services for frontend UI dashboard. 
+
+Please check [Command Line Syntax](commandlinesyntax.md) for more information for each script.
+
+Run a distributed application in 30 seconds.
+---------------
+
+To start a demo application, there are three steps,
  
-  Start the master daemon on all nodes you have configured in `gearpump.cluster.masters`. If you have configured `gearpump.cluster.masters` to:
-  
-  ```
-  gearpump{
-     cluster {
-      masters = ["node1:3000", "node2:3000"]
-    }
-  }
-  ```
-  
-  Then start master daemon on ```node1``` and ```node2```.
+### Step1: Start the cluster
 
-  ```bash
-  ## on node1
-  cd gearpump-$VERSION
-  bin/master -ip node1 -port 3000
-  
-  ## on node2
-  cd gearpump-$VERSION
-  bin/master -ip node1 -port 3000
-  ```
+You can start a local mode cluster in single line
 
-  We support [Master HA](https://github.com/intel-hadoop/gearpump/wiki#master-ha) and allow master to start on multiple nodes. 
+```bash
+# start the master and 4 workers in single JVM. The master will listen on 3000
+# you can Ctrl+C to kill the local cluster after you finished the startup tutorial. 
+bin/local –ip  127.0.0.1 –port 3000 –workers 4
+```
 
-5. Start worker
+**NOTE: Change the working directory**. Log files by default will be generated under current working directory. So, please "cd" to required working directly before running the shell commands.
 
-  Start multiple workers on one or more nodes. 
- 
-  ```bash
-  bin/worker
-  ```
+### Step2: Submit application
+After the cluster is started, you can submit an example wordcount application to the cluster
 
-6. Submit application jar and run
+```bash
+## To run WordCount example, please substitute $VERSION with actual file version.
+bin/gear app -jar examples/gearpump-examples-assembly-$VERSION.jar org.apache.gearpump.streaming.examples.wordcount.WordCount -master 127.0.0.1:3000
+```
 
-  You can submit your application to cluster by providing an application jar. For example, for built-in examples, the jar is located at `examples/gearpump-examples-assembly-$VERSION.jar`
+### Step3: Open the UI and view the status
 
-  ```bash
-  ## To run WordCount example
-  bin/gear app -jar examples/gearpump-examples-assembly-$VERSION.jar org.apache.gearpump.streaming.examples.wordcount.WordCount -master node1:3000
-  ```
-  Check the wiki pages for more on [build](https://github.com/intel-hadoop/gearpump/wiki#build) and [running examples] in local modes](https://github.com/intel-hadoop/gearpump/wiki#how-to-run-gearpump).
+Now, the application is running, start the UI and check the status:
+
+```bash
+bin/services –master 127.0.0.1:3000
+```
+You can manage the application in UI [http://127.0.0.1:8090](http://127.0.0.1:8090) or by [Command Line tool](commandlinesyntax.md).
+
+**NOTE:** the UI port setting can be defined in configuration, please check section [Configuration Guide](documents/configuration_guide)
+You see, now it is up and running. 
+
+### Step4: Congratulation! You have your first application running! 
+
+Other Application Examples
+----------
+
+Besides wordcount, there are serveral other example applications. Please check the source tree examples/ for detail information.

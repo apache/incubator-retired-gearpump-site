@@ -1,10 +1,13 @@
-# How to Write a General Distributed Application
+# Non-Streaming Application Developer Guide
 
 We'll use [Distributed Shell](https://github.com/intel-hadoop/gearpump/tree/master/examples/distributedshell/src/main/scala/org/apache/gearpump/examples/distributedshell) as an example to illustrate how to do that.
 
+## Maven/Sbt Settings
+
 What Distributed Shell do is that user send a shell command to the cluster and the command will the executed on each node, then the result will be return to user.
 
-###Shell Executor
+
+## Define Executor Class
 In this kind of distributed application, Task is not needed any more because the Executor can take over that role.
 
 ```scala
@@ -25,7 +28,7 @@ class ShellExecutor(executorContext: ExecutorContext, userConf : UserConfig) ext
 
 So ShellExecutor just receive the ShellCommand and try to execute it and return the result to the sender, which is quite simple.
 
-###Distributed Shell AppMaster
+## Define AppMaster Class
 For a non-streaming application, you have to write your own AppMaster.
 
 Here is a typical user defined AppMaster, please note that some trivial codes are omitted.
@@ -74,7 +77,7 @@ The real application logic part is in `ShellCommand` message handler, which is s
 
 For method `getExecutorJvmConfig`, you can just use this part of code in your own application.
 
-###Weave together
+## Define Application Description
 Now its time to launch the application.
 
 ```scala
@@ -131,3 +134,8 @@ object DistributedShellClient extends App with ArgumentsParser  {
 In the DistributedShellClient, it will resolve the appid to the real appmaster(the applicaton id will be printed when launching DistributedShell).
 
 Once we got the AppMaster, then we can send ShellCommand to it and wait for the result.
+
+
+## Submit application
+
+Please check [Application submission tool](commandlinesyntax#gear-app)

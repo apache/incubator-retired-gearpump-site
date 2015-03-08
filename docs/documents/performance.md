@@ -1,6 +1,29 @@
-# Benchmark
+# Performance Evaluation
 
-## How do we do benchmark?
+To illustrate the performance of Gearpump, we mainly focused on two aspects, throughput and latency, using a micro benchmark called SOL (an example in the Gearpump distro) whose topology is quite simple. SOLStreamProducer delivers messages to SOLStreamProcessor constantly and SOLStreamProcessor does nothing. We set up a 4-nodes cluster with 10GbE network and each node's hardware is briefly shown as follows:
+
+Processor: 32 core Intel(R) Xeon(R) CPU E5-2680 2.70GHz
+Memory: 128GB
+
+## Throughput
+
+Gearpump uses Graphite for the metrics dashboard. We tried to explore the upper bound of the throughput, after launching 64 SOLStreamProducer and 64 SOLStreamProcessor the Figure 10 shows that the whole throughput of the cluster can reach about 13 million messages/second(100 bytes per message)
+ 
+Figure 18: Performance Evaluation, Throughput and Latency
+
+## Latency
+
+When we transfer message at the max throughput above, the average latency between two tasks is 17ms, standard deviation is 13ms.
+ 
+Figure 19: Latency between Two tasks(ms)
+
+## Fault Recovery time
+
+When the corruption is detected, for example the Executor is down, Gearpump will reallocate the resource and restart the application. It takes about 10 seconds to recover the application.
+
+## How to setup the benchmark environment?
+
+### Prepare the env
 
 1. Set up a node running Graphite, see guide doc/dashboard/README.md. 
 
@@ -17,11 +40,12 @@
 
 6. In the Grafana web page, click the "search" button and then import the config file mentioned above.
 
-# Metrics
+### Metrics
 
-We use codahale metrics library. Gearpump support to use Graphite to visualize the metrics data. Metrics is disabled by default. To use it, you need to configure the `core/src/main/resources/reference.conf`
+We use codahale metrics library. Gearpump support to use Graphite to visualize the metrics data. Metrics is disabled by default. To use it, you need to configure the 'conf/gear.conf'
 
-  ```
+```bash
+  gearpump.metrics.reporter = graphite
   gearpump.metrics.enabled = true         ## Default is false, thus metrics is not enabled.
   gearpump.metrics.graphite.host = "your actual graphite host name or ip"  
   gearpump.metrics.graphite.port = 2003   ## Your graphite port
