@@ -8,9 +8,9 @@ https://github.com/intel-hadoop/gearpump/releases/download/0.3.0-rc1/binary.gear
 
 ## Latest snapshot version
 
-0.3.0-rc2-SNPASHOT [Build from source code](documents/getstarted/#build-from-source-code)
+0.3.0-rc2-SNPASHOT [Build from source code](0.3/getstarted/#build-from-source-code)
 
-## Read [tutorial to get started](documents/getstarted/)
+## Read [tutorial to get started](0.3/getstarted/)
 
 ## Maven
 

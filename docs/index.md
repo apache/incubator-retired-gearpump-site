@@ -21,5 +21,5 @@ We have a cool UI:
 
 ### Get Started
 [![](img/download.jpg)](/downloads/downloads/)
-#### - [Get Started Tutorial](documents/getstarted.md)
-#### - [Highlights](documents/introduction.md)
+#### - [Get Started Tutorial](0.3/getstarted.md)
+#### - [Highlights](0.3/introduction.md)
