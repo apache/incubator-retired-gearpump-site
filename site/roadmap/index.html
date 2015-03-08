@@ -58,59 +58,63 @@
                         <ul class="dropdown-menu">
                         
                             <li >
-                                <a href="../documents/getstarted">Get Started</a>
+                                <a href="../0.3/introduction">Introduction</a>
                             </li>
                         
                             <li >
-                                <a href="../documents/dag_api">DAG API</a>
+                                <a href="../0.3/getstarted">Get Started</a>
                             </li>
                         
                             <li >
-                                <a href="../documents/how_to_build">How to Build</a>
+                                <a href="../0.3/concepts">Concepts</a>
                             </li>
                         
                             <li >
-                                <a href="../documents/configuration_guide">Configuration Guide</a>
+                                <a href="../0.3/adminguide">Admin Guide</a>
                             </li>
                         
                             <li >
-                                <a href="../documents/run_time_model_description">Runtime Model</a>
+                                <a href="../0.3/how_to_write_a_streaming_application">Streaming Application Developer Guide</a>
                             </li>
                         
                             <li >
-                                <a href="../documents/high_availability_guide">High Availability Guide</a>
+                                <a href="../0.3/how_to_write_a_general_distributed_application">Non-Streaming Application Developer Guide</a>
                             </li>
                         
                             <li >
-                                <a href="../documents/kafka_tutorial_walk_through">Kafka Source and Sink Example Walk through</a>
+                                <a href="../0.3/performance">Performance Benchmarks</a>
                             </li>
                         
                             <li >
-                                <a href="../documents/how_gearpump_do_fail_over">How Gearpump do Fail Over</a>
+                                <a href="../0.3/internal">Gearpump Internals</a>
                             </li>
                         
                             <li >
-                                <a href="../documents/how_to_write_a_streaming_application">How to Write a Streaming Application</a>
+                                <a href="../0.3/examplewalkthrough">Kafka Use case walkthrough</a>
                             </li>
                         
                             <li >
-                                <a href="../documents/how_to_write_a_general_distributed_application">How to Write a General Distributed Application</a>
+                                <a href="../0.3/commandlinesyntax">Command Line Tools</a>
                             </li>
                         
                             <li >
-                                <a href="../documents/serialization_guide">Write your customized serializer</a>
+                                <a href="../0.3/restapi">Rest API Guide</a>
                             </li>
                         
                             <li >
-                                <a href="../documents/intellij_eclipse_development_environment_setup">IDE setup</a>
+                                <a href="../0.3/configuration_guide">Configuration Guide</a>
                             </li>
                         
                             <li >
-                                <a href="../documents/performance">Performance Benchmarks</a>
+                                <a href="../0.3/high_availability_guide">High Availability Guide</a>
                             </li>
                         
                             <li >
-                                <a href="../documents/faq">FAQ</a>
+                                <a href="../0.3/intellij_eclipse_development_environment_setup">IDE setup</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../0.3/faq">FAQ</a>
                             </li>
                         
                         </ul>
@@ -135,28 +139,14 @@
                 
                 
                 
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Publications <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        
-                            <li >
-                                <a href="../publications/publications">Publications</a>
-                            </li>
-                        
-                        </ul>
+                    <li >
+                        <a href="../publications/publications">Publications</a>
                     </li>
                 
                 
                 
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Use Cases <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        
-                            <li >
-                                <a href="../usecases/use_cases">Use cases</a>
-                            </li>
-                        
-                        </ul>
+                    <li >
+                        <a href="../usecases/use_cases">Use Cases</a>
                     </li>
                 
                 
@@ -227,11 +217,23 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
+        <li class="main active"><a href="#roadmap">Roadmap</a></li>
+        
+    
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<p>TBD</p>
+<h1 id="roadmap">Roadmap</h1>
+<ol>
+<li>UI dashboard</li>
+<li>High level DSL with combinators like flatmap, cogroup, reduce…</li>
+<li>Window function</li>
+<li>Transactional processing</li>
+<li>Dynamic graph </li>
+<li>Benchmarking</li>
+<li>YARN integration</li>
+</ol>
 </div>
             
         </div>

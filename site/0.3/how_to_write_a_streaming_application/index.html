@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+
+        <title>Streaming Application Developer Guide - /Gearpump/</title>
+
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../..">/Gearpump/</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">User Guide <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            <li >
+                                <a href="../introduction">Introduction</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../getstarted">Get Started</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../concepts">Concepts</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../adminguide">Admin Guide</a>
+                            </li>
+                        
+                            <li class="active">
+                                <a href=".">Streaming Application Developer Guide</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../how_to_write_a_general_distributed_application">Non-Streaming Application Developer Guide</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../performance">Performance Benchmarks</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../internal">Gearpump Internals</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../examplewalkthrough">Kafka Use case walkthrough</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../commandlinesyntax">Command Line Tools</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../restapi">Rest API Guide</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../configuration_guide">Configuration Guide</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../high_availability_guide">High Availability Guide</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../intellij_eclipse_development_environment_setup">IDE setup</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../faq">FAQ</a>
+                            </li>
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Downloads <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            <li >
+                                <a href="../../downloads/downloads">Latest Version</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../../downloads/release_notes">Release Notes</a>
+                            </li>
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../publications/publications">Publications</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../usecases/use_cases">Use Cases</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../roadmap">RoadMap</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            <li >
+                                <a href="../../about/license">License</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../../about/acknowledge">Acknowledgement</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../../about/contact_us">Contact Us</a>
+                            </li>
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+            
+
+            
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                
+                
+                <li >
+                    <a rel="next" href="../adminguide">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../how_to_write_a_general_distributed_application">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+                
+                <li>
+                    <a href="http://github.com/intel-hadoop/gearpump">
+                        
+                            <i class="fa fa-github"></i>
+                        
+                        GitHub
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#streaming-application-developer-guide">Streaming Application Developer Guide</a></li>
+        
+            <li><a href="#mavensbt-settings">Maven/Sbt Settings</a></li>
+        
+            <li><a href="#define-processortask-class-and-partitioner-class">Define Processor(Task) class and Partitioner class</a></li>
+        
+            <li><a href="#define-taskdescription-and-appdescription">Define TaskDescription and AppDescription</a></li>
+        
+            <li><a href="#submit-an-application">Submit an application</a></li>
+        
+            <li><a href="#advanced-topics">Advanced topics</a></li>
+        
+    
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="streaming-application-developer-guide">Streaming Application Developer Guide</h1>
+<p>We'll use <a href="https://github.com/intel-hadoop/gearpump/tree/master/examples/wordcount/src/main/scala/org/apache/gearpump/streaming/examples/wordcount">wordcount</a> as an example to illustrate how to write GearPump applications.</p>
+<h2 id="mavensbt-settings">Maven/Sbt Settings</h2>
+<h2 id="define-processortask-class-and-partitioner-class">Define Processor(Task) class and Partitioner class</h2>
+<p>An application is a Directed Acyclic Graph (DAG) of processors (Please refer to <a href="https://github.com/intel-hadoop/gearpump/wiki/DAG-API">DAG API</a>) . In the wordcount example, We will firstly define two processors <code>Split</code> and <code>Sum</code>, and then weave them together. </p>
+<h3 id="split-processor">Split processor</h3>
+<p>In the Split processor, we simply split a predefined text (the content is simplified for conciseness) and send out each split word to Sum.</p>
+<pre><code class="scala">class Split(taskContext : TaskContext, conf: UserConfig) extends TaskActor(taskContext, conf) {
+
+  override def onStart(startTime : StartTime) : Unit = {
+    self ! Message(&quot;start&quot;)
+  }
+
+  override def onNext(msg : Message) : Unit = {
+    Split.TEXT_TO_SPLIT.lines.foreach { line =&gt;
+      line.split(&quot; &quot;).foreach { msg =&gt;
+        output(new Message(msg, System.currentTimeMillis()))
+      }
+    }
+    self ! Message(&quot;continue&quot;, System.currentTimeMillis())
+  }
+}
+
+object Split {
+  val TEXT_TO_SPLIT = &quot;some text&quot;
+}
+</code></pre>
+
+<p>Like Split, every processor extends a <code>TaskActor</code>.  The <code>onStart</code> method is called once before any message comes in; <code>onNext</code> method is called to process every incoming message. Note that GearPump employs the message-driven model and that's why Split sends itself a message at the end of <code>onStart</code> and <code>onNext</code> to trigger next message processing.</p>
+<h3 id="sum-processor">Sum Processor</h3>
+<p>The structure of Sum processor looks much alike. Sum does not need to send messages to itself since it receives messages from Split. </p>
+<pre><code class="scala">class Sum (taskContext : TaskContext, conf: UserConfig) extends TaskActor(taskContext, conf) {
+  import org.apache.gearpump.streaming.ConfigsHelper._
+
+  private val map : mutable.HashMap[String, Long] = new mutable.HashMap[String, Long]()
+
+  private var wordCount : Long = 0
+  private var snapShotTime : Long = System.currentTimeMillis()
+  private var snapShotWordCount : Long = 0
+
+  private var scheduler : Cancellable = null
+
+  override def onStart(startTime : StartTime) : Unit = {
+    import context.dispatcher
+    scheduler = context.system.scheduler.schedule(new FiniteDuration(5, TimeUnit.SECONDS),
+      new FiniteDuration(5, TimeUnit.SECONDS))(reportWordCount)
+  }
+
+  override def onNext(msg : Message) : Unit = {
+    if (null == msg) {
+      return
+    }
+    val current = map.getOrElse(msg.msg.asInstanceOf[String], 0L)
+    wordCount += 1
+    map.put(msg.msg.asInstanceOf[String], current + 1)
+  }
+
+  override def onStop() : Unit = {
+    scheduler.cancel()
+  }
+
+  def reportWordCount() : Unit = {
+    val current : Long = System.currentTimeMillis()
+    LOG.info(s&quot;Task ${taskContext.taskId} Throughput: ${(wordCount - snapShotWordCount, (current - snapShotTime) / 1000)} (words, second)&quot;)
+    snapShotWordCount = wordCount
+    snapShotTime = current
+  }
+}
+</code></pre>
+
+<p>Besides counting the sum, we also define a scheduler to report throughput every 5 seconds. The scheduler should be cancelled when the computation completes, which could be accomplished overriding the <code>onStop</code> method. The default implementation of <code>onStop</code> is a no-op.</p>
+<h3 id="partitioner">Partitioner</h3>
+<p>A processor could be parallelized to a list of tasks. A <code>Partitioner</code> defines how the data is shuffled among tasks of Split and Sum. GearPump has already provided two partitioners </p>
+<ul>
+<li><code>HashPartitioner</code>: partitions data based on the message's hashcode</li>
+<li><code>ShufflePartitioner</code>: partitions data in a round-robin way.</li>
+</ul>
+<p>You could define your own partitioner by extending the <code>Partitioner</code> trait and overriding the <code>getPartition</code> method.</p>
+<pre><code class="scala">trait Partitioner extends Serializable {
+  def getPartition(msg : Message, partitionNum : Int) : Int
+}
+</code></pre>
+
+<h2 id="define-taskdescription-and-appdescription">Define TaskDescription and AppDescription</h2>
+<p>Now, we are able to write our application class, weaving the above components together.</p>
+<p>The application class extends <code>App</code> and `ArgumentsParser which make it easier to parse arguments and run main functions.</p>
+<pre><code class="scala">object WordCount extends App with ArgumentsParser {
+  private val LOG: Logger = LogUtil.getLogger(getClass)
+  val RUN_FOR_EVER = -1
+
+  override val options: Array[(String, CLIOption[Any])] = Array(
+    &quot;master&quot; -&gt; CLIOption[String](&quot;&lt;host1:port1,host2:port2,host3:port3&gt;&quot;, required = true),
+    &quot;split&quot; -&gt; CLIOption[Int](&quot;&lt;how many split tasks&gt;&quot;, required = false, defaultValue = Some(4)),
+    &quot;sum&quot; -&gt; CLIOption[Int](&quot;&lt;how many sum tasks&gt;&quot;, required = false, defaultValue = Some(4)),
+    &quot;runseconds&quot;-&gt; CLIOption[Int](&quot;&lt;how long to run this example, set to -1 if run forever&gt;&quot;, required = false, defaultValue = Some(60))
+  )
+
+  def application(config: ParseResult) : AppDescription = {
+    val splitNum = config.getInt(&quot;split&quot;)
+    val sumNum = config.getInt(&quot;sum&quot;)
+    val partitioner = new HashPartitioner()
+    val split = TaskDescription(classOf[Split].getName, splitNum)
+    val sum = TaskDescription(classOf[Sum].getName, sumNum)
+    val app = AppDescription(&quot;wordCount&quot;, classOf[AppMaster].getName, UserConfig.empty, Graph(split ~ partitioner ~&gt; sum))
+    app
+  }
+
+  val config = parse(args)
+  val context = ClientContext(config.getString(&quot;master&quot;))
+  val appId = context.submit(application(config))
+  Thread.sleep(config.getInt(&quot;runseconds&quot;) * 1000)
+  context.shutdown(appId)
+  context.close()
+}
+</code></pre>
+
+<p>We override <code>options</code> value and define an array of command line arguments to parse. We want application users to pass in masters' hosts and ports, the parallelism of split and sum tasks, and how long to run the example. We also specify whether an option is <code>required</code> and provide <code>defaultValue</code> for some arguments.</p>
+<p>Given the <code>ParseResult</code> of command line arguments, we create <code>TaskDescription</code>s for Split and Sum processors, and connect them with <code>HashPartitioner</code> using DAG API. The graph is wrapped in an <code>AppDescrition</code> , which is finally submit to master.</p>
+<h2 id="submit-an-application">Submit an application</h2>
+<p>Please check <a href="../../commandlinesyntax#gear-app">Application submission tool</a></p>
+<h2 id="advanced-topics">Advanced topics</h2>
+<h3 id="define-custom-message-serializer">Define Custom Message Serializer</h3>
+<p>We use library <a href="https://github.com/EsotericSoftware/kryo">kryo</a> and <a href="https://github.com/romix/akka-kryo-serialization">akka-kryo library</a>. If you have cutomized the Message, you need to define the serializer explicitly.</p>
+<p>The configuration for serialization is in gear.conf:</p>
+<pre><code>gearpump {
+  serializers {
+    &quot;org.apache.gearpump.Message&quot; = &quot;org.apache.gearpump.streaming.MessageSerializer&quot;
+    &quot;org.apache.gearpump.streaming.task.AckRequest&quot; = &quot;org.apache.gearpump.streaming.AckRequestSerializer&quot;
+    &quot;org.apache.gearpump.streaming.task.Ack&quot; = &quot;org.apache.gearpump.streaming.AckSerializer&quot;
+
+    ## Use default serializer for this type
+    &quot;scala.Tuple2&quot; = &quot;&quot;
+  }
+}
+</code></pre>
+
+<p>akka-kryo-serialization has built-in support for many data types.</p>
+<pre><code>
+# gearpump types
+Message
+AckRequest
+Ack
+
+# akka types
+akka.actor.ActorRef
+
+# scala types
+scala.Enumeration#Value
+scala.collection.mutable.Map[_, _]
+scala.collection.immutable.SortedMap[_, _]
+scala.collection.immutable.Map[_, _]
+scala.collection.immutable.SortedSet[_]
+scala.collection.immutable.Set[_]
+scala.collection.mutable.SortedSet[_]
+scala.collection.mutable.Set[_]
+scala.collection.generic.MapFactory[scala.collection.Map]
+scala.collection.generic.SetFactory[scala.collection.Set]
+scala.collection.Traversable[_]
+Tuple2
+Tuple3
+
+
+# java complex types
+byte[]
+char[]
+short[]
+int[]
+long[]
+float[]
+double[]
+boolean[]
+String[]
+Object[]
+BigInteger
+BigDecimal
+Class
+Date
+Enum
+EnumSet
+Currency
+StringBuffer
+StringBuilder
+TreeSet
+Collection
+TreeMap
+Map
+TimeZone
+Calendar
+Locale
+
+## Primitive types
+int
+String
+float
+boolean
+byte
+char
+short
+long
+double
+void
+</code></pre>
+
+<h3 id="connect-with-kafka">Connect with Kafka</h3>
+</div>
+            
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+
+        
+
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/prettify-1.0.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script src="../../js/base.js"></script>
+    </body>
+</html>

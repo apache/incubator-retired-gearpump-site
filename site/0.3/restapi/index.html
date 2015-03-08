@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-        <title>Acknowledgement - /Gearpump/</title>
+        <title>Rest API Guide - /Gearpump/</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -53,68 +53,68 @@
                 <ul class="nav navbar-nav">
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">User Guide <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             <li >
-                                <a href="../../0.3/introduction">Introduction</a>
+                                <a href="../introduction">Introduction</a>
                             </li>
                         
                             <li >
-                                <a href="../../0.3/getstarted">Get Started</a>
+                                <a href="../getstarted">Get Started</a>
                             </li>
                         
                             <li >
-                                <a href="../../0.3/concepts">Concepts</a>
+                                <a href="../concepts">Concepts</a>
                             </li>
                         
                             <li >
-                                <a href="../../0.3/adminguide">Admin Guide</a>
+                                <a href="../adminguide">Admin Guide</a>
                             </li>
                         
                             <li >
-                                <a href="../../0.3/how_to_write_a_streaming_application">Streaming Application Developer Guide</a>
+                                <a href="../how_to_write_a_streaming_application">Streaming Application Developer Guide</a>
                             </li>
                         
                             <li >
-                                <a href="../../0.3/how_to_write_a_general_distributed_application">Non-Streaming Application Developer Guide</a>
+                                <a href="../how_to_write_a_general_distributed_application">Non-Streaming Application Developer Guide</a>
                             </li>
                         
                             <li >
-                                <a href="../../0.3/performance">Performance Benchmarks</a>
+                                <a href="../performance">Performance Benchmarks</a>
                             </li>
                         
                             <li >
-                                <a href="../../0.3/internal">Gearpump Internals</a>
+                                <a href="../internal">Gearpump Internals</a>
                             </li>
                         
                             <li >
-                                <a href="../../0.3/examplewalkthrough">Kafka Use case walkthrough</a>
+                                <a href="../examplewalkthrough">Kafka Use case walkthrough</a>
                             </li>
                         
                             <li >
-                                <a href="../../0.3/commandlinesyntax">Command Line Tools</a>
+                                <a href="../commandlinesyntax">Command Line Tools</a>
+                            </li>
+                        
+                            <li class="active">
+                                <a href=".">Rest API Guide</a>
                             </li>
                         
                             <li >
-                                <a href="../../0.3/restapi">Rest API Guide</a>
+                                <a href="../configuration_guide">Configuration Guide</a>
                             </li>
                         
                             <li >
-                                <a href="../../0.3/configuration_guide">Configuration Guide</a>
+                                <a href="../high_availability_guide">High Availability Guide</a>
                             </li>
                         
                             <li >
-                                <a href="../../0.3/high_availability_guide">High Availability Guide</a>
+                                <a href="../intellij_eclipse_development_environment_setup">IDE setup</a>
                             </li>
                         
                             <li >
-                                <a href="../../0.3/intellij_eclipse_development_environment_setup">IDE setup</a>
-                            </li>
-                        
-                            <li >
-                                <a href="../../0.3/faq">FAQ</a>
+                                <a href="../faq">FAQ</a>
                             </li>
                         
                         </ul>
@@ -157,20 +157,20 @@
                 
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             <li >
-                                <a href="../license">License</a>
-                            </li>
-                        
-                            <li class="active">
-                                <a href=".">Acknowledgement</a>
+                                <a href="../../about/license">License</a>
                             </li>
                         
                             <li >
-                                <a href="../contact_us">Contact Us</a>
+                                <a href="../../about/acknowledge">Acknowledgement</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../../about/contact_us">Contact Us</a>
                             </li>
                         
                         </ul>
@@ -186,12 +186,12 @@
                 
                 
                 <li >
-                    <a rel="next" href="../license">
+                    <a rel="next" href="../commandlinesyntax">
                         <i class="fa fa-arrow-left"></i> Previous
                     </a>
                 </li>
                 <li >
-                    <a rel="prev" href="../contact_us">
+                    <a rel="prev" href="../configuration_guide">
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
                 </li>
@@ -217,15 +217,74 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#acknowledgement">Acknowledgement</a></li>
+        <li class="main active"><a href="#rest-api">Rest API</a></li>
+        
+            <li><a href="#delete-appmasterappid">DELETE appmaster/&lt;appId&gt;</a></li>
+        
+            <li><a href="#get-appmasters">GET appmasters</a></li>
+        
+            <li><a href="#get-configappappid">GET config/app/&lt;appId&gt;</a></li>
+        
+            <li><a href="#get-master">GET master</a></li>
+        
+            <li><a href="#get-metricsappappidmetrics-path">GET metrics/app/&lt;appId&gt;/&lt;metrics path&gt;</a></li>
+        
+            <li><a href="#get-workersworkerid">GET workers/&lt;workerId&gt;</a></li>
+        
+            <li><a href="#get-workers">GET workers</a></li>
         
     
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h2 id="acknowledgement">Acknowledgement</h2>
-<p>The netty transport code work is based on <a href="http://storm.apache.org/">Apache Storm</a>. Thanks Apache Storm contributors.</p>
+<h1 id="rest-api">Rest API</h1>
+<h2 id="get-appmasterdetailtruefalse">GET appmaster/<appId>?detail=&lt;true|false&gt;</h2>
+<p>Query information of an specific application of Id appId</p>
+<p>Example:</p>
+<pre><code class="bash">curl http://127.0.0.1:8090/appmaster/0
+</code></pre>
+
+<h2 id="delete-appmasterappid">DELETE appmaster/&lt;appId&gt;</h2>
+<p>shutdown application appId</p>
+<h2 id="get-appmasters">GET appmasters</h2>
+<p>Query information of all applications</p>
+<p>Example:</p>
+<pre><code class="bash">curl http://127.0.0.1:8090/appmasters
+</code></pre>
+
+<h2 id="get-configappappid">GET config/app/&lt;appId&gt;</h2>
+<p>Query the configuration of specific application appId</p>
+<p>Example:</p>
+<pre><code class="bash">curl http://127.0.0.1:8090/config/app/0
+</code></pre>
+
+<h2 id="get-master">GET master</h2>
+<p>Get information of masters</p>
+<p>Example:</p>
+<pre><code class="bash">curl http://127.0.0.1:8090/master
+</code></pre>
+
+<h2 id="get-metricsappappidmetrics-path">GET metrics/app/&lt;appId&gt;/&lt;metrics path&gt;</h2>
+<p>Query metrics information of a specific application appId
+Filter metrics with path metrics path</p>
+<p>Example:</p>
+<pre><code class="bash">curl http://127.0.0.1:8090/metrics/app/0/app0.processor0
+</code></pre>
+
+<h2 id="get-workersworkerid">GET workers/&lt;workerId&gt;</h2>
+<p>Get information of specific worker</p>
+<p>Example:</p>
+<pre><code class="bash">curl http://127.0.0.1:8090/workers/4325324
+</code></pre>
+
+<p>The worker list can be returned by query master/ Rest service.</p>
+<h2 id="get-workers">GET workers</h2>
+<p>Get information of all workers.</p>
+<p>Example:</p>
+<pre><code class="bash">curl http://127.0.0.1:8090/workers
+</code></pre>
+
 </div>
             
         </div>
