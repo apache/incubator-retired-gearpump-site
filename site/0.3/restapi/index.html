@@ -139,14 +139,28 @@
                 
                 
                 
-                    <li >
-                        <a href="../../publications/publications">Publications</a>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Publications <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            <li >
+                                <a href="../../publications/publications">Publications</a>
+                            </li>
+                        
+                        </ul>
                     </li>
                 
                 
                 
-                    <li >
-                        <a href="../../usecases/use_cases">Use Cases</a>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Use Cases <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            <li >
+                                <a href="../../usecases/use_cases">Use cases</a>
+                            </li>
+                        
+                        </ul>
                     </li>
                 
                 
@@ -242,7 +256,20 @@
 <h2 id="get-appmasterdetailtruefalse">GET appmaster/<appId>?detail=&lt;true|false&gt;</h2>
 <p>Query information of an specific application of Id appId</p>
 <p>Example:</p>
-<pre><code class="bash">curl http://127.0.0.1:8090/appmaster/0
+<pre><code class="bash">curl http://127.0.0.1:8090/appmaster/2
+</code></pre>
+
+<p>Sample Response:</p>
+<pre><code>{
+  &quot;status&quot;: &quot;active&quot;,
+  &quot;appId&quot;: 2,
+  &quot;appName&quot;: &quot;wordCount&quot;,
+  &quot;appMasterPath&quot;: &quot;akka.tcp://app2-executor-1@127.0.0.1:62525/user/daemon/appdaemon2/$c&quot;,
+  &quot;workerPath&quot;: &quot;akka.tcp://master@127.0.0.1:3000/user/Worker1&quot;,
+  &quot;submissionTime&quot;: &quot;1425925651057&quot;,
+  &quot;startTime&quot;: &quot;1425925653433&quot;,
+  &quot;user&quot;: &quot;foobar&quot;
+}
 </code></pre>
 
 <h2 id="delete-appmasterappid">DELETE appmaster/&lt;appId&gt;</h2>
@@ -253,10 +280,41 @@
 <pre><code class="bash">curl http://127.0.0.1:8090/appmasters
 </code></pre>
 
+<p>Sample Response:</p>
+<pre><code>{
+  &quot;appMasters&quot;: [
+    {
+      &quot;status&quot;: &quot;active&quot;,
+      &quot;appId&quot;: 1,
+      &quot;appName&quot;: &quot;dag&quot;,
+      &quot;appMasterPath&quot;: &quot;akka.tcp://app1-executor-1@127.0.0.1:62498/user/daemon/appdaemon1/$c&quot;,
+      &quot;workerPath&quot;: &quot;akka.tcp://master@127.0.0.1:3000/user/Worker1&quot;,
+      &quot;submissionTime&quot;: &quot;1425925483482&quot;,
+      &quot;startTime&quot;: &quot;1425925486016&quot;,
+      &quot;user&quot;: &quot;foobar&quot;
+    }
+  ]
+}
+</code></pre>
+
 <h2 id="get-configappappid">GET config/app/&lt;appId&gt;</h2>
 <p>Query the configuration of specific application appId</p>
 <p>Example:</p>
-<pre><code class="bash">curl http://127.0.0.1:8090/config/app/0
+<pre><code class="bash">curl http://127.0.0.1:8090/appmaster/1
+</code></pre>
+
+<p>Sample Response:</p>
+<pre><code>{
+  &quot;status&quot;: &quot;active&quot;,
+  &quot;appId&quot;: 1,
+  &quot;appName&quot;: &quot;dag&quot;,
+  &quot;appMasterPath&quot;: &quot;akka.tcp://app1-executor-1@127.0.0.1:62670/user/daemon/appdaemon1/$c&quot;,
+  &quot;workerPath&quot;: &quot;akka.tcp://master@127.0.0.1:3000/user/Worker1&quot;,
+  &quot;submissionTime&quot;: &quot;1425926523047&quot;,
+  &quot;startTime&quot;: &quot;1425926525533&quot;,
+  &quot;user&quot;: &quot;foobar&quot;
+}
+
 </code></pre>
 
 <h2 id="get-master">GET master</h2>
@@ -265,17 +323,61 @@
 <pre><code class="bash">curl http://127.0.0.1:8090/master
 </code></pre>
 
+<p>Sample Response:</p>
+<pre><code>{
+  &quot;masterDescription&quot;: {
+    &quot;leader&quot;: [
+      &quot;master@127.0.0.1&quot;,
+      3000
+    ],
+    &quot;cluster&quot;: [
+      [
+        &quot;127.0.0.1&quot;,
+        3000
+      ]
+    ],
+    &quot;aliveFor&quot;: &quot;642941&quot;,
+    &quot;logFile&quot;: &quot;/Users/foobar/gearpump/logs&quot;,
+    &quot;jarStore&quot;: &quot;jarstore/&quot;,
+    &quot;masterStatus&quot;: &quot;synced&quot;,
+    &quot;homeDirectory&quot;: &quot;/Users/foobar/gearpump&quot;
+  }
+}
+</code></pre>
+
 <h2 id="get-metricsappappidmetrics-path">GET metrics/app/&lt;appId&gt;/&lt;metrics path&gt;</h2>
 <p>Query metrics information of a specific application appId
 Filter metrics with path metrics path</p>
 <p>Example:</p>
-<pre><code class="bash">curl http://127.0.0.1:8090/metrics/app/0/app0.processor0
+<pre><code class="bash">curl http://127.0.0.1:8090/metrics/app/3/app3.processor2
+</code></pre>
+
+<p>Sample Response:</p>
+<pre><code>{
+  &quot;appId&quot;: 3,
+  &quot;path&quot;: &quot;app3.processor2&quot;,
+  &quot;metrics&quot;: []
+}
 </code></pre>
 
 <h2 id="get-workersworkerid">GET workers/&lt;workerId&gt;</h2>
 <p>Get information of specific worker</p>
 <p>Example:</p>
-<pre><code class="bash">curl http://127.0.0.1:8090/workers/4325324
+<pre><code class="bash">curl http://127.0.0.1:8090/workers/1096497833
+</code></pre>
+
+<p>Sample Response</p>
+<pre><code>{
+  &quot;workerId&quot;: 1096497833,
+  &quot;state&quot;: &quot;active&quot;,
+  &quot;actorPath&quot;: &quot;akka.tcp://master@127.0.0.1:3000/user/Worker0&quot;,
+  &quot;aliveFor&quot;: &quot;77042&quot;,
+  &quot;logFile&quot;: &quot;/Users/foobar/gearpump/logs&quot;,
+  &quot;executors&quot;: [],
+  &quot;totalSlots&quot;: 100,
+  &quot;availableSlots&quot;: 100,
+  &quot;homeDirectory&quot;: &quot;/Users/foobar/gearpump&quot;
+}
 </code></pre>
 
 <p>The worker list can be returned by query master/ Rest service.</p>
@@ -283,6 +385,33 @@ Filter metrics with path metrics path</p>
 <p>Get information of all workers.</p>
 <p>Example:</p>
 <pre><code class="bash">curl http://127.0.0.1:8090/workers
+</code></pre>
+
+<p>Sample Response:</p>
+<pre><code>[
+  {
+    &quot;workerId&quot;: 307839464,
+    &quot;state&quot;: &quot;active&quot;,
+    &quot;actorPath&quot;: &quot;akka.tcp://master@127.0.0.1:3000/user/Worker0&quot;,
+    &quot;aliveFor&quot;: &quot;18445&quot;,
+    &quot;logFile&quot;: &quot;/Users/foobar/gearpump/logs&quot;,
+    &quot;executors&quot;: [],
+    &quot;totalSlots&quot;: 100,
+    &quot;availableSlots&quot;: 100,
+    &quot;homeDirectory&quot;: &quot;/Users/foobar/gearpump&quot;
+  },
+  {
+    &quot;workerId&quot;: 485240986,
+    &quot;state&quot;: &quot;active&quot;,
+    &quot;actorPath&quot;: &quot;akka.tcp://master@127.0.0.1:3000/user/Worker1&quot;,
+    &quot;aliveFor&quot;: &quot;18445&quot;,
+    &quot;logFile&quot;: &quot;/Users/foobar/gearpump/logs&quot;,
+    &quot;executors&quot;: [],
+    &quot;totalSlots&quot;: 100,
+    &quot;availableSlots&quot;: 100,
+    &quot;homeDirectory&quot;: &quot;/Users/foobar/gearpump&quot;
+  }
+]
 </code></pre>
 
 </div>

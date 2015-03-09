@@ -1,4 +1,4 @@
-### Who are us?
+### Who are we?
 
 We are a group of streaming guys from Intel.
 
