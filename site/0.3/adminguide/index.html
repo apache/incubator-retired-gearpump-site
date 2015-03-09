@@ -241,7 +241,7 @@
 <h1 id="admin-guide">Admin Guide</h1>
 <h2 id="pre-requisite">Pre-requisite</h2>
 <p>Gearpump cluster can be installed on Windows OS and Linux.
-Before installation, you need to decide how many machines are used to run this cluster. For each machine, the requirements are listed in table xxx.</p>
+Before installation, you need to decide how many machines are used to run this cluster. For each machine, the requirements are listed in table below.</p>
 <p><strong>  Table: Environment requirement on single machine</strong></p>
 <table>
 <thead>
@@ -309,7 +309,7 @@ Before installation, you need to decide how many machines are used to run this c
 </tbody>
 </table>
 <h2 id="how-to-install">How to Install</h2>
-<p>The installation package can be downloaded from xxxx. You are suggested to unzip the package to same directory path on every machine you planned to install Gearpump.
+<p>The installation package can be downloaded from <a href="../../downloads/downloads/">Download Address</a>. You are suggested to unzip the package to same directory path on every machine you planned to install Gearpump.
 To install Gearpump, you at least need to change the configuration in conf/gear.conf. </p>
 <table>
 <thead>
@@ -337,7 +337,7 @@ To install Gearpump, you at least need to change the configuration in conf/gear.
 </tr>
 </tbody>
 </table>
-<p>Besides this, there are optional configs related with logs, metrics, transports, ui. You can refer to xxx for more deail.</p>
+<p>Besides this, there are optional configs related with logs, metrics, transports, ui. You can refer to <a href="../../0.3/configuration_guide/">Configuration Guide</a> for more deail.</p>
 <h2 id="start-the-cluster-daemons">Start the Cluster Daemons</h2>
 <p>Gearpump can be started in single JVM, single machine, or a cluster of machines.</p>
 <h3 id="local-mode">Local Mode</h3>
@@ -351,7 +351,7 @@ To install Gearpump, you at least need to change the configuration in conf/gear.
 <h3 id="distributed-mode">Distributed Mode</h3>
 <p>In distributed mode, you can start master and worker in different JVM. </p>
 <h4 id="to-start-master">To start master:</h4>
-<pre><code class="bash">bin/master -ip xx -port xxx
+<pre><code class="bash">bin/master -ip xx -port xx
 </code></pre>
 
 <p>The ip and port will be checked against setting under conf/gear.conf, so you need to make sure they are consistent with settings in gear.conf.</p>
@@ -365,7 +365,7 @@ To install Gearpump, you at least need to change the configuration in conf/gear.
 </code></pre>
 
 <p>After UI is started, you can brower http://127.0.0.1:8090 to view the cluster status.</p>
-<p><strong>NOTE:</strong> The UI port can be configured in gear.conf. Check [Configuration Guide] for information.</p>
+<p><strong>NOTE:</strong> The UI port can be configured in gear.conf. Check <a href="../../0.3/configuration_guide">Configuration Guide</a> for information.</p>
 <h2 id="submit-an-new-application">Submit an new Application</h2>
 <p>You can use command bin/gear app to submit To check the syntax:</p>
 <pre><code class="bash">bin/gear app -jar xx.jar MainClass &lt;arg1&gt; &lt;arg2&gt; ...
