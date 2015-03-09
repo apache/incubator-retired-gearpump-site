@@ -82,7 +82,7 @@
                             </li>
                         
                             <li >
-                                <a href="../performance">Performance Benchmarks</a>
+                                <a href="../performance">Performance Benchmark</a>
                             </li>
                         
                             <li >
@@ -90,7 +90,7 @@
                             </li>
                         
                             <li >
-                                <a href="../examplewalkthrough">Kafka Use case walkthrough</a>
+                                <a href="../examplewalkthrough">Kafka Use Case Code Walkthrough</a>
                             </li>
                         
                             <li >
@@ -225,7 +225,9 @@
         
             <li><a href="#define-appmaster-class">Define AppMaster Class</a></li>
         
-            <li><a href="#define-application-description">Define Application Description</a></li>
+            <li><a href="#define-application">Define Application</a></li>
+        
+            <li><a href="#define-an-optional-client-class">Define an optional Client class</a></li>
         
             <li><a href="#submit-application">Submit application</a></li>
         
@@ -236,10 +238,10 @@
 
 <h1 id="non-streaming-application-developer-guide">Non-Streaming Application Developer Guide</h1>
 <p>We'll use <a href="https://github.com/intel-hadoop/gearpump/tree/master/examples/distributedshell/src/main/scala/org/apache/gearpump/examples/distributedshell">Distributed Shell</a> as an example to illustrate how to do that.</p>
-<h2 id="mavensbt-settings">Maven/Sbt Settings</h2>
 <p>What Distributed Shell do is that user send a shell command to the cluster and the command will the executed on each node, then the result will be return to user.</p>
+<h2 id="mavensbt-settings">Maven/Sbt Settings</h2>
+<p>Repository and library dependencies can be found at <a href="../../downloads/downloads/#maven">Maven Setting</a></p>
 <h2 id="define-executor-class">Define Executor Class</h2>
-<p>In this kind of distributed application, Task is not needed any more because the Executor can take over that role.</p>
 <pre><code class="scala">class ShellExecutor(executorContext: ExecutorContext, userConf : UserConfig) extends Actor{
   import executorContext._
 
@@ -297,7 +299,7 @@
 <p>There may be a situation that the resource allocation failed which will bring the message <code>StartExecutorSystemTimeout</code>, the normal pattern to handle that is just what we do: shut down the application.</p>
 <p>The real application logic part is in <code>ShellCommand</code> message handler, which is specific to different applications. Here we distribute the shell command to each executor and aggregate the results to the client.</p>
 <p>For method <code>getExecutorJvmConfig</code>, you can just use this part of code in your own application.</p>
-<h2 id="define-application-description">Define Application Description</h2>
+<h2 id="define-application">Define Application</h2>
 <p>Now its time to launch the application.</p>
 <pre><code class="scala">object DistributedShell extends App with ArgumentsParser {
   override val options: Array[(String, CLIOption[Any])] = Array(
@@ -318,8 +320,9 @@
 </code></pre>
 
 <p>The application class extends <code>App</code> and `ArgumentsParser which make it easier to parse arguments and run main functions. This part is similar to the streaming applications.</p>
-<p>The main class DistributeShell will submit an Application, whose AppMaster is DistShellAppMaster.</p>
-<p>After set up the DistributedShell application, user can send shell command to it now.</p>
+<p>The main class DistributeShell will submit an Application to Master, whose AppMaster is DistShellAppMaster.</p>
+<h2 id="define-an-optional-client-class">Define an optional Client class</h2>
+<p>Now, we can define a Client class to talk with AppMaster to pass our commands to it.</p>
 <pre><code class="scala">object DistributedShellClient extends App with ArgumentsParser  {
   implicit val timeout = Constants.FUTURE_TIMEOUT
   import scala.concurrent.ExecutionContext.Implicits.global
@@ -348,7 +351,7 @@
 <p>In the DistributedShellClient, it will resolve the appid to the real appmaster(the applicaton id will be printed when launching DistributedShell).</p>
 <p>Once we got the AppMaster, then we can send ShellCommand to it and wait for the result.</p>
 <h2 id="submit-application">Submit application</h2>
-<p>Please check <a href="../../commandlinesyntax#gear-app">Application submission tool</a></p>
+<p>After all these, you need to package everything into a uber jar and submit the jar to Gearpump Cluster. Please check <a href="../../commandlinesyntax#gear-app">Application submission tool</a> to command line tool syntax.</p>
 </div>
             
         </div>

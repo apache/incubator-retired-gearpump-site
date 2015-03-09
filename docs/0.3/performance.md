@@ -7,15 +7,15 @@ Memory: 128GB
 
 ## Throughput
 
-Gearpump uses Graphite for the metrics dashboard. We tried to explore the upper bound of the throughput, after launching 64 SOLStreamProducer and 64 SOLStreamProcessor the Figure 10 shows that the whole throughput of the cluster can reach about 13 million messages/second(100 bytes per message)
+Gearpump uses Graphite for the metrics dashboard. We tried to explore the upper bound of the throughput, after launching 64 SOLStreamProducer and 64 SOLStreamProcessor the Figure below shows that the whole throughput of the cluster can reach about 13 million messages/second(100 bytes per message)
  
-Figure 18: Performance Evaluation, Throughput and Latency
+Figure: Performance Evaluation, Throughput and Latency
 
 ## Latency
 
 When we transfer message at the max throughput above, the average latency between two tasks is 17ms, standard deviation is 13ms.
  
-Figure 19: Latency between Two tasks(ms)
+Figure: Latency between Two tasks(ms)
 
 ## Fault Recovery time
 

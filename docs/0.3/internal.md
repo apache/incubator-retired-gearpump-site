@@ -2,7 +2,8 @@
 
 ## Actor Hiearachy?
  
-Figure 2: Gearpump Actor Hierarchy
+![](img/actor_hierarchy.png) 
+
 Everything in the diagram is an actor; they fall into two categories, Cluster Actors and Application Actors. 
 
 ### Cluster Actors
@@ -28,8 +29,9 @@ Global clock service will track the minimum timestamp of all pending messages in
   - Minimum timestamp of all pending messages in the inbox. 
   - Minimum timestamp of all unacked outgoing messages. When there is message loss, the minimum clock will not advance. 
   - Minimum clock of all task states. If the state is accumulated by a lot of input messages, then the clock value is decided by the oldest message's timestamp. The state clock will advance by doing snapshots to persistent storage or by fading out the effect of old messages.
- 
-Figure 13: Global Clock Service
+
+![](img/clock.png)
+
 The global clock service will keep track of all task minimum clocks effectively and maintain a global view of minimum clock. The global minimum clock value is monotonically increasing; it means that all source messages before this clock value have been processed. If there is message loss or task crash, the global minimum clock will stop.
 
 ## How do we optimize the message passing performance?
@@ -39,68 +41,95 @@ For streaming application, message passing performance is extremely important. F
 ### First Challenge: Network is not efficient for small messages
 
 In streaming, typical message size is very small, usually less than 100 bytes per message, like the floating car GPS data. But network efficiency is very bad when transferring small messages. As you can see in below diagram, when message size is 50 bytes, it can only use 20% bandwidth. How to improve the throughput?
- 
-Figure 7: Messaging Throughput vs Message Size
+
+![](img/through_vs_message_size.png) 
 
 ### Second Challenge: Message overhead is too big
 
 For each message sent between two actors, it contains sender and receiver actor path. When sending over the wire, the overhead of this ActorPath is not trivial. For example, the below actor path takes more than 200 bytes. 
+
+```javascript
 akka.tcp://system1@192.168.1.53:51582/remote/akka.tcp/2120193a-e10b-474e-bccb-8ebc4b3a0247@192.168.1.53:48948/remote/akka.tcp/system2@192.168.1.54:43676/user/master/Worker1/app_0_executor_0/group_1_task_0#-768886794
+```
 
 ### How do we solve this?
 
 We implement a custom Netty transportation layer with Akka extension. In the below diagram, Netty Client will translate ActorPath to TaskId, and Netty Server will translate it back. Only TaskId will be passed on wire, it is only about 10 bytes, the overhead is minimized. Different Netty Client Actors are isolated; they will not block each other.
- 
-Figure 8: Netty Transport and Task Addressing
+
+![](img/netty_transport.png)
+
 For performance, effective batching is really the key! We group multiple messages to a single batch and send it on the wire. The batch size is not fixed; it is adjusted dynamically based on network status. If the network is available, we will flush pending messages immediately without waiting; otherwise we will put the message in a batch and trigger a timer to flush the batch later.
 
 ## How do we do flow Control?
 
 Without flow control, one task can easily flood another task with too many messages, causing out of memory error. Typical flow control will use a TCP-like sliding window, so that source and target can run concurrently without blocking each other. 
- 
-Figure 9: Flow control, each task is "star" connected to input tasks and output tasks
+
+![](img/flow_control.png) 
+Figure: Flow control, each task is "star" connected to input tasks and output tasks
+
 The difficult part for our problem is that each task can have multiple input tasks and output tasks. The input and output must be geared together so that the backpressure can be properly propagated from downstream to upstream. The flow control also needs to consider failures, and it needs to be able to recover when there is message loss.
 Another challenge is that the overhead of flow control messages can be big. If we ack every message, there will be huge amount of ack'd messages in the system, degradating streaming performance. The approach we adopted is to use explicit AckRequest message. The target tasks will only ack when they receive the AckRequest message, and the source will only send AckRequest when it feels necessary. With this approach, we can largely reduce the overhead.
 
 ## How do we detect message loss?
 
 For example, for web ads, we may charge for every click, we don't want to miscount.  The streaming platform needs to effectively track what messages have been lost, and recover as fast as possible.
- 
-Figure 10: Message Loss Detection
+
+![](img/messageLoss.png) 
+Figure: Message Loss Detection
+
 We use the flow control message AckRequest and Ack to detect message loss. The target task will count how many messages has been received since last AckRequest, and ack the count back to source task. The source task will check the count and find message loss.
 This is just an illustration, the real case is more difficulty, we need to handle zombine tasks, and in-the-fly stale messages.
 
 ## How Gearpump know what messages to replay?
 
-In some applications, a message cannot be lost, and must be replayed. For example, during the money transfer, the bank will SMS us the verification code. If that message is lost, the system must replay it so that money transfer can continue. We made the decision to use source end message storage and timestamp based replay.
- 
-Figure 11: Replay with Source End Message Store
+In some applications, a message cannot be lost, and must be replayed. For example, during the money transfer, the bank will SMS us the verification code. If that message is lost, the system must replay it so that money transfer can continue. We made the decision to use **source end message storage** and **timestamp based replay**.
+
+![](img/replay.png) 
+Figure: Replay with Source End Message Store
+
 Every message is immutable, and tagged with a timestamp. We have an assumption that the timestamp is approximately incremental (allow small ratio message disorder). 
+
 We assume the message is coming from a replay-able source, like Kafka queue; otherwise the message will be stored at customizable source end "message store". When the source task sends the message downstream, the timestamp and offset of the message is also check-pointed to offset-timestamp storage periodically. During recovery, the system will first retrieve the right timestamp and offset from the offset-timestamp storage, then it will replay the message store from that timestamp and offset. A Timestamp Filter will filter out old messages in case the message in message store is not strictly time-ordered. 
 
 ## Master High Availability
 
 In a distributed streaming system, any part can fail. The system must stay responsive and do recovery in case of errors.
  
-Figure 12: Master High Availability
+![](img/ha.png) 
+Figure: Master High Availability
+
 We use Akka clustering to implement the Master high availability. The cluster consists of several master nodes, but no worker nodes. With clustering facilities, we can easily detect and handle the failure of master node crash. The master state is replicated on all master nodes with the Typesafe akka-data-replication  library, when one master node crashes, another standby master will read the master state and take over. The master state contains the submission data of all applications. If one application dies, a master can use that state to recover that application. CRDT LwwMap  is used to represent the state; it is a hash map that can converge on distributed nodes without conflict. To have strong data consistency, the state read and write must happen on a quorum of master nodes.
 
-### What happen when Master Crash?
-
-### What happen when worker crash?
-
-### What happen when AppMaster Crash?
-
-### What happen when executor crash?
-
-### What happen when task crash?
+## How we do handle failures?
 
 With Akka's powerful actor supervision, we can implement a resilient system relatively easy. In Gearpump, different applications have a different AppMaster instance, they are totally isolated from each other. For each application, there is a supervision tree, AppMaster->Executor->Task. With this supervision hierarchy, we can free ourselves from the headache of zombie process, for example if AppMaster is down, Akka supervisor will ensure the whole tree is shutting down. 
  
-Figure 14: Possible Failure Scenarios and Error Supervision Hierarchy 
-It is also easier for us to handle the message loss and other failures. There are multiple possible failure scenarios, if a AppMaster crashes, Master will schedule a new resource to restart the AppMaster, and then the AppMaster will request resources to start all executors and tasks in the tree. If an Executor Crashes, its supervisor AppMaster will get notified, and request a new resource from the active master to start the executor's child tasks. If a task throws an exception, its supervisor executor will restart that Task. 
-When "at least once" message delivery is a requirement, we will replay the messages in the case of message loss. First AppMaster will read the latest minimum clock from the global clock service or clock storage if the clock service crashes, then AppMaster will restart all the task actors to get a fresh task state, then the message source will replay messages from that minimum clock. This can be further improved to restart partial tasks only.
+There are multiple possible failure scenarios
 
+![](img/failures.png) 
+Figure: Possible Failure Scenarios and Error Supervision Hierarchy 
+
+### What happen when Master Crash?
+
+When Master crash, other standby masters will be notified, they will resume the master state, and take over control. Worker and AppMaster will also be notified, They will trigger a process to find the new active master, until the resolution complete. If AppMaster or Worker cannot resolve a new Master in a timeout, they will make suicide and kill themselves.
+
+### What happen When worker crash?
+
+When worker crash, the Master will get notified and stop scheduling new computation to this worker. All supervised executors on current worker will be killed, Appmaster can treat it as recovery of executor crash like [What happen when executor crash?](#what-happen-when-executor-crash)
+
+### What happen when AppMaster Crash?
+
+If a AppMaster crashes, Master will schedule a new resource to create a new AppMaster Instance elsewhere, and then the AppMaster will handle the recovery inside the application. For streaming, it will recover the latest min clock and other state from disk, request resources from master to start executors, and restart the tasks with recovered min clock.
+
+### What happen when executor crash?
+
+If an Executor Crashes, its supervisor AppMaster will get notified, and request a new resource from the active master to start a new executor, to run the tasks which were located on the crashed executor.
+
+### What happen when task crash?
+
+If a task throws an exception, its supervisor executor will restart that Task.
+
+When "at least once" message delivery is enabled, it will trigger the message replaying in the case of message loss. First AppMaster will read the latest minimum clock from the global clock service(or clock storage if the clock service crashes), then AppMaster will restart all the task actors to get a fresh task state, then the source end tasks will replay messages from that minimum clock.
 
 ## How exactly once work?
 
@@ -109,32 +138,59 @@ For some applications, it is extremely important to do "exactly once" message de
   Transparent to application developer
 We use global clock to synchronize the distributed transactions. We assume every message from the data source will have a unique timestamp, the timestamp can be a part of the message body, or can be attached later with system clock when the message is injected into the streaming system. With this global synchronized clock, we can coordinate all tasks to checkpoint at same timestamp. 
  
-Figure 15: Checkpointing and Exactly-Once Message delivery
+![](img/checkpointing.png)
+Figure: Checkpointing and Exactly-Once Message delivery
+
 Workflow to do state checkpointing:
   
-  - The coordinator asks the streaming system to do checkpoint at timestamp Tc.
-  - For each application task, it will maintain two states, checkpoint state and current state. Checkpoint state only contains information before timestamp Tc. Current state contains all information.
-  - When global minimum clock is larger than Tc, it means all messages older than Tc has been processed; the checkpoint state will no longer change, so we will then persist the checkpoint state to storage safely.
-  - When there is message loss, we will start the recovery process. 
-  - To recover, load the latest checkpoint state from store, and then use it to restore the application status.
-  - Data source replays messages from the checkpoint timestamp. 
+1. The coordinator asks the streaming system to do checkpoint at timestamp Tc.
+2. For each application task, it will maintain two states, checkpoint state and current state. Checkpoint state only contains information before timestamp Tc. Current state contains all information.
+3. When global minimum clock is larger than Tc, it means all messages older than Tc has been processed; the checkpoint state will no longer change, so we will then persist the checkpoint state to storage safely.
+4. When there is message loss, we will start the recovery process. 
+5. To recover, load the latest checkpoint state from store, and then use it to restore the application status.
+6. Data source replays messages from the checkpoint timestamp. 
   
 The checkpoint interval is determined by global clock service dynamically. Each data source will track the max timestamp of input messages. Upon receiving min clock updates, the data source will report the time delta back to global clock service. The max time delta is the upper bound of the application state timespan. The checkpoint interval is bigger than max delta time: 
 
-checkpointInterval= 2^(1+?log_2?(max?_delta_time) ? )
- 
-Figure 16: How to determine Checkpoint Interval
+![](img/checkpoint_equation.png)
+
+![](img/checkpointing_interval.png) 
+Figure: How to determine Checkpoint Interval
 
 After the checkpoint interval is notified to tasks by global clock service, each task will calculate its next checkpoint timestamp autonomously without global synchronization.
 
-nextCheckpointTimeStamp=checkpointInterval?(1+?maxMessageTimestampOfThisTask/checkpointInterval?)
+![](img/checkpoint_interval_equation.png)
 
 For each task, it contains two states, checkpoint state and current state. The code to update the state is shown in listing below.
  
+```python
+TaskState(stateStore, initialTimeStamp):
+  currentState = stateStore.load(initialTimeStamp)
+  checkpointState = currentState.clone
+  checkpointTimestamp = nextCheckpointTimeStamp(initialTimeStamp) 
+onMessage(msg):
+  if (msg.timestamp < checkpointTimestamp):
+    checkpointState.updateMessage(msg)
+  currentState.updateMessage(msg)  
+  maxClock = max(maxClock, msg.timeStamp)
+
+onMinClock(minClock):
+  if (minClock > checkpointTimestamp):
+    stateStore.persist(checkpointState)
+    checkpointTimeStamp = nextCheckpointTimeStamp(maxClock)
+    checkpointState = currentState.clone
+
+onNewCheckpointInterval(newStep):
+  step = newStep  
+nextCheckpointTimeStamp(timestamp):
+  checkpointTimestamp = (1 + timestamp/step) * step
+``` 
+
 List 1: Task Transactional State Implementation
 
 ## What is dynamic graph, and how it works?
 
 The DAG can be modified dynamically. We want to be able to dynamically add, remove, and replace a sub-graph. 
- 
-Figure 17: Dynamic Graph, Attach, Replace, and Remove
+
+![](img/dynamic.png) 
+Figure: Dynamic Graph, Attach, Replace, and Remove

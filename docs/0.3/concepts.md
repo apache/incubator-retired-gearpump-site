@@ -25,12 +25,12 @@ When user submits an application to Master, Master will first find an available 
 To submit an application, a Gearpump client specifies a computation defined within a DAG and submits this to an active master. The SubmitApplication message is sent to the Master who then forwards this to an AppManager.
 
 ![](img/submit.png) 
-Figure 5: User Submit Application
+Figure: User Submit Application
 
 The AppManager locates an available worker and launches an AppMaster in a sub-process JVM of the worker. The AppMaster will then negotiate with the Master for Resource allocation in order to distribute the DAG as defined within the Application. The allocated workers will then launch Executors (new JVMs).
 
 ![](img/submit2.png) 
-Figure 6: Launch Executors and Tasks
+Figure: Launch Executors and Tasks
 
 ## Streaming Topology, Processor, and Task
 
@@ -38,11 +38,11 @@ For streaming application type, each application contains a topology, which is a
 An application is a DAG of processors. Each processor handles messages. 
  
 ![](img/dag.png)
-Figure 3: Processor DAG
+Figure: Processor DAG
 
 ## Streaming Task and Partitioner
 
 For streaming application type, Task is the minimum unit of parallelism. In runtime, each Processor is parallelized to a list of tasks, with different tasks running in different executor. You can define Partitioner to denote the data shuffling rule between upstream processor tasks and downstream processor tasks. 
 
 ![](img/shuffle.png)
-Figure 4: Task Data Shuffling
+Figure: Task Data Shuffling

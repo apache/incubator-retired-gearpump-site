@@ -4,6 +4,8 @@ We'll use [wordcount](https://github.com/intel-hadoop/gearpump/tree/master/examp
 
 ## Maven/Sbt Settings
 
+Repository and library dependencies can be found at [Maven Setting](downloads/downloads/#maven)
+
 ## Define Processor(Task) class and Partitioner class
 
 An application is a Directed Acyclic Graph (DAG) of processors (Please refer to [DAG API](https://github.com/intel-hadoop/gearpump/wiki/DAG-API)) . In the wordcount example, We will firstly define two processors `Split` and `Sum`, and then weave them together. 
@@ -138,100 +140,191 @@ We override `options` value and define an array of command line arguments to par
 
 Given the `ParseResult` of command line arguments, we create `TaskDescription`s for Split and Sum processors, and connect them with `HashPartitioner` using DAG API. The graph is wrapped in an `AppDescrition` , which is finally submit to master.
 
-## Submit an application
+## Submit application
 
-Please check [Application submission tool](commandlinesyntax#gear-app)
+After all these, you need to package everything into a uber jar and submit the jar to Gearpump Cluster. Please check [Application submission tool](commandlinesyntax#gear-app) to command line tool syntax.
 
 ## Advanced topics
 
 ### Define Custom Message Serializer
 
-We use library [kryo](https://github.com/EsotericSoftware/kryo) and [akka-kryo library](https://github.com/romix/akka-kryo-serialization). If you have cutomized the Message, you need to define the serializer explicitly.
+We use library [kryo](https://github.com/EsotericSoftware/kryo) and [akka-kryo library](https://github.com/romix/akka-kryo-serialization). If you have special Message type, you can choose to define your own serializer explicitly. If you have not defined your own custom serializer, the system will use Kryo to serialize it at best effort.
 
-The configuration for serialization is in gear.conf:
+When you have determined that you want to define a custom serializer, you can do this in two ways.
 
-```
-gearpump {
-  serializers {
-    "org.apache.gearpump.Message" = "org.apache.gearpump.streaming.MessageSerializer"
-    "org.apache.gearpump.streaming.task.AckRequest" = "org.apache.gearpump.streaming.AckRequestSerializer"
-    "org.apache.gearpump.streaming.task.Ack" = "org.apache.gearpump.streaming.AckSerializer"
+#### System Level Serializer
 
-    ## Use default serializer for this type
-    "scala.Tuple2" = ""
+If the serializer is widely used, you can define a global serializer which is avaiable to all applications(or worker or master) in the system.
+
+##### Step1: you first need to develop a java library which contains the custom serializer class. here is an example:
+
+```scala
+class MessageSerializer extends Serializer[Message] {
+  override def write(kryo: Kryo, output: Output, obj: Message) = {
+    output.writeLong(obj.timestamp)
+    kryo.writeClassAndObject(output, obj.msg)
+  }
+
+  override def read(kryo: Kryo, input: Input, typ: Class[Message]): Message = {
+    var timeStamp = input.readLong()
+    val msg = kryo.readClassAndObject(input)
+    new Message(msg.asInstanceOf[java.io.Serializable], timeStamp)
   }
 }
 ```
 
-akka-kryo-serialization has built-in support for many data types.
+##### Step2: Distribute the libraries
+
+Distribute the jar file to lib/ folder of every Gearpump installation in the cluster.
+
+##### Step3: change gear.conf on every machine of the cluster:
+
+```json
+gearpump {
+  serializers {
+    "org.apache.gearpump.Message" = "your.serializer.class"
+  }
+}
+```
+
+#### All set!
+
+### Define Application level custom serializer
+If all you want is to define an application level serializer, which is only visible to current application AppMaster and Executors(including tasks), you can follow a different approach.
+
+##### Step1: Define your custom Serializer class
+
+You should include the Serializer class in your application jar. Here is an example to define a custom serializer:
+
+```scala
+class MessageSerializer extends Serializer[Message] {
+  override def write(kryo: Kryo, output: Output, obj: Message) = {
+    output.writeLong(obj.timestamp)
+    kryo.writeClassAndObject(output, obj.msg)
+  }
+
+  override def read(kryo: Kryo, input: Input, typ: Class[Message]): Message = {
+    var timeStamp = input.readLong()
+    val msg = kryo.readClassAndObject(input)
+    new Message(msg.asInstanceOf[java.io.Serializable], timeStamp)
+  }
+}
+```
+
+##### Step2: Define a config file to include the custom serializer definition. For example, we can create a file called: myconf.conf
+
+
+```json
+## content of myconf.conf
+gearpump {
+  serializers {
+    "org.apache.gearpump.Message" = "your.serializer.class"
+  }
+}
+```
+
+##### Step3: Add the conf into AppDescription
+
+Let's take WordCount as an example:
+
+```json
+object WordCount extends App with ArgumentsParser {
+  private val LOG: Logger = LogUtil.getLogger(getClass)
+  val RUN_FOR_EVER = -1
+
+  override val options: Array[(String, CLIOption[Any])] = Array(
+    "master" -> CLIOption[String]("<host1:port1,host2:port2,host3:port3>", required = true),
+    "split" -> CLIOption[Int]("<how many split tasks>", required = false, defaultValue = Some(4)),
+    "sum" -> CLIOption[Int]("<how many sum tasks>", required = false, defaultValue = Some(4)),
+    "runseconds"-> CLIOption[Int]("<how long to run this example, set to -1 if run forever>", required = false, defaultValue = Some(60))
+  )
+
+  def application(config: ParseResult) : AppDescription = {
+    val splitNum = config.getInt("split")
+    val sumNum = config.getInt("sum")
+    val partitioner = new HashPartitioner()
+    val split = TaskDescription(classOf[Split].getName, splitNum)
+    val sum = TaskDescription(classOf[Sum].getName, sumNum)
+
+    //=======================================
+    // Attention!
+    //=======================================
+    val app = AppDescription("wordCount", UserConfig.empty, Graph(split ~ partitioner ~> sum),
+      ClusterConfigSource("/path/to/myconf.conf"))
+    
+    app
+  }
+
+  val config = parse(args)
+  val context = ClientContext(config.getString("master"))
+  implicit val system = context.system
+  val appId = context.submit(application(config))
+  Thread.sleep(config.getInt("runseconds") * 1000)
+  context.shutdown(appId)
+  context.close()
+}
 
 ```
 
-# gearpump types
-Message
-AckRequest
-Ack
+Maybe you have noticed, we have add a custom config to the Application
 
-# akka types
-akka.actor.ActorRef
-
-# scala types
-scala.Enumeration#Value
-scala.collection.mutable.Map[_, _]
-scala.collection.immutable.SortedMap[_, _]
-scala.collection.immutable.Map[_, _]
-scala.collection.immutable.SortedSet[_]
-scala.collection.immutable.Set[_]
-scala.collection.mutable.SortedSet[_]
-scala.collection.mutable.Set[_]
-scala.collection.generic.MapFactory[scala.collection.Map]
-scala.collection.generic.SetFactory[scala.collection.Set]
-scala.collection.Traversable[_]
-Tuple2
-Tuple3
-
-
-# java complex types
-byte[]
-char[]
-short[]
-int[]
-long[]
-float[]
-double[]
-boolean[]
-String[]
-Object[]
-BigInteger
-BigDecimal
-Class
-Date
-Enum
-EnumSet
-Currency
-StringBuffer
-StringBuilder
-TreeSet
-Collection
-TreeMap
-Map
-TimeZone
-Calendar
-Locale
-
-## Primitive types
-int
-String
-float
-boolean
-byte
-char
-short
-long
-double
-void
+```scala
+//=======================================
+    // Attention!
+    //=======================================
+    val app = AppDescription("wordCount", UserConfig.empty, Graph(split ~ partitioner ~> sum),
+      ClusterConfigSource("/path/to/myconf.conf"))
 ```
 
-
+##### Step4: All set!
 
 ### Connect with Kafka
+
+It is easy to use Kafka as data source, the major class is KafkaSource, here is an example to use it:
+
+```scala
+// Full source code can be found at: https://github.com/intel-hadoop/gearpump/blob/master/examples/streaming/kafka/src/main/scala/org/apache/gearpump/streaming/examples/kafka/KafkaStreamProducer.scala
+
+class KafkaStreamProducer(taskContext : TaskContext, conf: UserConfig)
+  extends Task(taskContext, conf) {
+
+  ...
+
+  // define a kafka source
+  // Tutorial about how to set the kafkaConfig can be found at: https://github.com/intel-hadoop/gearpump/tree/master/examples/streaming/kafka
+  
+  private val source: TimeReplayableSource = new KafkaSource(taskContext.appName, taskId, taskParallelism,
+    kafkaConfig, msgDecoder)
+
+    private var startTime: TimeStamp = 0L
+
+  override def onStart(newStartTime: StartTime): Unit = {
+    startTime = newStartTime.startTime
+    LOG.info(s"start time $startTime")
+    
+    // set which timestamp to start reading messages
+    // Consider there may be stale messages and not follow exact time order, 
+    source.setStartTime(startTime)
+    self ! Message("start", System.currentTimeMillis())
+
+    }
+
+  override def onNext(msg: Message): Unit = {
+
+    // do the actual read. Filter message whose timestmap is smaller than startTime
+    // in case there are some stale (out of order) message in the Kafka queue.
+    source.pull(batchSize).foreach{msg => filter.filter(msg, startTime).map(output)}
+
+    self ! Message("continue", System.currentTimeMillis())
+  }
+
+  override def onStop(): Unit = {
+    LOG.info("closing kafka source...")
+
+    // stop the kafka source
+    source.close()
+  }
+}
+```
+
+A full example can be found at: [Kafka Example](https://github.com/intel-hadoop/gearpump/tree/master/examples/streaming/kafka)

@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-        <title>Performance Benchmarks - /Gearpump/</title>
+        <title>Performance Benchmark - /Gearpump/</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -82,7 +82,7 @@
                             </li>
                         
                             <li class="active">
-                                <a href=".">Performance Benchmarks</a>
+                                <a href=".">Performance Benchmark</a>
                             </li>
                         
                             <li >
@@ -90,7 +90,7 @@
                             </li>
                         
                             <li >
-                                <a href="../examplewalkthrough">Kafka Use case walkthrough</a>
+                                <a href="../examplewalkthrough">Kafka Use Case Code Walkthrough</a>
                             </li>
                         
                             <li >
@@ -237,11 +237,11 @@
 <p>Processor: 32 core Intel(R) Xeon(R) CPU E5-2680 2.70GHz
 Memory: 128GB</p>
 <h2 id="throughput">Throughput</h2>
-<p>Gearpump uses Graphite for the metrics dashboard. We tried to explore the upper bound of the throughput, after launching 64 SOLStreamProducer and 64 SOLStreamProcessor the Figure 10 shows that the whole throughput of the cluster can reach about 13 million messages/second(100 bytes per message)</p>
-<p>Figure 18: Performance Evaluation, Throughput and Latency</p>
+<p>Gearpump uses Graphite for the metrics dashboard. We tried to explore the upper bound of the throughput, after launching 64 SOLStreamProducer and 64 SOLStreamProcessor the Figure below shows that the whole throughput of the cluster can reach about 13 million messages/second(100 bytes per message)</p>
+<p>Figure: Performance Evaluation, Throughput and Latency</p>
 <h2 id="latency">Latency</h2>
 <p>When we transfer message at the max throughput above, the average latency between two tasks is 17ms, standard deviation is 13ms.</p>
-<p>Figure 19: Latency between Two tasks(ms)</p>
+<p>Figure: Latency between Two tasks(ms)</p>
 <h2 id="fault-recovery-time">Fault Recovery time</h2>
 <p>When the corruption is detected, for example the Executor is down, Gearpump will reallocate the resource and restart the application. It takes about 10 seconds to recover the application.</p>
 <h2 id="how-to-setup-the-benchmark-environment">How to setup the benchmark environment?</h2>

@@ -2,13 +2,14 @@
 
 We'll use [Distributed Shell](https://github.com/intel-hadoop/gearpump/tree/master/examples/distributedshell/src/main/scala/org/apache/gearpump/examples/distributedshell) as an example to illustrate how to do that.
 
+What Distributed Shell do is that user send a shell command to the cluster and the command will the executed on each node, then the result will be return to user.
+
 ## Maven/Sbt Settings
 
-What Distributed Shell do is that user send a shell command to the cluster and the command will the executed on each node, then the result will be return to user.
+Repository and library dependencies can be found at [Maven Setting](downloads/downloads/#maven)
 
 
 ## Define Executor Class
-In this kind of distributed application, Task is not needed any more because the Executor can take over that role.
 
 ```scala
 class ShellExecutor(executorContext: ExecutorContext, userConf : UserConfig) extends Actor{
@@ -77,7 +78,7 @@ The real application logic part is in `ShellCommand` message handler, which is s
 
 For method `getExecutorJvmConfig`, you can just use this part of code in your own application.
 
-## Define Application Description
+## Define Application
 Now its time to launch the application.
 
 ```scala
@@ -101,9 +102,11 @@ object DistributedShell extends App with ArgumentsParser {
 
 The application class extends `App` and `ArgumentsParser which make it easier to parse arguments and run main functions. This part is similar to the streaming applications.
 
-The main class DistributeShell will submit an Application, whose AppMaster is DistShellAppMaster.
+The main class DistributeShell will submit an Application to Master, whose AppMaster is DistShellAppMaster.
 
-After set up the DistributedShell application, user can send shell command to it now.
+## Define an optional Client class
+
+Now, we can define a Client class to talk with AppMaster to pass our commands to it.
 
 ```scala
 object DistributedShellClient extends App with ArgumentsParser  {
@@ -135,7 +138,6 @@ In the DistributedShellClient, it will resolve the appid to the real appmaster(t
 
 Once we got the AppMaster, then we can send ShellCommand to it and wait for the result.
 
-
 ## Submit application
 
-Please check [Application submission tool](commandlinesyntax#gear-app)
+After all these, you need to package everything into a uber jar and submit the jar to Gearpump Cluster. Please check [Application submission tool](commandlinesyntax#gear-app) to command line tool syntax.
