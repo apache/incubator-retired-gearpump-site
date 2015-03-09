@@ -3,7 +3,7 @@
 ## Pre-requisite
 
 Gearpump cluster can be installed on Windows OS and Linux.
-Before installation, you need to decide how many machines are used to run this cluster. For each machine, the requirements are listed in table xxx.
+Before installation, you need to decide how many machines are used to run this cluster. For each machine, the requirements are listed in table below.
 
 **  Table: Environment requirement on single machine**
 
@@ -28,7 +28,7 @@ Master port |	3000 |	Every other role like worker, appmaster, executor, user use
 ## How to Install
 
 
-The installation package can be downloaded from xxxx. You are suggested to unzip the package to same directory path on every machine you planned to install Gearpump.
+The installation package can be downloaded from [Download Address](downloads/downloads/). You are suggested to unzip the package to same directory path on every machine you planned to install Gearpump.
 To install Gearpump, you at least need to change the configuration in conf/gear.conf. 
 
 Config	| Default value	| Description	
@@ -37,7 +37,7 @@ base.akka.remote.netty.tcp.hostname	| 127.0.0.1	 | Host or IP address of current
 Gearpump.cluster.masters |	["127.0.0.1:3000"] |	List of all master nodes, with each item represents host and port of one master. 
 gearpump.worker.slots	 | 100 | how many slots this worker has
 		
-Besides this, there are optional configs related with logs, metrics, transports, ui. You can refer to xxx for more deail.
+Besides this, there are optional configs related with logs, metrics, transports, ui. You can refer to [Configuration Guide](0.3/configuration_guide/) for more deail.
 
 ## Start the Cluster Daemons
 
@@ -62,7 +62,7 @@ In distributed mode, you can start master and worker in different JVM.
 
 #### To start master:
 ```bash
-bin/master -ip xx -port xxx
+bin/master -ip xx -port xx
 ```
 
 The ip and port will be checked against setting under conf/gear.conf, so you need to make sure they are consistent with settings in gear.conf.
@@ -82,7 +82,7 @@ bin/services -master 127.0.0.1:3000
 
 After UI is started, you can brower http://127.0.0.1:8090 to view the cluster status.
 
-**NOTE:** The UI port can be configured in gear.conf. Check [Configuration Guide] for information.
+**NOTE:** The UI port can be configured in gear.conf. Check [Configuration Guide](0.3/configuration_guide) for information.
 
 ## Submit an new Application
 
