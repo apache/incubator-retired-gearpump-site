@@ -233,7 +233,7 @@
                 <div class="col-md-9" role="main">
 
 <h1 id="performance-evaluation">Performance Evaluation</h1>
-<p>To illustrate the performance of Gearpump, we mainly focused on two aspects, throughput and latency, using a micro benchmark called SOL (an example in the Gearpump distro) whose topology is quite simple. SOLStreamProducer delivers messages to SOLStreamProcessor constantly and SOLStreamProcessor does nothing. We set up a 4-nodes cluster with 10GbE network and each node's hardware is briefly shown as follows:</p>
+<p>To illustrate the performance of Gearpump, we mainly focused on two aspects, throughput and latency, using a micro benchmark called SOL (an example in the Gearpump package) whose topology is quite simple. SOLStreamProducer delivers messages to SOLStreamProcessor constantly and SOLStreamProcessor does nothing. We set up a 4-nodes cluster with 10GbE network and each node's hardware is briefly shown as follows:</p>
 <p>Processor: 32 core Intel(R) Xeon(R) CPU E5-2680 2.70GHz
 Memory: 128GB</p>
 <h2 id="throughput">Throughput</h2>
@@ -246,36 +246,24 @@ Memory: 128GB</p>
 <p>When the corruption is detected, for example the Executor is down, Gearpump will reallocate the resource and restart the application. It takes about 10 seconds to recover the application.</p>
 <h2 id="how-to-setup-the-benchmark-environment">How to setup the benchmark environment?</h2>
 <h3 id="prepare-the-env">Prepare the env</h3>
-<ol>
-<li>
-<p>Set up a node running Graphite, see guide doc/dashboard/README.md. </p>
-</li>
-<li>
-<p>Set up a 4-nodes Gearpump cluster with 10GbE network which have 3 Workers on each node. In our test environment, each node has 128GB memory and Intel? Xeon? 32-core processor E5-2680 2.70GHz. Make sure the metrics is enabled in Gearpump, check <a href="https://github.com/intel-hadoop/gearpump/wiki/Metrics-and-Dashboard">guide</a></p>
-</li>
-<li>
-<p>Submit a SOL application with 32 SteamProducers and 32 StreamProcessors:
-  <code>bash
-  bin/gear app -jar ./examples/sol/target/pack/lib/gearpump-examples-$VERSION.jar org.apache.gearpump.streaming.examples.sol.SOL -master $HOST:PORT -streamProducer 32 -streamProcessor 32 -runseconds 600</code></p>
-</li>
-<li>
-<p>Browser http://$HOST:801/, you should see a grafana dashboard. The HOST should be the node runs Graphite.</p>
-</li>
-<li>
-<p>Copy the config file doc/dashboard/graphana_dashboard, and modify the <code>host</code> filed to the actual hosts which runs Gearpump and the <code>source</code> and <code>target</code> fields. Please note that the format of the value should exactly the same as existing format and you also need to manually add the rest task ID to the value of <code>All</code> under <code>source</code> and <code>target</code> filed since now the number of each task type is 32.</p>
-</li>
-<li>
-<p>In the Grafana web page, click the "search" button and then import the config file mentioned above.</p>
-</li>
-</ol>
+<p>1). Set up a node running Graphite, see guide doc/dashboard/README.md. </p>
+<p>2). Set up a 4-nodes Gearpump cluster with 10GbE network which have 3 Workers on each node. In our test environment, each node has 128GB memory and Intel? Xeon? 32-core processor E5-2680 2.70GHz. Make sure the metrics is enabled in Gearpump, check <a href="https://github.com/intel-hadoop/gearpump/wiki/Metrics-and-Dashboard">guide</a></p>
+<p>3). Submit a SOL application with 32 SteamProducers and 32 StreamProcessors:</p>
+<pre><code class="bash">bin/gear app -jar ./examples/sol/target/pack/lib/gearpump-examples-$VERSION.jar org.apache.gearpump.streaming.examples.sol.SOL -master $HOST:PORT -streamProducer 32 -streamProcessor 32 -runseconds 600
+</code></pre>
+
+<p>4). Browser http://$HOST:801/, you should see a Grafana dashboard. The HOST should be the node runs Graphite.</p>
+<p>5). Copy the config file doc/dashboard/graphana_dashboard, and modify the <code>host</code> filed to the actual hosts which runs Gearpump and the <code>source</code> and <code>target</code> fields. Please note that the format of the value should exactly the same as existing format and you also need to manually add the rest task ID to the value of <code>All</code> under <code>source</code> and <code>target</code> filed since now the number of each task type is 32.</p>
+<p>6). In the Grafana web page, click the "search" button and then import the config file mentioned above.</p>
 <h3 id="metrics">Metrics</h3>
 <p>We use codahale metrics library. Gearpump support to use Graphite to visualize the metrics data. Metrics is disabled by default. To use it, you need to configure the 'conf/gear.conf'</p>
-<p><code>bash
-  gearpump.metrics.reporter = graphite
+<pre><code class="bash">  gearpump.metrics.reporter = graphite
   gearpump.metrics.enabled = true         ## Default is false, thus metrics is not enabled.
-  gearpump.metrics.graphite.host = "your actual graphite host name or ip"  
+  gearpump.metrics.graphite.host = &quot;your actual graphite host name or ip&quot;  
   gearpump.metrics.graphite.port = 2003   ## Your graphite port
-  gearpump.metrics.sample.rate = 10       ## this means we will sample 1 message for every 10 messages</code></p>
+  gearpump.metrics.sample.rate = 10       ## this means we will sample 1 message for every 10 messages
+</code></pre>
+
 <p>For guide about how to install and configure Graphite, please check the Graphite website http://graphite.wikidot.com/.  For guide about how to use Grafana, please check guide in <a href="https://github.com/intel-hadoop/gearpump/blob/master/doc/dashboard/README.md">doc/dashboard/readme.md</a></p>
 <p>Here is how it looks like for grafana dashboard:</p>
 <p><img alt="" src="../../img/dashboard.png" /></p>

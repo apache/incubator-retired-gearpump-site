@@ -5,7 +5,7 @@ If you change the configuration, you need to restart the daemon process(master, 
 
 config item | default value | description
 ---------------|--------|---------------
-gearpump.task-dispatcher | "akka.actor.pined-dispatcher" | default dispather for task actor
+gearpump.task-dispatcher | "akka.actor.pined-dispatcher" | default dispatcher for task actor
 gearpump.metrics.enabled | false | flag to enable the metrics system
 gearpump.metrics.sample-rate | 10 | We will take one metric out of ${sample.rate}
 gearpump.metrics.report-interval-ms | 15000 | we will report once every 15 seconds
@@ -16,12 +16,12 @@ gearpump.retainHistoryData.hours | 72 | max hours of history data to retain, Not
 gearpump.retainHistoryData.intervalMs | 3600000 |  # time interval between two data points for history data (unit: ms) Usually this value is set to a big value so that we only store coarse-grain data
 gearpump.retainRecentData.seconds | 300 | max seconds of recent data to retain, tHis is for the fine-grain data
 gearpump.retainRecentData.intervalMs | 15000 | time interval between two data points for recent data (unit: ms)
-gearpump.log.daemon.dir | "logs" | The log dir for daemon processes(relative to current working directory)
-gearpump.log.application.dir | "logs" | The log dir for applications(relative to current working directory)
+gearpump.log.daemon.dir | "logs" | The log directory for daemon processes(relative to current working directory)
+gearpump.log.application.dir | "logs" | The log directory for applications(relative to current working directory)
 gearpump.serializers | a map | custom serializer for streaming application
 gearpump.worker.slots | 100 | How many slots each worker contains
-gearpump.appmaster.vmargs | "" | JVM arguments for appmaster
-gearpump.appmaster.extraClasspath | "" | JVM default class path for appmaster
+gearpump.appmaster.vmargs | "" | JVM arguments for AppMaster
+gearpump.appmaster.extraClasspath | "" | JVM default class path for AppMaster
 gearpump.executor.vmargs | "" | JVM arguments for executor
 gearpump.executor.extraClasspath | "" | JVM default class path for executor
 gearpump.cluster.masters | [] | Config to set the master nodes of the cluster. If there are multiple master in the list, then the master nodes runs in HA mode.  ### For example, you may start three master, on node1: bin/master -ip node1 -port 3000, on node2: bin/master -ip node2 -port 3000, on node3: bin/master -ip node3 -port 3000, then you need to set the cluster.masters = ["node1:3000","node2:3000","node3:3000"]

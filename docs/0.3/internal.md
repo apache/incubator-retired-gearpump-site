@@ -16,18 +16,18 @@ Everything in the diagram is an actor; they fall into two categories, Cluster Ac
 
   **AppMaster**: Responsible to schedule the tasks to workers and manage the state of the application. Different applications have different AppMaster instances and are isolated. 
   
-  **Executor**: Child of AppMaster, represents a JVM process. Its job is to manage the lifecycle of tasks and recover the tasks in case of failure. 
+  **Executor**: Child of AppMaster, represents a JVM process. Its job is to manage the life cycle of tasks and recover the tasks in case of failure. 
   
   **Task**: Child of Executor, does the real job. Every task actor has a global unique address. One task actor can send data to any other task actors. This gives us great flexibility of how the computation DAG is distributed.
 
-  All actors in the graph are weaved together with actor supervision, and actor watching and every error is handled properly via supervisors. In a master, a risky job is isolated and delegated to child actors, so it's more robust. In the application, an extra intermediate layer "Executor" is created so that we can do fine-grained and fast recovery in case of task failure. A master watches the lifecycle of AppMaster and worker to handle the failures, but the lifecycle of Worker and AppMaster are not bound to a Master Actor by supervision, so that Master node can fail independently.  Several Master Actors form an Akka cluster, the Master state is exchanged using the Gossip protocol in a conflict-free consistent way so that there is no single point of failure. With this hierarchy design, we are able to achieve high availability. 
+  All actors in the graph are weaved together with actor supervision, and actor watching and every error is handled properly via supervisors. In a master, a risky job is isolated and delegated to child actors, so it's more robust. In the application, an extra intermediate layer "Executor" is created so that we can do fine-grained and fast recovery in case of task failure. A master watches the lifecycle of AppMaster and worker to handle the failures, but the life cycle of Worker and AppMaster are not bound to a Master Actor by supervision, so that Master node can fail independently.  Several Master Actors form an Akka cluster, the Master state is exchanged using the Gossip protocol in a conflict-free consistent way so that there is no single point of failure. With this hierarchy design, we are able to achieve high availability. 
 
 ## Application Clock and Global Clock Service
 
-Global clock service will track the minimum timestamp of all pending messages in the system. Every task will update its own minimum-clock to global clock service; the minimum-clock of task is decided by the minimum of:
+Global clock service will track the minimum time stamp of all pending messages in the system. Every task will update its own minimum-clock to global clock service; the minimum-clock of task is decided by the minimum of:
 
-  - Minimum timestamp of all pending messages in the inbox. 
-  - Minimum timestamp of all unacked outgoing messages. When there is message loss, the minimum clock will not advance. 
+  - Minimum time stamp of all pending messages in the inbox. 
+  - Minimum time stamp of all un-acked outgoing messages. When there is message loss, the minimum clock will not advance. 
   - Minimum clock of all task states. If the state is accumulated by a lot of input messages, then the clock value is decided by the oldest message's timestamp. The state clock will advance by doing snapshots to persistent storage or by fading out the effect of old messages.
 
 ![](img/clock.png)
@@ -67,8 +67,8 @@ Without flow control, one task can easily flood another task with too many messa
 ![](img/flow_control.png) 
 Figure: Flow control, each task is "star" connected to input tasks and output tasks
 
-The difficult part for our problem is that each task can have multiple input tasks and output tasks. The input and output must be geared together so that the backpressure can be properly propagated from downstream to upstream. The flow control also needs to consider failures, and it needs to be able to recover when there is message loss.
-Another challenge is that the overhead of flow control messages can be big. If we ack every message, there will be huge amount of ack'd messages in the system, degradating streaming performance. The approach we adopted is to use explicit AckRequest message. The target tasks will only ack when they receive the AckRequest message, and the source will only send AckRequest when it feels necessary. With this approach, we can largely reduce the overhead.
+The difficult part for our problem is that each task can have multiple input tasks and output tasks. The input and output must be geared together so that the back pressure can be properly propagated from downstream to upstream. The flow control also needs to consider failures, and it needs to be able to recover when there is message loss.
+Another challenge is that the overhead of flow control messages can be big. If we ack every message, there will be huge amount of ack'd messages in the system, degrading streaming performance. The approach we adopted is to use explicit AckRequest message. The target tasks will only ack back when they receive the AckRequest message, and the source will only send AckRequest when it feels necessary. With this approach, we can largely reduce the overhead.
 
 ## How do we detect message loss?
 
@@ -78,18 +78,18 @@ For example, for web ads, we may charge for every click, we don't want to miscou
 Figure: Message Loss Detection
 
 We use the flow control message AckRequest and Ack to detect message loss. The target task will count how many messages has been received since last AckRequest, and ack the count back to source task. The source task will check the count and find message loss.
-This is just an illustration, the real case is more difficulty, we need to handle zombine tasks, and in-the-fly stale messages.
+This is just an illustration, the real case is more difficulty, we need to handle zombie tasks, and in-the-fly stale messages.
 
 ## How Gearpump know what messages to replay?
 
-In some applications, a message cannot be lost, and must be replayed. For example, during the money transfer, the bank will SMS us the verification code. If that message is lost, the system must replay it so that money transfer can continue. We made the decision to use **source end message storage** and **timestamp based replay**.
+In some applications, a message cannot be lost, and must be replayed. For example, during the money transfer, the bank will SMS us the verification code. If that message is lost, the system must replay it so that money transfer can continue. We made the decision to use **source end message storage** and **time stamp based replay**.
 
 ![](img/replay.png) 
 Figure: Replay with Source End Message Store
 
 Every message is immutable, and tagged with a timestamp. We have an assumption that the timestamp is approximately incremental (allow small ratio message disorder). 
 
-We assume the message is coming from a replay-able source, like Kafka queue; otherwise the message will be stored at customizable source end "message store". When the source task sends the message downstream, the timestamp and offset of the message is also check-pointed to offset-timestamp storage periodically. During recovery, the system will first retrieve the right timestamp and offset from the offset-timestamp storage, then it will replay the message store from that timestamp and offset. A Timestamp Filter will filter out old messages in case the message in message store is not strictly time-ordered. 
+We assume the message is coming from a replay-able source, like Kafka queue; otherwise the message will be stored at customizable source end "message store". When the source task sends the message downstream, the timestamp and offset of the message is also check-pointed to offset-timestamp storage periodically. During recovery, the system will first retrieve the right time stamp and offset from the offset-timestamp storage, then it will replay the message store from that time stamp and offset. A Timestamp Filter will filter out old messages in case the message in message store is not strictly time-ordered. 
 
 ## Master High Availability
 
@@ -111,11 +111,11 @@ Figure: Possible Failure Scenarios and Error Supervision Hierarchy
 
 ### What happen when Master Crash?
 
-When Master crash, other standby masters will be notified, they will resume the master state, and take over control. Worker and AppMaster will also be notified, They will trigger a process to find the new active master, until the resolution complete. If AppMaster or Worker cannot resolve a new Master in a timeout, they will make suicide and kill themselves.
+When Master crash, other standby masters will be notified, they will resume the master state, and take over control. Worker and AppMaster will also be notified, They will trigger a process to find the new active master, until the resolution complete. If AppMaster or Worker cannot resolve a new Master in a time out, they will make suicide and kill themselves.
 
 ### What happen When worker crash?
 
-When worker crash, the Master will get notified and stop scheduling new computation to this worker. All supervised executors on current worker will be killed, Appmaster can treat it as recovery of executor crash like [What happen when executor crash?](#what-happen-when-executor-crash)
+When worker crash, the Master will get notified and stop scheduling new computation to this worker. All supervised executors on current worker will be killed, AppMaster can treat it as recovery of executor crash like [What happen when executor crash?](#what-happen-when-executor-crash)
 
 ### What happen when AppMaster Crash?
 

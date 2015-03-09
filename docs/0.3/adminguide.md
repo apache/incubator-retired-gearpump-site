@@ -37,7 +37,7 @@ base.akka.remote.netty.tcp.hostname	| 127.0.0.1	 | Host or IP address of current
 Gearpump.cluster.masters |	["127.0.0.1:3000"] |	List of all master nodes, with each item represents host and port of one master. 
 gearpump.worker.slots	 | 100 | how many slots this worker has
 		
-Besides this, there are optional configs related with logs, metrics, transports, ui. You can refer to [Configuration Guide](0.3/configuration_guide/) for more deail.
+Besides this, there are other optional configurations related with logs, metrics, transports, ui. You can refer to [Configuration Guide](0.3/configuration_guide/) for more details.
 
 ## Start the Cluster Daemons
 
@@ -100,4 +100,4 @@ After the application is started, you can view the status of application in UI. 
 
 ## Security
 
-Every application have a submitter user. We will seperate the application from different user, like different log folder for different app. However, for now there is no authentication or authorization in place to protect against unauthorized access. 
+Every application have a submitter user. We will separate the application from different user, like different log folder for different applications. However, for now there is no authentication or authorization in place to protect against unauthorized access. 

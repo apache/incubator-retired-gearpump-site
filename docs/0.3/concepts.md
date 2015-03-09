@@ -12,7 +12,7 @@ Gearpump follow master slave architecture. Every cluster contains one or more Ma
 
 ## Application
 
-Application is what we want to parallelize and run on the cluster. There are different application types, for example MapReduce application and streaming application are different application types. Gearpump natively supports Streaming Application types, it also contains several templates to help user to create custom application types, like distributedShell. 
+Application is what we want to parallel and run on the cluster. There are different application types, for example MapReduce application and streaming application are different application types. Gearpump natively supports Streaming Application types, it also contains several templates to help user to create custom application types, like distributedShell. 
 
 ## AppMaster and Executor
 
@@ -34,7 +34,7 @@ Figure: Launch Executors and Tasks
 
 ## Streaming Topology, Processor, and Task
 
-For streaming application type, each application contains a topology, which is a DAG (directed acyclic graph) to describe the data flow. Each node in the DAG is a processor. For example, for wordcount it contains two processors, Split and Sum. The Split processor splits a line to a list of words, then the Sum processor summarize the frequency of each word. 
+For streaming application type, each application contains a topology, which is a DAG (directed acyclic graph) to describe the data flow. Each node in the DAG is a processor. For example, for word count it contains two processors, Split and Sum. The Split processor splits a line to a list of words, then the Sum processor summarize the frequency of each word. 
 An application is a DAG of processors. Each processor handles messages. 
  
 ![](img/dag.png)
@@ -42,7 +42,7 @@ Figure: Processor DAG
 
 ## Streaming Task and Partitioner
 
-For streaming application type, Task is the minimum unit of parallelism. In runtime, each Processor is parallelized to a list of tasks, with different tasks running in different executor. You can define Partitioner to denote the data shuffling rule between upstream processor tasks and downstream processor tasks. 
+For streaming application type, Task is the minimum unit of parallelism. In runtime, each Processor is paralleled to a list of tasks, with different tasks running in different executor. You can define Partitioner to denote the data shuffling rule between upstream processor tasks and downstream processor tasks. 
 
 ![](img/shuffle.png)
 Figure: Task Data Shuffling

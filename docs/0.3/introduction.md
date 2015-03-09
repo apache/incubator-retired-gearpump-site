@@ -6,7 +6,7 @@ What is Gearpump
 
 GearPump is a lightweight real-time big data streaming engine using Akka, it can also be used as an underlying platform for other general distributed applications, like distributed cron job, distributed log collection. 
 
-Gearpump is inspired by recent advances in the Akka framework and a desire to improve on existing streaming frameworks. Gearpump draws from a number of existing frameworks including MillWheel , Apache Storm , Spark Streaming , Apache Samza , Apache Tez  and Hadoop YARN  while leveraging Akka actors throughout its architecture.
+Gearpump is inspired by recent advances in the Akka framework and a desire to improve on existing streaming frameworks. Gearpump draws from a number of existing frameworks including MillWheel , Apache Storm , Spark Streaming , Apache Samza , Apache Tez and Hadoop YARN  while leveraging Akka actors throughout its architecture.
 
 ![](img/logo2.png)
  

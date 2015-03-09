@@ -19,15 +19,15 @@ It contains three processors:
 
 ## How to read data from Kafka
 
-We use util KafkaSource, please check [Connect with Kafka source](0.3/how_to_write_a_streaming_application/#connect-with-kafka) for the introduction.
+We use KafkaSource, please check [Connect with Kafka source](0.3/how_to_write_a_streaming_application/#connect-with-kafka) for the introduction.
 
-Please note that we have set a startTimestamp for the KafkaSource, which means KafkaSource will read from kafka queue starting from messages whose timestamp is near startTimestamp.
+Please note that we have set a startTimestamp for the KafkaSource, which means KafkaSource will read from Kafka queue starting from messages whose timestamp is near startTimestamp.
 
 ## What happen where there is Task crash or message loss?
-When there is message loss, the AppMaster will first pause the global clock service so that the global min timestamp no longer change, then it will restart the kafka source tasks. Upon restart, Kafka Source will start to replay. It will first read the global min timestamp from AppMaster, and start to read message from that timestamp.
+When there is message loss, the AppMaster will first pause the global clock service so that the global minimum timestamp no longer change, then it will restart the Kafka source tasks. Upon restart, Kafka Source will start to replay. It will first read the global minimum timestamp from AppMaster, and start to read message from that timestamp.
 
 ## What method KafkaSource used to read messages from a start timestamp? As we know Kafka queue doesn't expose the timestamp information.
 
-Kafka queue only expose the offset information for each partition. What KafkaSource do is to maintain its own mapping from kafka offset to  Application timestamp, so that we can map from a application timestamp to a kafka offset, and replay kafka messages from that kafka offset.
+Kafka queue only expose the offset information for each partition. What KafkaSource do is to maintain its own mapping from Kafka offset to  Application timestamp, so that we can map from a application timestamp to a Kafka offset, and replay Kafka messages from that Kafka offset.
 
-The mapping between Appliation timestmap with Kafka offset is stored in a distributed file system or as a kafka topic.
+The mapping between Application timestmap with Kafka offset is stored in a distributed file system or as a Kafka topic.

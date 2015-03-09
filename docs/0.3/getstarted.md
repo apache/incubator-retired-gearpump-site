@@ -51,7 +51,7 @@ export HTTPS_PROXT= http://host:port
 You need to flatten the .tar.gz file to use it, on Linux, you can
 
 ```bash
-# pleaes replace ${version} below with actual version used
+# please replace ${version} below with actual version used
 tar  -zxvf gearpump-${version}.tar.gz
 ```
 
@@ -112,4 +112,4 @@ You see, now it is up and running.
 Other Application Examples
 ----------
 
-Besides wordcount, there are serveral other example applications. Please check the source tree examples/ for detail information.
+Besides wordcount, there are several other example applications. Please check the source tree examples/ for detail information.

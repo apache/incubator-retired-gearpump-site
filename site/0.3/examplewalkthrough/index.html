@@ -247,13 +247,13 @@
 <li>Sum will summarize the words to get a count for each word.</li>
 </ul>
 <h2 id="how-to-read-data-from-kafka">How to read data from Kafka</h2>
-<p>We use util KafkaSource, please check <a href="../../0.3/how_to_write_a_streaming_application/#connect-with-kafka">Connect with Kafka source</a> for the introduction.</p>
-<p>Please note that we have set a startTimestamp for the KafkaSource, which means KafkaSource will read from kafka queue starting from messages whose timestamp is near startTimestamp.</p>
+<p>We use KafkaSource, please check <a href="../../0.3/how_to_write_a_streaming_application/#connect-with-kafka">Connect with Kafka source</a> for the introduction.</p>
+<p>Please note that we have set a startTimestamp for the KafkaSource, which means KafkaSource will read from Kafka queue starting from messages whose timestamp is near startTimestamp.</p>
 <h2 id="what-happen-where-there-is-task-crash-or-message-loss">What happen where there is Task crash or message loss?</h2>
-<p>When there is message loss, the AppMaster will first pause the global clock service so that the global min timestamp no longer change, then it will restart the kafka source tasks. Upon restart, Kafka Source will start to replay. It will first read the global min timestamp from AppMaster, and start to read message from that timestamp.</p>
+<p>When there is message loss, the AppMaster will first pause the global clock service so that the global minimum timestamp no longer change, then it will restart the Kafka source tasks. Upon restart, Kafka Source will start to replay. It will first read the global minimum timestamp from AppMaster, and start to read message from that timestamp.</p>
 <h2 id="what-method-kafkasource-used-to-read-messages-from-a-start-timestamp-as-we-know-kafka-queue-doesnt-expose-the-timestamp-information">What method KafkaSource used to read messages from a start timestamp? As we know Kafka queue doesn't expose the timestamp information.</h2>
-<p>Kafka queue only expose the offset information for each partition. What KafkaSource do is to maintain its own mapping from kafka offset to  Application timestamp, so that we can map from a application timestamp to a kafka offset, and replay kafka messages from that kafka offset.</p>
-<p>The mapping between Appliation timestmap with Kafka offset is stored in a distributed file system or as a kafka topic.</p>
+<p>Kafka queue only expose the offset information for each partition. What KafkaSource do is to maintain its own mapping from Kafka offset to  Application timestamp, so that we can map from a application timestamp to a Kafka offset, and replay Kafka messages from that Kafka offset.</p>
+<p>The mapping between Application timestmap with Kafka offset is stored in a distributed file system or as a Kafka topic.</p>
 </div>
             
         </div>
