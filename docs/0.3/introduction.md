@@ -84,26 +84,26 @@ What is a good use case for Gearpump?
 
 We considered Gearpump suitable for your application:
 
-#### 1.	when you are a Scala guru and want to do streaming in Scala, or
+#### 1.  when you are a Scala guru and want to do streaming in Scala, or
 
-#### 2.	when you already use Akka to do streaming, and want more data consistency, performance, and manageability, or
+#### 2.  when you already use Akka to do streaming, and want more data consistency, performance, and manageability, or
 
-#### 3.	when you have IOT(internet of thing) requirements and want to collect data from IOT, or deploy computation to edge devices transparently, or
+#### 3.  when you have IOT(internet of thing) requirements and want to collect data from IOT, or deploy computation to edge devices transparently, or
 
-#### 4.	when you have a large in-memory data to maintain and want long running daemons for streaming, or
+#### 4.  when you have a large in-memory data to maintain and want long running daemons for streaming, or
 
-#### 5.	when you want exactly once message processing while still want low latency, or
+#### 5.  when you want exactly once message processing while still want low latency, or
 
-#### 6.	when you want to dynamic swap-in swap-out certain sub-DAG on a running topology, or
+#### 6.  when you want to dynamic swap-in swap-out certain sub-DAG on a running topology, or
 
-#### 7.	when you want real time streaming with max throughput without worrying about flow control or out of memory error, or
+#### 7.  when you want real time streaming with max throughput without worrying about flow control or out of memory error, or
 
-#### 8.	you want to try something new and cool :)
+#### 8.  you want to try something new and cool :)
 
 Relation with YARN
 --------------
  
-Gearpump can run on top of YARN as a YARN application. The integration with YARN is tracked by issue #27(https://github.com/intel-hadoop/gearpump/issues/27). Although Gearpump have some function overlap with YARN, its function is limited compared with YARN. 
+Gearpump can run on top of YARN as a YARN application. The integration with YARN is tracked by issue [#27](https://github.com/intel-hadoop/gearpump/issues/27). Although Gearpump have some function overlap with YARN, its function is limited compared with YARN. 
 
 Relation with Storm and Spark Streaming
 -----------

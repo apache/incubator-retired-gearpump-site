@@ -1,7 +1,7 @@
 Intellij IDE Setup
 ==========================
 1. In Intellij, download scala plugin.  We are using scala version 2.11
-2. Open menu "File->Open" to open Gearpump root project, the choose the Gearpump source folder. 
+2. Open menu "File->Open" to open Gearpump root project, then choose the Gearpump source folder. 
 3. All set.
 
 Eclipse IDE Setup
