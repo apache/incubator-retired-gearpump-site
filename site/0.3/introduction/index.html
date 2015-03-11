@@ -139,14 +139,28 @@
                 
                 
                 
-                    <li >
-                        <a href="../../publications/publications">Publications</a>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Publications <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            <li >
+                                <a href="../../publications/publications">Publications</a>
+                            </li>
+                        
+                        </ul>
                     </li>
                 
                 
                 
-                    <li >
-                        <a href="../../usecases/use_cases">Use Cases</a>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Use Cases <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            <li >
+                                <a href="../../usecases/use_cases">Use cases</a>
+                            </li>
+                        
+                        </ul>
                     </li>
                 
                 
@@ -276,16 +290,16 @@
 <p>Gearpump has built-in data connectors for Kafka and HDFS. For Kafka connector, we support message replay from a specified timestamp.</p>
 <h2 id="what-is-a-good-use-case-for-gearpump">What is a good use case for Gearpump?</h2>
 <p>We considered Gearpump suitable for your application:</p>
-<h4 id="1-when-you-are-a-scala-guru-and-want-to-do-streaming-in-scala-or">1. when you are a Scala guru and want to do streaming in Scala, or</h4>
-<h4 id="2-when-you-already-use-akka-to-do-streaming-and-want-more-data-consistency-performance-and-manageability-or">2. when you already use Akka to do streaming, and want more data consistency, performance, and manageability, or</h4>
-<h4 id="3-when-you-have-iotinternet-of-thing-requirements-and-want-to-collect-data-from-iot-or-deploy-computation-to-edge-devices-transparently-or">3. when you have IOT(internet of thing) requirements and want to collect data from IOT, or deploy computation to edge devices transparently, or</h4>
-<h4 id="4-when-you-have-a-large-in-memory-data-to-maintain-and-want-long-running-daemons-for-streaming-or">4. when you have a large in-memory data to maintain and want long running daemons for streaming, or</h4>
-<h4 id="5-when-you-want-exactly-once-message-processing-while-still-want-low-latency-or">5. when you want exactly once message processing while still want low latency, or</h4>
-<h4 id="6-when-you-want-to-dynamic-swap-in-swap-out-certain-sub-dag-on-a-running-topology-or">6. when you want to dynamic swap-in swap-out certain sub-DAG on a running topology, or</h4>
-<h4 id="7-when-you-want-real-time-streaming-with-max-throughput-without-worrying-about-flow-control-or-out-of-memory-error-or">7. when you want real time streaming with max throughput without worrying about flow control or out of memory error, or</h4>
-<h4 id="8-you-want-to-try-something-new-and-cool">8. you want to try something new and cool :)</h4>
+<h4 id="1-when-you-are-a-scala-guru-and-want-to-do-streaming-in-scala-or">1.  when you are a Scala guru and want to do streaming in Scala, or</h4>
+<h4 id="2-when-you-already-use-akka-to-do-streaming-and-want-more-data-consistency-performance-and-manageability-or">2.  when you already use Akka to do streaming, and want more data consistency, performance, and manageability, or</h4>
+<h4 id="3-when-you-have-iotinternet-of-thing-requirements-and-want-to-collect-data-from-iot-or-deploy-computation-to-edge-devices-transparently-or">3.  when you have IOT(internet of thing) requirements and want to collect data from IOT, or deploy computation to edge devices transparently, or</h4>
+<h4 id="4-when-you-have-a-large-in-memory-data-to-maintain-and-want-long-running-daemons-for-streaming-or">4.  when you have a large in-memory data to maintain and want long running daemons for streaming, or</h4>
+<h4 id="5-when-you-want-exactly-once-message-processing-while-still-want-low-latency-or">5.  when you want exactly once message processing while still want low latency, or</h4>
+<h4 id="6-when-you-want-to-dynamic-swap-in-swap-out-certain-sub-dag-on-a-running-topology-or">6.  when you want to dynamic swap-in swap-out certain sub-DAG on a running topology, or</h4>
+<h4 id="7-when-you-want-real-time-streaming-with-max-throughput-without-worrying-about-flow-control-or-out-of-memory-error-or">7.  when you want real time streaming with max throughput without worrying about flow control or out of memory error, or</h4>
+<h4 id="8-you-want-to-try-something-new-and-cool">8.  you want to try something new and cool :)</h4>
 <h2 id="relation-with-yarn">Relation with YARN</h2>
-<p>Gearpump can run on top of YARN as a YARN application. The integration with YARN is tracked by issue #27(https://github.com/intel-hadoop/gearpump/issues/27). Although Gearpump have some function overlap with YARN, its function is limited compared with YARN. </p>
+<p>Gearpump can run on top of YARN as a YARN application. The integration with YARN is tracked by issue <a href="https://github.com/intel-hadoop/gearpump/issues/27">#27</a>. Although Gearpump have some function overlap with YARN, its function is limited compared with YARN. </p>
 <h2 id="relation-with-storm-and-spark-streaming">Relation with Storm and Spark Streaming</h2>
 <p>Storm and spark streaming are proven platforms, there are many production deployments. Compared with them, Gearpump is not than proven and there is no production deployment yet. However, there is no single platform that can cover every use case; Gearpump has its own +1 points in some special fields. As an instance, for IOT use cases, Gearpump may be considered convenient because the topology can be deployed to edge device with feature of location transparency. For another example, when users want to upgrade the application online without service interruption, Gearpump may be suitable as it can dynamically modify the computation DAG on the fly. For other special use cases that are suitable for Gearpump, please check section <a href="../../documents/introduction/#what-is-a-good-use-case-for-gearpump">What is a good use case for Gearpump</a></p>
 </div>
