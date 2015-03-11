@@ -139,28 +139,14 @@
                 
                 
                 
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Publications <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        
-                            <li >
-                                <a href="../../publications/publications">Publications</a>
-                            </li>
-                        
-                        </ul>
+                    <li >
+                        <a href="../../publications/publications">Publications</a>
                     </li>
                 
                 
                 
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Use Cases <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        
-                            <li >
-                                <a href="../../usecases/use_cases">Use cases</a>
-                            </li>
-                        
-                        </ul>
+                    <li >
+                        <a href="../../usecases/use_cases">Use Cases</a>
                     </li>
                 
                 
@@ -300,19 +286,106 @@
 <h2 id="get-configappappid">GET config/app/&lt;appId&gt;</h2>
 <p>Query the configuration of specific application appId</p>
 <p>Example:</p>
-<pre><code class="bash">curl http://127.0.0.1:8090/appmaster/1
+<pre><code class="bash">curl http://127.0.0.1:8090/config/app/1
 </code></pre>
 
 <p>Sample Response:</p>
 <pre><code>{
-  &quot;status&quot;: &quot;active&quot;,
-  &quot;appId&quot;: 1,
-  &quot;appName&quot;: &quot;dag&quot;,
-  &quot;appMasterPath&quot;: &quot;akka.tcp://app1-executor-1@127.0.0.1:62670/user/daemon/appdaemon1/$c&quot;,
-  &quot;workerPath&quot;: &quot;akka.tcp://master@127.0.0.1:3000/user/Worker1&quot;,
-  &quot;submissionTime&quot;: &quot;1425926523047&quot;,
-  &quot;startTime&quot;: &quot;1425926525533&quot;,
-  &quot;user&quot;: &quot;foobar&quot;
+    &quot;gearpump&quot; : {
+        &quot;appmaster&quot; : {
+            &quot;extraClasspath&quot; : &quot;&quot;,
+            &quot;vmargs&quot; : &quot;-server -Xms512M -Xmx1024M -Xss1M -XX:MaxPermSize=128m -XX:+HeapDumpOnOutOfMemoryError -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=80 -XX:+UseParNewGC -XX:NewRatio=3&quot;
+        },
+        &quot;cluster&quot; : {
+            &quot;masters&quot; : [
+                &quot;127.0.0.1:3000&quot;
+            ]
+        },
+        &quot;executor&quot; : {
+            &quot;extraClasspath&quot; : &quot;&quot;,
+            &quot;vmargs&quot; : &quot;-server -Xms512M -Xmx1024M -Xss1M -XX:MaxPermSize=128m -XX:+HeapDumpOnOutOfMemoryError -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=80 -XX:+UseParNewGC -XX:NewRatio=3&quot;
+        },
+        &quot;jarstore&quot; : {
+            &quot;rootpath&quot; : &quot;jarstore/&quot;
+        },
+        &quot;log&quot; : {
+            &quot;application&quot; : {
+                &quot;dir&quot; : &quot;logs&quot;
+            },
+            &quot;daemon&quot; : {
+                &quot;dir&quot; : &quot;logs&quot;
+            }
+        },
+        &quot;metrics&quot; : {
+            &quot;enabled&quot; : true,
+            &quot;graphite&quot; : {
+                &quot;host&quot; : &quot;127.0.0.1&quot;,
+                &quot;port&quot; : 2003
+            },
+            &quot;logfile&quot; : {},
+            &quot;report-interval-ms&quot; : 15000,
+            &quot;reporter&quot; : &quot;akka&quot;,
+            &quot;retainHistoryData&quot; : {
+                &quot;hours&quot; : 72,
+                &quot;intervalMs&quot; : 3600000
+            },
+            &quot;retainRecentData&quot; : {
+                &quot;intervalMs&quot; : 15000,
+                &quot;seconds&quot; : 300
+            },
+            &quot;sample-rate&quot; : 10
+        },
+        &quot;netty&quot; : {
+            &quot;base-sleep-ms&quot; : 100,
+            &quot;buffer-size&quot; : 5242880,
+            &quot;fulsh-check-interval&quot; : 10,
+            &quot;max-retries&quot; : 30,
+            &quot;max-sleep-ms&quot; : 1000,
+            &quot;message-batch-size&quot; : 262144
+        },
+        &quot;netty-dispatcher&quot; : &quot;akka.actor.default-dispatcher&quot;,
+        &quot;scheduling&quot; : {
+            &quot;scheduler-class&quot; : &quot;org.apache.gearpump.cluster.scheduler.PriorityScheduler&quot;
+        },
+        &quot;serializers&quot; : {
+            &quot;[B&quot; : &quot;&quot;,
+            &quot;[C&quot; : &quot;&quot;,
+            &quot;[D&quot; : &quot;&quot;,
+            &quot;[F&quot; : &quot;&quot;,
+            &quot;[I&quot; : &quot;&quot;,
+            &quot;[J&quot; : &quot;&quot;,
+            &quot;[Ljava.lang.String;&quot; : &quot;&quot;,
+            &quot;[S&quot; : &quot;&quot;,
+            &quot;[Z&quot; : &quot;&quot;,
+            &quot;org.apache.gearpump.Message&quot; : &quot;org.apache.gearpump.streaming.MessageSerializer&quot;,
+            &quot;org.apache.gearpump.streaming.task.Ack&quot; : &quot;org.apache.gearpump.streaming.AckSerializer&quot;,
+            &quot;org.apache.gearpump.streaming.task.AckRequest&quot; : &quot;org.apache.gearpump.streaming.AckRequestSerializer&quot;,
+            &quot;org.apache.gearpump.streaming.task.LatencyProbe&quot; : &quot;org.apache.gearpump.streaming.LatencyProbeSerializer&quot;,
+            &quot;org.apache.gearpump.streaming.task.TaskId&quot; : &quot;org.apache.gearpump.streaming.TaskIdSerializer&quot;,
+            &quot;scala.Tuple1&quot; : &quot;&quot;,
+            &quot;scala.Tuple2&quot; : &quot;&quot;,
+            &quot;scala.Tuple3&quot; : &quot;&quot;,
+            &quot;scala.Tuple4&quot; : &quot;&quot;,
+            &quot;scala.Tuple5&quot; : &quot;&quot;,
+            &quot;scala.Tuple6&quot; : &quot;&quot;,
+            &quot;scala.collection.immutable.$colon$colon&quot; : &quot;&quot;,
+            &quot;scala.collection.immutable.List&quot; : &quot;&quot;
+        },
+        &quot;services&quot; : {
+            # gear.conf: 112
+            &quot;host&quot; : &quot;127.0.0.1&quot;,
+            # gear.conf: 113
+            &quot;http&quot; : 8090,
+            # gear.conf: 114
+            &quot;ws&quot; : 8091
+        },
+        &quot;task-dispatcher&quot; : &quot;akka.actor.pined-dispatcher&quot;,
+        &quot;worker&quot; : {
+            # reference.conf: 100
+            # # How many slots each worker contains
+            &quot;slots&quot; : 100
+        }
+    }
 }
 
 </code></pre>

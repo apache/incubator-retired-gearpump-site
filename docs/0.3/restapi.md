@@ -55,19 +55,106 @@ Query the configuration of specific application appId
 
 Example:
 ```bash
-curl http://127.0.0.1:8090/appmaster/1
+curl http://127.0.0.1:8090/config/app/1
 ```
 Sample Response:
 ```
 {
-  "status": "active",
-  "appId": 1,
-  "appName": "dag",
-  "appMasterPath": "akka.tcp://app1-executor-1@127.0.0.1:62670/user/daemon/appdaemon1/$c",
-  "workerPath": "akka.tcp://master@127.0.0.1:3000/user/Worker1",
-  "submissionTime": "1425926523047",
-  "startTime": "1425926525533",
-  "user": "foobar"
+    "gearpump" : {
+        "appmaster" : {
+            "extraClasspath" : "",
+            "vmargs" : "-server -Xms512M -Xmx1024M -Xss1M -XX:MaxPermSize=128m -XX:+HeapDumpOnOutOfMemoryError -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=80 -XX:+UseParNewGC -XX:NewRatio=3"
+        },
+        "cluster" : {
+            "masters" : [
+                "127.0.0.1:3000"
+            ]
+        },
+        "executor" : {
+            "extraClasspath" : "",
+            "vmargs" : "-server -Xms512M -Xmx1024M -Xss1M -XX:MaxPermSize=128m -XX:+HeapDumpOnOutOfMemoryError -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=80 -XX:+UseParNewGC -XX:NewRatio=3"
+        },
+        "jarstore" : {
+            "rootpath" : "jarstore/"
+        },
+        "log" : {
+            "application" : {
+                "dir" : "logs"
+            },
+            "daemon" : {
+                "dir" : "logs"
+            }
+        },
+        "metrics" : {
+            "enabled" : true,
+            "graphite" : {
+                "host" : "127.0.0.1",
+                "port" : 2003
+            },
+            "logfile" : {},
+            "report-interval-ms" : 15000,
+            "reporter" : "akka",
+            "retainHistoryData" : {
+                "hours" : 72,
+                "intervalMs" : 3600000
+            },
+            "retainRecentData" : {
+                "intervalMs" : 15000,
+                "seconds" : 300
+            },
+            "sample-rate" : 10
+        },
+        "netty" : {
+            "base-sleep-ms" : 100,
+            "buffer-size" : 5242880,
+            "fulsh-check-interval" : 10,
+            "max-retries" : 30,
+            "max-sleep-ms" : 1000,
+            "message-batch-size" : 262144
+        },
+        "netty-dispatcher" : "akka.actor.default-dispatcher",
+        "scheduling" : {
+            "scheduler-class" : "org.apache.gearpump.cluster.scheduler.PriorityScheduler"
+        },
+        "serializers" : {
+            "[B" : "",
+            "[C" : "",
+            "[D" : "",
+            "[F" : "",
+            "[I" : "",
+            "[J" : "",
+            "[Ljava.lang.String;" : "",
+            "[S" : "",
+            "[Z" : "",
+            "org.apache.gearpump.Message" : "org.apache.gearpump.streaming.MessageSerializer",
+            "org.apache.gearpump.streaming.task.Ack" : "org.apache.gearpump.streaming.AckSerializer",
+            "org.apache.gearpump.streaming.task.AckRequest" : "org.apache.gearpump.streaming.AckRequestSerializer",
+            "org.apache.gearpump.streaming.task.LatencyProbe" : "org.apache.gearpump.streaming.LatencyProbeSerializer",
+            "org.apache.gearpump.streaming.task.TaskId" : "org.apache.gearpump.streaming.TaskIdSerializer",
+            "scala.Tuple1" : "",
+            "scala.Tuple2" : "",
+            "scala.Tuple3" : "",
+            "scala.Tuple4" : "",
+            "scala.Tuple5" : "",
+            "scala.Tuple6" : "",
+            "scala.collection.immutable.$colon$colon" : "",
+            "scala.collection.immutable.List" : ""
+        },
+        "services" : {
+            # gear.conf: 112
+            "host" : "127.0.0.1",
+            # gear.conf: 113
+            "http" : 8090,
+            # gear.conf: 114
+            "ws" : 8091
+        },
+        "task-dispatcher" : "akka.actor.pined-dispatcher",
+        "worker" : {
+            # reference.conf: 100
+            # # How many slots each worker contains
+            "slots" : 100
+        }
+    }
 }
 
 ```

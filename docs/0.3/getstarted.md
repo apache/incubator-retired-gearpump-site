@@ -104,6 +104,8 @@ bin/services –master 127.0.0.1:3000
 ```
 You can manage the application in UI [http://127.0.0.1:8090](http://127.0.0.1:8090) or by [Command Line tool](commandlinesyntax.md).
 
+![](img/dashboard.gif)
+
 **NOTE:** the UI port setting can be defined in configuration, please check section [Configuration Guide](0.3/configuration_guide)
 You see, now it is up and running. 
 

@@ -75,6 +75,8 @@ Different applications have different requirements on performance metrics, some 
 
 Gearpump has a built-in dashboard UI to manage the cluster and visualize the applications. The UI use REST call to connect with backend, so it is easy to embed the UI to other place you want. 
 
+![](img/dashboard.gif)
+
 ### Data connectors for Kafka and HDFS
 
 Gearpump has built-in data connectors for Kafka and HDFS. For Kafka connector, we support message replay from a specified timestamp.

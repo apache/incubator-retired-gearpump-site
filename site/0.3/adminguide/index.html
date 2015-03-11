@@ -139,28 +139,14 @@
                 
                 
                 
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Publications <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        
-                            <li >
-                                <a href="../../publications/publications">Publications</a>
-                            </li>
-                        
-                        </ul>
+                    <li >
+                        <a href="../../publications/publications">Publications</a>
                     </li>
                 
                 
                 
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Use Cases <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        
-                            <li >
-                                <a href="../../usecases/use_cases">Use cases</a>
-                            </li>
-                        
-                        </ul>
+                    <li >
+                        <a href="../../usecases/use_cases">Use Cases</a>
                     </li>
                 
                 
@@ -379,6 +365,7 @@ To install Gearpump, you at least need to change the configuration in conf/gear.
 </code></pre>
 
 <p>After UI is started, you can brower http://127.0.0.1:8090 to view the cluster status.</p>
+<p><img alt="" src="../../img/dashboard.gif" /></p>
 <p><strong>NOTE:</strong> The UI port can be configured in gear.conf. Check <a href="../../0.3/configuration_guide">Configuration Guide</a> for information.</p>
 <h2 id="submit-an-new-application">Submit an new Application</h2>
 <p>You can use command bin/gear app to submit To check the syntax:</p>
@@ -387,6 +374,7 @@ To install Gearpump, you at least need to change the configuration in conf/gear.
 
 <h2 id="manage-the-applications">Manage the applications</h2>
 <p>After the application is started, you can view the status of application in UI. In the UI, you can allowed to shutdown the application. </p>
+<p><img alt="" src="../../img/dashboard_3.png" /></p>
 <p><strong>NOTE</strong>: Besides UI, there is also command line tools to manage the application, please check <a href="../../documents/commandlinesyntax">Command line tools</a> for information.</p>
 <h2 id="security">Security</h2>
 <p>Every application have a submitter user. We will separate the application from different user, like different log folder for different applications. However, for now there is no authentication or authorization in place to protect against unauthorized access. </p>

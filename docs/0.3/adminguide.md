@@ -82,6 +82,8 @@ bin/services -master 127.0.0.1:3000
 
 After UI is started, you can brower http://127.0.0.1:8090 to view the cluster status.
 
+![](img/dashboard.gif)
+
 **NOTE:** The UI port can be configured in gear.conf. Check [Configuration Guide](0.3/configuration_guide) for information.
 
 ## Submit an new Application
@@ -95,6 +97,8 @@ bin/gear app -jar xx.jar MainClass <arg1> <arg2> ...
 ## Manage the applications
 
 After the application is started, you can view the status of application in UI. In the UI, you can allowed to shutdown the application. 
+
+![](img/dashboard_3.png)
 
 **NOTE**: Besides UI, there is also command line tools to manage the application, please check [Command line tools](documents/commandlinesyntax) for information.
 
