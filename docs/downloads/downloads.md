@@ -2,13 +2,13 @@
 
 ## Latest Release version
 
-release 0.3.0-rc1 
+release 0.3.1 
 [![](img/download.jpg)](
-https://github.com/intel-hadoop/gearpump/releases/download/0.3.0-rc1/binary.gearpump.tar.gz)
+https://github.com/intel-hadoop/gearpump/releases/download/0.3.1/binary.gearpump.tar.gz)
 
 ## Latest snapshot version
 
-0.3.0-rc2-SNPASHOT [Build from source code](0.3/getstarted/#build-from-source-code)
+0.3.2-SNPASHOT [Build from source code](0.3/getstarted/#build-from-source-code)
 
 ## Read [tutorial to get started](0.3/getstarted/)
 
@@ -36,27 +36,27 @@ Dependencies:
 <dependency>
 <groupId>com.github.intel-hadoop</groupId>
 <artifactId>gearpump-core_2.11</artifactId>
-<version>0.3.0-rc1</version>
+<version>0.3.1</version>
 </dependency>
 <dependency>
 <groupId>com.github.intel-hadoop</groupId>
 <artifactId>gearpump-streaming_2.11</artifactId>
-<version>0.3.0-rc1</version>
+<version>0.3.1</version>
 </dependency>
 <dependency>
 <groupId>com.github.intel-hadoop</groupId>
 <artifactId>gearpump-rest_2.11</artifactId>
-<version>0.3.0-rc1</version>
+<version>0.3.1</version>
 </dependency>
 <dependency>
 <groupId>com.github.intel-hadoop</groupId>
 <artifactId>gearpump-external-kafka_2.11</artifactId>
-<version>0.3.0-rc1</version>
+<version>0.3.1</version>
 </dependency>
 <dependency>
 <groupId>com.github.intel-hadoop</groupId>
 <artifactId>gearpump-experiments-distributedshell_2.11</artifactId>
-<version>0.3.0-rc1</version>
+<version>0.3.1</version>
 </dependency>
 </dependencies>
 ```
@@ -85,27 +85,27 @@ Dependencies:
 <dependency>
 <groupId>com.github.intel-hadoop</groupId>
 <artifactId>gearpump-core_2.11</artifactId>
-<version>0.3.0-rc2-SNAPSHOT</version>
+<version>0.3.2-SNAPSHOT</version>
 </dependency>
 <dependency>
 <groupId>com.github.intel-hadoop</groupId>
 <artifactId>gearpump-streaming_2.11</artifactId>
-<version>0.3.0-rc2-SNAPSHOT</version>
+<version>0.3.2-SNAPSHOT</version>
 </dependency>
 <dependency>
 <groupId>com.github.intel-hadoop</groupId>
 <artifactId>gearpump-rest_2.11</artifactId>
-<version>0.3.0-rc2-SNAPSHOT</version>
+<version>0.3.2-SNAPSHOT</version>
 </dependency>
 <dependency>
 <groupId>com.github.intel-hadoop</groupId>
 <artifactId>gearpump-external-kafka_2.11</artifactId>
-<version>0.3.0-rc2-SNAPSHOT</version>
+<version>0.3.2-SNAPSHOT</version>
 </dependency>
 <dependency>
 <groupId>com.github.intel-hadoop</groupId>
 <artifactId>gearpump-experiments-distributedshell_2.11</artifactId>
-<version>0.3.0-rc2-SNAPSHOT</version>
+<version>0.3.2-SNAPSHOT</version>
 </dependency>
 </dependencies>
 ```
