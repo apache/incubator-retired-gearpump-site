@@ -242,7 +242,8 @@
 <p>An application is a Directed Acyclic Graph (DAG) of processors (Please refer to <a href="https://github.com/intel-hadoop/gearpump/wiki/DAG-API">DAG API</a>) . In the wordcount example, We will firstly define two processors <code>Split</code> and <code>Sum</code>, and then weave them together. </p>
 <h3 id="split-processor">Split processor</h3>
 <p>In the Split processor, we simply split a predefined text (the content is simplified for conciseness) and send out each split word to Sum.</p>
-<pre><code class="scala">class Split(taskContext : TaskContext, conf: UserConfig) extends TaskActor(taskContext, conf) {
+<pre><code class="scala">class Split(taskContext : TaskContext, conf: UserConfig) extends Task(taskContext, conf) {
+  import taskContext.{output, self}
 
   override def onStart(startTime : StartTime) : Unit = {
     self ! Message(&quot;start&quot;)
@@ -250,7 +251,7 @@
 
   override def onNext(msg : Message) : Unit = {
     Split.TEXT_TO_SPLIT.lines.foreach { line =&gt;
-      line.split(&quot; &quot;).foreach { msg =&gt;
+      line.split(&quot;[\\s]+&quot;).filter(_.nonEmpty).foreach { msg =&gt;
         output(new Message(msg, System.currentTimeMillis()))
       }
     }
@@ -266,20 +267,17 @@ object Split {
 <p>Like Split, every processor extends a <code>TaskActor</code>.  The <code>onStart</code> method is called once before any message comes in; <code>onNext</code> method is called to process every incoming message. Note that GearPump employs the message-driven model and that's why Split sends itself a message at the end of <code>onStart</code> and <code>onNext</code> to trigger next message processing.</p>
 <h3 id="sum-processor">Sum Processor</h3>
 <p>The structure of Sum processor looks much alike. Sum does not need to send messages to itself since it receives messages from Split. </p>
-<pre><code class="scala">class Sum (taskContext : TaskContext, conf: UserConfig) extends TaskActor(taskContext, conf) {
-  import org.apache.gearpump.streaming.ConfigsHelper._
+<pre><code class="scala">class Sum (taskContext : TaskContext, conf: UserConfig) extends Task(taskContext, conf) {
+  private[wordcount] val map : mutable.HashMap[String, Long] = new mutable.HashMap[String, Long]()
 
-  private val map : mutable.HashMap[String, Long] = new mutable.HashMap[String, Long]()
-
-  private var wordCount : Long = 0
+  private[wordcount] var wordCount : Long = 0
   private var snapShotTime : Long = System.currentTimeMillis()
   private var snapShotWordCount : Long = 0
 
   private var scheduler : Cancellable = null
 
   override def onStart(startTime : StartTime) : Unit = {
-    import context.dispatcher
-    scheduler = context.system.scheduler.schedule(new FiniteDuration(5, TimeUnit.SECONDS),
+    scheduler = taskContext.schedule(new FiniteDuration(5, TimeUnit.SECONDS),
       new FiniteDuration(5, TimeUnit.SECONDS))(reportWordCount)
   }
 
@@ -293,7 +291,9 @@ object Split {
   }
 
   override def onStop() : Unit = {
-    scheduler.cancel()
+    if (scheduler != null) {
+      scheduler.cancel()
+    }
   }
 
   def reportWordCount() : Unit = {
@@ -327,9 +327,8 @@ object Split {
 
   override val options: Array[(String, CLIOption[Any])] = Array(
     &quot;master&quot; -&gt; CLIOption[String](&quot;&lt;host1:port1,host2:port2,host3:port3&gt;&quot;, required = true),
-    &quot;split&quot; -&gt; CLIOption[Int](&quot;&lt;how many split tasks&gt;&quot;, required = false, defaultValue = Some(4)),
-    &quot;sum&quot; -&gt; CLIOption[Int](&quot;&lt;how many sum tasks&gt;&quot;, required = false, defaultValue = Some(4)),
-    &quot;runseconds&quot;-&gt; CLIOption[Int](&quot;&lt;how long to run this example, set to -1 if run forever&gt;&quot;, required = false, defaultValue = Some(60))
+    &quot;split&quot; -&gt; CLIOption[Int](&quot;&lt;how many split tasks&gt;&quot;, required = false, defaultValue = Some(1)),
+    &quot;sum&quot; -&gt; CLIOption[Int](&quot;&lt;how many sum tasks&gt;&quot;, required = false, defaultValue = Some(1))
   )
 
   def application(config: ParseResult) : AppDescription = {
@@ -338,15 +337,14 @@ object Split {
     val partitioner = new HashPartitioner()
     val split = TaskDescription(classOf[Split].getName, splitNum)
     val sum = TaskDescription(classOf[Sum].getName, sumNum)
-    val app = AppDescription(&quot;wordCount&quot;, classOf[AppMaster].getName, UserConfig.empty, Graph(split ~ partitioner ~&gt; sum))
+    val app = AppDescription(&quot;wordCount&quot;, UserConfig.empty, Graph(split ~ partitioner ~&gt; sum))
     app
   }
 
   val config = parse(args)
   val context = ClientContext(config.getString(&quot;master&quot;))
+  implicit val system = context.system
   val appId = context.submit(application(config))
-  Thread.sleep(config.getInt(&quot;runseconds&quot;) * 1000)
-  context.shutdown(appId)
   context.close()
 }
 </code></pre>
