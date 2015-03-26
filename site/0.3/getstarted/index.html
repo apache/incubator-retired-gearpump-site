@@ -253,6 +253,14 @@
 
 <p>After the build, there will be a package file gearpump-${version}.tar.gz generated under target/ folder.</p>
 <p><strong>NOTE:</strong>
+  Please set JAVA_HOME environment before the build.</p>
+<p>On linux:
+  <code>bash
+  export JAVA_HOME={path/to/jdk/root/path}</code></p>
+<p>On Windows:
+  <code>bash
+  set JAVA_HOME={path/to/jdk/root/path}</code></p>
+<p><strong>NOTE:</strong>
 The build requires network connection. If you are behind an enterprise proxy, make sure you have set the proxy in your env before running the build commands. 
 For windows:</p>
 <pre><code class="bash">Set HTTP_PROXY=http://host:port
@@ -310,14 +318,17 @@ bin/local –ip  127.0.0.1 –port 3000 –workers 4
 </code></pre>
 
 <p><strong>NOTE: Change the working directory</strong>. Log files by default will be generated under current working directory. So, please "cd" to required working directly before running the shell commands.</p>
+<p><strong>NOTE: Run as Daemon</strong>. You can run it as a background process. For example, use <a href="http://linux.die.net/man/1/nohup">nohup</a> on linux. </p>
 <h3 id="step2-submit-application">Step2: Submit application</h3>
 <p>After the cluster is started, you can submit an example wordcount application to the cluster</p>
+<p>Open another shell, </p>
 <pre><code class="bash">## To run WordCount example, please substitute $VERSION with actual file version.
 bin/gear app -jar examples/gearpump-examples-assembly-$VERSION.jar org.apache.gearpump.streaming.examples.wordcount.WordCount -master 127.0.0.1:3000
 </code></pre>
 
 <h3 id="step3-open-the-ui-and-view-the-status">Step3: Open the UI and view the status</h3>
 <p>Now, the application is running, start the UI and check the status:</p>
+<p>Open another shell, </p>
 <pre><code class="bash">bin/services –master 127.0.0.1:3000
 </code></pre>
 
