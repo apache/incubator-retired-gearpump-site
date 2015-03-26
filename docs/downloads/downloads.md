@@ -26,6 +26,12 @@ Repo:
 <name>Sonatype Releases Repository</name>
 <url>http://oss.sonatype.org/content/repositories/releases/</url>
 </repository>
+
+<repository>
+    <id>akka-data-replication</id>
+    <name>Patrik at Bintray</name>
+    <url>http://dl.bintray.com/patriknw/maven</url>
+</repository>
 </repositories>
 
 ```
@@ -64,7 +70,15 @@ Repo:
   <id>sonatype-nexus-releases</id>
   <name>Sonatype Nexus Snapshots</name>
   <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+
 </repository>
+
+<repository>
+    <id>akka-data-replication</id>
+    <name>Patrik at Bintray</name>
+    <url>http://dl.bintray.com/patriknw/maven</url>
+</repository>
+
 </repositories>
 
 ```
