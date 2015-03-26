@@ -221,6 +221,8 @@
         
             <li><a href="#mavensbt-settings">Maven/Sbt Settings</a></li>
         
+            <li><a href="#for-java-developer">For java developer</a></li>
+        
             <li><a href="#define-processortask-class-and-partitioner-class">Define Processor(Task) class and Partitioner class</a></li>
         
             <li><a href="#define-taskdescription-and-appdescription">Define TaskDescription and AppDescription</a></li>
@@ -238,10 +240,13 @@
 <p>We'll use <a href="https://github.com/intel-hadoop/gearpump/tree/master/examples/wordcount/src/main/scala/org/apache/gearpump/streaming/examples/wordcount">wordcount</a> as an example to illustrate how to write GearPump applications.</p>
 <h2 id="mavensbt-settings">Maven/Sbt Settings</h2>
 <p>Repository and library dependencies can be found at <a href="../../downloads/downloads/#maven">Maven Setting</a></p>
+<h2 id="for-java-developer">For java developer</h2>
+<p>Most contents in this guide also apply for Java developer. There is a template java project at <a href="https://github.com/gearpump/gearpump-java-example">Java WordCount Project</a></p>
 <h2 id="define-processortask-class-and-partitioner-class">Define Processor(Task) class and Partitioner class</h2>
 <p>An application is a Directed Acyclic Graph (DAG) of processors (Please refer to <a href="https://github.com/intel-hadoop/gearpump/wiki/DAG-API">DAG API</a>) . In the wordcount example, We will firstly define two processors <code>Split</code> and <code>Sum</code>, and then weave them together. </p>
 <h3 id="split-processor">Split processor</h3>
 <p>In the Split processor, we simply split a predefined text (the content is simplified for conciseness) and send out each split word to Sum.</p>
+<p>Scala:</p>
 <pre><code class="scala">class Split(taskContext : TaskContext, conf: UserConfig) extends Task(taskContext, conf) {
   import taskContext.{output, self}
 
@@ -267,6 +272,7 @@ object Split {
 <p>Like Split, every processor extends a <code>TaskActor</code>.  The <code>onStart</code> method is called once before any message comes in; <code>onNext</code> method is called to process every incoming message. Note that GearPump employs the message-driven model and that's why Split sends itself a message at the end of <code>onStart</code> and <code>onNext</code> to trigger next message processing.</p>
 <h3 id="sum-processor">Sum Processor</h3>
 <p>The structure of Sum processor looks much alike. Sum does not need to send messages to itself since it receives messages from Split. </p>
+<p>Scala:</p>
 <pre><code class="scala">class Sum (taskContext : TaskContext, conf: UserConfig) extends Task(taskContext, conf) {
   private[wordcount] val map : mutable.HashMap[String, Long] = new mutable.HashMap[String, Long]()
 

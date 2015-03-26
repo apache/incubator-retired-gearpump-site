@@ -6,6 +6,10 @@ We'll use [wordcount](https://github.com/intel-hadoop/gearpump/tree/master/examp
 
 Repository and library dependencies can be found at [Maven Setting](downloads/downloads/#maven)
 
+## For java developer
+
+Most contents in this guide also apply for Java developer. There is a template java project at [Java WordCount Project](https://github.com/gearpump/gearpump-java-example)
+
 ## Define Processor(Task) class and Partitioner class
 
 An application is a Directed Acyclic Graph (DAG) of processors (Please refer to [DAG API](https://github.com/intel-hadoop/gearpump/wiki/DAG-API)) . In the wordcount example, We will firstly define two processors `Split` and `Sum`, and then weave them together. 
@@ -14,6 +18,7 @@ An application is a Directed Acyclic Graph (DAG) of processors (Please refer to 
 
 In the Split processor, we simply split a predefined text (the content is simplified for conciseness) and send out each split word to Sum.
 
+Scala:
 ```scala
 class Split(taskContext : TaskContext, conf: UserConfig) extends Task(taskContext, conf) {
   import taskContext.{output, self}
@@ -43,6 +48,7 @@ Like Split, every processor extends a `TaskActor`.  The `onStart` method is call
 
 The structure of Sum processor looks much alike. Sum does not need to send messages to itself since it receives messages from Split. 
 
+Scala:
 ```scala
 class Sum (taskContext : TaskContext, conf: UserConfig) extends Task(taskContext, conf) {
   private[wordcount] val map : mutable.HashMap[String, Long] = new mutable.HashMap[String, Long]()

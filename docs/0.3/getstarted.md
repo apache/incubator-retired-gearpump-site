@@ -31,6 +31,21 @@ If you choose to build the package from source code yourself, you can follow the
   After the build, there will be a package file gearpump-${version}.tar.gz generated under target/ folder.
   
   **NOTE:**
+  Please set JAVA_HOME environment before the build.
+  
+  On linux:
+  
+```bash
+  export JAVA_HOME={path/to/jdk/root/path}
+```
+  
+  On Windows:
+  
+```bash
+  set JAVA_HOME={path/to/jdk/root/path}
+```
+  
+  **NOTE:**
 The build requires network connection. If you are behind an enterprise proxy, make sure you have set the proxy in your env before running the build commands. 
 For windows:
 
@@ -87,8 +102,12 @@ bin/local –ip  127.0.0.1 –port 3000 –workers 4
 
 **NOTE: Change the working directory**. Log files by default will be generated under current working directory. So, please "cd" to required working directly before running the shell commands.
 
+**NOTE: Run as Daemon**. You can run it as a background process. For example, use [nohup](http://linux.die.net/man/1/nohup) on linux. 
+
 ### Step2: Submit application
 After the cluster is started, you can submit an example wordcount application to the cluster
+
+Open another shell, 
 
 ```bash
 ## To run WordCount example, please substitute $VERSION with actual file version.
@@ -98,6 +117,8 @@ bin/gear app -jar examples/gearpump-examples-assembly-$VERSION.jar org.apache.ge
 ### Step3: Open the UI and view the status
 
 Now, the application is running, start the UI and check the status:
+
+Open another shell, 
 
 ```bash
 bin/services –master 127.0.0.1:3000
