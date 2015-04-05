@@ -1,6 +1,6 @@
 # Streaming Application Developer Guide
 
-We'll use [wordcount](https://github.com/intel-hadoop/gearpump/tree/master/examples/wordcount/src/main/scala/org/apache/gearpump/streaming/examples/wordcount) as an example to illustrate how to write GearPump applications.
+We'll use [wordcount](https://github.com/intel-hadoop/gearpump/blob/master/examples/streaming/wordcount/src/main/scala/org/apache/gearpump/streaming/examples/wordcount/) as an example to illustrate how to write GearPump applications.
 
 ## Maven/Sbt Settings
 
@@ -117,27 +117,26 @@ object WordCount extends App with ArgumentsParser {
   val RUN_FOR_EVER = -1
 
   override val options: Array[(String, CLIOption[Any])] = Array(
-    "master" -> CLIOption[String]("<host1:port1,host2:port2,host3:port3>", required = true),
     "split" -> CLIOption[Int]("<how many split tasks>", required = false, defaultValue = Some(1)),
     "sum" -> CLIOption[Int]("<how many sum tasks>", required = false, defaultValue = Some(1))
   )
 
-  def application(config: ParseResult) : AppDescription = {
+  def application(config: ParseResult) : StreamApplication = {
     val splitNum = config.getInt("split")
     val sumNum = config.getInt("sum")
     val partitioner = new HashPartitioner()
-    val split = TaskDescription(classOf[Split].getName, splitNum)
-    val sum = TaskDescription(classOf[Sum].getName, sumNum)
-    val app = AppDescription("wordCount", UserConfig.empty, Graph(split ~ partitioner ~> sum))
+    val split = Processor[Split](splitNum)
+    val sum = Processor[Sum](sumNum)
+    val app = StreamApplication("wordCount", Graph[Processor[_ <: Task], Partitioner](split ~ partitioner ~> sum), UserConfig.empty)
     app
   }
 
   val config = parse(args)
-  val context = ClientContext(config.getString("master"))
-  implicit val system = context.system
+  val context = ClientContext()
   val appId = context.submit(application(config))
   context.close()
 }
+
 ```
 
 We override `options` value and define an array of command line arguments to parse. We want application users to pass in masters' hosts and ports, the parallelism of split and sum tasks, and how long to run the example. We also specify whether an option is `required` and provide `defaultValue` for some arguments.

@@ -9,11 +9,10 @@ Used to start the cluster in local cluster.
 Syntax:
 ```bash
 Usage:
-local -ip <master ip address> -port <master port> -workernum <how many workers to start>
--ip  (required:false, default:127.0.0.1)
--port  (required:true)
--workernum  (required:false, default:2)
+local
 ```
+
+It will start the local at port configured in conf/gear.conf
 
 ## master
 

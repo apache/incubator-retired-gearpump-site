@@ -247,12 +247,10 @@ The commands can be found at: "bin/" folder of release binary.</p>
 <p>Used to start the cluster in local cluster.
 Syntax:</p>
 <pre><code class="bash">Usage:
-local -ip &lt;master ip address&gt; -port &lt;master port&gt; -workernum &lt;how many workers to start&gt;
--ip  (required:false, default:127.0.0.1)
--port  (required:true)
--workernum  (required:false, default:2)
+local
 </code></pre>
 
+<p>It will start the local at port configured in conf/gear.conf</p>
 <h2 id="master">master</h2>
 <p>Used to start Gearpump master nodes, you can start one or more master nodes. </p>
 <p>Syntax:</p>

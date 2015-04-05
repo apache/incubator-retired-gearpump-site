@@ -5,6 +5,8 @@ If you change the configuration, you need to restart the daemon process(master, 
 
 config item | default value | description
 ---------------|--------|---------------
+gearpump.hostname | "127.0.0.1" | hostname of current machine. If you are using local mode, then set this to 127.0.0.1, if you are using cluster mode, make sure this hostname can be accessed by other machines.
+gearpump.cluster.masters | ["127.0.0.1:3000"] | Config to set the master nodes of the cluster. If there are multiple master in the list, then the master nodes runs in HA mode.  ### For example, you may start three master, on node1: bin/master -ip node1 -port 3000, on node2: bin/master -ip node2 -port 3000, on node3: bin/master -ip node3 -port 3000, then you need to set the cluster.masters = ["node1:3000","node2:3000","node3:3000"]
 gearpump.task-dispatcher | "akka.actor.pined-dispatcher" | default dispatcher for task actor
 gearpump.metrics.enabled | false | flag to enable the metrics system
 gearpump.metrics.sample-rate | 10 | We will take one metric out of ${sample.rate}
@@ -24,7 +26,6 @@ gearpump.appmaster.vmargs | "" | JVM arguments for AppMaster
 gearpump.appmaster.extraClasspath | "" | JVM default class path for AppMaster
 gearpump.executor.vmargs | "" | JVM arguments for executor
 gearpump.executor.extraClasspath | "" | JVM default class path for executor
-gearpump.cluster.masters | [] | Config to set the master nodes of the cluster. If there are multiple master in the list, then the master nodes runs in HA mode.  ### For example, you may start three master, on node1: bin/master -ip node1 -port 3000, on node2: bin/master -ip node2 -port 3000, on node3: bin/master -ip node3 -port 3000, then you need to set the cluster.masters = ["node1:3000","node2:3000","node3:3000"]
 gearpump.jarstore.rootpath | "jarstore/" |   Define where the submitted jar file will be stored at. This path follows the hadoop path schema, For HDFS, use hdfs://host:port/path/; For FTP, use ftp://host:port/path; If you want to store on master nodes, then use local directory. jarstore.rootpath = "jarstore/" will points to relative directory where master is started. jarstore.rootpath = "/jarstore/" will points to absolute directory on master server
 gearpump.scheduling.scheduler-class | | Default value is "org.apache.gearpump.cluster.scheduler.PriorityScheduler". Class to schedule the applications. 
 gearpump.services.host | 127.0.0.1 | dashboard UI host address

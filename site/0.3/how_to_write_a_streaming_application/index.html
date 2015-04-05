@@ -237,7 +237,7 @@
                 <div class="col-md-9" role="main">
 
 <h1 id="streaming-application-developer-guide">Streaming Application Developer Guide</h1>
-<p>We'll use <a href="https://github.com/intel-hadoop/gearpump/tree/master/examples/wordcount/src/main/scala/org/apache/gearpump/streaming/examples/wordcount">wordcount</a> as an example to illustrate how to write GearPump applications.</p>
+<p>We'll use <a href="https://github.com/intel-hadoop/gearpump/blob/master/examples/streaming/wordcount/src/main/scala/org/apache/gearpump/streaming/examples/wordcount/">wordcount</a> as an example to illustrate how to write GearPump applications.</p>
 <h2 id="mavensbt-settings">Maven/Sbt Settings</h2>
 <p>Repository and library dependencies can be found at <a href="../../downloads/downloads/#maven">Maven Setting</a></p>
 <h2 id="for-java-developer">For java developer</h2>
@@ -332,27 +332,26 @@ object Split {
   val RUN_FOR_EVER = -1
 
   override val options: Array[(String, CLIOption[Any])] = Array(
-    &quot;master&quot; -&gt; CLIOption[String](&quot;&lt;host1:port1,host2:port2,host3:port3&gt;&quot;, required = true),
     &quot;split&quot; -&gt; CLIOption[Int](&quot;&lt;how many split tasks&gt;&quot;, required = false, defaultValue = Some(1)),
     &quot;sum&quot; -&gt; CLIOption[Int](&quot;&lt;how many sum tasks&gt;&quot;, required = false, defaultValue = Some(1))
   )
 
-  def application(config: ParseResult) : AppDescription = {
+  def application(config: ParseResult) : StreamApplication = {
     val splitNum = config.getInt(&quot;split&quot;)
     val sumNum = config.getInt(&quot;sum&quot;)
     val partitioner = new HashPartitioner()
-    val split = TaskDescription(classOf[Split].getName, splitNum)
-    val sum = TaskDescription(classOf[Sum].getName, sumNum)
-    val app = AppDescription(&quot;wordCount&quot;, UserConfig.empty, Graph(split ~ partitioner ~&gt; sum))
+    val split = Processor[Split](splitNum)
+    val sum = Processor[Sum](sumNum)
+    val app = StreamApplication(&quot;wordCount&quot;, Graph[Processor[_ &lt;: Task], Partitioner](split ~ partitioner ~&gt; sum), UserConfig.empty)
     app
   }
 
   val config = parse(args)
-  val context = ClientContext(config.getString(&quot;master&quot;))
-  implicit val system = context.system
+  val context = ClientContext()
   val appId = context.submit(application(config))
   context.close()
 }
+
 </code></pre>
 
 <p>We override <code>options</code> value and define an array of command line arguments to parse. We want application users to pass in masters' hosts and ports, the parallelism of split and sum tasks, and how long to run the example. We also specify whether an option is <code>required</code> and provide <code>defaultValue</code> for some arguments.</p>

@@ -343,7 +343,7 @@ To install Gearpump, you at least need to change the configuration in conf/gear.
 <h3 id="local-mode">Local Mode</h3>
 <p>In local mode, master node and worker node will be started in single JVM. </p>
 <p>For example:</p>
-<pre><code class="bash">bin/local -ip host -port 3000
+<pre><code class="bash">bin/local
 </code></pre>
 
 <p><strong>NOTE</strong>: on Linux, you can use "nohup command &amp;" to start command as background process.</p>
@@ -357,7 +357,7 @@ To install Gearpump, you at least need to change the configuration in conf/gear.
 <p>The ip and port will be checked against setting under conf/gear.conf, so you need to make sure they are consistent with settings in gear.conf.</p>
 <p><strong>NOTE</strong>: for high availability, please check <a href="../high_availability_guide">Master HA Guide</a></p>
 <h4 id="to-start-worker">To start worker:</h4>
-<pre><code class="bash">bin/worker -master ip:port
+<pre><code class="bash">bin/worker
 </code></pre>
 
 <h2 id="start-ui">Start UI</h2>

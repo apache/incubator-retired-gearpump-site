@@ -83,18 +83,13 @@ Now its time to launch the application.
 
 ```scala
 object DistributedShell extends App with ArgumentsParser {
-  override val options: Array[(String, CLIOption[Any])] = Array(
-    "master" -> CLIOption[String]("<host1:port1,host2:port2,host3:port3>", required = true)
-  )
+  private val LOG: Logger = LogUtil.getLogger(getClass)
 
-  def application(config: ParseResult) : Application = {
-    Application("DistributedShell", classOf[DistShellAppMaster].getName, UserConfig.empty)
-  }
+  override val options: Array[(String, CLIOption[Any])] = Array.empty
 
-  val config = parse(args)
-  val context = ClientContext(config.getString("master"))
-  implicit val system = context.system
-  val appId = context.submit(application(config))
+  LOG.info(s"Distributed shell submitting application...")
+  val context = ClientContext()
+  val appId = context.submit(Application[DistShellAppMaster]("DistributedShell", UserConfig.empty))
   context.close()
   LOG.info(s"Distributed Shell Application started with appId $appId !")
 }

@@ -97,8 +97,10 @@ You can start a local mode cluster in single line
 ```bash
 # start the master and 4 workers in single JVM. The master will listen on 3000
 # you can Ctrl+C to kill the local cluster after you finished the startup tutorial. 
-bin/local –ip  127.0.0.1 –port 3000 –workers 4
+bin/local
 ```
+
+**NOTE:** You can change the default port by changing config "gearpump.cluster.masters" in conf/gear.conf, 
 
 **NOTE: Change the working directory**. Log files by default will be generated under current working directory. So, please "cd" to required working directly before running the shell commands.
 
@@ -111,7 +113,7 @@ Open another shell,
 
 ```bash
 ## To run WordCount example, please substitute $VERSION with actual file version.
-bin/gear app -jar examples/gearpump-examples-assembly-$VERSION.jar org.apache.gearpump.streaming.examples.wordcount.WordCount -master 127.0.0.1:3000
+bin/gear app -jar examples/gearpump-examples-assembly-$VERSION.jar org.apache.gearpump.streaming.examples.wordcount.WordCount
 ```
 
 ### Step3: Open the UI and view the status

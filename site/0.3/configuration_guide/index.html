@@ -237,6 +237,16 @@ If you change the configuration, you need to restart the daemon process(master, 
 </thead>
 <tbody>
 <tr>
+<td>gearpump.hostname</td>
+<td>"127.0.0.1"</td>
+<td>hostname of current machine. If you are using local mode, then set this to 127.0.0.1, if you are using cluster mode, make sure this hostname can be accessed by other machines.</td>
+</tr>
+<tr>
+<td>gearpump.cluster.masters</td>
+<td>["127.0.0.1:3000"]</td>
+<td>Config to set the master nodes of the cluster. If there are multiple master in the list, then the master nodes runs in HA mode.  ### For example, you may start three master, on node1: bin/master -ip node1 -port 3000, on node2: bin/master -ip node2 -port 3000, on node3: bin/master -ip node3 -port 3000, then you need to set the cluster.masters = ["node1:3000","node2:3000","node3:3000"]</td>
+</tr>
+<tr>
 <td>gearpump.task-dispatcher</td>
 <td>"akka.actor.pined-dispatcher"</td>
 <td>default dispatcher for task actor</td>
@@ -330,11 +340,6 @@ If you change the configuration, you need to restart the daemon process(master, 
 <td>gearpump.executor.extraClasspath</td>
 <td>""</td>
 <td>JVM default class path for executor</td>
-</tr>
-<tr>
-<td>gearpump.cluster.masters</td>
-<td>[]</td>
-<td>Config to set the master nodes of the cluster. If there are multiple master in the list, then the master nodes runs in HA mode.  ### For example, you may start three master, on node1: bin/master -ip node1 -port 3000, on node2: bin/master -ip node2 -port 3000, on node3: bin/master -ip node3 -port 3000, then you need to set the cluster.masters = ["node1:3000","node2:3000","node3:3000"]</td>
 </tr>
 <tr>
 <td>gearpump.jarstore.rootpath</td>

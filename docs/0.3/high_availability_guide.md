@@ -9,7 +9,7 @@ Here is the steps to enable the HA mode:
 Distribute the package to all nodes. Modify `conf/gear.conf` on all nodes. You MUST configure
 
 ```bash
-akka.remote.netty.tcp.hostname
+gearpump.hostname
 ```
 to make it point to your hostname(or ip), and 
 

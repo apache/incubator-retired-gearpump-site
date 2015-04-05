@@ -302,18 +302,13 @@
 <h2 id="define-application">Define Application</h2>
 <p>Now its time to launch the application.</p>
 <pre><code class="scala">object DistributedShell extends App with ArgumentsParser {
-  override val options: Array[(String, CLIOption[Any])] = Array(
-    &quot;master&quot; -&gt; CLIOption[String](&quot;&lt;host1:port1,host2:port2,host3:port3&gt;&quot;, required = true)
-  )
+  private val LOG: Logger = LogUtil.getLogger(getClass)
 
-  def application(config: ParseResult) : Application = {
-    Application(&quot;DistributedShell&quot;, classOf[DistShellAppMaster].getName, UserConfig.empty)
-  }
+  override val options: Array[(String, CLIOption[Any])] = Array.empty
 
-  val config = parse(args)
-  val context = ClientContext(config.getString(&quot;master&quot;))
-  implicit val system = context.system
-  val appId = context.submit(application(config))
+  LOG.info(s&quot;Distributed shell submitting application...&quot;)
+  val context = ClientContext()
+  val appId = context.submit(Application[DistShellAppMaster](&quot;DistributedShell&quot;, UserConfig.empty))
   context.close()
   LOG.info(s&quot;Distributed Shell Application started with appId $appId !&quot;)
 }

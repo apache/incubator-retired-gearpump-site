@@ -49,7 +49,7 @@ In local mode, master node and worker node will be started in single JVM.
 
 For example:
 ```bash
-bin/local -ip host -port 3000
+bin/local
 ```
 
 **NOTE**: on Linux, you can use "nohup command &" to start command as background process.
@@ -71,7 +71,7 @@ The ip and port will be checked against setting under conf/gear.conf, so you nee
 
 #### To start worker: 
 ```bash
-bin/worker -master ip:port
+bin/worker
 ```
 
 ## Start UI
