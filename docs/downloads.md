@@ -2,7 +2,7 @@
 
 ## Latest Release version
 
-Release 0.3.3  [Release notes](https://github.com/intel-hadoop/gearpump/releases/latest)
+Release 0.3.3  [Release notes](https://github.com/intel-hadoop/gearpump/releases)
 [![](img/download.jpg)](
 https://github.com/intel-hadoop/gearpump/releases/download/0.3.3/gearpump-pack-0.3.3.tar.gz)
 
