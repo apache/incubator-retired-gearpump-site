@@ -32,7 +32,7 @@ When the corruption is detected, for example the Executor is down, Gearpump will
 3). Submit a SOL application with 32 SteamProducers and 32 StreamProcessors:
   
 ```bash
-bin/gear app -jar ./examples/sol/target/pack/lib/gearpump-examples-$VERSION.jar org.apache.gearpump.streaming.examples.sol.SOL -master $HOST:PORT -streamProducer 32 -streamProcessor 32 -runseconds 600
+bin/gear app -jar ./examples/sol/target/pack/lib/gearpump-examples-$VERSION.jar org.apache.gearpump.streaming.examples.sol.SOL -streamProducer 32 -streamProcessor 32 -runseconds 600
 ```
 
 4). Browser http://$HOST:801/, you should see a Grafana dashboard. The HOST should be the node runs Graphite.

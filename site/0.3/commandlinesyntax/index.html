@@ -244,7 +244,7 @@ worker
 <h2 id="services">services</h2>
 <p>Used to start the dashboard UI server.</p>
 <p>syntax:</p>
-<pre><code class="bash">services -master &lt;host1:port1,host2:port2,host3:port3&gt;
+<pre><code class="bash">services
 </code></pre>
 
 <h2 id="gear-app">gear app</h2>
@@ -261,15 +261,13 @@ gear app -namePrefix &lt;application name prefix&gt; -jar &lt;application&gt;.ja
 <p>Syntax:</p>
 <pre><code class="bash">C:\myData\gearpump\target\pack\bin&gt;gear info
 Usage:
-gear info -master &lt;host1:port1,host2:port2,host3:port3&gt;
--master  (required:true)
+gear info
 </code></pre>
 
 <h2 id="gear-kill">gear kill</h2>
 <p>Used to kill an application</p>
 <p>Syntax:</p>
-<pre><code class="bash">gear kill -master &lt;host1:port1,host2:port2,host3:port3&gt; -appid &lt;application id&gt;
--master  (required:true)
+<pre><code class="bash">gear kill -appid &lt;application id&gt;
 -appid  (required:true)
 </code></pre>
 
@@ -278,8 +276,7 @@ gear info -master &lt;host1:port1,host2:port2,host3:port3&gt;
 <p>Syntax:</p>
 <pre><code class="bash">C:\myData\gearpump\target\pack\bin&gt;gear shell
 Usage:
-gear shell -master &lt;host1:port1,host2:port2,host3:port3&gt;
--master  (required:true)
+gear shell
 </code></pre>
 
 </div>

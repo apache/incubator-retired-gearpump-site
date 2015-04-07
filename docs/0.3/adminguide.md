@@ -77,10 +77,10 @@ bin/worker
 ## Start UI
 
 ```bash
-bin/services -master 127.0.0.1:3000
+bin/services
 ```
 
-After UI is started, you can brower http://127.0.0.1:8090 to view the cluster status.
+After UI is started, you can browser http://127.0.0.1:8090 to view the cluster status.
 
 ![](img/dashboard.gif)
 

@@ -223,7 +223,7 @@ Memory: 128GB</p>
 <p>1). Set up a node running Graphite, see guide doc/dashboard/README.md. </p>
 <p>2). Set up a 4-nodes Gearpump cluster with 10GbE network which have 3 Workers on each node. In our test environment, each node has 128GB memory and Intel? Xeon? 32-core processor E5-2680 2.70GHz. Make sure the metrics is enabled in Gearpump, check <a href="https://github.com/intel-hadoop/gearpump/wiki/Metrics-and-Dashboard">guide</a></p>
 <p>3). Submit a SOL application with 32 SteamProducers and 32 StreamProcessors:</p>
-<pre><code class="bash">bin/gear app -jar ./examples/sol/target/pack/lib/gearpump-examples-$VERSION.jar org.apache.gearpump.streaming.examples.sol.SOL -master $HOST:PORT -streamProducer 32 -streamProcessor 32 -runseconds 600
+<pre><code class="bash">bin/gear app -jar ./examples/sol/target/pack/lib/gearpump-examples-$VERSION.jar org.apache.gearpump.streaming.examples.sol.SOL -streamProducer 32 -streamProcessor 32 -runseconds 600
 </code></pre>
 
 <p>4). Browser http://$HOST:801/, you should see a Grafana dashboard. The HOST should be the node runs Graphite.</p>

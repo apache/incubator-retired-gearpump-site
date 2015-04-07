@@ -2,13 +2,13 @@
 
 ## Latest Release version
 
-Release 0.3.3  [Release notes](https://github.com/intel-hadoop/gearpump/releases)
+Release 0.3.4  [Release notes](https://github.com/intel-hadoop/gearpump/releases)
 [![](img/download.jpg)](
-https://github.com/intel-hadoop/gearpump/releases/download/0.3.3/gearpump-pack-0.3.3.tar.gz)
+https://github.com/intel-hadoop/gearpump/releases/download/0.3.4/gearpump-pack-0.3.4.tar.gz)
 
 ## Latest snapshot version
 
-0.3.3 [Build from source code](0.3/getstarted/#build-from-source-code)
+0.3.5-SNAPSHOT [Build from source code](0.3/getstarted/#build-from-source-code)
 
 ## Read [tutorial to get started](0.3/getstarted/)
 
@@ -32,6 +32,13 @@ Repo:
     <name>Patrik at Bintray</name>
     <url>http://dl.bintray.com/patriknw/maven</url>
 </repository>
+
+<repository>
+    <id>cloudera</id>
+    <name>Cloudera repo</name>
+    <url>https://repository.cloudera.com/artifactory/cloudera-repos</url>
+</repository>
+
 </repositories>
 
 ```
@@ -42,17 +49,17 @@ Dependencies:
 <dependency>
 <groupId>com.github.intel-hadoop</groupId>
 <artifactId>gearpump-core_2.11</artifactId>
-<version>0.3.3</version>
+<version>0.3.4</version>
 </dependency>
 <dependency>
 <groupId>com.github.intel-hadoop</groupId>
 <artifactId>gearpump-streaming_2.11</artifactId>
-<version>0.3.3</version>
+<version>0.3.4</version>
 </dependency>
 <dependency>
 <groupId>com.github.intel-hadoop</groupId>
 <artifactId>gearpump-external-kafka_2.11</artifactId>
-<version>0.3.3</version>
+<version>0.3.4</version>
 </dependency>
 </dependencies>
 ```
@@ -79,6 +86,12 @@ Repo:
     <url>http://dl.bintray.com/patriknw/maven</url>
 </repository>
 
+<repository>
+    <id>cloudera</id>
+    <name>Cloudera repo</name>
+    <url>https://repository.cloudera.com/artifactory/cloudera-repos</url>
+</repository>
+
 </repositories>
 
 ```
@@ -89,17 +102,17 @@ Dependencies:
 <dependency>
 <groupId>com.github.intel-hadoop</groupId>
 <artifactId>gearpump-core_2.11</artifactId>
-<version>0.3.4-SNAPSHOT</version>
+<version>0.3.5-SNAPSHOT</version>
 </dependency>
 <dependency>
 <groupId>com.github.intel-hadoop</groupId>
 <artifactId>gearpump-streaming_2.11</artifactId>
-<version>0.3.4-SNAPSHOT</version>
+<version>0.3.5-SNAPSHOT</version>
 </dependency>
 <dependency>
 <groupId>com.github.intel-hadoop</groupId>
 <artifactId>gearpump-external-kafka_2.11</artifactId>
-<version>0.3.4-SNAPSHOT</version>
+<version>0.3.5-SNAPSHOT</version>
 </dependency>
 </dependencies>
 ```

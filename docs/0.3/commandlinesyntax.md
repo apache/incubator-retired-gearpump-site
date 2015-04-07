@@ -42,7 +42,7 @@ Used to start the dashboard UI server.
 
 syntax:
 ```bash
-services -master <host1:port1,host2:port2,host3:port3>
+services
 ```
 
 ## gear app
@@ -63,8 +63,7 @@ Syntax:
 ```bash
 C:\myData\gearpump\target\pack\bin>gear info
 Usage:
-gear info -master <host1:port1,host2:port2,host3:port3>
--master  (required:true)
+gear info
 ```
 
 ## gear kill
@@ -72,8 +71,7 @@ Used to kill an application
 
 Syntax:
 ```bash
-gear kill -master <host1:port1,host2:port2,host3:port3> -appid <application id>
--master  (required:true)
+gear kill -appid <application id>
 -appid  (required:true)
 ```
 
@@ -84,6 +82,5 @@ Syntax:
 ```bash
 C:\myData\gearpump\target\pack\bin>gear shell
 Usage:
-gear shell -master <host1:port1,host2:port2,host3:port3>
--master  (required:true)
+gear shell
 ```

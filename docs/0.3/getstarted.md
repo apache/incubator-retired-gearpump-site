@@ -123,7 +123,7 @@ Now, the application is running, start the UI and check the status:
 Open another shell, 
 
 ```bash
-bin/services –master 127.0.0.1:3000
+bin/services
 ```
 You can manage the application in UI [http://127.0.0.1:8090](http://127.0.0.1:8090) or by [Command Line tool](commandlinesyntax.md).
 
