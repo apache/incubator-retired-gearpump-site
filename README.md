@@ -2,7 +2,7 @@
 
 ## How to contribute to the gearpump.io site 
 
-* NOTE: * Please don't change files under site/ directly! As they will be overriden when you do ```mkdocs build```
+*NOTE:* Please don't change files under site/ directly! As they will be overriden when you do ```mkdocs build```
 
 1. Install mkdocs, as specified in http://www.mkdocs.org/#installation  (note: Please use linux if possible, there is some encoding issue which require manual fix on Windows)
 2. Make changes under /docs
