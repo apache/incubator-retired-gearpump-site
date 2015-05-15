@@ -1,6 +1,6 @@
 ## Welcome to Gearpump 
 
-[![](img/download.jpg)](/downloads/downloads/)
+[![](img/download.jpg)](downloads/)
 
 GearPump is a lightweight real-time big data streaming engine. It is inspired by recent advances in the [Akka](https://github.com/akka/akka) framework and a desire to improve on existing streaming frameworks.
 
