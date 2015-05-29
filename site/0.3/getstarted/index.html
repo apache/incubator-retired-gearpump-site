@@ -128,14 +128,28 @@
                 
                 
                 
-                    <li >
-                        <a href="../../publications/publications">Publications</a>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Publications <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            <li >
+                                <a href="../../publications/publications">Publications</a>
+                            </li>
+                        
+                        </ul>
                     </li>
                 
                 
                 
-                    <li >
-                        <a href="../../usecases/use_cases">Use Cases</a>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Use Cases <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            <li >
+                                <a href="../../usecases/use_cases">Use cases</a>
+                            </li>
+                        
+                        </ul>
                     </li>
                 
                 
@@ -210,8 +224,8 @@
 <h2 id="prepare-the-binary">Prepare the binary</h2>
 <p>You can either download pre-build release package or choose to build from source code. </p>
 <h3 id="download-release-binary">Download Release Binary</h3>
-<p>If you choose to use pre-build package, then you don’t need to build from source code. The release package can be downloaded from: </p>
-<h4 id="httpwwwgearpumpiositedownloadsdownloads"><a href="http://www.gearpump.io/site/downloads/downloads/">http://www.gearpump.io/site/downloads/downloads/</a></h4>
+<p>If you choose to use pre-build package, then you donâ€™t need to build from source code. The release package can be downloaded from: </p>
+<h4 id="httpwwwgearpumpiositedownloads"><a href="../../downloads/">http://www.gearpump.io/site/downloads/</a></h4>
 <h3 id="build-from-source-code">Build from Source code</h3>
 <p>If you choose to build the package from source code yourself, you can follow these steps:</p>
 <p>1). Clone the GearPump repository</p>
@@ -255,7 +269,7 @@ tar  -zxvf gearpump-${version}.tar.gz
 </code></pre>
 
 <p>After decompression, the directory structure looks like picture 1.</p>
-<p><img alt="" src="../../img/layout.png" /></p>
+<p><img alt="" src="../..//img/layout.png" /></p>
 <p>Under bin/ folder, there are script files for Linux(bash script) and Windows(.bat script). </p>
 <table>
 <thead>
@@ -310,8 +324,8 @@ bin/gear app -jar examples/gearpump-examples-assembly-$VERSION.jar org.apache.ge
 </code></pre>
 
 <p>You can manage the application in UI <a href="http://127.0.0.1:8090">http://127.0.0.1:8090</a> or by <a href="../commandlinesyntax">Command Line tool</a>.</p>
-<p><img alt="" src="../../img/dashboard.gif" /></p>
-<p><strong>NOTE:</strong> the UI port setting can be defined in configuration, please check section <a href="../../0.3/configuration_guide">Configuration Guide</a>
+<p><img alt="" src="../..//img/dashboard.gif" /></p>
+<p><strong>NOTE:</strong> the UI port setting can be defined in configuration, please check section <a href="../configuration_guide">Configuration Guide</a>
 You see, now it is up and running. </p>
 <h3 id="step4-congratulation-you-have-your-first-application-running">Step4: Congratulation! You have your first application running!</h3>
 <h2 id="other-application-examples">Other Application Examples</h2>

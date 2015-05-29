@@ -128,14 +128,28 @@
                 
                 
                 
-                    <li >
-                        <a href="../../publications/publications">Publications</a>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Publications <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            <li >
+                                <a href="../../publications/publications">Publications</a>
+                            </li>
+                        
+                        </ul>
                     </li>
                 
                 
                 
-                    <li >
-                        <a href="../../usecases/use_cases">Use Cases</a>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Use Cases <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            <li >
+                                <a href="../../usecases/use_cases">Use cases</a>
+                            </li>
+                        
+                        </ul>
                     </li>
                 
                 
@@ -214,7 +228,7 @@
 <p>We'll use <a href="https://github.com/intel-hadoop/gearpump/tree/master/examples/distributedshell/src/main/scala/org/apache/gearpump/examples/distributedshell">Distributed Shell</a> as an example to illustrate how to do that.</p>
 <p>What Distributed Shell do is that user send a shell command to the cluster and the command will the executed on each node, then the result will be return to user.</p>
 <h2 id="mavensbt-settings">Maven/Sbt Settings</h2>
-<p>Repository and library dependencies can be found at <a href="../../downloads/downloads/#maven">Maven Setting</a></p>
+<p>Repository and library dependencies can be found at <a href="../..//downloads/#maven">Maven Setting</a></p>
 <h2 id="define-executor-class">Define Executor Class</h2>
 <pre><code class="scala">class ShellExecutor(executorContext: ExecutorContext, userConf : UserConfig) extends Actor{
   import executorContext._
@@ -320,7 +334,7 @@
 <p>In the DistributedShellClient, it will resolve the appid to the real appmaster(the applicaton id will be printed when launching DistributedShell).</p>
 <p>Once we got the AppMaster, then we can send ShellCommand to it and wait for the result.</p>
 <h2 id="submit-application">Submit application</h2>
-<p>After all these, you need to package everything into a uber jar and submit the jar to Gearpump Cluster. Please check <a href="../../commandlinesyntax#gear-app">Application submission tool</a> to command line tool syntax.</p>
+<p>After all these, you need to package everything into a uber jar and submit the jar to Gearpump Cluster. Please check <a href="../commandlinesyntax#gear-app">Application submission tool</a> to command line tool syntax.</p>
 </div>
             
         </div>

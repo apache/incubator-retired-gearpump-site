@@ -6,7 +6,7 @@ What Distributed Shell do is that user send a shell command to the cluster and t
 
 ## Maven/Sbt Settings
 
-Repository and library dependencies can be found at [Maven Setting](downloads/downloads/#maven)
+Repository and library dependencies can be found at [Maven Setting](/downloads/#maven)
 
 
 ## Define Executor Class
@@ -135,4 +135,4 @@ Once we got the AppMaster, then we can send ShellCommand to it and wait for the 
 
 ## Submit application
 
-After all these, you need to package everything into a uber jar and submit the jar to Gearpump Cluster. Please check [Application submission tool](commandlinesyntax#gear-app) to command line tool syntax.
+After all these, you need to package everything into a uber jar and submit the jar to Gearpump Cluster. Please check [Application submission tool](commandlinesyntax.md#gear-app) to command line tool syntax.

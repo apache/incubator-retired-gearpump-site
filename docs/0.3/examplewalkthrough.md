@@ -2,7 +2,7 @@
 
 The Kafka source example project and tutorials can be found at: 
 - [Kafka connector example project](https://github.com/intel-hadoop/gearpump/tree/master/examples/streaming/kafka)
-- [Connect with Kafka source](/0.3/how_to_write_a_streaming_application/#connect-with-kafka)
+- [Connect with Kafka source](how_to_write_a_streaming_application.md#connect-with-kafka)
 
 In this doc, we will talk about how the at least once message delivery works.
 
@@ -11,7 +11,7 @@ We will use the WordCount example of [source tree](https://github.com/intel-hado
 ## How the kafka WordCount DAG looks like:
 
 It contains three processors:
-![](img/kafka_wordcount.png)
+![](/img/kafka_wordcount.png)
 
 - KafkaStreamProducer(or KafkaSource) will read message from kafka queue.
 - Split will split lines to words
@@ -19,7 +19,7 @@ It contains three processors:
 
 ## How to read data from Kafka
 
-We use KafkaSource, please check [Connect with Kafka source](0.3/how_to_write_a_streaming_application/#connect-with-kafka) for the introduction.
+We use KafkaSource, please check [Connect with Kafka source](how_to_write_a_streaming_application.md#connect-with-kafka) for the introduction.
 
 Please note that we have set a startTimestamp for the KafkaSource, which means KafkaSource will read from Kafka queue starting from messages whose timestamp is near startTimestamp.
 
