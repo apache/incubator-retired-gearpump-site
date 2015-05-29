@@ -207,19 +207,31 @@
     
         <li class="main active"><a href="#rest-api">Rest API</a></li>
         
-            <li><a href="#delete-appmasterappid">DELETE appmaster/&lt;appId&gt;</a></li>
+            <li><a href="#get-apiv10appmasterappiddetailtruefalse">GET api/v1.0/appmaster/&lt;appId&gt;?detail=&lt;true|false&gt;</a></li>
         
-            <li><a href="#get-appmasters">GET appmasters</a></li>
+            <li><a href="#delete-apiv10appmasterappid">DELETE api/v1.0/appmaster/&lt;appId&gt;</a></li>
         
-            <li><a href="#get-configappappid">GET config/app/&lt;appId&gt;</a></li>
+            <li><a href="#get-apiv10appmasterappidstallingtasks">GET api/v1.0/appmaster/&lt;appId&gt;/stallingtasks</a></li>
         
-            <li><a href="#get-master">GET master</a></li>
+            <li><a href="#get-apiv10appmasters">GET api/v1.0/appmasters</a></li>
         
-            <li><a href="#get-metricsappappidmetrics-path">GET metrics/app/&lt;appId&gt;/&lt;metrics path&gt;</a></li>
+            <li><a href="#get-apiv10configappappid">GET api/v1.0/config/app/&lt;appId&gt;</a></li>
         
-            <li><a href="#get-workersworkerid">GET workers/&lt;workerId&gt;</a></li>
+            <li><a href="#get-apiv10configworkerworkerid">GET api/v1.0/config/worker/&lt;workerId&gt;</a></li>
         
-            <li><a href="#get-workers">GET workers</a></li>
+            <li><a href="#get-apiv10configmaster">GET api/v1.0/config/master</a></li>
+        
+            <li><a href="#get-apiv10master">GET api/v1.0/master</a></li>
+        
+            <li><a href="#get-apiv10metricsappappidmetrics-path">GET api/v1.0/metrics/app/&lt;appId&gt;/&lt;metrics path&gt;</a></li>
+        
+            <li><a href="#get-apiv10workersworkerid">GET api/v1.0/workers/&lt;workerId&gt;</a></li>
+        
+            <li><a href="#get-apiv10workers">GET api/v1.0/workers</a></li>
+        
+            <li><a href="#get-apiv10version">GET api/v1.0/version</a></li>
+        
+            <li><a href="#get-apiv10websocketurl">GET api/v1.0/websocket/url</a></li>
         
     
     </ul>
@@ -227,10 +239,10 @@
                 <div class="col-md-9" role="main">
 
 <h1 id="rest-api">Rest API</h1>
-<h2 id="get-appmasterdetailtruefalse">GET appmaster/<appId>?detail=&lt;true|false&gt;</h2>
+<h2 id="get-apiv10appmasterappiddetailtruefalse">GET api/v1.0/appmaster/&lt;appId&gt;?detail=&lt;true|false&gt;</h2>
 <p>Query information of an specific application of Id appId</p>
 <p>Example:</p>
-<pre><code class="bash">curl http://127.0.0.1:8090/appmaster/2
+<pre><code class="bash">curl http://127.0.0.1:8090/api/v1.0/appmaster/2
 </code></pre>
 
 <p>Sample Response:</p>
@@ -246,12 +258,29 @@
 }
 </code></pre>
 
-<h2 id="delete-appmasterappid">DELETE appmaster/&lt;appId&gt;</h2>
+<h2 id="delete-apiv10appmasterappid">DELETE api/v1.0/appmaster/&lt;appId&gt;</h2>
 <p>shutdown application appId</p>
-<h2 id="get-appmasters">GET appmasters</h2>
+<h2 id="get-apiv10appmasterappidstallingtasks">GET api/v1.0/appmaster/&lt;appId&gt;/stallingtasks</h2>
+<p>Query list of unhealthy tasks of an specific application of Id appId</p>
+<p>Example:</p>
+<pre><code class="bash">curl http://127.0.0.1:8090/api/v1.0/appmaster/2/stallingtasks
+</code></pre>
+
+<p>Sample Response:</p>
+<pre><code>{
+  &quot;tasks&quot;: [
+    {
+      &quot;processorId&quot;: 0,
+      &quot;index&quot;: 0
+    }
+  ]
+}
+</code></pre>
+
+<h2 id="get-apiv10appmasters">GET api/v1.0/appmasters</h2>
 <p>Query information of all applications</p>
 <p>Example:</p>
-<pre><code class="bash">curl http://127.0.0.1:8090/appmasters
+<pre><code class="bash">curl http://127.0.0.1:8090/api/v1.0/appmasters
 </code></pre>
 
 <p>Sample Response:</p>
@@ -271,10 +300,10 @@
 }
 </code></pre>
 
-<h2 id="get-configappappid">GET config/app/&lt;appId&gt;</h2>
+<h2 id="get-apiv10configappappid">GET api/v1.0/config/app/&lt;appId&gt;</h2>
 <p>Query the configuration of specific application appId</p>
 <p>Example:</p>
-<pre><code class="bash">curl http://127.0.0.1:8090/config/app/1
+<pre><code class="bash">curl http://127.0.0.1:8090/api/v1.0/config/app/1
 </code></pre>
 
 <p>Sample Response:</p>
@@ -378,10 +407,65 @@
 
 </code></pre>
 
-<h2 id="get-master">GET master</h2>
+<h2 id="get-apiv10configworkerworkerid">GET api/v1.0/config/worker/&lt;workerId&gt;</h2>
+<p>Get the configuration of specific worker workerId</p>
+<p>Example:</p>
+<pre><code class="bash">curl http://127.0.0.1:8090/api/v1.0/config/worker/123456
+</code></pre>
+
+<p>Sample Response:</p>
+<pre><code>{
+  &quot;akka&quot;: {
+    &quot;loglevel&quot;: &quot;INFO&quot;
+    &quot;log-dead-letters&quot;: &quot;off&quot;
+    &quot;log-dead-letters-during-shutdown&quot;: &quot;off&quot;
+    &quot;actor&quot;: {
+      &quot;provider&quot;: &quot;akka.remote.RemoteActorRefProvider&quot;
+    }
+    &quot;cluster&quot;: {
+      &quot;roles&quot;: [&quot;worker&quot;]
+    }
+    &quot;remote&quot; {
+      &quot;log-remote-lifecycle-events&quot;: &quot;off&quot;
+    }
+  }
+}
+</code></pre>
+
+<h2 id="get-apiv10configmaster">GET api/v1.0/config/master</h2>
+<p>Get the configuration of all masters </p>
+<p>Example:</p>
+<pre><code class="bash">curl http://127.0.0.1:8090/api/v1.0/config/master
+</code></pre>
+
+<p>Sample Response:</p>
+<pre><code>{
+  &quot;extensions&quot;: [
+    &quot;akka.contrib.datareplication.DataReplication$&quot;
+  ]
+  &quot;akka&quot;: {
+    &quot;loglevel&quot;: &quot;INFO&quot;
+    &quot;log-dead-letters&quot;: &quot;off&quot;
+    &quot;log-dead-letters-during-shutdown&quot;: &quot;off&quot;
+    &quot;actor&quot;: {
+      ## Master forms a akka cluster
+      &quot;provider&quot;: &quot;akka.cluster.ClusterActorRefProvider&quot;
+    }
+    &quot;cluster&quot;: {
+      &quot;roles&quot;: [&quot;master&quot;]
+      &quot;auto-down-unreachable-after&quot;: &quot;15s&quot;
+    }
+    &quot;remote&quot;: {
+      &quot;log-remote-lifecycle-events&quot;: &quot;off&quot;
+    }
+  }
+}
+</code></pre>
+
+<h2 id="get-apiv10master">GET api/v1.0/master</h2>
 <p>Get information of masters</p>
 <p>Example:</p>
-<pre><code class="bash">curl http://127.0.0.1:8090/master
+<pre><code class="bash">curl http://127.0.0.1:8090/api/v1.0/master
 </code></pre>
 
 <p>Sample Response:</p>
@@ -406,11 +490,11 @@
 }
 </code></pre>
 
-<h2 id="get-metricsappappidmetrics-path">GET metrics/app/&lt;appId&gt;/&lt;metrics path&gt;</h2>
+<h2 id="get-apiv10metricsappappidmetrics-path">GET api/v1.0/metrics/app/&lt;appId&gt;/&lt;metrics path&gt;</h2>
 <p>Query metrics information of a specific application appId
 Filter metrics with path metrics path</p>
 <p>Example:</p>
-<pre><code class="bash">curl http://127.0.0.1:8090/metrics/app/3/app3.processor2
+<pre><code class="bash">curl http://127.0.0.1:8090/api/v1.0/metrics/app/3/app3.processor2
 </code></pre>
 
 <p>Sample Response:</p>
@@ -421,10 +505,10 @@ Filter metrics with path metrics path</p>
 }
 </code></pre>
 
-<h2 id="get-workersworkerid">GET workers/&lt;workerId&gt;</h2>
+<h2 id="get-apiv10workersworkerid">GET api/v1.0/workers/&lt;workerId&gt;</h2>
 <p>Get information of specific worker</p>
 <p>Example:</p>
-<pre><code class="bash">curl http://127.0.0.1:8090/workers/1096497833
+<pre><code class="bash">curl http://127.0.0.1:8090/api/v1.0/workers/1096497833
 </code></pre>
 
 <p>Sample Response</p>
@@ -441,11 +525,11 @@ Filter metrics with path metrics path</p>
 }
 </code></pre>
 
-<p>The worker list can be returned by query master/ Rest service.</p>
-<h2 id="get-workers">GET workers</h2>
+<p>The worker list can be returned by query api/v1.0/workers Rest service.</p>
+<h2 id="get-apiv10workers">GET api/v1.0/workers</h2>
 <p>Get information of all workers.</p>
 <p>Example:</p>
-<pre><code class="bash">curl http://127.0.0.1:8090/workers
+<pre><code class="bash">curl http://127.0.0.1:8090/api/v1.0/workers
 </code></pre>
 
 <p>Sample Response:</p>
@@ -473,6 +557,28 @@ Filter metrics with path metrics path</p>
     &quot;homeDirectory&quot;: &quot;/Users/foobar/gearpump&quot;
   }
 ]
+</code></pre>
+
+<h2 id="get-apiv10version">GET api/v1.0/version</h2>
+<p>Query the version of gearpump</p>
+<p>Example:</p>
+<pre><code class="bash">curl http://127.0.0.1:8090/api/v1.0/version
+</code></pre>
+
+<p>Sample Response:</p>
+<pre><code>0.3.6-SNAPSHOT
+</code></pre>
+
+<h2 id="get-apiv10websocketurl">GET api/v1.0/websocket/url</h2>
+<p>Query the url of web socket</p>
+<p>Example:</p>
+<pre><code class="bash">curl http://127.0.0.1:8090/api/v1.0/websocket/url
+</code></pre>
+
+<p>Sample Response:</p>
+<pre><code>{
+  &quot;url&quot;: &quot;ws://127.0.0.1:8091&quot;
+}
 </code></pre>
 
 </div>
