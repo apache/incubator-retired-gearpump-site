@@ -28,7 +28,7 @@ Master port |	3000 |	Every other role like worker, appmaster, executor, user use
 ## How to Install
 
 
-The installation package can be downloaded from [Download Address](downloads/downloads/). You are suggested to unzip the package to same directory path on every machine you planned to install Gearpump.
+The installation package can be downloaded from [Download Address](/downloads/). You are suggested to unzip the package to same directory path on every machine you planned to install Gearpump.
 To install Gearpump, you at least need to change the configuration in conf/gear.conf. 
 
 Config	| Default value	| Description	
@@ -37,7 +37,7 @@ base.akka.remote.netty.tcp.hostname	| 127.0.0.1	 | Host or IP address of current
 Gearpump.cluster.masters |	["127.0.0.1:3000"] |	List of all master nodes, with each item represents host and port of one master. 
 gearpump.worker.slots	 | 100 | how many slots this worker has
 		
-Besides this, there are other optional configurations related with logs, metrics, transports, ui. You can refer to [Configuration Guide](0.3/configuration_guide/) for more details.
+Besides this, there are other optional configurations related with logs, metrics, transports, ui. You can refer to [Configuration Guide](configuration_guide.md) for more details.
 
 ## Start the Cluster Daemons
 
@@ -82,9 +82,9 @@ bin/services
 
 After UI is started, you can browser http://127.0.0.1:8090 to view the cluster status.
 
-![](img/dashboard.gif)
+![](/img/dashboard.gif)
 
-**NOTE:** The UI port can be configured in gear.conf. Check [Configuration Guide](0.3/configuration_guide) for information.
+**NOTE:** The UI port can be configured in gear.conf. Check [Configuration Guide](configuration_guide.md) for information.
 
 ## Submit an new Application
 
@@ -98,9 +98,9 @@ bin/gear app -jar xx.jar MainClass <arg1> <arg2> ...
 
 After the application is started, you can view the status of application in UI. In the UI, you can allowed to shutdown the application. 
 
-![](img/dashboard_3.png)
+![](/img/dashboard_3.png)
 
-**NOTE**: Besides UI, there is also command line tools to manage the application, please check [Command line tools](documents/commandlinesyntax) for information.
+**NOTE**: Besides UI, there is also command line tools to manage the application, please check [Command line tools](commandlinesyntax.md) for information.
 
 ## Security
 

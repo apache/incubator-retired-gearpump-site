@@ -1,5 +1,7 @@
 site_name: /Gearpump/
 
+page_title: Gearpump
+
 repo_url: http://github.com/intel-hadoop/gearpump
 
 site_description: realtime, streaming

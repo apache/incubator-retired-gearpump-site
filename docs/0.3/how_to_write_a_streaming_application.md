@@ -4,7 +4,7 @@ We'll use [wordcount](https://github.com/intel-hadoop/gearpump/blob/master/examp
 
 ## Maven/Sbt Settings
 
-Repository and library dependencies can be found at [Maven Setting](downloads/downloads/#maven)
+Repository and library dependencies can be found at [Maven Setting](/downloads/#maven)
 
 ## For java developer
 
@@ -145,7 +145,7 @@ Given the `ParseResult` of command line arguments, we create `TaskDescription`s 
 
 ## Submit application
 
-After all these, you need to package everything into a uber jar and submit the jar to Gearpump Cluster. Please check [Application submission tool](commandlinesyntax#gear-app) to command line tool syntax.
+After all these, you need to package everything into a uber jar and submit the jar to Gearpump Cluster. Please check [Application submission tool](commandlinesyntax.md#gear-app) to command line tool syntax.
 
 ## Advanced topics
 

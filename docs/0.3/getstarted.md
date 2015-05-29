@@ -7,7 +7,7 @@ You can either download pre-build release package or choose to build from source
 
 If you choose to use pre-build package, then you don’t need to build from source code. The release package can be downloaded from: 
 
-#### [http://www.gearpump.io/site/downloads/downloads/](http://www.gearpump.io/site/downloads/downloads/)
+#### [http://www.gearpump.io/site/downloads/](downloads/)
 
 ### Build from Source code
 
@@ -72,7 +72,7 @@ tar  -zxvf gearpump-${version}.tar.gz
 
 After decompression, the directory structure looks like picture 1.
 
-![](img/layout.png)
+![](/img/layout.png)
   
 Under bin/ folder, there are script files for Linux(bash script) and Windows(.bat script). 
 
@@ -127,9 +127,9 @@ bin/services
 ```
 You can manage the application in UI [http://127.0.0.1:8090](http://127.0.0.1:8090) or by [Command Line tool](commandlinesyntax.md).
 
-![](img/dashboard.gif)
+![](/img/dashboard.gif)
 
-**NOTE:** the UI port setting can be defined in configuration, please check section [Configuration Guide](0.3/configuration_guide)
+**NOTE:** the UI port setting can be defined in configuration, please check section [Configuration Guide](configuration_guide.md)
 You see, now it is up and running. 
 
 ### Step4: Congratulation! You have your first application running! 

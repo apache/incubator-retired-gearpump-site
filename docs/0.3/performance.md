@@ -27,7 +27,7 @@ When the corruption is detected, for example the Executor is down, Gearpump will
 
 1). Set up a node running Graphite, see guide doc/dashboard/README.md. 
 
-2). Set up a 4-nodes Gearpump cluster with 10GbE network which have 3 Workers on each node. In our test environment, each node has 128GB memory and Intel? Xeon? 32-core processor E5-2680 2.70GHz. Make sure the metrics is enabled in Gearpump, check [guide](https://github.com/intel-hadoop/gearpump/wiki/Metrics-and-Dashboard)
+2). Set up a 4-nodes Gearpump cluster with 10GbE network which have 3 Workers on each node. In our test environment, each node has 128GB memory and Intel? Xeon? 32-core processor E5-2680 2.70GHz. Make sure the metrics is enabled in Gearpump.
 
 3). Submit a SOL application with 32 SteamProducers and 32 StreamProcessors:
   
@@ -57,4 +57,4 @@ For guide about how to install and configure Graphite, please check the Graphite
 
 Here is how it looks like for grafana dashboard:
 
-![](img/dashboard.png)
+![](/img/dashboard.png)

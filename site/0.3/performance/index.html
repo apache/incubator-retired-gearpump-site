@@ -128,14 +128,28 @@
                 
                 
                 
-                    <li >
-                        <a href="../../publications/publications">Publications</a>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Publications <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            <li >
+                                <a href="../../publications/publications">Publications</a>
+                            </li>
+                        
+                        </ul>
                     </li>
                 
                 
                 
-                    <li >
-                        <a href="../../usecases/use_cases">Use Cases</a>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Use Cases <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            <li >
+                                <a href="../../usecases/use_cases">Use cases</a>
+                            </li>
+                        
+                        </ul>
                     </li>
                 
                 
@@ -221,7 +235,7 @@ Memory: 128GB</p>
 <h2 id="how-to-setup-the-benchmark-environment">How to setup the benchmark environment?</h2>
 <h3 id="prepare-the-env">Prepare the env</h3>
 <p>1). Set up a node running Graphite, see guide doc/dashboard/README.md. </p>
-<p>2). Set up a 4-nodes Gearpump cluster with 10GbE network which have 3 Workers on each node. In our test environment, each node has 128GB memory and Intel? Xeon? 32-core processor E5-2680 2.70GHz. Make sure the metrics is enabled in Gearpump, check <a href="https://github.com/intel-hadoop/gearpump/wiki/Metrics-and-Dashboard">guide</a></p>
+<p>2). Set up a 4-nodes Gearpump cluster with 10GbE network which have 3 Workers on each node. In our test environment, each node has 128GB memory and Intel? Xeon? 32-core processor E5-2680 2.70GHz. Make sure the metrics is enabled in Gearpump.</p>
 <p>3). Submit a SOL application with 32 SteamProducers and 32 StreamProcessors:</p>
 <pre><code class="bash">bin/gear app -jar ./examples/sol/target/pack/lib/gearpump-examples-$VERSION.jar org.apache.gearpump.streaming.examples.sol.SOL -streamProducer 32 -streamProcessor 32 -runseconds 600
 </code></pre>
@@ -240,7 +254,7 @@ Memory: 128GB</p>
 
 <p>For guide about how to install and configure Graphite, please check the Graphite website http://graphite.wikidot.com/.  For guide about how to use Grafana, please check guide in <a href="https://github.com/intel-hadoop/gearpump/blob/master/doc/dashboard/README.md">doc/dashboard/readme.md</a></p>
 <p>Here is how it looks like for grafana dashboard:</p>
-<p><img alt="" src="../../img/dashboard.png" /></p>
+<p><img alt="" src="../..//img/dashboard.png" /></p>
 </div>
             
         </div>
