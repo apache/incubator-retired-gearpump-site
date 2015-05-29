@@ -1,11 +1,11 @@
 # Rest API
 
-## GET appmaster/<appId>?detail=&lt;true|false&gt;
+## GET api/v1.0/appmaster/&lt;appId&gt;?detail=&lt;true|false&gt;
 Query information of an specific application of Id appId
 
 Example:
 ```bash
-curl http://127.0.0.1:8090/appmaster/2
+curl http://127.0.0.1:8090/api/v1.0/appmaster/2
 ```
 Sample Response:
 ```
@@ -22,15 +22,34 @@ Sample Response:
 ```
 
 
-## DELETE appmaster/&lt;appId&gt;
+## DELETE api/v1.0/appmaster/&lt;appId&gt;
 shutdown application appId
 
-## GET appmasters
+## GET api/v1.0/appmaster/&lt;appId&gt;/stallingtasks
+Query list of unhealthy tasks of an specific application of Id appId
+
+Example:
+```bash
+curl http://127.0.0.1:8090/api/v1.0/appmaster/2/stallingtasks
+```
+Sample Response:
+```
+{
+  "tasks": [
+    {
+      "processorId": 0,
+      "index": 0
+    }
+  ]
+}
+```
+
+## GET api/v1.0/appmasters
 Query information of all applications
 
 Example:
 ```bash
-curl http://127.0.0.1:8090/appmasters
+curl http://127.0.0.1:8090/api/v1.0/appmasters
 ```
 Sample Response:
 ```
@@ -50,12 +69,12 @@ Sample Response:
 }
 ```
 
-## GET config/app/&lt;appId&gt;
+## GET api/v1.0/config/app/&lt;appId&gt;
 Query the configuration of specific application appId
 
 Example:
 ```bash
-curl http://127.0.0.1:8090/config/app/1
+curl http://127.0.0.1:8090/api/v1.0/config/app/1
 ```
 Sample Response:
 ```
@@ -159,12 +178,71 @@ Sample Response:
 
 ```
 
-## GET master
+## GET api/v1.0/config/worker/&lt;workerId&gt;
+Get the configuration of specific worker workerId
+
+Example:
+```bash
+curl http://127.0.0.1:8090/api/v1.0/config/worker/123456
+```
+Sample Response:
+```
+{
+  "akka": {
+    "loglevel": "INFO"
+    "log-dead-letters": "off"
+    "log-dead-letters-during-shutdown": "off"
+    "actor": {
+      "provider": "akka.remote.RemoteActorRefProvider"
+    }
+    "cluster": {
+      "roles": ["worker"]
+    }
+    "remote" {
+      "log-remote-lifecycle-events": "off"
+    }
+  }
+}
+```
+
+## GET api/v1.0/config/master
+Get the configuration of all masters 
+
+Example:
+```bash
+curl http://127.0.0.1:8090/api/v1.0/config/master
+```
+Sample Response:
+```
+{
+  "extensions": [
+    "akka.contrib.datareplication.DataReplication$"
+  ]
+  "akka": {
+    "loglevel": "INFO"
+    "log-dead-letters": "off"
+    "log-dead-letters-during-shutdown": "off"
+    "actor": {
+      ## Master forms a akka cluster
+      "provider": "akka.cluster.ClusterActorRefProvider"
+    }
+    "cluster": {
+      "roles": ["master"]
+      "auto-down-unreachable-after": "15s"
+    }
+    "remote": {
+      "log-remote-lifecycle-events": "off"
+    }
+  }
+}
+```
+
+## GET api/v1.0/master
 Get information of masters
 
 Example:
 ```bash
-curl http://127.0.0.1:8090/master
+curl http://127.0.0.1:8090/api/v1.0/master
 ```
 Sample Response:
 ```
@@ -189,13 +267,13 @@ Sample Response:
 }
 ```
 
-## GET metrics/app/&lt;appId&gt;/&lt;metrics path&gt;
+## GET api/v1.0/metrics/app/&lt;appId&gt;/&lt;metrics path&gt;
 Query metrics information of a specific application appId
 Filter metrics with path metrics path
 
 Example:
 ```bash
-curl http://127.0.0.1:8090/metrics/app/3/app3.processor2
+curl http://127.0.0.1:8090/api/v1.0/metrics/app/3/app3.processor2
 ```
 Sample Response:
 ```
@@ -206,12 +284,12 @@ Sample Response:
 }
 ```
 
-## GET workers/&lt;workerId&gt;
+## GET api/v1.0/workers/&lt;workerId&gt;
 Get information of specific worker
 
 Example:
 ```bash
-curl http://127.0.0.1:8090/workers/1096497833
+curl http://127.0.0.1:8090/api/v1.0/workers/1096497833
 ```
 Sample Response
 ```
@@ -228,14 +306,14 @@ Sample Response
 }
 ```
 
-The worker list can be returned by query master/ Rest service.
+The worker list can be returned by query api/v1.0/workers Rest service.
 
-## GET workers
+## GET api/v1.0/workers
 Get information of all workers.
 
 Example:
 ```bash
-curl http://127.0.0.1:8090/workers
+curl http://127.0.0.1:8090/api/v1.0/workers
 ```
 Sample Response:
 ```
@@ -265,7 +343,29 @@ Sample Response:
 ]
 ```
 
+## GET api/v1.0/version
+Query the version of gearpump
 
+Example:
+```bash
+curl http://127.0.0.1:8090/api/v1.0/version
+```
+Sample Response:
+```
+0.3.6-SNAPSHOT
+```
 
+## GET api/v1.0/websocket/url
+Query the url of web socket
 
+Example:
+```bash
+curl http://127.0.0.1:8090/api/v1.0/websocket/url
+```
+Sample Response:
+```
+{
+  "url": "ws://127.0.0.1:8091"
+}
+```
 
