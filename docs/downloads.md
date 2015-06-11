@@ -2,13 +2,13 @@
 
 ## Latest Release version
 
-release 0.3.5  [Release notes](https://github.com/intel-hadoop/gearpump/releases)
+release 0.3.7  [Release notes](https://github.com/intel-hadoop/gearpump/releases)
 [![](img/download.jpg)](
-https://github.com/intel-hadoop/gearpump/releases/download/0.3.5/gearpump-pack-0.3.5.zip)
+https://github.com/intel-hadoop/gearpump/releases/download/0.3.7/gearpump-pack-0.3.7.zip)
 
 ## Latest snapshot version
 
-0.3.6-SNAPSHOT [Build from source code](0.3/getstarted/#build-from-source-code)
+0.3.8-SNAPSHOT [Build from source code](0.3/getstarted/#build-from-source-code)
 
 ## Read [tutorial to get started](0.3/getstarted/)
 
@@ -49,17 +49,17 @@ Dependencies:
 <dependency>
 <groupId>com.github.intel-hadoop</groupId>
 <artifactId>gearpump-core_2.11</artifactId>
-<version>0.3.4</version>
+<version>0.3.7</version>
 </dependency>
 <dependency>
 <groupId>com.github.intel-hadoop</groupId>
 <artifactId>gearpump-streaming_2.11</artifactId>
-<version>0.3.4</version>
+<version>0.3.7</version>
 </dependency>
 <dependency>
 <groupId>com.github.intel-hadoop</groupId>
 <artifactId>gearpump-external-kafka_2.11</artifactId>
-<version>0.3.4</version>
+<version>0.3.7</version>
 </dependency>
 </dependencies>
 ```
@@ -102,17 +102,17 @@ Dependencies:
 <dependency>
 <groupId>com.github.intel-hadoop</groupId>
 <artifactId>gearpump-core_2.11</artifactId>
-<version>0.3.5-SNAPSHOT</version>
+<version>0.3.8-SNAPSHOT</version>
 </dependency>
 <dependency>
 <groupId>com.github.intel-hadoop</groupId>
 <artifactId>gearpump-streaming_2.11</artifactId>
-<version>0.3.5-SNAPSHOT</version>
+<version>0.3.8-SNAPSHOT</version>
 </dependency>
 <dependency>
 <groupId>com.github.intel-hadoop</groupId>
 <artifactId>gearpump-external-kafka_2.11</artifactId>
-<version>0.3.5-SNAPSHOT</version>
+<version>0.3.8-SNAPSHOT</version>
 </dependency>
 </dependencies>
 ```
