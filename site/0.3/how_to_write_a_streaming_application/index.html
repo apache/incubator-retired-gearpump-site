@@ -128,14 +128,28 @@
                 
                 
                 
-                    <li >
-                        <a href="../../publications/publications">Publications</a>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Publications <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            <li >
+                                <a href="../../publications/publications">Publications</a>
+                            </li>
+                        
+                        </ul>
                     </li>
                 
                 
                 
-                    <li >
-                        <a href="../../usecases/use_cases">Use Cases</a>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Use Cases <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            <li >
+                                <a href="../../usecases/use_cases">Use cases</a>
+                            </li>
+                        
+                        </ul>
                     </li>
                 
                 
@@ -217,7 +231,7 @@
 <h2 id="for-java-developer">For java developer</h2>
 <p>Most contents in this guide also apply for Java developer. There is a template java project at <a href="https://github.com/gearpump/gearpump-java-example">Java WordCount Project</a></p>
 <h2 id="define-processortask-class-and-partitioner-class">Define Processor(Task) class and Partitioner class</h2>
-<p>An application is a Directed Acyclic Graph (DAG) of processors (Please refer to <a href="https://github.com/intel-hadoop/gearpump/wiki/DAG-API">DAG API</a>) . In the wordcount example, We will firstly define two processors <code>Split</code> and <code>Sum</code>, and then weave them together. </p>
+<p>An application is a Directed Acyclic Graph (DAG) of processors. In the wordcount example, We will firstly define two processors <code>Split</code> and <code>Sum</code>, and then weave them together. </p>
 <h3 id="split-processor">Split processor</h3>
 <p>In the Split processor, we simply split a predefined text (the content is simplified for conciseness) and send out each split word to Sum.</p>
 <p>Scala:</p>

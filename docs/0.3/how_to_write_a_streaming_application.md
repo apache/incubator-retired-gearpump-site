@@ -12,7 +12,7 @@ Most contents in this guide also apply for Java developer. There is a template j
 
 ## Define Processor(Task) class and Partitioner class
 
-An application is a Directed Acyclic Graph (DAG) of processors (Please refer to [DAG API](https://github.com/intel-hadoop/gearpump/wiki/DAG-API)) . In the wordcount example, We will firstly define two processors `Split` and `Sum`, and then weave them together. 
+An application is a Directed Acyclic Graph (DAG) of processors. In the wordcount example, We will firstly define two processors `Split` and `Sum`, and then weave them together. 
 
 ### Split processor
 
