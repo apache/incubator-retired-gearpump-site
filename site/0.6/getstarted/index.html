@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+
+        <title>Gearpump Stream Processing Engine</title>
+
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../..">/Gearpump/</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">User Guide <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            <li >
+                                <a href="../introduction">Introduction</a>
+                            </li>
+                        
+                            <li class="active">
+                                <a href=".">Get Started</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../concepts">Concepts</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../adminguide">Admin Guide</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../how_to_write_a_streaming_application">Streaming Application Developer Guide</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../how_to_write_a_general_distributed_application">Non-Streaming Application Developer Guide</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../performance">Performance Benchmark</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../internal">Gearpump Internals</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../examplewalkthrough">Kafka Use Case Code Walkthrough</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../commandlinesyntax">Command Line Tools</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../restapi">Rest API Guide</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../configuration_guide">Configuration Guide</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../high_availability_guide">High Availability Guide</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../intellij_eclipse_development_environment_setup">IDE setup</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../faq">FAQ</a>
+                            </li>
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../downloads">Downloads</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../publications/publications">Publications</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../roadmap">RoadMap</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../about">About</a>
+                    </li>
+                
+                
+                </ul>
+            
+
+            
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                
+                
+                <li >
+                    <a rel="next" href="../introduction">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../concepts">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+                
+                <li>
+                    <a href="http://github.com/intel-hadoop/gearpump">
+                        
+                            <i class="fa fa-github"></i>
+                        
+                        GitHub
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#get-started">Get Started</a></li>
+        
+            <li><a href="#prepare-the-binary">Prepare the binary</a></li>
+        
+            <li><a href="#gearpump-package-structure">Gearpump package structure</a></li>
+        
+            <li><a href="#run-a-distributed-application-in-30-seconds">Run a distributed application in 30 seconds.</a></li>
+        
+            <li><a href="#other-application-examples">Other Application Examples</a></li>
+        
+    
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="get-started">Get Started</h1>
+<h2 id="prepare-the-binary">Prepare the binary</h2>
+<p>You can either download pre-build release package or choose to build from source code. </p>
+<h3 id="download-release-binary">Download Release Binary</h3>
+<p>If you choose to use pre-build package, then you don't need to build from source code. The release package can be downloaded from: </p>
+<h4 id="httpwwwgearpumpiositedownloads"><a href="../../downloads/">http://www.gearpump.io/site/downloads/</a></h4>
+<h3 id="build-from-source-code">Build from Source code</h3>
+<p>If you choose to build the package from source code yourself, you can follow these steps:</p>
+<p>1). Clone the GearPump repository</p>
+<pre><code class="bash">  git clone https://github.com/gearpump/gearpump.git
+  cd gearpump
+</code></pre>
+
+<p>2). Build package</p>
+<pre><code class="bash">  ## Please use scala 2.11
+  ## The target package path: target/gearpump-$VERSION.tar.gz
+  sbt clean assembly packArchive ## Or use: sbt clean assembly pack-archive
+</code></pre>
+
+<p>After the build, there will be a package file gearpump-${version}.tar.gz generated under target/ folder.</p>
+<p><strong>NOTE:</strong>
+  Please set JAVA_HOME environment before the build.</p>
+<p>On linux:</p>
+<pre><code class="bash">  export JAVA_HOME={path/to/jdk/root/path}
+</code></pre>
+
+<p>On Windows:</p>
+<pre><code class="bash">  set JAVA_HOME={path/to/jdk/root/path}
+</code></pre>
+
+<p><strong>NOTE:</strong>
+The build requires network connection. If you are behind an enterprise proxy, make sure you have set the proxy in your env before running the build commands. 
+For windows:</p>
+<pre><code class="bash">Set HTTP_PROXY=http://host:port
+set HTTPS_PROXT= http://host:port
+</code></pre>
+
+<p>For Linux:</p>
+<pre><code class="bash">export HTTP_PROXY=http://host:port
+export HTTPS_PROXT= http://host:port
+</code></pre>
+
+<h2 id="gearpump-package-structure">Gearpump package structure</h2>
+<p>You need to flatten the .tar.gz file to use it, on Linux, you can</p>
+<pre><code class="bash"># please replace ${version} below with actual version used
+tar  -zxvf gearpump-${version}.tar.gz
+</code></pre>
+
+<p>After decompression, the directory structure looks like picture 1.</p>
+<p><img alt="" src="../..//img/layout.png" /></p>
+<p>Under bin/ folder, there are script files for Linux(bash script) and Windows(.bat script). </p>
+<table>
+<thead>
+<tr>
+<th>script</th>
+<th>function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>local</td>
+<td>You can start the Gearpump cluster in single JVM(local mode), or in a distributed cluster(cluster mode). To start the cluster in local mode, you can use the local /local.bat helper scripts, it is very useful for developing or troubleshooting.</td>
+</tr>
+<tr>
+<td>master</td>
+<td>To start Gearpump in cluster mode, you need to start one or more master nodes, which represent the global resource management center. master/master.bat is launcher script to boot the master node.</td>
+</tr>
+<tr>
+<td>worker</td>
+<td>To start Gearpump in cluster mode, you also need to start several workers, with each worker represent a set of local resources. worker/worker.bat is launcher script to start the worker node.</td>
+</tr>
+<tr>
+<td>services</td>
+<td>This script is used to start backend REST service and other services for frontend UI dashboard.</td>
+</tr>
+</tbody>
+</table>
+<p>Please check <a href="../commandlinesyntax">Command Line Syntax</a> for more information for each script.</p>
+<h2 id="run-a-distributed-application-in-30-seconds">Run a distributed application in 30 seconds.</h2>
+<p>To start a demo application, there are three steps,</p>
+<h3 id="step1-start-the-cluster">Step1: Start the cluster</h3>
+<p>You can start a local mode cluster in single line</p>
+<pre><code class="bash"># start the master and 4 workers in single JVM. The master will listen on 3000
+# you can Ctrl+C to kill the local cluster after you finished the startup tutorial. 
+bin/local
+</code></pre>
+
+<p><strong>NOTE:</strong> You can change the default port by changing config "gearpump.cluster.masters" in conf/gear.conf, </p>
+<p><strong>NOTE: Change the working directory</strong>. Log files by default will be generated under current working directory. So, please "cd" to required working directly before running the shell commands.</p>
+<p><strong>NOTE: Run as Daemon</strong>. You can run it as a background process. For example, use <a href="http://linux.die.net/man/1/nohup">nohup</a> on linux. </p>
+<h3 id="step2-submit-application">Step2: Submit application</h3>
+<p>After the cluster is started, you can submit an example wordcount application to the cluster</p>
+<p>Open another shell, </p>
+<pre><code class="bash">## To run WordCount example, please substitute $VERSION with actual file version.
+bin/gear app -jar examples/gearpump-examples-assembly-$VERSION.jar io.gearpump.streaming.examples.wordcount.WordCount
+</code></pre>
+
+<h3 id="step3-open-the-ui-and-view-the-status">Step3: Open the UI and view the status</h3>
+<p>Now, the application is running, start the UI and check the status:</p>
+<p>Open another shell, </p>
+<pre><code class="bash">bin/services
+</code></pre>
+
+<p>You can manage the application in UI <a href="http://127.0.0.1:8090">http://127.0.0.1:8090</a> or by <a href="../commandlinesyntax">Command Line tool</a>.</p>
+<p><img alt="" src="../..//img/dashboard.gif" /></p>
+<p><strong>NOTE:</strong> the UI port setting can be defined in configuration, please check section <a href="../configuration_guide">Configuration Guide</a>
+You see, now it is up and running. </p>
+<h3 id="step4-congratulation-you-have-your-first-application-running">Step4: Congratulation! You have your first application running!</h3>
+<h2 id="other-application-examples">Other Application Examples</h2>
+<p>Besides wordcount, there are several other example applications. Please check the source tree examples/ for detail information.</p>
+</div>
+            
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+            <p>Copyright@gearpump.io</p>
+        </footer>
+
+        
+
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/prettify-1.0.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script src="../../js/base.js"></script>
+    </body>
+</html>

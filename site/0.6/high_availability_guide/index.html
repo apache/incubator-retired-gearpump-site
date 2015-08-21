@@ -4,17 +4,17 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="realtime, streaming">
         
         
-        <link rel="shortcut icon" href="./img/favicon.ico">
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
 
         <title>Gearpump Stream Processing Engine</title>
 
-        <link href="./css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="./css/font-awesome-4.0.3.css" rel="stylesheet">
-        <link href="./css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="./css/highlight.css">
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -43,7 +43,7 @@
             
 
             <!-- Main title -->
-            <a class="navbar-brand" href=".">/Gearpump/</a>
+            <a class="navbar-brand" href="../..">/Gearpump/</a>
         </div>
 
         <!-- Expanded navigation -->
@@ -53,68 +53,68 @@
                 <ul class="nav navbar-nav">
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">User Guide <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             <li >
-                                <a href="0.6/introduction/">Introduction</a>
+                                <a href="../introduction">Introduction</a>
                             </li>
                         
                             <li >
-                                <a href="0.6/getstarted/">Get Started</a>
+                                <a href="../getstarted">Get Started</a>
                             </li>
                         
                             <li >
-                                <a href="0.6/concepts/">Concepts</a>
+                                <a href="../concepts">Concepts</a>
                             </li>
                         
                             <li >
-                                <a href="0.6/adminguide/">Admin Guide</a>
+                                <a href="../adminguide">Admin Guide</a>
                             </li>
                         
                             <li >
-                                <a href="0.6/how_to_write_a_streaming_application/">Streaming Application Developer Guide</a>
+                                <a href="../how_to_write_a_streaming_application">Streaming Application Developer Guide</a>
                             </li>
                         
                             <li >
-                                <a href="0.6/how_to_write_a_general_distributed_application/">Non-Streaming Application Developer Guide</a>
+                                <a href="../how_to_write_a_general_distributed_application">Non-Streaming Application Developer Guide</a>
                             </li>
                         
                             <li >
-                                <a href="0.6/performance/">Performance Benchmark</a>
+                                <a href="../performance">Performance Benchmark</a>
                             </li>
                         
                             <li >
-                                <a href="0.6/internal/">Gearpump Internals</a>
+                                <a href="../internal">Gearpump Internals</a>
                             </li>
                         
                             <li >
-                                <a href="0.6/examplewalkthrough/">Kafka Use Case Code Walkthrough</a>
+                                <a href="../examplewalkthrough">Kafka Use Case Code Walkthrough</a>
                             </li>
                         
                             <li >
-                                <a href="0.6/commandlinesyntax/">Command Line Tools</a>
+                                <a href="../commandlinesyntax">Command Line Tools</a>
                             </li>
                         
                             <li >
-                                <a href="0.6/restapi/">Rest API Guide</a>
+                                <a href="../restapi">Rest API Guide</a>
                             </li>
                         
                             <li >
-                                <a href="0.6/configuration_guide/">Configuration Guide</a>
+                                <a href="../configuration_guide">Configuration Guide</a>
+                            </li>
+                        
+                            <li class="active">
+                                <a href=".">High Availability Guide</a>
                             </li>
                         
                             <li >
-                                <a href="0.6/high_availability_guide/">High Availability Guide</a>
+                                <a href="../intellij_eclipse_development_environment_setup">IDE setup</a>
                             </li>
                         
                             <li >
-                                <a href="0.6/intellij_eclipse_development_environment_setup/">IDE setup</a>
-                            </li>
-                        
-                            <li >
-                                <a href="0.6/faq/">FAQ</a>
+                                <a href="../faq">FAQ</a>
                             </li>
                         
                         </ul>
@@ -123,25 +123,25 @@
                 
                 
                     <li >
-                        <a href="downloads/">Downloads</a>
+                        <a href="../../downloads">Downloads</a>
                     </li>
                 
                 
                 
                     <li >
-                        <a href="publications/publications/">Publications</a>
+                        <a href="../../publications/publications">Publications</a>
                     </li>
                 
                 
                 
                     <li >
-                        <a href="roadmap/">RoadMap</a>
+                        <a href="../../roadmap">RoadMap</a>
                     </li>
                 
                 
                 
                     <li >
-                        <a href="about/">About</a>
+                        <a href="../../about">About</a>
                     </li>
                 
                 
@@ -153,13 +153,13 @@
             <ul class="nav navbar-nav navbar-right">
                 
                 
-                <li class="disabled">
-                    <a rel="next" >
+                <li >
+                    <a rel="next" href="../configuration_guide">
                         <i class="fa fa-arrow-left"></i> Previous
                     </a>
                 </li>
-                <li class="disabled">
-                    <a rel="prev" >
+                <li >
+                    <a rel="prev" href="../intellij_eclipse_development_environment_setup">
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
                 </li>
@@ -182,15 +182,57 @@
 
         <div class="container">
             
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#master-ha-guide">Master HA Guide</a></li>
+        
+            <li><a href="#1-configure">1. Configure.</a></li>
+        
+            <li><a href="#2-start-daemon">2. Start Daemon.</a></li>
+        
+            <li><a href="#3-done">3. Done!</a></li>
+        
+    
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
 
-    <div class="row-fluid">
-      <div id="main-content" class="span12">
-        <h1 id="404-page-not-found" style="text-align: center">404</h1>
-        <p style="text-align: center"><strong>Page not found</strong></p>
-      </div>
-    </div>
+<h1 id="master-ha-guide">Master HA Guide</h1>
+<p>To support HA, we allow to start master on multiple nodes. They will form a quorum to decide consistency. For example, if we start master on 5 nodes and 2 nodes are down, then the cluster is still consistent and functional.</p>
+<p>Here is the steps to enable the HA mode:</p>
+<h2 id="1-configure">1. Configure.</h2>
+<p>Distribute the package to all nodes. Modify <code>conf/gear.conf</code> on all nodes. You MUST configure</p>
+<pre><code class="bash">gearpump.hostname
+</code></pre>
 
+<p>to make it point to your hostname(or ip), and </p>
+<pre><code class="bash">gearpump.cluster.masters
+</code></pre>
 
+<p>to a list of master nodes. For example, if I have 3 master nodes (node1, node2, and node3),  then the <code>gearpump.cluster.masters</code> can be set as </p>
+<pre><code class="bash">  gearpump.cluster {
+    masters = [&quot;node1:3000&quot;, &quot;node2:3000&quot;, &quot;node3:3000&quot;]
+  }
+</code></pre>
+
+<h2 id="2-start-daemon">2. Start Daemon.</h2>
+<p>On node1, node2, node3, Start Master</p>
+<pre><code class="bash">  ## on node1
+  bin/master -ip node1 -port 3000
+
+  ## on node2
+  bin/master -ip node2 -port 3000
+
+  ## on node3
+  bin/master -ip node3 -port 3000
+</code></pre>
+
+<h2 id="3-done">3. Done!</h2>
+<p>Now you have a high available HA cluster. You can kill any node, the master HA will take effect. </p>
+<p><strong>NOTE</strong>: It can take up to 15 seconds for master node to fail-over. You can change the fail-over timeout time by adding config in gear.conf <code>master.akka.cluster.auto-down-unreachable-after=10s</code> or smaller value</p>
+</div>
+            
         </div>
 
         <footer class="col-md-12">
@@ -202,9 +244,9 @@
         
 
         <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-        <script src="./js/bootstrap-3.0.3.min.js"></script>
-        <script src="./js/prettify-1.0.min.js"></script>
-        <script src="./js/highlight.pack.js"></script>
-        <script src="./js/base.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/prettify-1.0.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script src="../../js/base.js"></script>
     </body>
 </html>

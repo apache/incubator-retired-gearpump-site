@@ -1,9 +1,9 @@
 # Roadmap
 
-1. UI dashboard
-2. High level DSL with combinators like flatmap, cogroup, reduce...
-3. Window function
-4. Transactional processing
-5. Dynamic graph 
-6. Benchmarking
-7. YARN integration
+1. UI dashboard [finished]
+2. High level DSL with combinators like flatmap, cogroup, reduce... [finished]
+3. Window function 
+4. Transactional processing  [finished, in performce testing...]
+5. Dynamic graph [finished]
+6. Benchmarking [finished]
+7. YARN integration [finished]

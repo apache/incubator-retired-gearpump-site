@@ -2,21 +2,26 @@
 
 ## Latest Release version
 
-release 0.3.7  [Release notes](https://github.com/intel-hadoop/gearpump/releases)
+release 0.6.0  [Release notes](https://github.com/gearpump/gearpump/releases)
+
+### scala 2.11
 [![](img/download.jpg)](
-https://github.com/intel-hadoop/gearpump/releases/download/0.3.7/gearpump-pack-0.3.7.tar.gz)
+https://github.com/gearpump/gearpump/releases/download/0.6.0/gearpump-pack-2.11.5-0.6.0.zip)
 
-## Latest snapshot version
+### scala 2.10
+[![](img/download.jpg)](
+https://github.com/gearpump/gearpump/releases/download/0.6.0/gearpump-pack-2.10.5-0.6.0.zip)
 
-0.3.8-SNAPSHOT [Build from source code](0.3/getstarted/#build-from-source-code)
 
-## Read [tutorial to get started](0.3/getstarted/)
+## To Build Latest snapshot version
+
+## Read [tutorial to get started](0.6/getstarted/)
 
 ## Maven
 
 ### For stable release version
 This contains latest release. 
-**Note:** There maybe delay in updating this document, you can still find the latest stable version by checking https://github.com/intel-hadoop/gearpump/releases .
+**Note:** There maybe delay in updating this document, you can still find the latest stable version by checking https://github.com/gearpump/gearpump/releases .
 
 Repo:
 ```xml
@@ -39,6 +44,42 @@ Repo:
     <url>https://repository.cloudera.com/artifactory/cloudera-repos</url>
 </repository>
 
+<repository>
+    <id>vincent</id>
+    <name>vincent</name>
+    <url>http://dl.bintray.com/fvunicorn/maven</url>
+</repository>
+
+<repository>
+    <id>non</id>
+    <name>non</name>
+    <url>http://dl.bintray.com/non/maven</url>
+</repository>
+
+<repository>
+    <id>non</id>
+    <name>non</name>
+    <url>http://dl.bintray.com/non/maven</url>
+</repository>
+
+<repository>
+    <id>maven-repo</id>
+    <name>maven-repo</name>
+    <url>http://repo.maven.apache.org/maven2</url>
+</repository>
+
+<repository>
+    <id>maven1-repo</id>
+    <name>maven1-repo</name>
+    <url>http://repo1.maven.org/maven2</url>
+</repository>
+
+<repository>
+    <id>maven2-repo</id>
+    <name>maven2-repo</name>
+    <url>http://mvnrepository.com/artifact</url>
+</repository>
+
 </repositories>
 
 ```
@@ -49,17 +90,12 @@ Dependencies:
 <dependency>
 <groupId>com.github.intel-hadoop</groupId>
 <artifactId>gearpump-core_2.11</artifactId>
-<version>0.3.7</version>
+<version>0.6.0</version>
 </dependency>
 <dependency>
 <groupId>com.github.intel-hadoop</groupId>
 <artifactId>gearpump-streaming_2.11</artifactId>
-<version>0.3.7</version>
-</dependency>
-<dependency>
-<groupId>com.github.intel-hadoop</groupId>
-<artifactId>gearpump-external-kafka_2.11</artifactId>
-<version>0.3.7</version>
+<version>0.6.0</version>
 </dependency>
 </dependencies>
 ```
@@ -68,7 +104,7 @@ Dependencies:
 
 The snapshot contains the latest code in master branch.
 
-**Note:** There maybe delay in updating this document, you can still find the snapshot version by checking https://github.com/intel-hadoop/gearpump/blob/master/version.sbt
+**Note:** There maybe delay in updating this document, you can still find the snapshot version by checking https://github.com/gearpump/gearpump/blob/master/version.sbt
 
 Repo:
 ```xml
@@ -78,6 +114,12 @@ Repo:
   <name>Sonatype Nexus Snapshots</name>
   <url>https://oss.sonatype.org/content/repositories/snapshots</url>
 
+</repository>
+
+<repository>
+<id>releases-oss.sonatype.org</id>
+<name>Sonatype Releases Repository</name>
+<url>http://oss.sonatype.org/content/repositories/releases/</url>
 </repository>
 
 <repository>
@@ -92,6 +134,42 @@ Repo:
     <url>https://repository.cloudera.com/artifactory/cloudera-repos</url>
 </repository>
 
+<repository>
+    <id>vincent</id>
+    <name>vincent</name>
+    <url>http://dl.bintray.com/fvunicorn/maven</url>
+</repository>
+
+<repository>
+    <id>non</id>
+    <name>non</name>
+    <url>http://dl.bintray.com/non/maven</url>
+</repository>
+
+<repository>
+    <id>non</id>
+    <name>non</name>
+    <url>http://dl.bintray.com/non/maven</url>
+</repository>
+
+<repository>
+    <id>maven-repo</id>
+    <name>maven-repo</name>
+    <url>http://repo.maven.apache.org/maven2</url>
+</repository>
+
+<repository>
+    <id>maven1-repo</id>
+    <name>maven1-repo</name>
+    <url>http://repo1.maven.org/maven2</url>
+</repository>
+
+<repository>
+    <id>maven2-repo</id>
+    <name>maven2-repo</name>
+    <url>http://mvnrepository.com/artifact</url>
+</repository>
+
 </repositories>
 
 ```
@@ -102,17 +180,12 @@ Dependencies:
 <dependency>
 <groupId>com.github.intel-hadoop</groupId>
 <artifactId>gearpump-core_2.11</artifactId>
-<version>0.3.8-SNAPSHOT</version>
+<version>0.6.1-SNAPSHOT</version>
 </dependency>
 <dependency>
 <groupId>com.github.intel-hadoop</groupId>
 <artifactId>gearpump-streaming_2.11</artifactId>
-<version>0.3.8-SNAPSHOT</version>
-</dependency>
-<dependency>
-<groupId>com.github.intel-hadoop</groupId>
-<artifactId>gearpump-external-kafka_2.11</artifactId>
-<version>0.3.8-SNAPSHOT</version>
+<version>0.6.1-SNAPSHOT</version>
 </dependency>
 </dependencies>
 ```

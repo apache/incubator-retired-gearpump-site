@@ -53,68 +53,68 @@
                 <ul class="nav navbar-nav">
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">User Guide <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             <li >
-                                <a href="../../0.6/introduction">Introduction</a>
+                                <a href="../introduction">Introduction</a>
                             </li>
                         
                             <li >
-                                <a href="../../0.6/getstarted">Get Started</a>
+                                <a href="../getstarted">Get Started</a>
                             </li>
                         
                             <li >
-                                <a href="../../0.6/concepts">Concepts</a>
+                                <a href="../concepts">Concepts</a>
                             </li>
                         
                             <li >
-                                <a href="../../0.6/adminguide">Admin Guide</a>
+                                <a href="../adminguide">Admin Guide</a>
                             </li>
                         
                             <li >
-                                <a href="../../0.6/how_to_write_a_streaming_application">Streaming Application Developer Guide</a>
+                                <a href="../how_to_write_a_streaming_application">Streaming Application Developer Guide</a>
                             </li>
                         
                             <li >
-                                <a href="../../0.6/how_to_write_a_general_distributed_application">Non-Streaming Application Developer Guide</a>
+                                <a href="../how_to_write_a_general_distributed_application">Non-Streaming Application Developer Guide</a>
                             </li>
                         
                             <li >
-                                <a href="../../0.6/performance">Performance Benchmark</a>
+                                <a href="../performance">Performance Benchmark</a>
                             </li>
                         
                             <li >
-                                <a href="../../0.6/internal">Gearpump Internals</a>
+                                <a href="../internal">Gearpump Internals</a>
                             </li>
                         
                             <li >
-                                <a href="../../0.6/examplewalkthrough">Kafka Use Case Code Walkthrough</a>
+                                <a href="../examplewalkthrough">Kafka Use Case Code Walkthrough</a>
+                            </li>
+                        
+                            <li class="active">
+                                <a href=".">Command Line Tools</a>
                             </li>
                         
                             <li >
-                                <a href="../../0.6/commandlinesyntax">Command Line Tools</a>
+                                <a href="../restapi">Rest API Guide</a>
                             </li>
                         
                             <li >
-                                <a href="../../0.6/restapi">Rest API Guide</a>
+                                <a href="../configuration_guide">Configuration Guide</a>
                             </li>
                         
                             <li >
-                                <a href="../../0.6/configuration_guide">Configuration Guide</a>
+                                <a href="../high_availability_guide">High Availability Guide</a>
                             </li>
                         
                             <li >
-                                <a href="../../0.6/high_availability_guide">High Availability Guide</a>
+                                <a href="../intellij_eclipse_development_environment_setup">IDE setup</a>
                             </li>
                         
                             <li >
-                                <a href="../../0.6/intellij_eclipse_development_environment_setup">IDE setup</a>
-                            </li>
-                        
-                            <li >
-                                <a href="../../0.6/faq">FAQ</a>
+                                <a href="../faq">FAQ</a>
                             </li>
                         
                         </ul>
@@ -128,8 +128,8 @@
                 
                 
                 
-                    <li class="active">
-                        <a href=".">Publications</a>
+                    <li >
+                        <a href="../../publications/publications">Publications</a>
                     </li>
                 
                 
@@ -154,12 +154,12 @@
                 
                 
                 <li >
-                    <a rel="next" href="../../downloads">
+                    <a rel="next" href="../examplewalkthrough">
                         <i class="fa fa-arrow-left"></i> Previous
                     </a>
                 </li>
                 <li >
-                    <a rel="prev" href="../../roadmap">
+                    <a rel="prev" href="../restapi">
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
                 </li>
@@ -185,17 +185,94 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#gearpump-real-time-streaming-engine-using-akka">GearPump Real-time Streaming Engine Using Akka</a></li>
+        <li class="main active"><a href="#command-line-syntax">Command Line Syntax</a></li>
+        
+            <li><a href="#local">local</a></li>
+        
+            <li><a href="#master">master</a></li>
+        
+            <li><a href="#worker">worker</a></li>
+        
+            <li><a href="#services">services</a></li>
+        
+            <li><a href="#gear-app">gear app</a></li>
+        
+            <li><a href="#gear-info">gear info</a></li>
+        
+            <li><a href="#gear-kill">gear kill</a></li>
+        
+            <li><a href="#gear-shell">gear shell</a></li>
         
     
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h2 id="gearpump-real-time-streaming-engine-using-akka">GearPump Real-time Streaming Engine Using Akka</h2>
-<p>There is a 20 pages technical paper on typesafe blog, with technical highlights <a href="https://typesafe.com/blog/gearpump-real-time-streaming-engine-using-akka">https://typesafe.com/blog/gearpump-real-time-streaming-engine-using-akka</a></p>
-<p>Gearpump on QCON
-<a href="../..//gearpump_qcon.pdf">Gearpump QCON 2015 Beijing</a></p>
+<h1 id="command-line-syntax">Command Line Syntax</h1>
+<p><strong>NOTE:</strong> on windows platform, please use window shell .bat script instead. bash script doesn't work well in cygwin/mingw.
+The commands can be found at: "bin/" folder of release binary.</p>
+<h2 id="local">local</h2>
+<p>Used to start the cluster in local cluster.
+Syntax:</p>
+<pre><code class="bash">Usage:
+local
+</code></pre>
+
+<p>It will start the local at port configured in conf/gear.conf</p>
+<h2 id="master">master</h2>
+<p>Used to start Gearpump master nodes, you can start one or more master nodes. </p>
+<p>Syntax:</p>
+<pre><code class="bash">master -ip &lt;master ip address&gt; -port  &lt;master port&gt;
+-ip  (required:true)
+-port  (required:true)
+</code></pre>
+
+<p>The ip and port settings will be checked against config in gear.conf</p>
+<h2 id="worker">worker</h2>
+<p>Used to start worker nodes. You usually will start several workers, with one worker on one machine. </p>
+<p>Syntax:</p>
+<pre><code class="bash">##  It will load config from gear.conf, no command line arguments should be provided.
+worker
+</code></pre>
+
+<h2 id="services">services</h2>
+<p>Used to start the dashboard UI server.</p>
+<p>syntax:</p>
+<pre><code class="bash">services
+</code></pre>
+
+<h2 id="gear-app">gear app</h2>
+<p>Used to submit a application jar to the Gearpump Cluster. </p>
+<p>Syntax:</p>
+<pre><code class="bash">Usage:
+gear app -namePrefix &lt;application name prefix&gt; -jar &lt;application&gt;.jar &lt;mainClass &lt;remain arguments&gt;&gt;
+-namePrefix  (required:false, default:)
+-jar  (required:true)
+</code></pre>
+
+<h2 id="gear-info">gear info</h2>
+<p>Used to list running application information</p>
+<p>Syntax:</p>
+<pre><code class="bash">C:\myData\gearpump\target\pack\bin&gt;gear info
+Usage:
+gear info
+</code></pre>
+
+<h2 id="gear-kill">gear kill</h2>
+<p>Used to kill an application</p>
+<p>Syntax:</p>
+<pre><code class="bash">gear kill -appid &lt;application id&gt;
+-appid  (required:true)
+</code></pre>
+
+<h2 id="gear-shell">gear shell</h2>
+<p>Used to start a scala shell</p>
+<p>Syntax:</p>
+<pre><code class="bash">C:\myData\gearpump\target\pack\bin&gt;gear shell
+Usage:
+gear shell
+</code></pre>
+
 </div>
             
         </div>

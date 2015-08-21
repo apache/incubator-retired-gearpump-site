@@ -8,11 +8,11 @@ We have a user mail list at: [User Mail List](https://groups.google.com/forum/#!
 
 ### Submit an issue
 
-Please submit new issue to [https://github.com/intel-hadoop/gearpump/issues](https://github.com/intel-hadoop/gearpump/issues)
+Please submit new issue to [https://github.com/gearpump/gearpump/issues](https://github.com/gearpump/gearpump/issues)
 
 ### Make code contribution
 
-Contributions are warmly welcome! To contribute to Gearpump source code, please make a PR against [https://github.com/intel-hadoop/gearpump/pulls](https://github.com/intel-hadoop/gearpump/pulls)
+Contributions are warmly welcome! To contribute to Gearpump source code, please make a PR against [https://github.com/gearpump/gearpump/pulls](https://github.com/gearpump/gearpump/pulls)
 
 To contribute to the contents in this site, make a PR to [https://github.com/gearpump/gearpump.github.io](https://github.com/gearpump/gearpump.github.io)
 
@@ -22,7 +22,7 @@ For business cooperation and support, please contact <xiang.zhong@intel.com> <ka
 
 ### License
 
-The source tree under [http://github.com/intel-hadoop/gearpump](http://github.com/intel-hadoop/gearpump) is
+The source tree under [http://github.com/gearpump/gearpump](http://github.com/gearpump/gearpump) is
 Licensed under the Apache License, Version 2.0: http://www.apache.org/licenses/LICENSE-2.0
 
 ### Acknowledgement

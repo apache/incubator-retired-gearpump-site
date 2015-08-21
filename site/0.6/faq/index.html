@@ -7,14 +7,14 @@
         
         
         
-        <link rel="shortcut icon" href="../img/favicon.ico">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
 
         <title>Gearpump Stream Processing Engine</title>
 
-        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
-        <link href="../css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="../css/highlight.css">
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -43,7 +43,7 @@
             
 
             <!-- Main title -->
-            <a class="navbar-brand" href="..">/Gearpump/</a>
+            <a class="navbar-brand" href="../..">/Gearpump/</a>
         </div>
 
         <!-- Expanded navigation -->
@@ -53,68 +53,68 @@
                 <ul class="nav navbar-nav">
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">User Guide <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             <li >
-                                <a href="../0.6/introduction">Introduction</a>
+                                <a href="../introduction">Introduction</a>
                             </li>
                         
                             <li >
-                                <a href="../0.6/getstarted">Get Started</a>
+                                <a href="../getstarted">Get Started</a>
                             </li>
                         
                             <li >
-                                <a href="../0.6/concepts">Concepts</a>
+                                <a href="../concepts">Concepts</a>
                             </li>
                         
                             <li >
-                                <a href="../0.6/adminguide">Admin Guide</a>
+                                <a href="../adminguide">Admin Guide</a>
                             </li>
                         
                             <li >
-                                <a href="../0.6/how_to_write_a_streaming_application">Streaming Application Developer Guide</a>
+                                <a href="../how_to_write_a_streaming_application">Streaming Application Developer Guide</a>
                             </li>
                         
                             <li >
-                                <a href="../0.6/how_to_write_a_general_distributed_application">Non-Streaming Application Developer Guide</a>
+                                <a href="../how_to_write_a_general_distributed_application">Non-Streaming Application Developer Guide</a>
                             </li>
                         
                             <li >
-                                <a href="../0.6/performance">Performance Benchmark</a>
+                                <a href="../performance">Performance Benchmark</a>
                             </li>
                         
                             <li >
-                                <a href="../0.6/internal">Gearpump Internals</a>
+                                <a href="../internal">Gearpump Internals</a>
                             </li>
                         
                             <li >
-                                <a href="../0.6/examplewalkthrough">Kafka Use Case Code Walkthrough</a>
+                                <a href="../examplewalkthrough">Kafka Use Case Code Walkthrough</a>
                             </li>
                         
                             <li >
-                                <a href="../0.6/commandlinesyntax">Command Line Tools</a>
+                                <a href="../commandlinesyntax">Command Line Tools</a>
                             </li>
                         
                             <li >
-                                <a href="../0.6/restapi">Rest API Guide</a>
+                                <a href="../restapi">Rest API Guide</a>
                             </li>
                         
                             <li >
-                                <a href="../0.6/configuration_guide">Configuration Guide</a>
+                                <a href="../configuration_guide">Configuration Guide</a>
                             </li>
                         
                             <li >
-                                <a href="../0.6/high_availability_guide">High Availability Guide</a>
+                                <a href="../high_availability_guide">High Availability Guide</a>
                             </li>
                         
                             <li >
-                                <a href="../0.6/intellij_eclipse_development_environment_setup">IDE setup</a>
+                                <a href="../intellij_eclipse_development_environment_setup">IDE setup</a>
                             </li>
                         
-                            <li >
-                                <a href="../0.6/faq">FAQ</a>
+                            <li class="active">
+                                <a href=".">FAQ</a>
                             </li>
                         
                         </ul>
@@ -123,25 +123,25 @@
                 
                 
                     <li >
-                        <a href="../downloads">Downloads</a>
+                        <a href="../../downloads">Downloads</a>
                     </li>
                 
                 
                 
                     <li >
-                        <a href="../publications/publications">Publications</a>
-                    </li>
-                
-                
-                
-                    <li class="active">
-                        <a href=".">RoadMap</a>
+                        <a href="../../publications/publications">Publications</a>
                     </li>
                 
                 
                 
                     <li >
-                        <a href="../about">About</a>
+                        <a href="../../roadmap">RoadMap</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../about">About</a>
                     </li>
                 
                 
@@ -154,12 +154,12 @@
                 
                 
                 <li >
-                    <a rel="next" href="../publications/publications">
+                    <a rel="next" href="../intellij_eclipse_development_environment_setup">
                         <i class="fa fa-arrow-left"></i> Previous
                     </a>
                 </li>
                 <li >
-                    <a rel="prev" href="../about">
+                    <a rel="prev" href="../../downloads">
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
                 </li>
@@ -185,23 +185,41 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#roadmap">Roadmap</a></li>
+        <li class="main active"><a href="#faq">FAQ</a></li>
+        
+            <li><a href="#why-we-name-it-gearpump">Why we name it GearPump?</a></li>
+        
+            <li><a href="#why-not-using-akka-persistence-to-store-the-checkpoint-file">Why not using akka persistence to store the checkpoint file?</a></li>
+        
+            <li><a href="#have-you-considered-the-akka-stream-api-for-the-high-level-dsl">Have you considered the akka stream API for the high level DSL?</a></li>
+        
+            <li><a href="#why-wrapping-the-task-instead-of-using-the-actor-interface-directly">Why wrapping the Task, instead of using the Actor interface directly?</a></li>
+        
+            <li><a href="#what-is-the-open-source-plan-for-this-project">What is the open source plan for this project?</a></li>
         
     
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="roadmap">Roadmap</h1>
+<h2 id="faq">FAQ</h2>
+<h4 id="why-we-name-it-gearpump">Why we name it GearPump?</h4>
+<p>The name GearPump is a reference the engineering term "Gear Pump", which is a super simple pump that consists of only two gears, but is very powerful at streaming water from left to right.</p>
+<h4 id="why-not-using-akka-persistence-to-store-the-checkpoint-file">Why not using akka persistence to store the checkpoint file?</h4>
 <ol>
-<li>UI dashboard [finished]</li>
-<li>High level DSL with combinators like flatmap, cogroup, reduce... [finished]</li>
-<li>Window function </li>
-<li>Transactional processing  [finished, in performce testing...]</li>
-<li>Dynamic graph [finished]</li>
-<li>Benchmarking [finished]</li>
-<li>YARN integration [finished]</li>
+<li>We only checkpoint file to disk when necessary.(not record level) </li>
+<li>We have custom checkpoint file format</li>
 </ol>
+<h4 id="have-you-considered-the-akka-stream-api-for-the-high-level-dsl">Have you considered the akka stream API for the high level DSL?</h4>
+<p>We are looking into a hands of candidate for what a good DSL should be. Akka stream API is one of the candidates.</p>
+<h4 id="why-wrapping-the-task-instead-of-using-the-actor-interface-directly">Why wrapping the Task, instead of using the Actor interface directly?</h4>
+<ol>
+<li>It is more easy to conduct Unit test </li>
+<li>We have custom logic and messages to ensure the data consistency, like flow control, like message loss detection. </li>
+<li>As the Gearpump interface evolves rapidly. for now, we want to conservative in exposing more powerful functions so that we doesn't tie our hands for future refactory, it let us feel safe.</li>
+</ol>
+<h4 id="what-is-the-open-source-plan-for-this-project">What is the open source plan for this project?</h4>
+<p>The ultimate goal is to make it an Apache project.</p>
 </div>
             
         </div>
@@ -215,9 +233,9 @@
         
 
         <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-        <script src="../js/bootstrap-3.0.3.min.js"></script>
-        <script src="../js/prettify-1.0.min.js"></script>
-        <script src="../js/highlight.pack.js"></script>
-        <script src="../js/base.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/prettify-1.0.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script src="../../js/base.js"></script>
     </body>
 </html>
