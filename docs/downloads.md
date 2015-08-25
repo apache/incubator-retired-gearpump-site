@@ -5,12 +5,11 @@
 release 0.6.0  [Release notes](https://github.com/gearpump/gearpump/releases)
 
 ### scala 2.11
-[![](img/download.jpg)](
-https://github.com/gearpump/gearpump/releases/download/0.6.0/gearpump-pack-2.11.5-0.6.0.zip)
+[![](img/download.jpg)](https://github.com/gearpump/gearpump/releases/download/0.6.1/gearpump-pack-2.11.5-0.6.1.zip)
 
 ### scala 2.10
 [![](img/download.jpg)](
-https://github.com/gearpump/gearpump/releases/download/0.6.0/gearpump-pack-2.10.5-0.6.0.zip)
+https://github.com/gearpump/gearpump/releases/download/0.6.1/gearpump-pack-2.10.5-0.6.1.zip)
 
 
 ## To Build Latest snapshot version
