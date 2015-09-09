@@ -1,7 +1,7 @@
 ## Welcome to Gearpump 
 
 
-#### Latest version: 0.6.1 (2015/8/25)
+#### Latest version: 0.6.1.4 (2015/9/9)
 [![](img/download.jpg)](downloads/)
 
 GearPump is a lightweight real-time big data streaming engine. It is inspired by recent advances in the [Akka](https://github.com/akka/akka) framework and a desire to improve on existing streaming frameworks.
