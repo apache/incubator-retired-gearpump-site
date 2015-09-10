@@ -21,7 +21,7 @@ In the Split processor, we simply split a predefined text (the content is simpli
 Scala:
 ```scala
 class Split(taskContext : TaskContext, conf: UserConfig) extends Task(taskContext, conf) {
-  import taskContext.{output, self}
+  import taskContext.output
 
   override def onStart(startTime : StartTime) : Unit = {
     self ! Message("start")
@@ -182,7 +182,7 @@ Distribute the jar file to lib/ folder of every Gearpump installation in the clu
 
 ##### Step3: change gear.conf on every machine of the cluster:
 
-```json
+```
 gearpump {
   serializers {
     "io.gearpump.Message" = "your.serializer.class"
@@ -217,7 +217,7 @@ class MessageSerializer extends Serializer[Message] {
 ##### Step2: Define a config file to include the custom serializer definition. For example, we can create a file called: myconf.conf
 
 
-```json
+```
 ## content of myconf.conf
 gearpump {
   serializers {
@@ -230,7 +230,7 @@ gearpump {
 
 Let's take WordCount as an example:
 
-```json
+```scala
 object WordCount extends App with ArgumentsParser {
   private val LOG: Logger = LogUtil.getLogger(getClass)
   val RUN_FOR_EVER = -1
