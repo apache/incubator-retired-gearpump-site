@@ -212,11 +212,20 @@
 <p>Most contents in this guide also apply for Java developer. There is a template java project at <a href="https://github.com/gearpump/gearpump-java-example">Java WordCount Project</a></p>
 <h2 id="define-processortask-class-and-partitioner-class">Define Processor(Task) class and Partitioner class</h2>
 <p>An application is a Directed Acyclic Graph (DAG) of processors. In the wordcount example, We will firstly define two processors <code>Split</code> and <code>Sum</code>, and then weave them together. </p>
+<h3 id="about-message-type">About message type</h3>
+<p>User are allowed to send message of type AnyRef(map to Object in java). </p>
+<pre><code>case class Message(msg: AnyRef, timestamp: TimeStamp = Message.noTimeStamp)
+</code></pre>
+
+<p>If user want to send primitive types like Int, Long, then he should box it explicitly with asInstanceOf. For example:</p>
+<pre><code>new Message(3.asInstanceOf[AnyRef])
+</code></pre>
+
 <h3 id="split-processor">Split processor</h3>
 <p>In the Split processor, we simply split a predefined text (the content is simplified for conciseness) and send out each split word to Sum.</p>
 <p>Scala:</p>
 <pre><code class="scala">class Split(taskContext : TaskContext, conf: UserConfig) extends Task(taskContext, conf) {
-  import taskContext.{output, self}
+  import taskContext.output
 
   override def onStart(startTime : StartTime) : Unit = {
     self ! Message(&quot;start&quot;)
@@ -350,7 +359,7 @@ object Split {
 <h5 id="step2-distribute-the-libraries">Step2: Distribute the libraries</h5>
 <p>Distribute the jar file to lib/ folder of every Gearpump installation in the cluster.</p>
 <h5 id="step3-change-gearconf-on-every-machine-of-the-cluster">Step3: change gear.conf on every machine of the cluster:</h5>
-<pre><code class="json">gearpump {
+<pre><code>gearpump {
   serializers {
     &quot;io.gearpump.Message&quot; = &quot;your.serializer.class&quot;
   }
@@ -377,7 +386,7 @@ object Split {
 </code></pre>
 
 <h5 id="step2-define-a-config-file-to-include-the-custom-serializer-definition-for-example-we-can-create-a-file-called-myconfconf">Step2: Define a config file to include the custom serializer definition. For example, we can create a file called: myconf.conf</h5>
-<pre><code class="json">## content of myconf.conf
+<pre><code>## content of myconf.conf
 gearpump {
   serializers {
     &quot;io.gearpump.Message&quot; = &quot;your.serializer.class&quot;
@@ -387,7 +396,7 @@ gearpump {
 
 <h5 id="step3-add-the-conf-into-appdescription">Step3: Add the conf into AppDescription</h5>
 <p>Let's take WordCount as an example:</p>
-<pre><code class="json">object WordCount extends App with ArgumentsParser {
+<pre><code class="scala">object WordCount extends App with ArgumentsParser {
   private val LOG: Logger = LogUtil.getLogger(getClass)
   val RUN_FOR_EVER = -1
 

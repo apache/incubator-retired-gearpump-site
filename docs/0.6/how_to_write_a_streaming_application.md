@@ -14,6 +14,18 @@ Most contents in this guide also apply for Java developer. There is a template j
 
 An application is a Directed Acyclic Graph (DAG) of processors. In the wordcount example, We will firstly define two processors `Split` and `Sum`, and then weave them together. 
 
+### About message type
+
+User are allowed to send message of type AnyRef(map to Object in java). 
+```
+case class Message(msg: AnyRef, timestamp: TimeStamp = Message.noTimeStamp)
+```
+
+If user want to send primitive types like Int, Long, then he should box it explicitly with asInstanceOf. For example:
+```
+new Message(3.asInstanceOf[AnyRef])
+```
+
 ### Split processor
 
 In the Split processor, we simply split a predefined text (the content is simplified for conciseness) and send out each split word to Sum.
@@ -41,6 +53,8 @@ object Split {
   val TEXT_TO_SPLIT = "some text"
 }
 ```
+
+
 
 Like Split, every processor extends a `TaskActor`.  The `onStart` method is called once before any message comes in; `onNext` method is called to process every incoming message. Note that GearPump employs the message-driven model and that's why Split sends itself a message at the end of `onStart` and `onNext` to trigger next message processing.
 
