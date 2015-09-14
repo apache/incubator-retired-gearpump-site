@@ -13,7 +13,7 @@ release 0.6.1.4  [Release notes](https://github.com/gearpump/gearpump/releases)
 
 ## To Build Latest snapshot version
 
-## Read [tutorial to get started](0.6/getstarted/)
+## Read [tutorial to get started](0.6/userguide/#get-started)
 
 ## Maven
 

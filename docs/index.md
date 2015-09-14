@@ -25,5 +25,5 @@ Per initial benchmarks we are able to process 11 million messages/second (100 by
 
 ### Get Started
 [![](img/download.jpg)](downloads/)
-#### - [Get Started Tutorial](0.6/userguide.md)
-#### - [Highlights](0.6/userguide.md)
+#### - [Get Started Tutorial](0.6/userguide/#get-started)
+#### - [Highlights](0.6/#technical-highlights-of-gearpump)
