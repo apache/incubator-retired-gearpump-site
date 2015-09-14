@@ -25,5 +25,5 @@ Per initial benchmarks we are able to process 11 million messages/second (100 by
 
 ### Get Started
 [![](img/download.jpg)](downloads/)
-#### - [Get Started Tutorial](0.6/getstarted.md)
-#### - [Highlights](0.6/introduction.md)
+#### - [Get Started Tutorial](0.6/userguide.md)
+#### - [Highlights](0.6/userguide.md)
