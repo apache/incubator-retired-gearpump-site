@@ -1,5 +1,7 @@
 # User Guide 0.6
 
+For API specification, please check [Scala Doc](http://gearpump.io/api/0.6/index.html).
+
 ## Introduction
 
 ### What is Gearpump
