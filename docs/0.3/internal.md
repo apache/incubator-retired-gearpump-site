@@ -134,7 +134,7 @@ When "at least once" message delivery is enabled, it will trigger the message re
 ## How exactly once work?
 
 For some applications, it is extremely important to do "exactly once" message delivery. For example, for a real-time billing system, we will not want to bill the customer twice. The goal of "exactly once" message delivery is to make sure:
-  The error don't accumulate, today's error will not be accumulated to tomorrow.
+  The error doesn't accumulate, today's error will not be accumulated to tomorrow.
   Transparent to application developer
 We use global clock to synchronize the distributed transactions. We assume every message from the data source will have a unique timestamp, the timestamp can be a part of the message body, or can be attached later with system clock when the message is injected into the streaming system. With this global synchronized clock, we can coordinate all tasks to checkpoint at same timestamp. 
  
