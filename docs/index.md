@@ -4,7 +4,7 @@
 #### Latest version: 0.6.1.4 (2015/9/9)
 [![](img/download.jpg)](downloads/)
 
-GearPump is a lightweight real-time big data streaming engine. It is inspired by recent advances in the [Akka](https://github.com/akka/akka) framework and a desire to improve on existing streaming frameworks.
+GearPump is a real-time big data streaming engine. It is inspired by recent advances in the [Akka](https://github.com/akka/akka) framework and a desire to improve on existing streaming frameworks.
 
 The	name	GearPump	is	a	reference to	the	engineering term "gear	pump,"	which	is	a	super simple
 pump	that	consists of	only	two	gears,	but	is	very	powerful at	streaming water.
