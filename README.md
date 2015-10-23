@@ -1,14 +1,58 @@
-# This is the source code for gearpump.io
+This README gives an overview of how to build and contribute to the documentation of Gearpump.
 
-## How to contribute to the gearpump.io site 
+The documentation is included with the source of Gearpump in order to ensure that you always
+have docs corresponding to your checked out version.
 
-*NOTE:* Please don't change files under site/ directly! As they will be overriden when you do ```mkdocs build```
+# Requirements
 
-1. Install mkdocs version 0.11.1, as specified in http://www.mkdocs.org/#installation but use this command: 
-```pip install https://pypi.python.org/packages/source/m/mkdocs/mkdocs-0.11.1.tar.gz#md5=947e8997e932578ac64c24de2a4440d6``` 
-if you already have a higher version of mkdocs, uninstall it first by ```pip uninstall mkdocs``` (note: Please use linux if possible, there is some encoding issue which require manual fix on Windows)
-2. Make changes under /docs
-3. Test the changes locally, by ```mkdocs serve```
-4. Generate the site files ```mkdocs build```, it will render the markdown file as html file and save the result to  site/
-5. Make a PR
-6. After it is merged, check http://www.gearpump.io to see the result.
+We use Markdown to write and Jekyll to translate the documentation to static HTML. You can install
+all needed software via:
+
+    gem install jekyll
+    gem install kramdown
+    sudo easy_install Pygments
+
+Kramdown is needed for Markdown processing and the Python based Pygments is used for syntax
+highlighting.
+
+# Build
+
+Command `jekyll build` can be used to make the build.
+
+Command `jekyll serve --watch` can be used to for development. Jekyll will start a web server at
+`localhost:4000` and watch the docs directory for updates. Use this mode to preview changes locally.
+
+# Contribute
+
+The documentation pages are written in
+[Markdown](http://daringfireball.net/projects/markdown/syntax). It is possible to use the
+[GitHub flavored syntax](http://github.github.com/github-flavored-markdown) and intermix plain html.
+
+In addition to Markdown, every page contains a Jekyll front matter, which specifies the title of the
+page and the layout to use. The title is used as the top-level heading for the page.
+
+    ---
+    title: "Title of the Page"
+    ---
+
+Furthermore, you can access variables found in `docs/_config.yml` as follows:
+
+    {{ site.NAME }}
+
+This will be replaced with the value of the variable called `NAME` when generating
+the docs.
+
+All documents are structed with headings. From these heading, a page outline is
+automatically generated for each page.
+
+```
+# Level-1 Heading  <- Used for the title of the page
+## Level-2 Heading <- Start with this one
+### Level-3 heading
+#### Level-4 heading
+##### Level-5 heading
+```
+
+Please stick to the "logical order" when using the headlines, e.g. start with level-2 headings and
+use level-3 headings for subsections, etc. Don't use a different ordering, because you don't like
+how a headline looks.
