@@ -1,15 +1,16 @@
-This README gives an overview of how to build and contribute to the documentation of Gearpump.
+This README gives an overview of how to build and contribute to the documentation of [Gearpump](https://github.com/gearpump/gearpump).
 
 The documentation is included with the source of Gearpump in order to ensure that you always
 have docs corresponding to your checked out version.
 
 # Requirements
 
-We use Markdown to write and Jekyll to translate the documentation to static HTML. You can install
-all needed software via:
+We use Markdown to write and Jekyll to translate the documentation to static HTML. To install 
+Jekyll, you need to install the software as follows:
 
-    gem install jekyll
-    gem install kramdown
+    sudo yum install ruby ruby-dev nodejs
+    sudo gem install jekyll
+    sudo gem install kramdown
     sudo easy_install Pygments
 
 Kramdown is needed for Markdown processing and the Python based Pygments is used for syntax
