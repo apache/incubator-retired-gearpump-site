@@ -1,2 +1,4 @@
 *.bak
 *~
+_site/README.md
+_site/how-to-release.md
