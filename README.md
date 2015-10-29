@@ -8,10 +8,12 @@ have docs corresponding to your checked out version.
 We use Markdown to write and Jekyll to translate the documentation to static HTML. To install 
 Jekyll, you need to install the software as follows:
 
-    sudo yum install ruby ruby-devel nodejs python-pip
-    sudo gem install jekyll
-    sudo gem install kramdown
-    sudo pip Pygments
+For redhat linux systems:
+    `sudo yum install ruby ruby-devel nodejs python-pip`
+
+    `sudo gem install jekyll`
+    `sudo gem install kramdown`
+    `sudo pip Pygments`
 
 Kramdown is needed for Markdown processing and the Python based Pygments is used for syntax
 highlighting.
