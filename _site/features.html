@@ -6,7 +6,9 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Gearpump Roadmap - GEARPUMP 0.6.1.4 Documentation</title>
+        <title>highlights - GEARPUMP 0.6.1.4 Documentation</title>
+        
+          <meta name="description" content="Gearpump Technical Highlights">
         
 
         
@@ -90,28 +92,76 @@
 
         <div class="container" id="content">
           
-            <h1 class="title">Gearpump Roadmap</h1>
+            <h1 class="title">Gearpump Technical Highlights</h1>
           
 
-          <h2 id="gearpump-07-plan-to-release-at-nov-7th">Gearpump 0.7 (plan to release at Nov 7th)</h2>
-<ol>
-  <li>Storm compatibility. Support running Storm applications on Gearpump cluster.</li>
-  <li>Improved documentation,</li>
-  <li>Improved quality. With full E2E test.</li>
-</ol>
+          <h3 id="technical-highlights-of-gearpump">Technical highlights of Gearpump</h3>
 
-<h2 id="gearpump-08-planned-release-date-dec-2015">Gearpump 0.8 (planned release date: Dec 2015)</h2>
-<ol>
-  <li>Support Akka-Streams integration with Gearpump. Support using Akka-Streams DSL to express logic.</li>
-  <li>IoT integration. Support Gearpump integration with https://github.com/enableiot/iotkit-agent.</li>
-  <li>Kerberos support.
-    <ul>
-      <li>Support Gearpump authentication &amp; authorization using Kerberos.</li>
-      <li>Support running Gearpump in secure YARN environment.</li>
-      <li>Support Gearpump connection with Kerberos enabled connectors (e.g. HBase).</li>
-    </ul>
-  </li>
-</ol>
+<p>Gearpump is a performant, flexible, fault-tolerant, and responsive streaming platform with a lot of nice features, its technical highlights include:</p>
+
+<h4 id="actors-everywhere">Actors everywhere</h4>
+
+<p>The Actor model is a concurrency model proposed by Carl Hewitt at 1973. The Actor model is like a micro-service which is cohesive in the inside and isolated from other outside actors. Actors are the cornerstone of Gearpump, they provide facilities to do message passing, error handling, liveliness monitoring. Gearpump uses Actors everywhere; every entity within the cluster that can be treated as a service.</p>
+
+<p><img src="/img/actor_hierarchy.png" alt="Actor Hierarchy" /></p>
+
+<h4 id="exactly-once-message-processing">Exactly once Message Processing</h4>
+
+<p>Exactly once is defined as: the effect of a message will be calculated only once in the persisted state and computation errors in the history will not be propagated to future computations.</p>
+
+<p><img src="/img/exact.png" alt="Exact Once Semantics" /></p>
+
+<h4 id="topology-dag-dsl">Topology DAG DSL</h4>
+
+<p>User can submit to Gearpump a computation DAG, which contains a list of nodes and edges, and each node can be parallelized to a set of tasks. Gearpump will then schedule and distribute different tasks in the DAG to different machines automatically. Each task will be started as an actor, which is long running micro-service.</p>
+
+<p><img src="/img/dag.png" alt="DAG" /></p>
+
+<h4 id="flow-control">Flow control</h4>
+
+<p>Gearpump has built-in support for flow control. For all message passing between different tasks, the framework will assure the upstream tasks will not flood the downstream tasks.<br />
+<img src="/img/flowcontrol.png" alt="Flow Control" /></p>
+
+<h4 id="no-inherent-end-to-end-latency">No inherent end to end latency</h4>
+
+<p>Gearpump is a message level streaming engine, which means every task in the DAG will process messages immediately upon receiving, and deliver messages to downstream immediately without waiting. Gearpump doesn&#8217;t do batching when data sourcing.</p>
+
+<h4 id="high-performance-message-passing">High Performance message passing</h4>
+
+<p>By implementing smart batching strategies, Gearpump is extremely effective in transferring small messages. In one test of 4 machines, the whole cluster throughput can reach 11 million messages per second, with message size of 100 bytes.<br />
+<img src="/img/dashboard.png" alt="Dashboard" /></p>
+
+<h4 id="high-availability-no-single-point-of-failure">High availability, No single point of failure</h4>
+
+<p>Gearpump has a careful design for high availability. We have considered message loss, worker machine crash, application crash, master crash, brain-split, and have made sure Gearpump recovers when there errors happen. When there is message loss, lost message will be replayed; when there is worker machine crash or application crash, computation tasks will be rescheduled to new machines. For master high availability, several master nodes will form a Akka cluster, and CRDT (conflict free data type) is used to exchange the state, so as long as there is still a quorum, the master will stay functional. When one master node crash, other master nodes in the cluster will take over and state will be recovered.</p>
+
+<p><img src="/img/ha.png" alt="HA" /></p>
+
+<h4 id="dynamic-computation-dag">Dynamic Computation DAG</h4>
+
+<p>GearPump provides a feature which allows the user to dynamically add, remove, or replace a sub graph at runtime, without the need to restart the whole computation topology.</p>
+
+<p><img src="/img/dynamic.png" alt="Dynamic DAG" /></p>
+
+<h4 id="able-to-handle-out-of-order-messages">Able to handle out of order messages</h4>
+
+<p>For a window operation like moving average on a sliding window, it is important to make sure we have received all messages in that time window so that we can get an accurate result, but how do we handle stranglers or late arriving messages? GearPump solves this problem by tracking the low watermark of timestamp of all messages, so it knows whether we&#8217;ve received all the messages in the time window or not.</p>
+
+<p><img src="/img/clock.png" alt="Clock" /></p>
+
+<h4 id="customizable-platform">Customizable platform</h4>
+
+<p>Different applications have different requirements related to performance metrics, some may want higher throughput, some may require strong eventual data consistency; and different applications have different resource requirements profiles, some may demand high CPU performance, some may require data locality. Gearpump meets these requirements by allowing the user to arbitrate between different performance metrics and define customized resource scheduling strategies.</p>
+
+<h4 id="built-in-dashboard-ui">Built-in Dashboard UI</h4>
+
+<p>Gearpump has a built-in dashboard UI to manage the cluster and visualize the applications. The UI uses REST call to connect with backend, so it is easy to embed the UI within other dashboards.</p>
+
+<p><img src="/img/dashboard.gif" alt="Dashboard" /></p>
+
+<h4 id="data-connectors-for-kafka-and-hdfs">Data connectors for Kafka and HDFS</h4>
+
+<p>Gearpump has built-in data connectors for Kafka and HDFS. For the Kafka connector, we support message replay from a specified timestamp.</p>
 
 
         </div> <!-- /container -->
