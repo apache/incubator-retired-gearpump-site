@@ -10,7 +10,15 @@ title: Gearpump Roadmap
 
 ## Gearpump 0.8 (planned release date: Dec 2015)
 1. Support Akka-Streams integration with Gearpump. Support using Akka-Streams DSL to express logic.
-1. IoT integration. Support Gearpump integration with https://github.com/enableiot/iotkit-agent.
+1. Dynamic Dag Features
+    * support for all operations: add, delete, move, modify
+    * operator library import/export
+    * dag assembly via UI
+1. IoT related
+    * Discovery and provisioning
+    * Iterative processing
+    * Replay
+    * Support Gearpump integration with https://github.com/enableiot/iotkit-agent.
 1. Kerberos support.
     * Support Gearpump authentication & authorization using Kerberos.
     * Support running Gearpump in secure YARN environment.

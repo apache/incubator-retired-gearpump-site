@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Gearpump Roadmap - GEARPUMP 0.6.1.4 Documentation</title>
+        <title>Gearpump Roadmap - GEARPUMP 0.6.2-SNAPSHOT Documentation</title>
         
         
 
@@ -55,7 +55,7 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation<b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="./../releases/latest/index.html">Latest Release (0.6.1.4)</a></li>
+                                <li><a href="./../releases/0.6.2-SNAPSHOT/index.html">Latest Release (0.6.2-SNAPSHOT)</a></li>
                                 <li><a href="./roadmap.html">Roadmap</a></li>
                             </ul>
                         </li>
@@ -104,7 +104,21 @@
 <h2 id="gearpump-08-planned-release-date-dec-2015">Gearpump 0.8 (planned release date: Dec 2015)</h2>
 <ol>
   <li>Support Akka-Streams integration with Gearpump. Support using Akka-Streams DSL to express logic.</li>
-  <li>IoT integration. Support Gearpump integration with https://github.com/enableiot/iotkit-agent.</li>
+  <li>Dynamic Dag Features
+    <ul>
+      <li>support for all operations: add, delete, move, modify</li>
+      <li>operator library import/export</li>
+      <li>dag assembly via UI</li>
+    </ul>
+  </li>
+  <li>IoT related
+    <ul>
+      <li>Discovery and provisioning</li>
+      <li>Iterative processing</li>
+      <li>Replay</li>
+      <li>Support Gearpump integration with https://github.com/enableiot/iotkit-agent.</li>
+    </ul>
+  </li>
   <li>Kerberos support.
     <ul>
       <li>Support Gearpump authentication &amp; authorization using Kerberos.</li>
