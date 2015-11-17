@@ -11,11 +11,8 @@ include:
   - _static
   - _modules
 
-exclude:
-  - releases
-
 # These allow the documentation to be updated with newer releases of Gearpump
-GEARPUMP_VERSION: 0.6.2-SNAPSHOT
+GEARPUMP_VERSION: 0.6.2
 SCALA_BINARY_VERSION: "2.11"
 SCALA_VERSION: "2.11.7"
 GEARPUMP_ISSUE_TRACKER_URL: https://github.com/gearpump/gearpump/issues
