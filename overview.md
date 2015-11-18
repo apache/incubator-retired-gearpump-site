@@ -15,6 +15,8 @@ pump	that	consists of	only	two	gears,	but	is	very	powerful at	streaming water.
 
 ![logo](img/logo2.png)
 
+![UI](/img/dashboard.gif)
+
 ### Gearpump Technical Highlights
 GearPump is a modern big data real-time streaming engine which has many unique features:
 
