@@ -4,7 +4,7 @@ displayTitle: Gearpump Overview
 title: Overview
 description: Gearpump GEARPUMP_VERSION documentation homepage
 ---
-
+![UI](/img/dashboard.gif)
 GearPump is a real-time big data streaming engine.
 It is inspired by recent advances in the [Akka](http://akka.io/) framework and a desire to improve on existing streaming frameworks.
 Gearpump is event/message based and featured as low latency handling, high performance, exactly once semantics,
@@ -14,8 +14,6 @@ The	name	GearPump	is	a	reference to	the	engineering term "gear	pump,"	which	is	a
 pump	that	consists of	only	two	gears,	but	is	very	powerful at	streaming water.
 
 ![logo](img/logo2.png)
-
-![UI](/img/dashboard.gif)
 
 ### Gearpump Technical Highlights
 GearPump is a modern big data real-time streaming engine which has many unique features:
