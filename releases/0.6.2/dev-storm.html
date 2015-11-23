@@ -47,7 +47,6 @@
               <li class="divider"></li>
               <li><a href="basic-concepts.html">Basic Concepts</a></li>
               <li><a href="features.html">Technical Highlights</a></li>
-              <li><a href="usecases.html">Use Cases</a></li>
               <li><a href="message-delivery.html">Reliable Message Delivery</a></li>
               <li><a href="performance-report.html">Performance</a></li>
               <li><a href="gearpump-internals.html">Gearpump Internals</a></li>
@@ -151,7 +150,7 @@ bin/storm -verbose -config storm.yaml -jar storm-starter-${STORM_VERSION}.jar st
 
 <p>When a client submits a Storm topology, Gearpump launches locally a simplified version of Storm&#8217;s  Nimbus server <code>GearpumpNimbus</code>. <code>GearpumpNimbus</code> then translates topology to a directed acyclic graph (DAG) of Gearpump, which is submitted to Gearpump master and deployed as a Gearpump application.</p>
 
-<p><img src="/img/storm_gearpump_cluster.png" alt="storm_gearpump_cluster" /></p>
+<p><img src="img/storm_gearpump_cluster.png" alt="storm_gearpump_cluster" /></p>
 
 <p><code>GearpumpNimbus</code> supports the following methods</p>
 
@@ -166,7 +165,7 @@ bin/storm -verbose -config storm.yaml -jar storm-starter-${STORM_VERSION}.jar st
 
 <p>Here&#8217;s an example of <code>WordCountTopology</code> with acker bolts (ackers) being translated into a Gearpump DAG.</p>
 
-<p><img src="/img/storm_gearpump_dag.png" alt="storm_gearpump_dag" /></p>
+<p><img src="img/storm_gearpump_dag.png" alt="storm_gearpump_dag" /></p>
 
 <p>Gearpump creates a <code>StormProducer</code> for each Storm spout and a <code>StormProcessor</code> for each Storm bolt (except for ackers) with the same parallelism, and wires them together using the same grouping strategy (partitioning in Gearpump) as in Storm.</p>
 
