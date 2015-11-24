@@ -19,6 +19,10 @@ body #content {
   color: #ededed;
 }
 
+.navbar-inverse .navbar-nav>li>a {
+  color: #ededed;
+}
+
 .title {
   font-size: 32px;
 }
