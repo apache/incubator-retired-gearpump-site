@@ -6,6 +6,19 @@ body #content {
   line-height: 1.6; /* Inspired by Github's wiki style */
 }
 
+.navbar-inverse{
+  background-color: #103a51;
+  border-color: #080808;
+}
+
+.navbar-nav > li > a {
+  color: #ededed;
+}  
+
+.navbar-inverse .navbar-brand {
+  color: #ededed;
+}
+
 .title {
   font-size: 32px;
 }
