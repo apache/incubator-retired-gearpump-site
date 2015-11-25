@@ -33,7 +33,7 @@
   <div class="navbar navbar-inverse navbar-fixed-top" id="topbar">
     <div class="container">
       <div class="navbar-header">
-        <a class="navbar-brand" href="/">GearPump
+        <a class="navbar-brand" href="http://gearpump.io">GearPump
           <span class="label label-primary" style="font-size: .6em">0.6.2</span>
         </a>
       </div>
@@ -146,7 +146,7 @@ Memory: 128GB</p>
 
 <p>3). Submit a SOL application with 32 SteamProducers and 32 StreamProcessors:</p>
 
-<div class="highlight"><pre><code class="language-bash">bin/gear app -jar ./examples/sol/target/pack/lib/gearpump-examples-<span class="nv">$VERSION</span>.jar io.gearpump.streaming.examples.sol.SOL -streamProducer 32 -streamProcessor 32 -runseconds 600</code></pre></div>
+<div class="highlight"><pre><code class="language-bash">bin/gear app -jar ./examples/sol/target/pack/lib/gearpump-examples-<span class="nv">$VERSION</span>.jar io.gearpump.streaming.examples.sol.SOL -streamProducer <span class="m">32</span> -streamProcessor <span class="m">32</span> -runseconds 600</code></pre></div>
 
 <p>4). Browser http://$HOST:801/, you should see a Grafana dashboard. The HOST should be the node runs Graphite.</p>
 
@@ -161,8 +161,8 @@ Memory: 128GB</p>
 <div class="highlight"><pre><code class="language-bash">  gearpump.metrics.reporter <span class="o">=</span> graphite
   gearpump.metrics.enabled <span class="o">=</span> <span class="nb">true</span>         <span class="c">## Default is false, thus metrics is not enabled.</span>
   gearpump.metrics.graphite.host <span class="o">=</span> <span class="s2">&quot;your actual graphite host name or ip&quot;</span>  
-  gearpump.metrics.graphite.port <span class="o">=</span> 2003   <span class="c">## Your graphite port</span>
-  gearpump.metrics.sample.rate <span class="o">=</span> 10       <span class="c">## this means we will sample 1 message for every 10 messages</span></code></pre></div>
+  gearpump.metrics.graphite.port <span class="o">=</span> <span class="m">2003</span>   <span class="c">## Your graphite port</span>
+  gearpump.metrics.sample.rate <span class="o">=</span> <span class="m">10</span>       <span class="c">## this means we will sample 1 message for every 10 messages</span></code></pre></div>
 
 <p>For guide about how to install and configure Graphite, please check the Graphite website http://graphite.wikidot.com/.  For guide about how to use Grafana, please check guide in <a href="https://github.com/gearpump/gearpump/blob/master/doc/dashboard/README.md">doc/dashboard/readme.md</a></p>
 
