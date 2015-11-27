@@ -111,11 +111,9 @@
     <h1 class="title">Gearpump Customize Serializer</h1>
    
 
-   <h4 id="gearpump-serialization">Gearpump Serialization</h4>
+   <p>Gearpump has a built-in serialization framework with a shaded Kryo version, which allows you to customize how a specific message type can be serialized.</p>
 
-<p>Gearpump has a built-in serialization framework with a shaded Kryo version, which allows you to customize how a specific message type can be serialized.</p>
-
-<h5 id="register-a-class-before-serialization">Register a class before serialization.</h5>
+<h4 id="register-a-class-before-serialization">Register a class before serialization.</h4>
 
 <p>Note, to use built-in kryo serialization framework, Gearpump requires all classes to be registered explicitly before using, no matter you want to use a custom serializer or not. If not using custom serializer, Gearpump will use default com.esotericsoftware.kryo.serializers.FieldSerializer to serialize the class.</p>
 
@@ -132,17 +130,17 @@
 }
 </code></pre></div>
 
-<h5 id="how-to-define-a-custom-serializer-for-built-in-kryo-serialization-framework">How to define a custom serializer for built-in kryo serialization framework</h5>
+<h4 id="how-to-define-a-custom-serializer-for-built-in-kryo-serialization-framework">How to define a custom serializer for built-in kryo serialization framework</h4>
 
 <p>When you decide that you want to define a custom serializer, you can do this in two ways.</p>
 
 <p>Please note that Gearpump shaded the original Kryo dependency. The package name <code>com.esotericsoftware</code> was relocated to <code>io.gearpump.esotericsoftware</code>. So in the following customization, you should import corresponding shaded classes, the example code will show that part.</p>
 
-<h6 id="system-level-serializer">System Level Serializer</h6>
+<h5 id="system-level-serializer">System Level Serializer</h5>
 
 <p>If the serializer is widely used, you can define a global serializer which is avaiable to all applications(or worker or master) in the system.</p>
 
-<p>####### Step1: you first need to develop a java library which contains the custom serializer class. here is an example:</p>
+<h6 id="step1-you-first-need-to-develop-a-java-library-which-contains-the-custom-serializer-class-here-is-an-example">Step1: you first need to develop a java library which contains the custom serializer class. here is an example:</h6>
 
 <div class="highlight"><pre><code class="language-scala"><span class="k">package</span> <span class="nn">io.gearpump</span>
 
@@ -164,11 +162,11 @@
   <span class="o">}</span>
 <span class="o">}</span></code></pre></div>
 
-<p>####### Step2: Distribute the libraries</p>
+<h6 id="step2-distribute-the-libraries">Step2: Distribute the libraries</h6>
 
 <p>Distribute the jar file to lib/ folder of every Gearpump installation in the cluster.</p>
 
-<p>####### Step3: change gear.conf on every machine of the cluster:</p>
+<h6 id="step3-change-gearconf-on-every-machine-of-the-cluster">Step3: change gear.conf on every machine of the cluster:</h6>
 
 <div class="highlight"><pre><code>gearpump {
   serializers {
@@ -177,12 +175,12 @@
 }
 </code></pre></div>
 
-<p>####### All set!</p>
+<h6 id="all-set">All set!</h6>
 
-<h6 id="define-application-level-custom-serializer">Define Application level custom serializer</h6>
+<h5 id="define-application-level-custom-serializer">Define Application level custom serializer</h5>
 <p>If all you want is to define an application level serializer, which is only visible to current application AppMaster and Executors(including tasks), you can follow a different approach.</p>
 
-<p>####### Step1: Define your custom Serializer class</p>
+<h6 id="step1-define-your-custom-serializer-class">Step1: Define your custom Serializer class</h6>
 
 <p>You should include the Serializer class in your application jar. Here is an example to define a custom serializer:</p>
 
@@ -206,7 +204,7 @@
   <span class="o">}</span>
 <span class="o">}</span></code></pre></div>
 
-<p>####### Step2: Put a application.conf in your classpath on Client machine where you submit the application,</p>
+<h6 id="step2-put-a-applicationconf-in-your-classpath-on-client-machine-where-you-submit-the-application">Step2: Put a application.conf in your classpath on Client machine where you submit the application,</h6>
 
 <div class="highlight"><pre><code>### content of application.conf
 gearpump {
@@ -216,9 +214,9 @@ gearpump {
 }
 </code></pre></div>
 
-<p>####### Step3: All set!</p>
+<h6 id="step3-all-set">Step3: All set!</h6>
 
-<h5 id="advanced-choose-another-serialization-framework">Advanced: Choose another serialization framework</h5>
+<h4 id="advanced-choose-another-serialization-framework">Advanced: Choose another serialization framework</h4>
 
 <p>Note: This is only for advanced user which require deep customization of Gearpump platform.</p>
 
