@@ -3,6 +3,8 @@ layout: global
 title: Downloads
 ---
 
+### [Source Repo {{ site.GEARPUMP_VERSION }}](https://github.com/gearpump/gearpump/tree/{{ site.GEARPUMP_VERSION }})
+
 ### [{{ site.GEARPUMP_VERSION }} Release notes](https://github.com/gearpump/gearpump/releases)
 
 ### scala 2.11
