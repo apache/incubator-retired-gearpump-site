@@ -3,7 +3,7 @@ layout: global
 title: Gearpump Roadmap
 ---
 
-## Gearpump 0.7 (plan to release at Nov 17th)
+## Gearpump 0.7 (released at Nov 17th)
 1. Storm compatibility. Support running Storm applications on Gearpump cluster.
 1. Improved documentation,
 1. Improved quality. With full E2E test.
