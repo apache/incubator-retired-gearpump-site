@@ -19,14 +19,27 @@ For redhat linux systems:
 Kramdown is needed for Markdown processing and the Python based Pygments is used for syntax
 highlighting.
 
-# Build
+# How to contribute
+
+## Step1: Update the documents for specific Gearpump version if needed
+The documents for specific Gearpump version can be updated under [Gearpump docs](https://github.com/gearpump/gearpump/tree/master/docs).
+After it is updated, check [How to Build](https://github.com/gearpump/gearpump/tree/master/docs#how-to-build) to generate documents for that specific version.
+
+## Step2: Upload the generated documents in step 1 to [/release](https://github.com/gearpump/gearpump.github.io/tree/master/releases) folder.
+
+## Step3: Update the documents for the general site under this repo.
+
+## Step4: Test the build
 
 Command `jekyll build` can be used to make the build.
 
 Command `jekyll serve --watch` can be used to for development. Jekyll will start a web server at
-`localhost:4000` and watch the docs directory for updates. Use this mode to preview changes locally.
+`localhost:4000` and watch the docs directory for updates. You can use this mode to experiment changes and check the UI locally. 
 
-# Contribute
+## Step5: Commit to this repo.
+If everything looks fine, make a PR to contribute the code changes to this repo.
+
+# Markdown format description
 
 The documentation pages are written in
 [Markdown](http://daringfireball.net/projects/markdown/syntax). It is possible to use the
