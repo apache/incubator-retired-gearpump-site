@@ -174,31 +174,22 @@
 <p>### Use of <code>KafkaSource</code>
 To use <code>kafkaSource</code> in your application, you first need to add the <code>gearpump-external-Kafka</code> library dependency in your application:</p>
 
-<div class="codetabs">
-  <div data-lang="SBT">
-
-    <div class="highlight"><pre><code>"com.github.intel-hadoop" %% "gearpump-external-kafka" % 0.7.1
+<div class="highlight"><pre><code>"com.github.intel-hadoop" %% "gearpump-external-kafka" % 0.7.1
 </code></pre></div>
-  </div>
-  <div data-lang="Maven">
 
-    <div class="highlight"><pre><code>&lt;dependency&gt;
-  &lt;groupId&gt;com.github.intel-hadoop&lt;/groupId&gt;
-  &lt;artifactId&gt;gearpump-external-kafka&lt;/artifactId&gt;
-  &lt;version&gt;0.7.1&lt;/version&gt;
-&lt;/dependency&gt;
-</code></pre></div>
-  </div>
-</div>
+<div class="highlight"><pre><code class="language-xml"><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>com.github.intel-hadoop<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>gearpump-external-kafka<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>0.7.1<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span></code></pre></div>
 
 <p>To connect to Kafka, you need to provide following info:
  - the Zookeeper address
  - the Kafka topic</p>
 
 <p>Then, you can use <code>KafkaSource</code> in your application:</p>
-<div class="codetabs">
-  <div data-lang="Low Level API">
-    <div class="highlight"><pre><code class="language-scala">   <span class="c1">//Specify the offset storage.</span>
+
+<div class="highlight"><pre><code class="language-scala">   <span class="c1">//Specify the offset storage.</span>
    <span class="c1">//Here we use the same zookeeper as the offset storage.</span>
    <span class="c1">//A set of corresponding topics will be created to store the offsets.</span>
    <span class="c1">//You are free to specify your own offset storage</span>
@@ -210,59 +201,41 @@ To use <code>kafkaSource</code> in your application, you first need to add the <
    <span class="c1">//create Gearpump Processor</span>
    <span class="k">val</span> <span class="n">reader</span> <span class="k">=</span> <span class="nc">DataSourceProcessor</span><span class="o">(</span><span class="n">source</span><span class="o">,</span> <span class="n">parallelism</span><span class="o">)</span></code></pre></div>
 
-  </div>
-  <div data-lang="High Level DSL">
-    <div class="highlight"><pre><code class="language-scala">  <span class="c1">//specify the offset storage</span>
+<div class="highlight"><pre><code class="language-scala">  <span class="c1">//specify the offset storage</span>
   <span class="c1">//here we use the same zookeeper as the offset storage (a set of corresponding topics will be created to store the offsets)</span>
   <span class="c1">//you are free to specify your own offset storage</span>
   <span class="k">val</span> <span class="n">offsetStorageFactory</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">KafkaStorageFactory</span><span class="o">(</span><span class="n">zookeepers</span><span class="o">,</span> <span class="n">brokers</span><span class="o">)</span>
 
   <span class="k">val</span> <span class="n">source</span> <span class="k">=</span> <span class="nc">KafkaDSLUtil</span><span class="o">.</span><span class="n">createStream</span><span class="o">(</span><span class="n">app</span><span class="o">,</span> <span class="n">parallelism</span><span class="o">,</span> <span class="s">&quot;Kafka Source&quot;</span><span class="o">,</span> <span class="n">topics</span><span class="o">,</span> <span class="n">zookeepers</span><span class="o">,</span> <span class="n">offsetStorageFactory</span><span class="o">)</span>
   <span class="o">...</span></code></pre></div>
-  </div>
-</div>
 
 <h3 id="use-of-hbasesink">Use of <code>HBaseSink</code></h3>
 
 <p>To use <code>HBaseSink</code> in your application, you first need to add the <code>gearpump-external-hbase</code> library dependency in your application:</p>
 
-<div class="codetabs">
-  <div data-lang="SBT">
-
-    <div class="highlight"><pre><code>"com.github.intel-hadoop" %% "gearpump-external-hbase" % 0.7.1
+<div class="highlight"><pre><code>"com.github.intel-hadoop" %% "gearpump-external-hbase" % 0.7.1
 </code></pre></div>
-  </div>
-  <div data-lang="Maven">
 
-    <div class="highlight"><pre><code>&lt;dependency&gt;
-  &lt;groupId&gt;com.github.intel-hadoop&lt;/groupId&gt;
-  &lt;artifactId&gt;gearpump-external-hbase&lt;/artifactId&gt;
-  &lt;version&gt;0.7.1&lt;/version&gt;
-&lt;/dependency&gt;
-</code></pre></div>
-  </div>
-</div>
+<div class="highlight"><pre><code class="language-xml"><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>com.github.intel-hadoop<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>gearpump-external-hbase<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>0.7.1<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span></code></pre></div>
 
 <p>To connect to HBase, you need to provide following info:
  - the HBase configuration to tell which HBase service to connect
  - the table name</p>
 
 <p>Then, you can use <code>HBaseSink</code> in your application:</p>
-<div class="codetabs">
-  <div data-lang="Low Level API">
-    <div class="highlight"><pre><code class="language-scala">   <span class="c1">//create the HBase data sink</span>
+
+<div class="highlight"><pre><code class="language-scala">   <span class="c1">//create the HBase data sink</span>
    <span class="k">val</span> <span class="n">sink</span> <span class="k">=</span> <span class="nc">HBaseSink</span><span class="o">(</span><span class="n">tableName</span><span class="o">,</span> <span class="n">configuration</span><span class="o">)</span>
 
    <span class="c1">//create Gearpump Processor</span>
    <span class="k">val</span> <span class="n">sinkProcessor</span> <span class="k">=</span> <span class="nc">DataSinkProcessor</span><span class="o">(</span><span class="n">source</span><span class="o">,</span> <span class="n">parallelism</span><span class="o">)</span></code></pre></div>
 
-  </div>
-
-  <div data-lang="High Level DSL">
-    <div class="highlight"><pre><code class="language-scala">  <span class="c1">//assume stream is a normal `Stream` in DSL</span>
+<div class="highlight"><pre><code class="language-scala">  <span class="c1">//assume stream is a normal `Stream` in DSL</span>
   <span class="n">stream</span><span class="o">.</span><span class="n">writeToHbase</span><span class="o">(</span><span class="n">tableName</span><span class="o">,</span> <span class="n">parallelism</span><span class="o">,</span> <span class="s">&quot;write to HBase&quot;</span><span class="o">)</span></code></pre></div>
-  </div>
-</div>
 
 <p>You can tune the connection to HBase via the HBase configuration passed in. If not passed, Gearpump will try to check local classpath to find a valid HBase configuration (<code>hbase-site.xml</code>).</p>
 

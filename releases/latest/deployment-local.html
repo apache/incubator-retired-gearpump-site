@@ -113,7 +113,7 @@
     <h1 class="title">Deploy Gearpump in Local Mode</h1>
    
 
-   <p>You can start the Gearpump service in single JVM(local mode), or in a distributed cluster(cluster mode). To start the cluster in local mode, you can use the local /local.bat helper scripts, it is very useful for developing or troubleshooting.</p>
+   <p>You can start the Gearpump service in a single JVM(local mode), or in a distributed cluster(cluster mode). To start the cluster in local mode, you can use the local /local.bat helper scripts, it is very useful for developing or troubleshooting.</p>
 
 <p>Below are the steps to start a Gearpump service in <strong>Local</strong> mode:</p>
 
@@ -124,15 +124,15 @@ Please follow <a href="get-gearpump-distribution.html">this guide</a> to have th
 <h3 id="step-2-start-the-cluster">Step 2: Start the cluster</h3>
 <p>You can start a local mode cluster in single line</p>
 
-<div class="highlight"><pre><code class="language-bash"><span class="c">## start the master and 4 workers in single JVM. The master will listen on 3000</span>
+<div class="highlight"><pre><code class="language-bash"><span class="c">## start the master and 2 workers in single JVM. The master will listen on 3000</span>
 <span class="c">## you can Ctrl+C to kill the local cluster after you finished the startup tutorial.</span>
 bin/local</code></pre></div>
 
-<p><strong>NOTE:</strong> You can change the default port by changing config &#8220;gearpump.cluster.masters&#8221; in conf/gear.conf,</p>
+<p><strong>NOTE:</strong> You can change the default port by changing config <code>gearpump.cluster.masters</code> in <code>conf/gear.conf</code>.</p>
 
 <p><strong>NOTE: Change the working directory</strong>. Log files by default will be generated under current working directory. So, please &#8220;cd&#8221; to required working directly before running the shell commands.</p>
 
-<p><strong>NOTE: Run as Daemon</strong>. You can run it as a background process. For example, use <a href="http://linux.die.net/man/1/nohup">nohup</a> on linux.</p>
+<p><strong>NOTE: Run as Daemon</strong>. You can run it as a background process. For example, use <a href="http://linux.die.net/man/1/nohup">nohup</a> on Linux.</p>
 
 <h3 id="step-3-start-the-web-ui-server">Step 3: Start the Web UI server</h3>
 <p>Open another shell,</p>

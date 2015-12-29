@@ -113,7 +113,7 @@
 
    <p>To support HA, we allow to start master on multiple nodes. They will form a quorum to decide consistency. For example, if we start master on 5 nodes and 2 nodes are down, then the cluster is still consistent and functional.</p>
 
-<p>Here is the steps to enable the HA mode:</p>
+<p>Here are the steps to enable the HA mode:</p>
 
 <h3 id="configure">1. Configure.</h3>
 
@@ -132,21 +132,21 @@
   <span class="o">}</span></code></pre></div>
 
 <h4 id="configure-distributed-storage-to-store-application-jars">Configure distributed storage to store application jars.</h4>
-<p>In <code>conf/gear.conf</code>, For entry gearpump.jarstore.rootpath, please choose the storage folder for application jars. You need to make sure this jar storage is high availability. We support two storage system:</p>
+<p>In <code>conf/gear.conf</code>, For entry <code>gearpump.jarstore.rootpath</code>, please choose the storage folder for application jars. You need to make sure this jar storage is highly available. We support two storage systems:</p>
 
 <p>1). HDFS
-  You need to configure the gearpump.jarstore.rootpath like this</p>
+  You need to configure the <code>gearpump.jarstore.rootpath</code> like this</p>
 
 <div class="highlight"><pre><code class="language-bash">  hdfs://host:port/path/</code></pre></div>
 
 <p>2). Shared NFS folder
   First you need to map the NFS directory to local directory(same path) on all machines of master nodes.
-Then you need to set the gearpump.jarstore.rootPath like this:</p>
+Then you need to set the <code>gearpump.jarstore.rootPath</code> like this:</p>
 
 <div class="highlight"><pre><code class="language-bash">  file:///your_nfs_mapping_directory</code></pre></div>
 
 <p>3). If you don&#8217;t set this value, we will use the local directory of master node.
-  NOTE! This is not HA guarantee in this case, which means when one application goes down, we are not able to recover it.</p>
+  NOTE! There is no HA guarantee in this case, which means we are unable to recover running applications when master goes down.</p>
 
 <h3 id="start-daemon">2. Start Daemon.</h3>
 
@@ -163,9 +163,9 @@ Then you need to set the gearpump.jarstore.rootPath like this:</p>
 
 <h3 id="done">3. Done!</h3>
 
-<p>Now you have a high available HA cluster. You can kill any node, the master HA will take effect.</p>
+<p>Now you have a highly available HA cluster. You can kill any node, the master HA will take effect.</p>
 
-<p><strong>NOTE</strong>: It can take up to 15 seconds for master node to fail-over. You can change the fail-over timeout time by adding config in gear.conf <code>master.akka.cluster.auto-down-unreachable-after=10s</code> or smaller value</p>
+<p><strong>NOTE</strong>: It can take up to 15 seconds for master node to fail-over. You can change the fail-over timeout time by adding config in <code>gear.conf</code> <code>master.akka.cluster.auto-down-unreachable-after=10s</code> or set it to a smaller value</p>
 
 
   </div> <!-- /container -->

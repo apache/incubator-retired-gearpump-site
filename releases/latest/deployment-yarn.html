@@ -111,16 +111,14 @@
     <h1 class="title">Deployment with YARN</h1>
    
 
-   <h2 id="gearpump-over-yarn">Gearpump over YARN</h2>
-
-<h3 id="how-to-launch-a-gearpump-cluster-on-yarn">How to launch a Gearpump cluster on YARN</h3>
+   <h2 id="how-to-launch-a-gearpump-cluster-on-yarn">How to launch a Gearpump cluster on YARN</h2>
 
 <ol>
   <li>
-    <p>Upload the gearpump-0.7.1.zip to remote HDFS Folder, suggest to put it under /usr/lib/gearpump/gearpump-0.7.1.zip</p>
+    <p>Upload the <code>gearpump-2.11-0.7.1.zip</code> to remote HDFS Folder, suggest to put it under <code>/usr/lib/gearpump/gearpump-2.11-0.7.1.zip</code></p>
   </li>
   <li>
-    <p>Make sure the home directory on Hdfs is already created and all read-write rights are granted for user, for example, user <code>gear</code>&#8217;s home directory is <code>/user/gear</code></p>
+    <p>Make sure the home directory on HDFS is already created and all read-write rights are granted for user. For example, user <code>gear</code>&#8217;s home directory is <code>/user/gear</code></p>
   </li>
   <li>
     <p>Put the YARN configurations under classpath.
@@ -131,10 +129,10 @@
   <li>
     <p>Launch the gearpump cluster on YARN</p>
 
-    <div class="highlight"><pre><code> yarnclient launch -package /usr/lib/gearpump/gearpump-${version}.zip
+    <div class="highlight"><pre><code> yarnclient launch -package /usr/lib/gearpump/gearpump-2.11-0.7.1.zip
 </code></pre></div>
 
-    <p>If you don&#8217;t specify package path, it will read default package-path from gear.conf(gearpump.yarn.client.package-path).</p>
+    <p>If you don&#8217;t specify package path, it will read default package-path (<code>gearpump.yarn.client.package-path</code>) from <code>gear.conf</code>.</p>
   </li>
   <li>
     <p>Before step 4, You can change gear.conf configuration section <code>gearpump.yarn</code> to config the cluster.</p>
@@ -144,7 +142,7 @@
   </li>
 </ol>
 
-<h3 id="how-to-submit-a-application-to-gearpump-cluster">How to submit a application to Gearpump cluster.</h3>
+<h2 id="how-to-submit-a-application-to-gearpump-cluster">How to submit a application to Gearpump cluster.</h2>
 
 <p>To submit the jar to the Gearpump cluster, we first need to know the Master address, so we need to get
 a active configuration file first.</p>
@@ -155,7 +153,7 @@ a active configuration file first.</p>
   <li>
     <p>Option 1: specify &#8220;-output&#8221; option when you launch the cluster.</p>
 
-    <div class="highlight"><pre><code> yarnclient launch -package /usr/lib/gearpump/gearpump-${version}.zip -output /tmp/mycluster.conf
+    <div class="highlight"><pre><code> yarnclient launch -package /usr/lib/gearpump/gearpump-2.11-0.7.1.zip -output /tmp/mycluster.conf
 </code></pre></div>
 
     <p>It will return in console like this:</p>
@@ -169,22 +167,20 @@ a active configuration file first.</p>
 
     <div class="highlight"><pre><code> yarnclient getconfig -appid &lt;yarn application id&gt; -output /tmp/mycluster.conf
 </code></pre></div>
+
+    <p>yarn application id can be found from the output of step1 or from YARN dashboard.</p>
   </li>
-</ol>
+  <li>
+    <p>After you downloaded the configuration file, you can launch application with that config file.</p>
 
-<p>yarn application id can be found from the output of step1 or from YARN dashboard.
-3. After you downloaded the configuration file, you can launch application with that config file.</p>
-
-<p><code>
-    gear app -jar examples/wordcount-${version}.jar -conf /tmp/mycluster.conf
-  </code></p>
-
-<ol>
+    <div class="highlight"><pre><code> gear app -jar examples/wordcount-2.11-0.7.1.jar -conf /tmp/mycluster.conf
+</code></pre></div>
+  </li>
   <li>
     <p>To run Storm application over Gearpump on YARN, please store the configuration file with <code>-output application.conf</code> 
 and then launch Storm application with</p>
 
-    <div class="highlight"><pre><code> storm -jar examples/storm-${version}.jar storm.starter.ExclamationTopology exclamation
+    <div class="highlight"><pre><code> storm -jar examples/storm-2.11-0.7.1.jar storm.starter.ExclamationTopology exclamation
 </code></pre></div>
   </li>
   <li>
@@ -195,7 +191,7 @@ and then launch Storm application with</p>
   </li>
 </ol>
 
-<h3 id="how-to-addremove-machines-dynamically">How to add/remove machines dynamically.</h3>
+<h2 id="how-to-addremove-machines-dynamically">How to add/remove machines dynamically.</h2>
 
 <p>Gearpump yarn tool allows to dynamically add/remove machines. Here is the steps:</p>
 
@@ -233,7 +229,7 @@ and then launch Storm application with</p>
   </li>
 </ol>
 
-<h3 id="other-usage">Other usage:</h3>
+<h2 id="other-usage">Other usage:</h2>
 <ol>
   <li>
     <p>To kill a cluster,</p>

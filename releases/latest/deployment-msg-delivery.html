@@ -167,7 +167,7 @@
 </code></pre></div>
   </li>
   <li>
-    <p>When creating a HadoopCheckpointStore, set the hadoop configuration as in the <code>core-site.xml</code></p>
+    <p>When creating a <code>HadoopCheckpointStore</code>, set the hadoop configuration as in the <code>core-site.xml</code></p>
 
     <div class="highlight"><pre><code class="language-scala"><span class="k">val</span> <span class="n">hadoopConfig</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">Configuration</span>
 <span class="n">hadoopConfig</span><span class="o">.</span><span class="n">set</span><span class="o">(</span><span class="s">&quot;fs.defaultFS&quot;</span><span class="o">,</span> <span class="s">&quot;hdfs://localhost:9000&quot;</span><span class="o">)</span>

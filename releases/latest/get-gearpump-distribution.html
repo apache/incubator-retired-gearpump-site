@@ -134,10 +134,10 @@
 <p>2). Build package</p>
 
 <div class="highlight"><pre><code class="language-bash">  <span class="c">## Please use scala 2.11</span>
-  <span class="c">## The target package path: target/gearpump-$VERSION.zip</span>
+  <span class="c">## The target package path: output/target/gearpump-2.11-0.7.1.zip</span>
   sbt clean assembly packArchiveZip</code></pre></div>
 
-<p>After the build, there will be a package file gearpump-${version}.zip generated under output/target/ folder.</p>
+<p>After the build, there will be a package file gearpump-2.11-0.7.1.zip generated under output/target/ folder.</p>
 
 <p><strong>NOTE:</strong>
   Please set JAVA_HOME environment before the build.</p>
@@ -154,7 +154,7 @@
 The build requires network connection. If you are behind an enterprise proxy, make sure you have set the proxy in your env before running the build commands.
 For windows:</p>
 
-<div class="highlight"><pre><code class="language-bash">Set <span class="nv">HTTP_PROXY</span><span class="o">=</span>http://host:port
+<div class="highlight"><pre><code class="language-bash"><span class="nb">set </span><span class="nv">HTTP_PROXY</span><span class="o">=</span>http://host:port
 <span class="nb">set </span><span class="nv">HTTPS_PROXY</span><span class="o">=</span> http://host:port</code></pre></div>
 
 <p>For Linux:</p>
@@ -164,10 +164,9 @@ For windows:</p>
 
 <h3 id="gearpump-package-structure">Gearpump package structure</h3>
 
-<p>You need to flatten the .zip file to use it, on Linux, you can</p>
+<p>You need to flatten the <code>.zip</code> file to use it. On Linux, you can</p>
 
-<div class="highlight"><pre><code class="language-bash"><span class="c">## please replace ${version} below with actual version used</span>
-unzip gearpump-<span class="k">${</span><span class="nv">version</span><span class="k">}</span>.zip</code></pre></div>
+<div class="highlight"><pre><code class="language-bash">unzip gearpump-2.11-0.7.1.zip</code></pre></div>
 
 <p>After decompression, the directory structure looks like picture 1.</p>
 

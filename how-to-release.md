@@ -1,7 +1,7 @@
-# How to update http://gearpump.io website for a GearPump release
-
-This guide is for how to update http://gearpump.io website for a GearPump release.
-It is *NOT* for how to release GearPump itself.
+# How to update http://gearpump.io website for a Gearpump release
+Gearpump
+This guide is for how to update http://gearpump.io website for a Gearpump release.
+It is *NOT* for how to release Gearpump itself.
 
 ## Cleanup the old release documentation
 Directory `releases/latest` in this repository holds the release documentation
@@ -13,9 +13,9 @@ e.g. `0.5` to indicate this old release documentation is for `0.5` release.
 And you may ONLY want to keep several key release documents, you can remove corresponding
 obselete releases by removing corresponding version directories under `releases` directory.
 
-## Generate GearPump release documentation (including API doc)
+## Generate Gearpump release documentation (including API doc)
 
-You need to under GearPump source code root directory execute command
+You need to under Gearpump source code root directory execute command
 
 ```bash
 cd docs
@@ -36,10 +36,10 @@ File `_layouts/global.html` contains the navigation bar for the whole website.
 As we updated the release documentation, we need to update the navigation bar to reflect this change.
 
 ### Update the `download.md` for download link
-File `download.md` contains the download link for GearPump. This also needs to be updated.
+File `download.md` contains the download link for Gearpump. This also needs to be updated.
 
 ### Update other pages for new features and introduction
-Please update corresponding pages to reflect GearPump new features.
+Please update corresponding pages to reflect Gearpump new features.
 
 ## Compile HTML pages
 You need to run
@@ -68,3 +68,4 @@ When PR is merged, the website is updated corresponding automatically.
 
 *NOTE* Here we need to also include `_site` in Git as there is no automatically mechanism for
 http://gearpump.io to read from `.md` files.
+Gearpump

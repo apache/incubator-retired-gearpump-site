@@ -121,7 +121,7 @@
 <p>You need to have Gearpump binary at hand. Please refer to <a href="get-gearpump-distribution.html">How to get gearpump distribution</a> to get the Gearpump binary.</p>
 
 <p>You are suggested to unzip the package to same directory path on every machine you planned to install Gearpump.
-To install Gearpump, you at least need to change the configuration in conf/gear.conf.</p>
+To install Gearpump, you at least need to change the configuration in <code>conf/gear.conf</code>.</p>
 
 <table>
   <thead>
@@ -134,7 +134,7 @@ To install Gearpump, you at least need to change the configuration in conf/gear.
   <tbody>
     <tr>
       <td>gearpump.hostname</td>
-      <td>127.0.0.1</td>
+      <td>&#8220;127.0.0.1&#8221;</td>
       <td>Host or IP address of current machine. The ip/host need to be reachable from other machines in the cluster.</td>
     </tr>
     <tr>
@@ -144,7 +144,7 @@ To install Gearpump, you at least need to change the configuration in conf/gear.
     </tr>
     <tr>
       <td>gearpump.worker.slots</td>
-      <td>100</td>
+      <td>1000</td>
       <td>how many slots this worker has</td>
     </tr>
   </tbody>
@@ -153,12 +153,12 @@ To install Gearpump, you at least need to change the configuration in conf/gear.
 <p>Besides this, there are other optional configurations related with logs, metrics, transports, ui. You can refer to <a href="deployment-configuration.html">Configuration Guide</a> for more details.</p>
 
 <h3 id="start-the-cluster-daemons-in-standlone-mode">Start the Cluster Daemons in Standlone mode</h3>
-<p>In Standalone mode, you can start master and worker in different JVM.</p>
+<p>In Standalone mode, you can start master and worker in different JVMs.</p>
 
 <h5 id="to-start-master">To start master:</h5>
 <div class="highlight"><pre><code class="language-bash">bin/master -ip xx -port xx</code></pre></div>
 
-<p>The ip and port will be checked against setting under conf/gear.conf, so you need to make sure they are consistent with settings in gear.conf.</p>
+<p>The ip and port will be checked against settings under <code>conf/gear.conf</code>, so you need to make sure they are consistent.</p>
 
 <p><strong>NOTE</strong>: for high availability, please check <a href="deployment-ha.html">Master HA Guide</a></p>
 
@@ -169,11 +169,11 @@ To install Gearpump, you at least need to change the configuration in conf/gear.
 
 <div class="highlight"><pre><code class="language-bash">bin/services</code></pre></div>
 
-<p>After UI is started, you can browser http://{web_ui_host}:8090 to view the cluster status.</p>
+<p>After UI is started, you can browse to <code>http://{web_ui_host}:8090</code> to view the cluster status.</p>
 
 <p><img src="img/dashboard.gif" alt="Dashboard" /></p>
 
-<p><strong>NOTE:</strong> The UI port can be configured in gear.conf. Check <a href="deployment-configuration.html">Configuration Guide</a> for information.</p>
+<p><strong>NOTE:</strong> The UI port can be configured in <code>gear.conf</code>. Check <a href="deployment-configuration.html">Configuration Guide</a> for information.</p>
 
 
   </div> <!-- /container -->

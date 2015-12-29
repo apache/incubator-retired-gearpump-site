@@ -113,7 +113,7 @@
     <h1 class="title">Gearpump Security Guide</h1>
    
 
-   <p>Until now Gearpump support being launched in a secured Yarn cluster and writing to secured HBase, here secured means Kerberos enabled. 
+   <p>Until now Gearpump supports deployment in a secured Yarn cluster and writing to secured HBase, where &#8220;secured&#8221; means Kerberos enabled. 
 Further security related feature is in progress.</p>
 
 <h2 id="how-to-launch-gearpump-in-a-secured-yarn-cluster">How to launch Gearpump in a secured Yarn cluster</h2>
@@ -121,7 +121,7 @@ Further security related feature is in progress.</p>
 
 <ol>
   <li>
-    <p>Create Kerberos principal for user <code>gear</code>, on the KDC machine run</p>
+    <p>Create Kerberos principal for user <code>gear</code>, on the KDC machine</p>
 
     <div class="highlight"><pre><code>sudo kadmin.local
 </code></pre></div>
@@ -133,7 +133,7 @@ Further security related feature is in progress.</p>
 
     <p>Remember that user <code>gear</code> must exist on every node of Yarn.</p>
   </li>
-  <li>Upload the gearpump-${version}.zip to remote HDFS Folder, suggest to put it under /usr/lib/gearpump/gearpump-${version}.zip</li>
+  <li>Upload the <code>gearpump-2.11-0.7.1.zip</code> to remote HDFS Folder, suggest to put it under <code>/usr/lib/gearpump/gearpump-2.11-0.7.1.zip</code></li>
   <li>
     <p>Create HDFS folder /user/gear/, make sure all read-write rights are granted for user <code>gear</code></p>
 
@@ -142,25 +142,24 @@ Further security related feature is in progress.</p>
   </li>
   <li>Put the YARN configurations under classpath.
   Before calling &#8220;yarnclient launch&#8221;, make sure you have put all yarn configuration files under classpath.
-  Typically, you can just copy all files under $HADOOP_HOME/etc/hadoop from one of the YARN Cluster machine to conf/yarnconf of gearpump.
-  $HADOOP_HOME points to the Hadoop installation directory.</li>
+  Typically, you can just copy all files under <code>$HADOOP_HOME/etc/hadoop</code> from one of the YARN cluster machine to <code>conf/yarnconf</code> of gearpump.
+  <code>$HADOOP_HOME</code> points to the Hadoop installation directory.</li>
   <li>
     <p>Get Kerberos credentials to sumbit the job:</p>
 
     <div class="highlight"><pre><code>kinit gearpump/fully.qualified.domain.name@YOUR-REALM.COM
 </code></pre></div>
 
-    <p>Here you can login with keytab or password, please refer Kerberos&#8217;s document for details.</p>
+    <p>Here you can login with keytab or password. Please refer Kerberos&#8217;s document for details.</p>
 
-    <div class="highlight"><pre><code class="language-bash">yarnclient launch -package /usr/lib/gearpump/gearpump-<span class="k">${</span><span class="nv">version</span><span class="k">}</span>.zip</code></pre></div>
+    <div class="highlight"><pre><code class="language-bash">yarnclient launch -package /usr/lib/gearpump/gearpump-2.11-0.7.1.zip</code></pre></div>
   </li>
 </ol>
 
 <h2 id="how-to-write-to-secured-hbase">How to write to secured HBase</h2>
 <p>When the remote HBase is security enabled, a kerberos keytab and the corresponding principal name need to be
-provided for the gearpump-hbase connector. Specifically, the UserConfig object passed into the HBaseSink should contain
-{(&#8220;gearpump.keytab.file&#8221;, &#8220;\$keytab&#8221;), (&#8220;gearpump.kerberos.principal&#8221;, &#8220;\$principal&#8221;)}, example code of writing an application
-to write to secured HBase:</p>
+provided for the gearpump-hbase connector. Specifically, the <code>UserConfig</code> object passed into the HBaseSink should contain
+<code>{("gearpump.keytab.file", "\\$keytab"), ("gearpump.kerberos.principal", "\\$principal")}</code>. example code of writing to secured HBase:</p>
 
 <div class="highlight"><pre><code class="language-scala"><span class="k">val</span> <span class="n">principal</span> <span class="k">=</span> <span class="s">&quot;gearpump/fully.qualified.domain.name@YOUR-REALM.COM&quot;</span>
 <span class="k">val</span> <span class="n">keytabContent</span> <span class="k">=</span> <span class="nc">Files</span><span class="o">.</span><span class="n">toByteArray</span><span class="o">(</span><span class="k">new</span> <span class="nc">File</span><span class="o">(</span><span class="s">&quot;path_to_keytab_file))</span>
@@ -187,14 +186,14 @@ to write to secured HBase:</p>
 <p>Since Gearpump’s Master-Worker structure is similar to HDFS’s NameNode-DataNode and Yarn’s ResourceManager-NodeManager, we may follow the way they use.</p>
 
 <ol>
-  <li>User create kerberos principal and keytab for Gearpump.</li>
+  <li>User creates kerberos principal and keytab for Gearpump.</li>
   <li>Deploy the keytab files to all the cluster nodes.</li>
   <li>Configure Gearpump’s conf file, specify kerberos principal and local keytab file localtion.</li>
   <li>Start Master and Worker.</li>
 </ol>
 
-<p>Every application have a submitter user. We will separate the application from different user, like different log folder for different applications. 
-Only authenticated user can submit the application to Gearpump&#8217;s Master.</p>
+<p>Every application has a submitter/user. We will separate the application from different users, like different log folders for different applications. 
+Only authenticated users can submit the application to Gearpump&#8217;s Master.</p>
 
 <h3 id="authorization">Authorization</h3>
 <p>Hopefully more on this soon</p>

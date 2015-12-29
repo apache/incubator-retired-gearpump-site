@@ -11,9 +11,9 @@ Gearpump can run on top of YARN as a YARN application. Gearpump's ApplicationMas
 ##### Relation with Storm and Spark Streaming
 Storm and spark streaming are proven platforms, there are many production deployments. Compared with them, Gearpump is not than proven and there is no production deployment yet. However, there is no single platform that can cover every use case; Gearpump has its own +1 points in some special fields. As an instance, for IOT use cases, Gearpump may be considered convenient because the topology can be deployed to edge device with feature of location transparency. For another example, when users want to upgrade the application online without service interruption, Gearpump may be suitable as it can dynamically modify the computation DAG on the fly. For other special use cases that are suitable for Gearpump, please check section [What is a good use case for Gearpump](usecases.html)
 
-##### Why we name it GearPump?
+##### Why we name it Gearpump?
 
-The name GearPump is a reference the engineering term "Gear Pump", which is a super simple pump that consists of only two gears, but is very powerful at streaming water from left to right.
+The name Gearpump is a reference the engineering term "Gear Pump", which is a super simple pump that consists of only two gears, but is very powerful at streaming water from left to right.
 
 ##### Why not using akka persistence to store the checkpoint file?
 

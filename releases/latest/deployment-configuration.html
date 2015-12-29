@@ -117,46 +117,47 @@
 
 <p>Master and Worker daemons will only read configuration from conf/gear.conf.</p>
 
-<p>Master reads configuration from section master and gearpump: 
-<code>bash
-master {
-}
-gearpump{
-}
-</code></p>
+<p>Master reads configuration from section master and gearpump:</p>
 
-<p>Worker reads configuration from section worker and gearpump: 
-<code>bash
-worker {
-}
-gearpump{
-}
-</code></p>
+<div class="highlight"><pre><code class="language-bash">master <span class="o">{</span>
+<span class="o">}</span>
+gearpump<span class="o">{</span>
+<span class="o">}</span></code></pre></div>
+
+<p>Worker reads configuration from section worker and gearpump:</p>
+
+<div class="highlight"><pre><code class="language-bash">worker <span class="o">{</span>
+<span class="o">}</span>
+gearpump<span class="o">{</span>
+<span class="o">}</span></code></pre></div>
 
 <h2 id="configuration-for-user-submitted-application-job">Configuration for user submitted application job</h2>
 
-<p>For user application job, it will read configuration file gear.conf, and application.conf from classpath, while application.conf has higher prioprty. 
-The default classpath contains:
-1. conf/
-2. current working directory.</p>
+<p>For user application job, it will read configuration file <code>gear.conf</code> and <code>application.conf</code> from classpath, while <code>application.conf</code> has higher prioprty. 
+The default classpath contains:</p>
 
-<p>For example, you can put a application.conf on your working directory, then it will be effective when you submit a new job application.</p>
+<ol>
+  <li><code>conf/</code></li>
+  <li>current working directory.</li>
+</ol>
+
+<p>For example, you can put a <code>application.conf</code> on your working directory, and then it will be effective when you submit a new job application.</p>
 
 <h2 id="logging">Logging</h2>
 
-<p>To change the log level, you need to change both gear.conf, and log4j.properties.</p>
+<p>To change the log level, you need to change both <code>gear.conf</code>, and <code>log4j.properties</code>.</p>
 
 <h3 id="to-change-the-log-level-for-master-and-worker-daemon">To change the log level for master and worker daemon</h3>
 
-<p>Please change log4j.rootLevel in log4j.properties, and master.akka.loglevel in gear.conf</p>
+<p>Please change <code>log4j.rootLevel</code> in <code>log4j.properties</code>, and <code>master.akka.loglevel</code> in <code>gear.conf</code>.</p>
 
 <h3 id="to-change-the-log-level-for-application-job">To change the log level for application job</h3>
 
-<p>Please change log4j.rootLevel in log4j.properties, and akka.loglevel in gear.conf or application.conf.</p>
+<p>Please change <code>log4j.rootLevel</code> in <code>log4j.properties</code>, and <code>akka.loglevel</code> in <code>gear.conf</code> or <code>application.conf</code>.</p>
 
 <h2 id="gearpump-default-configuration">Gearpump Default Configuration</h2>
 
-<p>This is the default configuration for gear.conf.</p>
+<p>This is the default configuration for <code>gear.conf</code>.</p>
 
 <table>
   <thead>
@@ -170,12 +171,12 @@ The default classpath contains:
     <tr>
       <td style="text-align: left">gearpump.hostname</td>
       <td style="text-align: left">&#8220;127.0.0.1&#8221;</td>
-      <td style="text-align: left">hostname of current machine. If you are using local mode, then set this to 127.0.0.1, if you are using cluster mode, make sure this hostname can be accessed by other machines.</td>
+      <td style="text-align: left">hostname of current machine. If you are using local mode, then set this to 127.0.0.1. If you are using cluster mode, make sure this hostname can be accessed by other machines.</td>
     </tr>
     <tr>
       <td style="text-align: left">gearpump.cluster.masters</td>
       <td style="text-align: left">[&#8220;127.0.0.1:3000&#8221;]</td>
-      <td style="text-align: left">Config to set the master nodes of the cluster. If there are multiple master in the list, then the master nodes runs in HA mode.  ### For example, you may start three master, on node1: bin/master -ip node1 -port 3000, on node2: bin/master -ip node2 -port 3000, on node3: bin/master -ip node3 -port 3000, then you need to set the cluster.masters = [&#8220;node1:3000&#8221;,&#8221;node2:3000&#8221;,&#8221;node3:3000&#8221;]</td>
+      <td style="text-align: left">Config to set the master nodes of the cluster. If there are multiple master in the list, then the master nodes runs in HA mode. For example, you may start three master, on node1: <code>bin/master -ip node1 -port 3000</code>, on node2: <code>bin/master -ip node2 -port 3000</code>, on node3: <code>bin/master -ip node3 -port 3000</code>, then you need to set  <code>gearpump.cluster.masters = ["node1:3000","node2:3000","node3:3000"]</code></td>
     </tr>
     <tr>
       <td style="text-align: left">gearpump.task-dispatcher</td>
@@ -190,7 +191,7 @@ The default classpath contains:
     <tr>
       <td style="text-align: left">gearpump.metrics.sample-rate</td>
       <td style="text-align: left">1</td>
-      <td style="text-align: left">We will take one metric out of ${sample.rate}. Note it may have impact that the statistics on UI portal is not accurate. Change it to 1 if you want accurate metrics in UI</td>
+      <td style="text-align: left">We will take one sample every <code>gearpump.metrics.sample-rate</code> data points. Note it may have impact that the statistics on UI portal is not accurate. Change it to 1 if you want accurate metrics in UI</td>
     </tr>
     <tr>
       <td style="text-align: left">gearpump.metrics.report-interval-ms</td>
@@ -210,12 +211,12 @@ The default classpath contains:
     <tr>
       <td style="text-align: left">gearpump.retainHistoryData.intervalMs</td>
       <td style="text-align: left">3600000</td>
-      <td style="text-align: left"># time interval between two data points for history data (unit: ms) Usually this value is set to a big value so that we only store coarse-grain data</td>
+      <td style="text-align: left">time interval between two data points for history data (unit: ms). Usually this is set to a big value so that we only store coarse-grain data</td>
     </tr>
     <tr>
       <td style="text-align: left">gearpump.retainRecentData.seconds</td>
       <td style="text-align: left">300</td>
-      <td style="text-align: left">max seconds of recent data to retain, tHis is for the fine-grain data</td>
+      <td style="text-align: left">max seconds of recent data to retain. This is for the fine-grain data</td>
     </tr>
     <tr>
       <td style="text-align: left">gearpump.retainRecentData.intervalMs</td>
@@ -235,7 +236,7 @@ The default classpath contains:
     <tr>
       <td style="text-align: left">gearpump.serializers</td>
       <td style="text-align: left">a map</td>
-      <td style="text-align: left">custom serializer for streaming application</td>
+      <td style="text-align: left">custom serializer for streaming application, e.g. <code>"scala.Array" = ""</code></td>
     </tr>
     <tr>
       <td style="text-align: left">gearpump.worker.slots</td>
@@ -265,7 +266,7 @@ The default classpath contains:
     <tr>
       <td style="text-align: left">gearpump.jarstore.rootpath</td>
       <td style="text-align: left">&#8220;jarstore/&#8221;</td>
-      <td style="text-align: left">Define where the submitted jar file will be stored at. This path follows the hadoop path schema, For HDFS, use hdfs://host:port/path/; if you want to store on master nodes, then use local directory. jarstore.rootpath = &#8220;jarstore/&#8221; will points to relative directory where master is started. jarstore.rootpath = &#8220;/jarstore/&#8221; will points to absolute directory on master server</td>
+      <td style="text-align: left">Define where the submitted jar file will be stored. This path follows the hadoop path schema. For HDFS, use <code>hdfs://host:port/path/</code>; if you want to store on master nodes, then use local directory. <code>jarstore.rootpath = "jarstore/"</code> will point to relative directory where master is started. <code>jarstore.rootpath = "/jarstore/"</code> will point to absolute directory on master server</td>
     </tr>
     <tr>
       <td style="text-align: left">gearpump.scheduling.scheduler-class</td>
@@ -274,7 +275,7 @@ The default classpath contains:
     </tr>
     <tr>
       <td style="text-align: left">gearpump.services.host</td>
-      <td style="text-align: left">127.0.0.1</td>
+      <td style="text-align: left">&#8220;127.0.0.1&#8221;</td>
       <td style="text-align: left">dashboard UI host address</td>
     </tr>
     <tr>
@@ -290,17 +291,17 @@ The default classpath contains:
     <tr>
       <td style="text-align: left">gearpump.netty.max-retries</td>
       <td style="text-align: left">30</td>
-      <td style="text-align: left">&#160;</td>
+      <td style="text-align: left">maximum number of retries for a netty client to connect to remote host</td>
     </tr>
     <tr>
       <td style="text-align: left">gearpump.netty.base-sleep-ms</td>
       <td style="text-align: left">100</td>
-      <td style="text-align: left">&#160;</td>
+      <td style="text-align: left">base sleep time for a netty client to retry a connection. Actual sleep time is a multiple of this value</td>
     </tr>
     <tr>
       <td style="text-align: left">gearpump.netty.max-sleep-ms</td>
       <td style="text-align: left">1000</td>
-      <td style="text-align: left">&#160;</td>
+      <td style="text-align: left">maximum sleep time for a netty client to retry a connection</td>
     </tr>
     <tr>
       <td style="text-align: left">gearpump.netty.message-batch-size</td>
@@ -330,7 +331,7 @@ The default classpath contains:
     <tr>
       <td style="text-align: left">serialization-framework</td>
       <td style="text-align: left">&#8220;io.gearpump.serializer.FastKryoSerializationFramework&#8221;</td>
-      <td style="text-align: left">Gearpump has built-in serialization framework using Kryo. User are allowed to use a different serialization framework, like Protobuf. See io.gearpump.serializer.FastKryoSerializationFramework to find how a custom serialization framework can be defined</td>
+      <td style="text-align: left">Gearpump has built-in serialization framework using Kryo. Users are allowed to use a different serialization framework, like Protobuf. See <code>io.gearpump.serializer.FastKryoSerializationFramework</code> to find how a custom serialization framework can be defined</td>
     </tr>
   </tbody>
 </table>
