@@ -16,7 +16,7 @@ dynamic topology update, [Apache Storm](https://storm.apache.org/) compatibility
 The	name	Gearpump	is	a	reference to	the	engineering term "gear	pump,"	which	is	a	super simple
 pump	that	consists of	only	two	gears,	but	is	very	powerful at	streaming water.
 
-![UI](/img/dashboard.gif)
+![Release](/img/dashboard.gif)  [Demo site](http://52.53.210.64:8090/)
 
 ### Gearpump Technical Highlights
 Gearpump is a modern big data real-time streaming engine which has many unique features:
