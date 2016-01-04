@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"/>
-  <title>Get Gearpump Distribution - Gearpump 0.7.2 Documentation</title>
+  <title>Get Gearpump Distribution - Gearpump 0.7.3 Documentation</title>
   
    <meta name="description" content="How to Get Your Gearpump Distribution">
   
@@ -34,7 +34,7 @@
     <div class="container">
       <div class="navbar-header">
         <a class="navbar-brand" href="http://gearpump.io">Gearpump
-          <span class="label label-primary" style="font-size: .6em">0.7.2</span>
+          <span class="label label-primary" style="font-size: .6em">0.7.3</span>
         </a>
       </div>
       <div class="collapse navbar-collapse">
@@ -59,10 +59,10 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Deploying<b class="caret"></b></a>
             <ul class="dropdown-menu">
               <li class="dropdown-header">Deployment</li>
-              <li><a href="deployment-docker.html">Docker</a><li>
-              <li><a href="deployment-local.html">Local</a><li>
-              <li><a href="deployment-standalone.html">Standalone</a></li>
-              <li><a href="deployment-yarn.html">YARN</a></li>
+              <li><a href="deployment-local.html">Local Mode</a><li>
+              <li><a href="deployment-standalone.html">Standalone Mode</a></li>
+              <li><a href="deployment-yarn.html">YARN Mode</a></li>
+              <li><a href="deployment-docker.html">Docker Mode</a><li>
               <li class="divider"></li>
               <li><a href="deployment-ha.html">High Availability</a></li>
               <li><a href="deployment-msg-delivery.html">Reliable Message Delivery</a></li>
@@ -134,10 +134,10 @@
 <p>2). Build package</p>
 
 <div class="highlight"><pre><code class="language-bash">  <span class="c">## Please use scala 2.11</span>
-  <span class="c">## The target package path: output/target/gearpump-2.11-0.7.2.zip</span>
+  <span class="c">## The target package path: output/target/gearpump-2.11-0.7.3.zip</span>
   sbt clean assembly packArchiveZip</code></pre></div>
 
-<p>After the build, there will be a package file gearpump-2.11-0.7.2.zip generated under output/target/ folder.</p>
+<p>After the build, there will be a package file gearpump-2.11-0.7.3.zip generated under output/target/ folder.</p>
 
 <p><strong>NOTE:</strong>
   Please set JAVA_HOME environment before the build.</p>
@@ -166,7 +166,7 @@ For windows:</p>
 
 <p>You need to flatten the <code>.zip</code> file to use it. On Linux, you can</p>
 
-<div class="highlight"><pre><code class="language-bash">unzip gearpump-2.11-0.7.2.zip</code></pre></div>
+<div class="highlight"><pre><code class="language-bash">unzip gearpump-2.11-0.7.3.zip</code></pre></div>
 
 <p>After decompression, the directory structure looks like picture 1.</p>
 
