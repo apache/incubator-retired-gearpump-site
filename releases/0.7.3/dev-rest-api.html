@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"/>
+  <title>Gearpump RESTful API reference - Gearpump 0.7.3 Documentation</title>
+  
+
+  
+
+  <link rel="stylesheet" href="css/bootstrap-3.3.5.min.css">
+  <style>
+    body {
+      padding-top: 60px;
+      padding-bottom: 40px;
+    }
+  </style>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/pygments-default.css">
+  <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+</head>
+<body>
+  <!--[if lt IE 7]>
+    <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+  <![endif]-->
+
+  <div class="navbar navbar-inverse navbar-fixed-top" id="topbar">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="http://gearpump.io">Gearpump
+          <span class="label label-primary" style="font-size: .6em">0.7.3</span>
+        </a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="index.html">Overview</a></li>
+
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Introduction<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="submit-your-1st-application.html">Submit Your 1st Application</a></li>
+              <li><a href="commandline.html">Client Command Line</a></li>
+              <li class="divider"></li>
+              <li><a href="basic-concepts.html">Basic Concepts</a></li>
+              <li><a href="features.html">Technical Highlights</a></li>
+              <li><a href="message-delivery.html">Reliable Message Delivery</a></li>
+              <li><a href="performance-report.html">Performance</a></li>
+              <li><a href="gearpump-internals.html">Gearpump Internals</a></li>
+            </ul>
+          </li>
+
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Deploying<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li class="dropdown-header">Deployment</li>
+              <li><a href="deployment-local.html">Local Mode</a><li>
+              <li><a href="deployment-standalone.html">Standalone Mode</a></li>
+              <li><a href="deployment-yarn.html">YARN Mode</a></li>
+              <li><a href="deployment-docker.html">Docker Mode</a><li>
+              <li class="divider"></li>
+              <li><a href="deployment-ha.html">High Availability</a></li>
+              <li><a href="deployment-msg-delivery.html">Reliable Message Delivery</a></li>
+              <li><a href="deployment-configuration.html">Configuration</a></li>
+              <li class="divider"></li>
+              <li><a href="deployment-security.html">Security</a></li>
+            </ul>
+          </li>
+
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Programming Guide<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="dev-write-1st-app.html">Write Your 1st App</a></li>
+              <li><a href="dev-custom-serializer.html">Customized Message Passing</a></li>
+              <li class="divider"></li>
+              <li><a href="api/scala/index.html">Scala API</a></li>
+              <li><a href="api/java/index.html">Java API</a></li>
+              <li><a href="dev-rest-api.html">RESTful API</a></li>
+              <li class="divider"></li>
+              <li><a href="dev-connectors.html">Gearpump Connectors</a></li>
+              <li class="divider"></li>
+              <li><a href="dev-storm.html">Storm Compatibility</a></li>
+              <!--
+              <li><a href="dev-samoa.html">Samoa Compatibility</a></li>
+              <li class="divider"></li>
+              <li><a href="dev-iot.html">Gearpump with IoT</a></li>
+              -->
+            </ul>
+          </li>
+
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">More<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="how-to-contribute.html">How to Contribute</a></li>
+              <li><a href="coding-style.html">Coding Style</a></li>
+              <li class="divider"></li>
+              <li><a href="faq.html">FAQ</a><li>
+              <li><a href="about.html">About</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" id="content">
+   
+    <h1 class="title">Gearpump RESTful API reference</h1>
+   
+
+   <h2 id="query-version">Query version</h2>
+
+<h3 id="get-version">GET version</h3>
+
+<p>Example:</p>
+
+<div class="highlight"><pre><code class="language-bash">curl http://127.0.0.1:8090/version</code></pre></div>
+
+<p>Sample Response:</p>
+
+<div class="highlight"><pre><code>0.7.1-SNAPSHOT
+</code></pre></div>
+
+<h2 id="master-service">Master Service</h2>
+
+<h3 id="get-apiv10master">GET api/v1.0/master</h3>
+<p>Get information of masters</p>
+
+<p>Example:</p>
+
+<div class="highlight"><pre><code class="language-bash">curl http://127.0.0.1:8090/api/v1.0/master</code></pre></div>
+
+<p>Sample Response:</p>
+
+<div class="highlight"><pre><code>{
+  "masterDescription": {
+    "leader": [
+      "master@127.0.0.1",
+      3000
+    ],
+    "cluster": [
+      [
+        "127.0.0.1",
+        3000
+      ]
+    ],
+    "aliveFor": "642941",
+    "logFile": "/Users/foobar/gearpump/logs",
+    "jarStore": "jarstore/",
+    "masterStatus": "synced",
+    "homeDirectory": "/Users/foobar/gearpump"
+  }
+}
+</code></pre></div>
+
+<h3 id="get-apiv10masterapplist">GET api/v1.0/master/applist</h3>
+<p>Query information of all applications</p>
+
+<p>Example:</p>
+
+<div class="highlight"><pre><code class="language-bash">curl http://127.0.0.1:8090/api/v1.0/master/applist</code></pre></div>
+
+<p>Sample Response:</p>
+
+<div class="highlight"><pre><code>{
+  "appMasters": [
+    {
+      "status": "active",
+      "appId": 1,
+      "appName": "wordCount",
+      "appMasterPath": "akka.tcp://app1-executor-1@127.0.0.1:52212/user/daemon/appdaemon1/$c",
+      "workerPath": "akka.tcp://master@127.0.0.1:3000/user/Worker0",
+      "submissionTime": "1450758114766",
+      "startTime": "1450758117294",
+      "user": "lisa"
+    }
+  ]
+}
+</code></pre></div>
+
+<h3 id="get-apiv10masterworkerlist">GET api/v1.0/master/workerlist</h3>
+<p>Query information of all workers</p>
+
+<p>Example:</p>
+
+<div class="highlight"><pre><code class="language-bash">curl http://127.0.0.1:8090/api/v1.0/master/workerlist</code></pre></div>
+
+<p>Sample Response:</p>
+
+<div class="highlight"><pre><code>[
+  {
+    "workerId": 1,
+    "state": "active",
+    "actorPath": "akka.tcp://master@127.0.0.1:3000/user/Worker0",
+    "aliveFor": "431565",
+    "logFile": "logs/",
+    "executors": [
+      {
+        "appId": 1,
+        "executorId": -1,
+        "slots": 1
+      },
+      {
+        "appId": 1,
+        "executorId": 0,
+        "slots": 1
+      }
+    ],
+    "totalSlots": 1000,
+    "availableSlots": 998,
+    "homeDirectory": "/usr/lisa/gearpump/",
+    "jvmName": "11788@lisa"
+  },
+  {
+    "workerId": 0,
+    "state": "active",
+    "actorPath": "akka.tcp://master@127.0.0.1:3000/user/Worker1",
+    "aliveFor": "431546",
+    "logFile": "logs/",
+    "executors": [
+      {
+        "appId": 1,
+        "executorId": 1,
+        "slots": 1
+      }
+    ],
+    "totalSlots": 1000,
+    "availableSlots": 999,
+    "homeDirectory": "/usr/lisa/gearpump/",
+    "jvmName": "11788@lisa"
+  }
+]
+</code></pre></div>
+
+<h3 id="get-apiv10masterconfig">GET api/v1.0/master/config</h3>
+<p>Get the configuration of all masters</p>
+
+<p>Example:</p>
+
+<div class="highlight"><pre><code class="language-bash">curl http://127.0.0.1:8090/api/v1.0/master/config</code></pre></div>
+
+<p>Sample Response:</p>
+
+<div class="highlight"><pre><code>{
+  "extensions": [
+    "akka.contrib.datareplication.DataReplication$"
+  ]
+  "akka": {
+    "loglevel": "INFO"
+    "log-dead-letters": "off"
+    "log-dead-letters-during-shutdown": "off"
+    "actor": {
+      ## Master forms a akka cluster
+      "provider": "akka.cluster.ClusterActorRefProvider"
+    }
+    "cluster": {
+      "roles": ["master"]
+      "auto-down-unreachable-after": "15s"
+    }
+    "remote": {
+      "log-remote-lifecycle-events": "off"
+    }
+  }
+}
+</code></pre></div>
+
+<h3 id="get-apiv10mastermetricsltquerypathgtreadlatestlttruefalsegt">GET api/v1.0/master/metrics/&lt;query_path&gt;?readLatest=&lt;true|false&gt;</h3>
+<p>Get the master node metrics.</p>
+
+<p>Example:</p>
+
+<div class="highlight"><pre><code class="language-bash">curl http://127.0.0.1:8090/api/v1.0/master/metrics/master?readLatest<span class="o">=</span><span class="nb">true</span></code></pre></div>
+
+<p>Sample Response:</p>
+
+<div class="highlight"><pre><code>{
+    "path"
+:
+    "master", "metrics"
+:
+    [{
+        "time": "1450758725070",
+        "value": {"$type": "io.gearpump.metrics.Metrics.Gauge", "name": "master:memory.heap.used", "value": "59764272"}
+    }, {
+        "time": "1450758725070",
+        "value": {"$type": "io.gearpump.metrics.Metrics.Gauge", "name": "master:thread.daemon.count", "value": "18"}
+    }, {
+        "time": "1450758725070",
+        "value": {
+            "$type": "io.gearpump.metrics.Metrics.Gauge",
+            "name": "master:memory.total.committed",
+            "value": "210239488"
+        }
+    }, {
+        "time": "1450758725070",
+        "value": {"$type": "io.gearpump.metrics.Metrics.Gauge", "name": "master:memory.heap.max", "value": "880017408"}
+    }, {
+        "time": "1450758725070",
+        "value": {"$type": "io.gearpump.metrics.Metrics.Gauge", "name": "master:memory.total.max", "value": "997457920"}
+    }, {
+        "time": "1450758725070",
+        "value": {
+            "$type": "io.gearpump.metrics.Metrics.Gauge",
+            "name": "master:memory.heap.committed",
+            "value": "179830784"
+        }
+    }, {
+        "time": "1450758725070",
+        "value": {"$type": "io.gearpump.metrics.Metrics.Gauge", "name": "master:memory.total.used", "value": "89117352"}
+    }, {
+        "time": "1450758725070",
+        "value": {"$type": "io.gearpump.metrics.Metrics.Gauge", "name": "master:thread.count", "value": "28"}
+    }]
+}
+</code></pre></div>
+
+<h2 id="worker-service">Worker service</h2>
+
+<h3 id="get-apiv10workerltworkeridgt">GET api/v1.0/worker/&lt;workerId&gt;</h3>
+<p>Query worker information.</p>
+
+<p>Example:</p>
+
+<div class="highlight"><pre><code class="language-bash">curl http://127.0.0.1:8090/api/v1.0/worker/0</code></pre></div>
+
+<p>Sample Response:</p>
+
+<div class="highlight"><pre><code>{
+  "workerId": 0,
+  "state": "active",
+  "actorPath": "akka.tcp://master@127.0.0.1:3000/user/Worker1",
+  "aliveFor": "831069",
+  "logFile": "logs/",
+  "executors": [
+    {
+      "appId": 1,
+      "executorId": 1,
+      "slots": 1
+    }
+  ],
+  "totalSlots": 1000,
+  "availableSlots": 999,
+  "homeDirectory": "/usr/lisa/gearpump/",
+  "jvmName": "11788@lisa"
+}
+</code></pre></div>
+
+<h3 id="get-apiv10workerltworkeridgtconfig">GET api/v1.0/worker/&lt;workerId&gt;/config</h3>
+<p>Query worker config</p>
+
+<p>Example:</p>
+
+<div class="highlight"><pre><code class="language-bash">curl http://127.0.0.1:8090/api/v1.0/worker/0/config</code></pre></div>
+
+<p>Sample Response:</p>
+
+<div class="highlight"><pre><code>{
+  "extensions": [
+    "akka.contrib.datareplication.DataReplication$"
+  ]
+  "akka": {
+    "loglevel": "INFO"
+    "log-dead-letters": "off"
+    "log-dead-letters-during-shutdown": "off"
+    "actor": {
+      ## Master forms a akka cluster
+      "provider": "akka.cluster.ClusterActorRefProvider"
+    }
+    "cluster": {
+      "roles": ["master"]
+      "auto-down-unreachable-after": "15s"
+    }
+    "remote": {
+      "log-remote-lifecycle-events": "off"
+    }
+  }
+}
+</code></pre></div>
+
+<h3 id="get-apiv10workerltworkeridgtmetricsltquerypathgtreadlatestlttruefalsegt">GET api/v1.0/worker/&lt;workerId&gt;/metrics/&lt;query_path&gt;?readLatest=&lt;true|false&gt;</h3>
+<p>Get the worker node metrics.</p>
+
+<p>Example:</p>
+
+<div class="highlight"><pre><code class="language-bash">curl http://127.0.0.1:8090/api/v1.0/worker/0/metrics/worker?readLatest<span class="o">=</span><span class="nb">true</span></code></pre></div>
+
+<p>Sample Response:</p>
+
+<div class="highlight"><pre><code>{
+    "path"
+:
+    "worker", "metrics"
+:
+    [{
+        "time": "1450759137860",
+        "value": {
+            "$type": "io.gearpump.metrics.Metrics.Gauge",
+            "name": "worker1:memory.total.used",
+            "value": "152931440"
+        }
+    }, {
+        "time": "1450759137860",
+        "value": {"$type": "io.gearpump.metrics.Metrics.Gauge", "name": "worker1:thread.daemon.count", "value": "18"}
+    }, {
+        "time": "1450759137860",
+        "value": {
+            "$type": "io.gearpump.metrics.Metrics.Gauge",
+            "name": "worker0:memory.heap.used",
+            "value": "123139640"
+        }
+    }, {
+        "time": "1450759137860",
+        "value": {
+            "$type": "io.gearpump.metrics.Metrics.Gauge",
+            "name": "worker0:memory.total.max",
+            "value": "997457920"
+        }
+    }, {
+        "time": "1450759137860",
+        "value": {
+            "$type": "io.gearpump.metrics.Metrics.Gauge",
+            "name": "worker0:memory.heap.committed",
+            "value": "179830784"
+        }
+    }, {
+        "time": "1450759137860",
+        "value": {"$type": "io.gearpump.metrics.Metrics.Gauge", "name": "worker0:thread.count", "value": "28"}
+    }, {
+        "time": "1450759137860",
+        "value": {"$type": "io.gearpump.metrics.Metrics.Gauge", "name": "worker0:memory.heap.max", "value": "880017408"}
+    }, {
+        "time": "1450759137860",
+        "value": {"$type": "io.gearpump.metrics.Metrics.Gauge", "name": "worker1:memory.heap.max", "value": "880017408"}
+    }, {
+        "time": "1450759137860",
+        "value": {
+            "$type": "io.gearpump.metrics.Metrics.Gauge",
+            "name": "worker0:memory.total.committed",
+            "value": "210239488"
+        }
+    }, {
+        "time": "1450759137860",
+        "value": {
+            "$type": "io.gearpump.metrics.Metrics.Gauge",
+            "name": "worker0:memory.total.used",
+            "value": "152931440"
+        }
+    }, {
+        "time": "1450759137860",
+        "value": {"$type": "io.gearpump.metrics.Metrics.Gauge", "name": "worker1:thread.count", "value": "28"}
+    }, {
+        "time": "1450759137860",
+        "value": {
+            "$type": "io.gearpump.metrics.Metrics.Gauge",
+            "name": "worker1:memory.total.max",
+            "value": "997457920"
+        }
+    }, {
+        "time": "1450759137860",
+        "value": {
+            "$type": "io.gearpump.metrics.Metrics.Gauge",
+            "name": "worker1:memory.heap.committed",
+            "value": "179830784"
+        }
+    }, {
+        "time": "1450759137860",
+        "value": {
+            "$type": "io.gearpump.metrics.Metrics.Gauge",
+            "name": "worker1:memory.total.committed",
+            "value": "210239488"
+        }
+    }, {
+        "time": "1450759137860",
+        "value": {"$type": "io.gearpump.metrics.Metrics.Gauge", "name": "worker0:thread.daemon.count", "value": "18"}
+    }, {
+        "time": "1450759137860",
+        "value": {
+            "$type": "io.gearpump.metrics.Metrics.Gauge",
+            "name": "worker1:memory.heap.used",
+            "value": "123139640"
+        }
+    }]
+}
+</code></pre></div>
+
+<h2 id="application-service">Application service</h2>
+
+<h3 id="get-apiv10appmasterltappidgtdetaillttruefalsegt">GET api/v1.0/appmaster/&lt;appId&gt;?detail=&lt;true|false&gt;</h3>
+<p>Query information of an specific application of Id appId</p>
+
+<p>Example:</p>
+
+<div class="highlight"><pre><code class="language-bash">curl http://127.0.0.1:8090/api/v1.0/appmaster/1?detail<span class="o">=</span><span class="nb">true</span></code></pre></div>
+
+<p>Sample Response:</p>
+
+<div class="highlight"><pre><code>{
+  "appId": 1,
+  "appName": "wordCount",
+  "processors": [
+    [
+      0,
+      {
+        "id": 0,
+        "taskClass": "io.gearpump.streaming.examples.wordcount.Split",
+        "parallelism": 1,
+        "description": "",
+        "taskConf": {
+          "_config": {}
+        },
+        "life": {
+          "birth": "0",
+          "death": "9223372036854775807"
+        },
+        "executors": [
+          1
+        ],
+        "taskCount": [
+          [
+            1,
+            {
+              "count": 1
+            }
+          ]
+        ]
+      }
+    ],
+    [
+      1,
+      {
+        "id": 1,
+        "taskClass": "io.gearpump.streaming.examples.wordcount.Sum",
+        "parallelism": 1,
+        "description": "",
+        "taskConf": {
+          "_config": {}
+        },
+        "life": {
+          "birth": "0",
+          "death": "9223372036854775807"
+        },
+        "executors": [
+          0
+        ],
+        "taskCount": [
+          [
+            0,
+            {
+              "count": 1
+            }
+          ]
+        ]
+      }
+    ]
+  ],
+  "processorLevels": [
+    [
+      0,
+      0
+    ],
+    [
+      1,
+      1
+    ]
+  ],
+  "dag": {
+    "vertexList": [
+      0,
+      1
+    ],
+    "edgeList": [
+      [
+        0,
+        "io.gearpump.partitioner.HashPartitioner",
+        1
+      ]
+    ]
+  },
+  "actorPath": "akka.tcp://app1-executor-1@127.0.0.1:52212/user/daemon/appdaemon1/$c/appmaster",
+  "clock": "1450759382430",
+  "executors": [
+    {
+      "executorId": 0,
+      "executor": "akka.tcp://app1system0@127.0.0.1:52240/remote/akka.tcp/app1-executor-1@127.0.0.1:52212/user/daemon/appdaemon1/$c/appmaster/executors/0#-1554950276",
+      "workerId": 1,
+      "status": "active"
+    },
+    {
+      "executorId": 1,
+      "executor": "akka.tcp://app1system1@127.0.0.1:52241/remote/akka.tcp/app1-executor-1@127.0.0.1:52212/user/daemon/appdaemon1/$c/appmaster/executors/1#928082134",
+      "workerId": 0,
+      "status": "active"
+    },
+    {
+      "executorId": -1,
+      "executor": "akka://app1-executor-1/user/daemon/appdaemon1/$c/appmaster",
+      "workerId": 1,
+      "status": "active"
+    }
+  ],
+  "startTime": "1450758117306",
+  "uptime": "1268472",
+  "user": "lisa",
+  "homeDirectory": "/usr/lisa/gearpump/",
+  "logFile": "logs/",
+  "historyMetricsConfig": {
+    "retainHistoryDataHours": 72,
+    "retainHistoryDataIntervalMs": 3600000,
+    "retainRecentDataSeconds": 300,
+    "retainRecentDataIntervalMs": 15000
+  }
+}
+</code></pre></div>
+
+<h3 id="delete-apiv10appmasterltappidgt">DELETE api/v1.0/appmaster/&lt;appId&gt;</h3>
+<p>shutdown application appId</p>
+
+<h3 id="get-apiv10appmasterltappidgtstallingtasks">GET api/v1.0/appmaster/&lt;appId&gt;/stallingtasks</h3>
+<p>Query list of unhealthy tasks of an specific application of Id appId</p>
+
+<p>Example:</p>
+
+<div class="highlight"><pre><code class="language-bash">curl http://127.0.0.1:8090/api/v1.0/appmaster/2/stallingtasks</code></pre></div>
+
+<p>Sample Response:</p>
+
+<div class="highlight"><pre><code>{
+  "tasks": [
+    {
+      "processorId": 0,
+      "index": 0
+    }
+  ]
+}
+</code></pre></div>
+
+<h3 id="get-apiv10appmasterltappidgtconfig">GET api/v1.0/appmaster/&lt;appId&gt;/config</h3>
+<p>Query the configuration of specific application appId</p>
+
+<p>Example:</p>
+
+<div class="highlight"><pre><code class="language-bash">curl http://127.0.0.1:8090/api/v1.0/appmaster/1/config</code></pre></div>
+
+<p>Sample Response:</p>
+
+<div class="highlight"><pre><code>{
+    "gearpump" : {
+        "appmaster" : {
+            "extraClasspath" : "",
+            "vmargs" : "-server -Xms512M -Xmx1024M -Xss1M -XX:+HeapDumpOnOutOfMemoryError -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=80 -XX:+UseParNewGC -XX:NewRatio=3"
+        },
+        "cluster" : {
+            "masters" : [
+                "127.0.0.1:3000"
+            ]
+        },
+        "executor" : {
+            "extraClasspath" : "",
+            "vmargs" : "-server -Xms512M -Xmx1024M -Xss1M -XX:+HeapDumpOnOutOfMemoryError -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=80 -XX:+UseParNewGC -XX:NewRatio=3"
+        },
+        "jarstore" : {
+            "rootpath" : "jarstore/"
+        },
+        "log" : {
+            "application" : {
+                "dir" : "logs"
+            },
+            "daemon" : {
+                "dir" : "logs"
+            }
+        },
+        "metrics" : {
+            "enabled" : true,
+            "graphite" : {
+                "host" : "127.0.0.1",
+                "port" : 2003
+            },
+            "logfile" : {},
+            "report-interval-ms" : 15000,
+            "reporter" : "akka",
+            "retainHistoryData" : {
+                "hours" : 72,
+                "intervalMs" : 3600000
+            },
+            "retainRecentData" : {
+                "intervalMs" : 15000,
+                "seconds" : 300
+            },
+            "sample-rate" : 10
+        },
+        "netty" : {
+            "base-sleep-ms" : 100,
+            "buffer-size" : 5242880,
+            "flush-check-interval" : 10,
+            "max-retries" : 30,
+            "max-sleep-ms" : 1000,
+            "message-batch-size" : 262144
+        },
+        "netty-dispatcher" : "akka.actor.default-dispatcher",
+        "scheduling" : {
+            "scheduler-class" : "io.gearpump.cluster.scheduler.PriorityScheduler"
+        },
+        "serializers" : {
+            "[B" : "",
+            "[C" : "",
+            "[D" : "",
+            "[F" : "",
+            "[I" : "",
+            "[J" : "",
+            "[Ljava.lang.String;" : "",
+            "[S" : "",
+            "[Z" : "",
+            "io.gearpump.Message" : "io.gearpump.streaming.MessageSerializer",
+            "io.gearpump.streaming.task.Ack" : "io.gearpump.streaming.AckSerializer",
+            "io.gearpump.streaming.task.AckRequest" : "io.gearpump.streaming.AckRequestSerializer",
+            "io.gearpump.streaming.task.LatencyProbe" : "io.gearpump.streaming.LatencyProbeSerializer",
+            "io.gearpump.streaming.task.TaskId" : "io.gearpump.streaming.TaskIdSerializer",
+            "scala.Tuple1" : "",
+            "scala.Tuple2" : "",
+            "scala.Tuple3" : "",
+            "scala.Tuple4" : "",
+            "scala.Tuple5" : "",
+            "scala.Tuple6" : "",
+            "scala.collection.immutable.$colon$colon" : "",
+            "scala.collection.immutable.List" : ""
+        },
+        "services" : {
+            # gear.conf: 112
+            "host" : "127.0.0.1",
+            # gear.conf: 113
+            "http" : 8090,
+            # gear.conf: 114
+            "ws" : 8091
+        },
+        "task-dispatcher" : "akka.actor.pined-dispatcher",
+        "worker" : {
+            # reference.conf: 100
+            # # How many slots each worker contains
+            "slots" : 100
+        }
+    }
+}
+
+</code></pre></div>
+
+<h3 id="get-apiv10appmasterltappidgtmetricsltquerypathgtreadlatestlttruefalsegtaggregatorltaggregatorclassgt">GET api/v1.0/appmaster/&lt;appId&gt;/metrics/&lt;query_path&gt;?readLatest=&lt;true|false&gt;&amp;aggregator=&lt;aggregator_class&gt;</h3>
+<p>Query metrics information of a specific application appId
+Filter metrics with path metrics path</p>
+
+<p>aggregator points to a aggregator class, which will aggregate on the current metrics, and return a smaller set.</p>
+
+<p>Example:</p>
+
+<div class="highlight"><pre><code class="language-bash">curl http://127.0.0.1:8090/api/v1.0/appmaster/1/metrics/app1?readLatest<span class="o">=</span><span class="nb">true</span>&amp;aggregator<span class="o">=</span>io.gearpump.streaming.metrics.ProcessorAggregator</code></pre></div>
+
+<p>Sample Response:</p>
+
+<div class="highlight"><pre><code>{
+    "path"
+:
+    "worker", "metrics"
+:
+    [{
+        "time": "1450759137860",
+        "value": {
+            "$type": "io.gearpump.metrics.Metrics.Gauge",
+            "name": "worker1:memory.total.used",
+            "value": "152931440"
+        }
+    }, {
+        "time": "1450759137860",
+        "value": {"$type": "io.gearpump.metrics.Metrics.Gauge", "name": "worker1:thread.daemon.count", "value": "18"}
+    }, {
+        "time": "1450759137860",
+        "value": {
+            "$type": "io.gearpump.metrics.Metrics.Gauge",
+            "name": "worker0:memory.heap.used",
+            "value": "123139640"
+        }
+    }, {
+        "time": "1450759137860",
+        "value": {
+            "$type": "io.gearpump.metrics.Metrics.Gauge",
+            "name": "worker0:memory.total.max",
+            "value": "997457920"
+        }
+    }, {
+        "time": "1450759137860",
+        "value": {
+            "$type": "io.gearpump.metrics.Metrics.Gauge",
+            "name": "worker0:memory.heap.committed",
+            "value": "179830784"
+        }
+    }, {
+        "time": "1450759137860",
+        "value": {"$type": "io.gearpump.metrics.Metrics.Gauge", "name": "worker0:thread.count", "value": "28"}
+    }, {
+        "time": "1450759137860",
+        "value": {"$type": "io.gearpump.metrics.Metrics.Gauge", "name": "worker0:memory.heap.max", "value": "880017408"}
+    }, {
+        "time": "1450759137860",
+        "value": {"$type": "io.gearpump.metrics.Metrics.Gauge", "name": "worker1:memory.heap.max", "value": "880017408"}
+    }, {
+        "time": "1450759137860",
+        "value": {
+            "$type": "io.gearpump.metrics.Metrics.Gauge",
+            "name": "worker0:memory.total.committed",
+            "value": "210239488"
+        }
+    }, {
+        "time": "1450759137860",
+        "value": {
+            "$type": "io.gearpump.metrics.Metrics.Gauge",
+            "name": "worker0:memory.total.used",
+            "value": "152931440"
+        }
+    }, {
+        "time": "1450759137860",
+        "value": {"$type": "io.gearpump.metrics.Metrics.Gauge", "name": "worker1:thread.count", "value": "28"}
+    }, {
+        "time": "1450759137860",
+        "value": {
+            "$type": "io.gearpump.metrics.Metrics.Gauge",
+            "name": "worker1:memory.total.max",
+            "value": "997457920"
+        }
+    }, {
+        "time": "1450759137860",
+        "value": {
+            "$type": "io.gearpump.metrics.Metrics.Gauge",
+            "name": "worker1:memory.heap.committed",
+            "value": "179830784"
+        }
+    }, {
+        "time": "1450759137860",
+        "value": {
+            "$type": "io.gearpump.metrics.Metrics.Gauge",
+            "name": "worker1:memory.total.committed",
+            "value": "210239488"
+        }
+    }, {
+        "time": "1450759137860",
+        "value": {"$type": "io.gearpump.metrics.Metrics.Gauge", "name": "worker0:thread.daemon.count", "value": "18"}
+    }, {
+        "time": "1450759137860",
+        "value": {
+            "$type": "io.gearpump.metrics.Metrics.Gauge",
+            "name": "worker1:memory.heap.used",
+            "value": "123139640"
+        }
+    }]
+}
+</code></pre></div>
+
+<h3 id="get-apiv10appmasterltappidgterrors">GET api/v1.0/appmaster/&lt;appId&gt;/errors</h3>
+<p>Get task error messages</p>
+
+<p>Example:</p>
+
+<div class="highlight"><pre><code class="language-bash">curl http://127.0.0.1:8090/api/v1.0/appmaster/1/errors</code></pre></div>
+
+<p>Sample Response:</p>
+
+<div class="highlight"><pre><code>{"time":"0","error":null}
+</code></pre></div>
+
+<h3 id="post-apiv10appmasterltappidgtrestart">POST api/v1.0/appmaster/&lt;appId&gt;/restart</h3>
+<p>Restart the application</p>
+
+<h2 id="executor-service">Executor Service</h2>
+
+<h3 id="get-apiv10appmasterltappidgtexecutorltexecutoridgtconfig">GET api/v1.0/appmaster/&lt;appId&gt;/executor/&lt;executorid&gt;/config</h3>
+<p>Get executor config</p>
+
+<p>Example:</p>
+
+<div class="highlight"><pre><code class="language-bash">curl http://127.0.0.1:8090/api/v1.0/appmaster/1/executor/1/config</code></pre></div>
+
+<p>Sample Response:</p>
+
+<div class="highlight"><pre><code>{
+  "extensions": [
+    "akka.contrib.datareplication.DataReplication$"
+  ]
+  "akka": {
+    "loglevel": "INFO"
+    "log-dead-letters": "off"
+    "log-dead-letters-during-shutdown": "off"
+    "actor": {
+      ## Master forms a akka cluster
+      "provider": "akka.cluster.ClusterActorRefProvider"
+    }
+    "cluster": {
+      "roles": ["master"]
+      "auto-down-unreachable-after": "15s"
+    }
+    "remote": {
+      "log-remote-lifecycle-events": "off"
+    }
+  }
+}
+</code></pre></div>
+
+<h3 id="get-apiv10appmasterltappidgtexecutorltexecutoridgt">GET api/v1.0/appmaster/&lt;appId&gt;/executor/&lt;executorid&gt;</h3>
+<p>Get executor information.</p>
+
+<p>Example:</p>
+
+<div class="highlight"><pre><code class="language-bash">curl http://127.0.0.1:8090/api/v1.0/appmaster/1/executor/1</code></pre></div>
+
+<p>Sample Response:</p>
+
+<div class="highlight"><pre><code>{
+  "id": 1,
+  "workerId": 0,
+  "actorPath": "akka.tcp://app1system1@127.0.0.1:52241/remote/akka.tcp/app1-executor-1@127.0.0.1:52212/user/daemon/appdaemon1/$c/appmaster/executors/1",
+  "logFile": "logs/",
+  "status": "active",
+  "taskCount": 1,
+  "tasks": [
+    [
+      0,
+      [
+        {
+          "processorId": 0,
+          "index": 0
+        }
+      ]
+    ]
+  ],
+  "jvmName": "21304@lisa"
+}
+</code></pre></div>
+
+
+  </div> <!-- /container -->
+
+  <script src="js/vendor/jquery-2.1.4.min.js"></script>
+  <script src="js/vendor/bootstrap-3.3.5.min.js"></script>
+  <script src="js/vendor/anchor-1.1.1.min.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- MathJax Section -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      TeX: { equationNumbers: { autoNumber: "AMS" } }
+    });
+  </script>
+  <script>
+    // Note that we load MathJax this way to work with local file (file://), HTTP and HTTPS.
+    // We could use "//cdn.mathjax...", but that won't support "file://".
+    (function(d, script) {
+      script = d.createElement('script');
+      script.type = 'text/javascript';
+      script.async = true;
+      script.onload = function(){
+        MathJax.Hub.Config({
+          tex2jax: {
+            inlineMath: [ ["$", "$"], ["\\\\(","\\\\)"] ],
+            displayMath: [ ["$$","$$"], ["\\[", "\\]"] ],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+          }
+        });
+      };
+      script.src = ('https:' == document.location.protocol ? 'https://' : 'http://') +
+        'cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+      d.getElementsByTagName('head')[0].appendChild(script);
+    }(document));
+  </script>
+</body>
+</html>
