@@ -47,14 +47,14 @@
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <span class="name">DagManager</span><span class="result"> extends <span class="extype" name="akka.actor.Actor">Actor</span></span>
+        <span class="name">DagManager</span><span class="result"> extends <span class="extype" name="akka.actor.Actor">Actor</span> with <span class="extype" name="akka.actor.Stash">Stash</span></span>
       </span>
       </h4>
       
           <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Will handle dag modification and other stuff related with DAG
 </p></div><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><span class="extype" name="akka.actor.Actor">Actor</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+          <div class="superTypes hiddenContent"><span class="extype" name="akka.actor.Stash">Stash</span>, <span class="extype" name="akka.dispatch.RequiresMessageQueue">RequiresMessageQueue</span>[<span class="extype" name="akka.dispatch.DequeBasedMessageQueueSemantics">DequeBasedMessageQueueSemantics</span>], <span class="extype" name="akka.actor.UnrestrictedStash">UnrestrictedStash</span>, <span class="extype" name="akka.actor.StashSupport">StashSupport</span>, <span class="extype" name="akka.actor.Actor">Actor</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
         
 
@@ -72,7 +72,7 @@
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="io.gearpump.streaming.appmaster.DagManager"><span>DagManager</span></li><li class="in" name="akka.actor.Actor"><span>Actor</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="io.gearpump.streaming.appmaster.DagManager"><span>DagManager</span></li><li class="in" name="akka.actor.Stash"><span>Stash</span></li><li class="in" name="akka.dispatch.RequiresMessageQueue"><span>RequiresMessageQueue</span></li><li class="in" name="akka.actor.UnrestrictedStash"><span>UnrestrictedStash</span></li><li class="in" name="akka.actor.StashSupport"><span>StashSupport</span></li><li class="in" name="akka.actor.Actor"><span>Actor</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                 </ol>
               </div><div id="ancestors">
             <span class="filtertype"></span>
@@ -93,7 +93,7 @@
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
               <ol><li name="io.gearpump.streaming.appmaster.DagManager#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="&lt;init&gt;(appId:Int,userConfig:io.gearpump.cluster.UserConfig):io.gearpump.streaming.appmaster.DagManager"></a>
+      <a id="&lt;init&gt;(appId:Int,userConfig:io.gearpump.cluster.UserConfig,store:io.gearpump.streaming.storage.AppDataStore,dag:Option[io.gearpump.streaming.DAG]):io.gearpump.streaming.appmaster.DagManager"></a>
       <a id="&lt;init&gt;:DagManager"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -101,27 +101,10 @@
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">DagManager</span><span class="params">(<span name="appId">appId: <span class="extype" name="scala.Int">Int</span></span>, <span name="userConfig">userConfig: <a href="../../cluster/UserConfig.html" class="extype" name="io.gearpump.cluster.UserConfig">UserConfig</a></span>)</span>
+        <span class="name">DagManager</span><span class="params">(<span name="appId">appId: <span class="extype" name="scala.Int">Int</span></span>, <span name="userConfig">userConfig: <a href="../../cluster/UserConfig.html" class="extype" name="io.gearpump.cluster.UserConfig">UserConfig</a></span>, <span name="store">store: <a href="../storage/AppDataStore.html" class="extype" name="io.gearpump.streaming.storage.AppDataStore">AppDataStore</a></span>, <span name="dag">dag: <span class="extype" name="scala.Option">Option</span>[<a href="../DAG.html" class="extype" name="io.gearpump.streaming.DAG">DAG</a>]</span>)</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#io.gearpump.streaming.appmaster.DagManager@&lt;init&gt;(appId:Int,userConfig:io.gearpump.cluster.UserConfig):io.gearpump.streaming.appmaster.DagManager" title="Permalink" target="_top">
-        <img src="../../../../lib/permalink.png" />
-      </a>
-    </span>
-      
-    </li><li name="io.gearpump.streaming.appmaster.DagManager#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="&lt;init&gt;(appId:Int,userConfig:io.gearpump.cluster.UserConfig,dag:Option[io.gearpump.streaming.DAG]):io.gearpump.streaming.appmaster.DagManager"></a>
-      <a id="&lt;init&gt;:DagManager"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">new</span>
-      </span>
-      <span class="symbol">
-        <span class="name">DagManager</span><span class="params">(<span name="appId">appId: <span class="extype" name="scala.Int">Int</span></span>, <span name="userConfig">userConfig: <a href="../../cluster/UserConfig.html" class="extype" name="io.gearpump.cluster.UserConfig">UserConfig</a></span>, <span name="dag">dag: <span class="extype" name="scala.Option">Option</span>[<a href="../DAG.html" class="extype" name="io.gearpump.streaming.DAG">DAG</a>]</span>)</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../index.html#io.gearpump.streaming.appmaster.DagManager@&lt;init&gt;(appId:Int,userConfig:io.gearpump.cluster.UserConfig,dag:Option[io.gearpump.streaming.DAG]):io.gearpump.streaming.appmaster.DagManager" title="Permalink" target="_top">
+      <a href="../../../../index.html#io.gearpump.streaming.appmaster.DagManager@&lt;init&gt;(appId:Int,userConfig:io.gearpump.cluster.UserConfig,store:io.gearpump.streaming.storage.AppDataStore,dag:Option[io.gearpump.streaming.DAG]):io.gearpump.streaming.appmaster.DagManager" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
@@ -348,19 +331,19 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Actor</dd></dl></div>
-    </li><li name="io.gearpump.streaming.appmaster.DagManager#dags" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="dags:List[io.gearpump.streaming.DAG]"></a>
-      <a id="dags:List[DAG]"></a>
+    </li><li name="io.gearpump.streaming.appmaster.DagManager#dagService" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="dagService:DagManager.this.Receive"></a>
+      <a id="dagService:Receive"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">var</span>
+        <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">dags</span><span class="result">: <span class="extype" name="scala.collection.immutable.List">List</span>[<a href="../DAG.html" class="extype" name="io.gearpump.streaming.DAG">DAG</a>]</span>
+        <span class="name">dagService</span><span class="result">: <a href="#Receive=akka.actor.Actor.Receive" class="extmbr" name="io.gearpump.streaming.appmaster.DagManager.Receive">Receive</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#io.gearpump.streaming.appmaster.DagManager@dags:List[io.gearpump.streaming.DAG]" title="Permalink" target="_top">
+      <a href="../../../../index.html#io.gearpump.streaming.appmaster.DagManager@dagService:DagManager.this.Receive" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
@@ -547,7 +530,7 @@
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="akka.actor.Actor#postStop" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+    </li><li name="akka.actor.UnrestrictedStash#postStop" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="postStop():Unit"></a>
       <a id="postStop():Unit"></a>
       <h4 class="signature">
@@ -563,14 +546,8 @@
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Actor</dd><dt>Annotations</dt><dd>
-                <span class="name">@throws</span><span class="args">(<span>
-      
-      <span class="symbol">classOf[java.lang.Exception]</span>
-    </span>)</span>
-              
-        </dd></dl></div>
-    </li><li name="akka.actor.Actor#preRestart" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>UnrestrictedStash → Actor</dd></dl></div>
+    </li><li name="akka.actor.UnrestrictedStash#preRestart" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="preRestart(reason:Throwable,message:Option[Any]):Unit"></a>
       <a id="preRestart(Throwable,Option[Any]):Unit"></a>
       <h4 class="signature">
@@ -586,14 +563,8 @@
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Actor</dd><dt>Annotations</dt><dd>
-                <span class="name">@throws</span><span class="args">(<span>
-      
-      <span class="symbol">classOf[java.lang.Exception]</span>
-    </span>)</span>
-              
-        </dd></dl></div>
-    </li><li name="akka.actor.Actor#preStart" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>UnrestrictedStash → Actor</dd></dl></div>
+    </li><li name="io.gearpump.streaming.appmaster.DagManager#preStart" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="preStart():Unit"></a>
       <a id="preStart():Unit"></a>
       <h4 class="signature">
@@ -609,13 +580,7 @@
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Actor</dd><dt>Annotations</dt><dd>
-                <span class="name">@throws</span><span class="args">(<span>
-      
-      <span class="symbol">classOf[java.lang.Exception]</span>
-    </span>)</span>
-              
-        </dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="io.gearpump.streaming.appmaster.DagManager">DagManager</a> → Actor</dd></dl></div>
     </li><li name="io.gearpump.streaming.appmaster.DagManager#receive" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="receive:DagManager.this.Receive"></a>
       <a id="receive:Receive"></a>
@@ -667,6 +632,23 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Actor</dd></dl></div>
+    </li><li name="akka.actor.StashSupport#stash" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="stash():Unit"></a>
+      <a id="stash():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">stash</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.gearpump.streaming.appmaster.DagManager@stash():Unit" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>StashSupport</dd></dl></div>
     </li><li name="akka.actor.Actor#supervisorStrategy" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="supervisorStrategy:akka.actor.SupervisorStrategy"></a>
       <a id="supervisorStrategy:SupervisorStrategy"></a>
@@ -752,6 +734,23 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Actor</dd></dl></div>
+    </li><li name="akka.actor.StashSupport#unstashAll" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="unstashAll():Unit"></a>
+      <a id="unstashAll():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">unstashAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.gearpump.streaming.appmaster.DagManager@unstashAll():Unit" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>StashSupport</dd></dl></div>
     </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait():Unit"></a>
       <a id="wait():Unit"></a>
@@ -821,6 +820,23 @@
     </span>)</span>
               
         </dd></dl></div>
+    </li><li name="io.gearpump.streaming.appmaster.DagManager#waitForDagInitiate" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="waitForDagInitiate:DagManager.this.Receive"></a>
+      <a id="waitForDagInitiate:Receive"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">waitForDagInitiate</span><span class="result">: <a href="#Receive=akka.actor.Actor.Receive" class="extmbr" name="io.gearpump.streaming.appmaster.DagManager.Receive">Receive</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.gearpump.streaming.appmaster.DagManager@waitForDagInitiate:DagManager.this.Receive" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
     </li></ol>
             </div>
 
@@ -830,7 +846,15 @@
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="akka.actor.Actor">
+        <div class="parent" name="akka.actor.Stash">
+              <h3>Inherited from <span class="extype" name="akka.actor.Stash">Stash</span></h3>
+            </div><div class="parent" name="akka.dispatch.RequiresMessageQueue">
+              <h3>Inherited from <span class="extype" name="akka.dispatch.RequiresMessageQueue">RequiresMessageQueue</span>[<span class="extype" name="akka.dispatch.DequeBasedMessageQueueSemantics">DequeBasedMessageQueueSemantics</span>]</h3>
+            </div><div class="parent" name="akka.actor.UnrestrictedStash">
+              <h3>Inherited from <span class="extype" name="akka.actor.UnrestrictedStash">UnrestrictedStash</span></h3>
+            </div><div class="parent" name="akka.actor.StashSupport">
+              <h3>Inherited from <span class="extype" name="akka.actor.StashSupport">StashSupport</span></h3>
+            </div><div class="parent" name="akka.actor.Actor">
               <h3>Inherited from <span class="extype" name="akka.actor.Actor">Actor</span></h3>
             </div><div class="parent" name="scala.AnyRef">
               <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>

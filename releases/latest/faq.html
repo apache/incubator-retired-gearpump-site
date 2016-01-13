@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"/>
-  <title>faq - Gearpump 0.7.3 Documentation</title>
+  <title>faq - Gearpump 0.7.4 Documentation</title>
   
    <meta name="description" content="Gearpump Frequently Asked Questions">
   
@@ -33,11 +33,17 @@
   <div class="navbar navbar-inverse navbar-fixed-top" id="topbar">
     <div class="container">
       <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
         <a class="navbar-brand" href="http://gearpump.io">Gearpump
-          <span class="label label-primary" style="font-size: .6em">0.7.3</span>
+          <span class="label label-primary" style="font-size: .6em">0.7.4</span>
         </a>
       </div>
-      <div class="collapse navbar-collapse">
+      <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
           <li><a href="index.html">Overview</a></li>
 
@@ -64,11 +70,12 @@
               <li><a href="deployment-yarn.html">YARN Mode</a></li>
               <li><a href="deployment-docker.html">Docker Mode</a><li>
               <li class="divider"></li>
+              <li><a href="deployment-ui-authentication.html">UI Authentication</a></li>
               <li><a href="deployment-ha.html">High Availability</a></li>
               <li><a href="deployment-msg-delivery.html">Reliable Message Delivery</a></li>
               <li><a href="deployment-configuration.html">Configuration</a></li>
               <li class="divider"></li>
-              <li><a href="deployment-security.html">Security</a></li>
+              <li><a href="deployment-security.html">YARN Security Guide</a></li>
             </ul>
           </li>
 
@@ -144,6 +151,10 @@
 <p>Please check whether you are doing blocking jobs (e.g. sleep, IO) in your task. By default, all tasks in an executor share a thread pool. The blocking tasks could use up all the threads while other tasks don&#8217;t get a chance to run. In that case, you can set <code>gearpump.task-dispatcher</code> to <code>"gearpump.single-thread-dispatcher"</code> in <code>gear.conf</code> such that a unique thread is dedicated to each task.</p>
 
 <p>Generally, we recommend use the default <code>share-thread-pool-dispatcher</code> which has better performance and only turn to the <code>single-thread-dispatcher</code> when you have to.</p>
+
+<h5 id="why-cant-i-open-dashboard-even-if-the-services-process-has-been-launched-successfully-">Why can&#8217;t I open Dashboard even if the Services process has been launched successfully ?</h5>
+
+<p>By default, our Services process binds to a local <strong>IPv6 port</strong>. It&#8217;s possible that another process on your system has already taken up the same <strong>IPv4 port</strong>. You may check by <code>lsof -i -P | grep -i "Listen"</code> if your system is Unix/Linux.</p>
 
 <h5 id="what-is-the-open-source-plan-for-this-project">What is the open source plan for this project?</h5>
 <p>The ultimate goal is to make it an Apache project.</p>

@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"/>
-  <title>Gearpump Security Guide - Gearpump 0.7.3 Documentation</title>
+  <title>Gearpump Security Guide - Gearpump 0.7.4 Documentation</title>
   
    <meta name="description" content="Gearpump Security Guide">
   
@@ -33,11 +33,17 @@
   <div class="navbar navbar-inverse navbar-fixed-top" id="topbar">
     <div class="container">
       <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
         <a class="navbar-brand" href="http://gearpump.io">Gearpump
-          <span class="label label-primary" style="font-size: .6em">0.7.3</span>
+          <span class="label label-primary" style="font-size: .6em">0.7.4</span>
         </a>
       </div>
-      <div class="collapse navbar-collapse">
+      <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
           <li><a href="index.html">Overview</a></li>
 
@@ -64,11 +70,12 @@
               <li><a href="deployment-yarn.html">YARN Mode</a></li>
               <li><a href="deployment-docker.html">Docker Mode</a><li>
               <li class="divider"></li>
+              <li><a href="deployment-ui-authentication.html">UI Authentication</a></li>
               <li><a href="deployment-ha.html">High Availability</a></li>
               <li><a href="deployment-msg-delivery.html">Reliable Message Delivery</a></li>
               <li><a href="deployment-configuration.html">Configuration</a></li>
               <li class="divider"></li>
-              <li><a href="deployment-security.html">Security</a></li>
+              <li><a href="deployment-security.html">YARN Security Guide</a></li>
             </ul>
           </li>
 
@@ -133,7 +140,7 @@ Further security related feature is in progress.</p>
 
     <p>Remember that user <code>gear</code> must exist on every node of Yarn.</p>
   </li>
-  <li>Upload the <code>gearpump-2.11-0.7.3.zip</code> to remote HDFS Folder, suggest to put it under <code>/usr/lib/gearpump/gearpump-2.11-0.7.3.zip</code></li>
+  <li>Upload the <code>gearpump-2.11-0.7.4.zip</code> to remote HDFS Folder, suggest to put it under <code>/usr/lib/gearpump/gearpump-2.11-0.7.4.zip</code></li>
   <li>
     <p>Create HDFS folder /user/gear/, make sure all read-write rights are granted for user <code>gear</code></p>
 
@@ -152,7 +159,7 @@ Further security related feature is in progress.</p>
 
     <p>Here you can login with keytab or password. Please refer Kerberos&#8217;s document for details.</p>
 
-    <div class="highlight"><pre><code class="language-bash">yarnclient launch -package /usr/lib/gearpump/gearpump-2.11-0.7.3.zip</code></pre></div>
+    <div class="highlight"><pre><code class="language-bash">yarnclient launch -package /usr/lib/gearpump/gearpump-2.11-0.7.4.zip</code></pre></div>
   </li>
 </ol>
 
