@@ -1,0 +1,201 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>security - io.gearpump.security</title>
+          <meta name="description" content="security - io.gearpump.security" />
+          <meta name="keywords" content="security io.gearpump.security" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../lib/tools.tooltip.js"></script>
+      
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../index.html';
+            var hash = 'io.gearpump.security.package';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="value">
+      <div id="definition">
+        <img src="../../../lib/package_big.png" />
+        <p id="owner"><a href="../../package.html" class="extype" name="io">io</a>.<a href="../package.html" class="extype" name="io.gearpump">gearpump</a></p>
+        <h1>security</h1><span class="permalink">
+      <a href="../../../index.html#io.gearpump.security.package" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <span class="name">security</span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        
+        
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="io.gearpump.security.Authenticator" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="AuthenticatorextendsAnyRef"></a>
+      <a id="Authenticator:Authenticator"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="Authenticator.html"><span class="name">Authenticator</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#io.gearpump.security.package@AuthenticatorextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Authenticator for UI dashboard.</p><div class="fullcomment"><div class="comment cmt"><p>Authenticator for UI dashboard.</p><p>Sub Class must implement a constructor with signature like this:
+ this(config: Config)</p></div></div>
+    </li><li name="io.gearpump.security.ConfigFileBasedAuthenticator" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ConfigFileBasedAuthenticatorextendsAuthenticator"></a>
+      <a id="ConfigFileBasedAuthenticator:ConfigFileBasedAuthenticator"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="ConfigFileBasedAuthenticator.html"><span class="name">ConfigFileBasedAuthenticator</span></a><span class="result"> extends <a href="Authenticator.html" class="extype" name="io.gearpump.security.Authenticator">Authenticator</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#io.gearpump.security.package@ConfigFileBasedAuthenticatorextendsAuthenticator" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">UI dashboard authenticator based on configuration file.</p><div class="fullcomment"><div class="comment cmt"><p>UI dashboard authenticator based on configuration file.</p><p>It has three categories of users: admins, users, and guests.
+admins have unlimited permission, like shutdown a cluster, add/remove machines.
+users have limited permission to submit an application and etc..
+guests can not submit/kill applications, but can view the application status.</p><p>see conf/gear.conf section gearpump.security.config-file-based-authenticator to find information
+about how to configure this authenticator.</p><p>[Security consideration]
+It will keep one-way sha1 digest of password instead of password itself. The original password is NOT
+kept in any way, so generally it is safe.</p><p>digesting flow (from original password to digest):
+random salt byte array of length 8 -&gt; byte array of (salt + sha1(salt, password)) -&gt; base64Encode</p><p>verification user input password with stored digest:
+base64Decode -&gt; extract salt -&gt; do sha1(salt, password) -&gt; generate digest: salt + sha1 -&gt;
+compare the generated digest with the stored digest.</p></div></div>
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="io.gearpump.security.Authenticator" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Authenticator"></a>
+      <a id="Authenticator:Authenticator"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Authenticator$.html"><span class="name">Authenticator</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#io.gearpump.security.package@Authenticator" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="io.gearpump.security.ConfigFileBasedAuthenticator" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ConfigFileBasedAuthenticator"></a>
+      <a id="ConfigFileBasedAuthenticator:ConfigFileBasedAuthenticator"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ConfigFileBasedAuthenticator$.html"><span class="name">ConfigFileBasedAuthenticator</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#io.gearpump.security.package@ConfigFileBasedAuthenticator" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="io.gearpump.security.PasswordUtil" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="PasswordUtil"></a>
+      <a id="PasswordUtil:PasswordUtil"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="PasswordUtil$.html"><span class="name">PasswordUtil</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#io.gearpump.security.package@PasswordUtil" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Util to verify whether user input password is valid or not.</p><div class="fullcomment"><div class="comment cmt"><p>Util to verify whether user input password is valid or not.
+It use sha1 to do the digesting.
+</p></div></div>
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>
