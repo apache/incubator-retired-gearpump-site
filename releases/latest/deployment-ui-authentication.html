@@ -121,94 +121,101 @@
    <h2 id="how-to-enable-ui-authentication">How to enable UI authentication?</h2>
 
 <ol>
-  <li>Change config file gear.conf, find entry <code>gearpump.security.ui-authentication-enabled</code>, change the value to true
-<code>
-gearpump.security.ui-authentication-enabled = true
-</code>
-Restart the UI dashboard, then the UI authentication is enabled. It will prompt user name and password.</li>
+  <li>
+    <p>Change config file <code>gear.conf</code>, find entry <code>gearpump.security.ui-authentication-enabled</code>, and set it to true</p>
+
+    <div class="highlight"><pre><code>gearpump.security.ui-authentication-enabled = true
+</code></pre></div>
+
+    <p>Restart the UI dashboard, and then the UI authentication is enabled. It will prompt for user name and password.</p>
+  </li>
 </ol>
 
 <h2 id="how-to-add-or-remove-user">How to add or remove user?</h2>
 
-<p>For the default authentication plugin, it has three categories of users: admins, users, and guests.
-<code>
-admins: have unlimited permission, like shutdown a cluster, add/remove machines.
-users: have limited permission to submit an application and etc..
-guests: can not submit/kill applications, but can view the application status.
-</code>
-System administrator can add or remove user by updating config file conf/gear.conf.<br />
-Suppose we want to add user jerry as an administrator, here is the steps:</p>
+<p>For the default authentication plugin, it has three categories of users: admins, users, and guests.</p>
+
+<ul>
+  <li>admins: have unlimited permission, like shutdown a cluster, add/remove machines.</li>
+  <li>users: have limited permission to submit an application and etc..</li>
+  <li>guests: can not submit/kill applications, but can view the application status.</li>
+</ul>
+
+<p>System administrator can add or remove user by updating config file <code>conf/gear.conf</code>.</p>
+
+<p>Suppose we want to add user jerry as an administrator, here are the steps:</p>
 
 <ol>
   <li>
     <p>Pick a password, and generate the digest for this password. Suppose we use password <code>ilovegearpump</code>, 
-to generate the digest:
-<code>
-bin/gear io.gearpump.security.PasswordUtil -password  ilovegearpump
-</code></p>
+to generate the digest:</p>
 
-    <p>It will generate a digest value like this:
-<code>
-CgGxGOxlU8ggNdOXejCeLxy+isrCv0TrS37HwA==
-</code></p>
+    <div class="highlight"><pre><code>bin/gear io.gearpump.security.PasswordUtil -password  ilovegearpump
+</code></pre></div>
+
+    <p>It will generate a digest value like this:</p>
+
+    <div class="highlight"><pre><code>CgGxGOxlU8ggNdOXejCeLxy+isrCv0TrS37HwA==
+</code></pre></div>
   </li>
   <li>
-    <p>Change config file conf/gear.conf at path <code>gearpump.security.config-file-based-authenticator.admins</code>, 
-add user <code>jerry</code> in this list:
-```</p>
+    <p>Change config file <code>conf/gear.conf</code> at path <code>gearpump.security.config-file-based-authenticator.admins</code>, 
+add user <code>jerry</code> in this list:</p>
 
-    <p>admins = {
+    <div class="highlight"><pre><code>admins = {
    ## Default Admin. Username: admin, password: admin
    ## !!! Please replace this builtin account for production cluster for security reason. !!!
-   &#8220;admin&#8221; = &#8220;AeGxGOxlU8QENdOXejCeLxy+isrCv0TrS37HwA==&#8221;
-   &#8220;jerry&#8221; = &#8220;CgGxGOxlU8ggNdOXejCeLxy+isrCv0TrS37HwA==&#8221;
+   "admin" = "AeGxGOxlU8QENdOXejCeLxy+isrCv0TrS37HwA=="
+   "jerry" = "CgGxGOxlU8ggNdOXejCeLxy+isrCv0TrS37HwA=="
 }
-```</p>
+</code></pre></div>
   </li>
   <li>
-    <p>Restart the UI dashboard by <code>bin\services</code> to make the change effective.</p>
+    <p>Restart the UI dashboard by <code>bin/services</code> to make the change effective.</p>
   </li>
   <li>
-    <p>Group &#8220;admins&#8221; have very unlimited permission, you may want to restrict the permission. In that case 
+    <p>Group &#8220;admins&#8221; have unlimited permission, so you may want to restrict the permission. In that case 
 you can modify <code>gearpump.security.config-file-based-authenticator.users</code> or 
 <code>gearpump.security.config-file-based-authenticator.guests</code>.</p>
   </li>
   <li>
-    <p>See description at &#8220;conf/gear.conf&#8221; to find more information.</p>
+    <p>See description at <code>conf/gear.conf</code> to find more information.</p>
   </li>
 </ol>
 
 <h2 id="what-is-the-default-user-and-password">What is the default user and password?</h2>
 
-<p>Gearpump distribution is shipped with two default users:
-<code>
-1. username: admin, password: admin
-2. username: guest, password: guest
-</code>
-User admin:admin have unlimited permissions, while guest can only view the application status. Guest account cannot 
+<p>Gearpump distribution is shipped with two default users:</p>
+
+<ol>
+  <li>username: admin, password: admin</li>
+  <li>username: guest, password: guest</li>
+</ol>
+
+<p>User <code>admin:admin</code> has unlimited permissions, while guest can only view the application status. Guest account cannot 
 submit or kill the application by UI console.</p>
 
 <p>For security reason, you need to remove the default user &#8220;admin&#8221; and &#8220;guest&#8221; for production cluster.</p>
 
 <h2 id="is-this-secure">Is this secure?</h2>
 
-<p>First, we will NOT store any user password in any way, only the user himself knows the password. 
-We will store use one-way sha1 digest to verify the user input password. As it is a one-way hashing,
+<p>Firstly, we will NOT store any user password in any way so only the user himself knows the password. 
+We will use one-way sha1 digest to verify the user input password. As it is a one-way hashing,
 so generally it is safe.</p>
 
 <ol>
   <li>
-    <p>Digest flow(from original password to digest):
-<code>
-random salt byte array of length 8 -&gt; byte array of (salt + sha1(salt, password)) -&gt; base64Encode
-</code></p>
+    <p>Digest flow(from original password to digest):</p>
+
+    <div class="highlight"><pre><code>random salt byte array of length 8 -&gt; byte array of (salt + sha1(salt, password)) -&gt; base64Encode
+</code></pre></div>
   </li>
   <li>
-    <p>Verification user input password with stored digest:
-<code>
-base64Decode -&gt; extract salt -&gt; do sha1(salt, password) -&gt; generate digest: salt + sha1 -&gt;
+    <p>Verification user input password with stored digest:</p>
+
+    <div class="highlight"><pre><code>base64Decode -&gt; extract salt -&gt; do sha1(salt, password) -&gt; generate digest: salt + sha1 -&gt;
 compare the generated digest with the stored digest.
-</code></p>
+</code></pre></div>
   </li>
 </ol>
 
