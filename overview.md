@@ -4,7 +4,7 @@ displayTitle: Gearpump Overview
 title: Overview 
 description: Gearpump GEARPUMP_VERSION documentation homepage
 ---
-[![Release](https://img.shields.io/badge/Latest%20Release-v{{ site.GEARPUMP_VERSION }}-blue.svg)](http://www.gearpump.io/download.html)   [Demo site](http://52.53.210.64:8090/)
+[![Release](https://img.shields.io/badge/Latest%20Release-v{{ site.GEARPUMP_VERSION }}-blue.svg)](http://www.gearpump.io/download.html)   [Demo site](http://52.9.94.116:8090/)
 
 Gearpump is a real-time big data streaming engine.
 It is inspired by recent advances in the [Akka](http://akka.io/) framework and a desire to improve on existing streaming frameworks.
