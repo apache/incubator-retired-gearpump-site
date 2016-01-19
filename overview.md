@@ -33,7 +33,7 @@ Gearpump is a modern big data real-time streaming engine which has many unique f
 
 
 ### Gearpump Performance
-Per initial benchmarks we are able to process 11 million messages/second (100 bytes per message) with a 17ms latency on a 4-node cluster.
+Per initial benchmarks we are able to process 18 million messages/second (100 bytes per message) with a 8ms latency on a 4-node cluster.
 
 ![bashboard](img/dashboard.png)
 
