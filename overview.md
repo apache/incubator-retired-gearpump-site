@@ -38,6 +38,6 @@ Per initial benchmarks we are able to process 18 million messages/second (100 by
 ![bashboard](img/dashboard.png)
 
 ### Gearpump and Akka
-Gearump is a 100% Akka based platform. We model big data streaming within the Akka actor hierarchy.
+Gearpump is a 100% Akka based platform. We model big data streaming within the Akka actor hierarchy.
 ![arctor hierarchy](img/actor_hierarchy.png)
 Gearpump
