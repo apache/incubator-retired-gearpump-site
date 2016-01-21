@@ -111,3 +111,13 @@ code, code > * {
 img {
   max-width: 100%;
 }
+
+/** 
+ * Fork on GitHub Ribbon
+ */
+.ribbon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 0;
+}
