@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"/>
+  <title>Gearpump Resource Isolation for Different Streaming Applications - Gearpump 0.7.6 Documentation</title>
+  
+   <meta name="description" content="Gearpump Resource Isolation for Different Streaming Applications">
+  
+
+  
+
+  <link rel="stylesheet" href="css/bootstrap-3.3.5.min.css">
+  <style>
+    body {
+      padding-top: 60px;
+      padding-bottom: 40px;
+    }
+  </style>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/pygments-default.css">
+  <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+</head>
+<body>
+  <!--[if lt IE 7]>
+    <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+  <![endif]-->
+
+  <div class="navbar navbar-inverse navbar-fixed-top" id="topbar">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://gearpump.io">Gearpump
+          <span class="label label-primary" style="font-size: .6em">0.7.6</span>
+        </a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="index.html">Overview</a></li>
+
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Introduction<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="submit-your-1st-application.html">Submit Your 1st Application</a></li>
+              <li><a href="commandline.html">Client Command Line</a></li>
+              <li class="divider"></li>
+              <li><a href="basic-concepts.html">Basic Concepts</a></li>
+              <li><a href="features.html">Technical Highlights</a></li>
+              <li><a href="message-delivery.html">Reliable Message Delivery</a></li>
+              <li><a href="performance-report.html">Performance</a></li>
+              <li><a href="gearpump-internals.html">Gearpump Internals</a></li>
+            </ul>
+          </li>
+
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Deploying<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li class="dropdown-header">Deployment</li>
+              <li><a href="deployment-local.html">Local Mode</a><li>
+              <li><a href="deployment-standalone.html">Standalone Mode</a></li>
+              <li><a href="deployment-yarn.html">YARN Mode</a></li>
+              <li><a href="deployment-docker.html">Docker Mode</a><li>
+              <li class="divider"></li>
+              <li><a href="deployment-ui-authentication.html">UI Authentication</a></li>
+              <li><a href="deployment-ha.html">High Availability</a></li>
+              <li><a href="deployment-msg-delivery.html">Reliable Message Delivery</a></li>
+              <li><a href="deployment-configuration.html">Configuration</a></li>
+              <li><a href="deployment-resource-isolation.html">Resource Isolation</a></li>
+              <li class="divider"></li>
+              <li><a href="deployment-security.html">YARN Security Guide</a></li>
+            </ul>
+          </li>
+
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Programming Guide<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="dev-write-1st-app.html">Write Your 1st App</a></li>
+              <li><a href="dev-custom-serializer.html">Customized Message Passing</a></li>
+              <li class="divider"></li>
+              <li><a href="api/scala/index.html">Scala API</a></li>
+              <li><a href="api/java/index.html">Java API</a></li>
+              <li><a href="dev-rest-api.html">RESTful API</a></li>
+              <li class="divider"></li>
+              <li><a href="dev-connectors.html">Gearpump Connectors</a></li>
+              <li class="divider"></li>
+              <li><a href="dev-storm.html">Storm Compatibility</a></li>
+              <!--
+              <li><a href="dev-samoa.html">Samoa Compatibility</a></li>
+              <li class="divider"></li>
+              <li><a href="dev-iot.html">Gearpump with IoT</a></li>
+              -->
+            </ul>
+          </li>
+
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">More<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="how-to-contribute.html">How to Contribute</a></li>
+              <li><a href="coding-style.html">Coding Style</a></li>
+              <li class="divider"></li>
+              <li><a href="faq.html">FAQ</a><li>
+              <li><a href="about.html">About</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" id="content">
+   
+    <h1 class="title">Gearpump Resource Isolation for Different Streaming Applications</h1>
+   
+
+   <p>cgroups (abbreviated from control groups) is a Linux kernel feature to limit, account, and isolate resource usage (CPU, memory, disk I/O, etc.) of process groups.In Gearpump, we use cgroup to manage CPU resources.</p>
+
+<h2 id="start-cgroup-service">Start CGroup Service</h2>
+
+<p>Cgroups feature is only supported by Linux whose kernel version is larger than 2.6.18. Please also make sure the SELinux is disabled before start CGroup.</p>
+
+<p>The following steps are supposed to be executed by root user.</p>
+
+<ol>
+  <li>
+    <p>Check /etc/cgconfig.conf exist or not. If not exists, please &#8220;yum install libcgroup&#8221;.</p>
+  </li>
+  <li>
+    <p>Run following command to see whether the <strong>cpu</strong> subsystem is already mounted to the file system.</p>
+
+    <div class="highlight"><pre><code>lssubsys -m
+</code></pre></div>
+
+    <p>Each subsystem in CGroup will have a corresponding mount file path in local file system. For example, the following output shows that <strong>cpu</strong> subsystem is mounted to file path <code>/sys/fs/cgroup/cpu</code></p>
+
+    <div class="highlight"><pre><code>cpu /sys/fs/cgroup/cpu
+net_cls /sys/fs/cgroup/net_cls
+blkio /sys/fs/cgroup/blkio
+perf_event /sys/fs/cgroup/perf_event
+</code></pre></div>
+  </li>
+  <li>
+    <p>If you want to assign permission to user <strong>gear</strong> to launch Gearpump Worker and applications with resouce isolation enabled, you need to check gear&#8217;s uid and gid in /etc/passwd file, let&#8217;s take <strong>500</strong> for example.</p>
+  </li>
+  <li>
+    <p>Add following content to /etc/cgconfig.conf</p>
+
+    <div class="highlight"><pre><code>   # The mount point of cpu subsystem.
+   # If your system already mounted it, this segment should be eliminated.
+   mount {    
+     cpu = /cgroup/cpu;
+   }
+      
+   # Here the group name "gearpump" represents a node in CGroup's hierarchy tree.
+   # When the CGroup service is started, there will be a folder generated under the mount point of cpu subsystem,
+   # whose name is "gearpump".
+      
+   group gearpump {
+      perm {
+          task {
+              uid = 500;
+              gid = 500;
+           }
+          admin {
+              uid = 500;
+              gid = 500;
+          }
+      }
+      cpu {
+      }
+   }
+</code></pre></div>
+
+    <p>Please note that if the output of step 2 shows that <strong>cpu</strong> subsystem is already mounted, then the <code>mount</code> segment should not be included.</p>
+  </li>
+  <li>
+    <p>Then Start cgroup service</p>
+
+    <div class="highlight"><pre><code>sudo service cgconfig restart 
+</code></pre></div>
+  </li>
+  <li>
+    <p>There should be a folder <strong>gearpump</strong> generated under the mount point of cpu subsystem and its owner is <strong>gear:gear</strong>.</p>
+  </li>
+  <li>
+    <p>Repeat the above-mentioned steps on each machine where you want to lauch Gearpump.</p>
+  </li>
+</ol>
+
+<h2 id="enable-cgroups-in-gearpump">Enable Cgroups in Gearpump</h2>
+<ol>
+  <li>
+    <p>Login into the machine which has CGroup prepared with user <strong>gear</strong>.</p>
+
+    <div class="highlight"><pre><code>ssh gear@node
+</code></pre></div>
+  </li>
+  <li>
+    <p>Enter into Gearpump&#8217;s home folder, edit gear.conf under folder <code>${GEARPUMP_HOME}/conf/</code></p>
+
+    <div class="highlight"><pre><code>gearpump.worker.executor-process-launcher = "io.gearpump.cluster.worker.CGroupProcessLauncher"
+   
+gearpump.cgroup.root = "gearpump"
+</code></pre></div>
+
+    <p>Please note the gearpump.cgroup.root <strong>gearpump</strong> must be consistent with the group name in /etc/cgconfig.conf.</p>
+  </li>
+  <li>
+    <p>Repeat the above-mentioned steps on each machine where you want to lauch Gearpump</p>
+  </li>
+  <li>
+    <p>Start the Gearpump cluster, please refer to <a href="deployment-standalone.html">Deploy Gearpump in Standalone Mode</a></p>
+  </li>
+</ol>
+
+<h2 id="launch-application-from-commad-line">Launch Application From Commad Line</h2>
+<ol>
+  <li>
+    <p>Login into the machine which has Gearpump distribution.</p>
+  </li>
+  <li>
+    <p>Enter into Gearpump&#8217;s home folder, edit gear.conf under folder <code>${GEARPUMP_HOME}/conf/</code></p>
+
+    <div class="highlight"><pre><code>gearpump.cgroup.cpu-core-limit-per-executor = ${your_preferred_int_num}
+</code></pre></div>
+
+    <p>Here the configuration is the number of CPU cores per executor can use and -1 means no limitation</p>
+  </li>
+  <li>
+    <p>Submit application</p>
+
+    <div class="highlight"><pre><code>bin/gear app -jar examples/sol-${version}-assembly.jar -streamProducer 10 -streamProcessor 10 
+</code></pre></div>
+  </li>
+  <li>
+    <p>Then you can run command <code>top</code> to monitor the cpu usage.</p>
+  </li>
+</ol>
+
+<h2 id="launch-application-from-dashboard">Launch Application From Dashboard</h2>
+<p>If you want to submit the application from dashboard, by default the <code>gearpump.cgroup.cpu-core-limit-per-executor</code> is inherited from Worker&#8217;s configuration. You can provide your own conf file to override it.</p>
+
+<h2 id="limitations">Limitations</h2>
+<p>Windows and Mac OS X don&#8217;t support CGroup, so the resource isolation will not work even if you turn it on. There will not be any limitition for single executor&#8217;s cpu usage.</p>
+
+
+  </div> <!-- /container -->
+
+  <script src="js/vendor/jquery-2.1.4.min.js"></script>
+  <script src="js/vendor/bootstrap-3.3.5.min.js"></script>
+  <script src="js/vendor/anchor-1.1.1.min.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- MathJax Section -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      TeX: { equationNumbers: { autoNumber: "AMS" } }
+    });
+  </script>
+  <script>
+    // Note that we load MathJax this way to work with local file (file://), HTTP and HTTPS.
+    // We could use "//cdn.mathjax...", but that won't support "file://".
+    (function(d, script) {
+      script = d.createElement('script');
+      script.type = 'text/javascript';
+      script.async = true;
+      script.onload = function(){
+        MathJax.Hub.Config({
+          tex2jax: {
+            inlineMath: [ ["$", "$"], ["\\\\(","\\\\)"] ],
+            displayMath: [ ["$$","$$"], ["\\[", "\\]"] ],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+          }
+        });
+      };
+      script.src = ('https:' == document.location.protocol ? 'https://' : 'http://') +
+        'cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+      d.getElementsByTagName('head')[0].appendChild(script);
+    }(document));
+  </script>
+</body>
+</html>
