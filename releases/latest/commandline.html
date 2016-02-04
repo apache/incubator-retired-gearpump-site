@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"/>
-  <title>Gearpump Client Commandline - Gearpump 0.7.5 Documentation</title>
+  <title>Gearpump Client Commandline - Gearpump 0.7.6 Documentation</title>
   
    <meta name="description" content="Gearpump Client Commandline">
   
@@ -40,7 +40,7 @@
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="http://gearpump.io">Gearpump
-          <span class="label label-primary" style="font-size: .6em">0.7.5</span>
+          <span class="label label-primary" style="font-size: .6em">0.7.6</span>
         </a>
       </div>
       <div id="navbar" class="collapse navbar-collapse">
@@ -125,6 +125,10 @@
 
 <p><strong>NOTE:</strong> on MS Windows platform, please use window shell gear.bat script instead. bash script doesn&#8217;t work well in cygwin/mingw.</p>
 
+<h3 id="creating-an-uber-jar">Creating an uber-jar</h3>
+
+<p>If you use Maven you can have a look <a href="https://maven.apache.org/plugins/maven-shade-plugin/">here</a> whereas SBT users may find <a href="https://github.com/sbt/sbt-assembly">this</a> useful.</p>
+
 <h3 id="submit-an-new-application">Submit an new application</h3>
 
 <p>You can use the command <code>gear</code> under the bin directory to submit, query and terminate an application:</p>
@@ -151,8 +155,8 @@
 <h3 id="start-gearpump-cluster-on-yarn">Start Gearpump Cluster on YARN</h3>
 <p>To start a Gearpump Cluster on YARN, you can:</p>
 
-<div class="highlight"><pre><code class="language-bash">yarnclient launch -package /usr/lib/gearpump/gearpump-2.11-0.7.5.zip</code></pre></div>
-<p>/usr/lib/gearpump/gearpump-2.11-0.7.5.zip should be available on HDFS.</p>
+<div class="highlight"><pre><code class="language-bash">yarnclient launch -package /usr/lib/gearpump/gearpump-2.11-0.7.6.zip</code></pre></div>
+<p>/usr/lib/gearpump/gearpump-2.11-0.7.6.zip should be available on HDFS.</p>
 
 <p>Please check <a href="deployment-yarn.html">YARN Deployment Guide</a> for more information.</p>
 

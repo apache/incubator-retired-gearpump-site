@@ -94,7 +94,7 @@ when one application is booting up.
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
               <ol><li name="io.gearpump.streaming.appmaster.TaskRegistry#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="&lt;init&gt;(expectedTasks:List[io.gearpump.streaming.task.TaskId],registeredTasks:Map[io.gearpump.streaming.task.TaskId,io.gearpump.streaming.appmaster.TaskRegistry.TaskLocation]):io.gearpump.streaming.appmaster.TaskRegistry"></a>
+      <a id="&lt;init&gt;(expectedTasks:List[io.gearpump.streaming.task.TaskId],registeredTasks:Map[io.gearpump.streaming.task.TaskId,io.gearpump.streaming.appmaster.TaskRegistry.TaskLocation],deadTasks:Set[io.gearpump.streaming.task.TaskId]):io.gearpump.streaming.appmaster.TaskRegistry"></a>
       <a id="&lt;init&gt;:TaskRegistry"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -102,10 +102,10 @@ when one application is booting up.
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">TaskRegistry</span><span class="params">(<span name="expectedTasks">expectedTasks: <span class="extype" name="scala.List">List</span>[<a href="../task/TaskId.html" class="extype" name="io.gearpump.streaming.task.TaskId">TaskId</a>]</span>, <span name="registeredTasks">registeredTasks: <span class="extype" name="scala.Predef.Map">Map</span>[<a href="../task/TaskId.html" class="extype" name="io.gearpump.streaming.task.TaskId">TaskId</a>, <a href="TaskRegistry$$TaskLocation.html" class="extype" name="io.gearpump.streaming.appmaster.TaskRegistry.TaskLocation">TaskLocation</a>] = <span class="symbol">Map.empty[TaskId, TaskLocation]</span></span>)</span>
+        <span class="name">TaskRegistry</span><span class="params">(<span name="expectedTasks">expectedTasks: <span class="extype" name="scala.List">List</span>[<a href="../task/TaskId.html" class="extype" name="io.gearpump.streaming.task.TaskId">TaskId</a>]</span>, <span name="registeredTasks">registeredTasks: <span class="extype" name="scala.Predef.Map">Map</span>[<a href="../task/TaskId.html" class="extype" name="io.gearpump.streaming.task.TaskId">TaskId</a>, <a href="TaskRegistry$$TaskLocation.html" class="extype" name="io.gearpump.streaming.appmaster.TaskRegistry.TaskLocation">TaskLocation</a>] = <span class="symbol">Map.empty[TaskId, TaskLocation]</span></span>, <span name="deadTasks">deadTasks: <span class="extype" name="scala.Predef.Set">Set</span>[<a href="../task/TaskId.html" class="extype" name="io.gearpump.streaming.task.TaskId">TaskId</a>] = <span class="symbol">Set.empty[TaskId]</span></span>)</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#io.gearpump.streaming.appmaster.TaskRegistry@&lt;init&gt;(expectedTasks:List[io.gearpump.streaming.task.TaskId],registeredTasks:Map[io.gearpump.streaming.task.TaskId,io.gearpump.streaming.appmaster.TaskRegistry.TaskLocation]):io.gearpump.streaming.appmaster.TaskRegistry" title="Permalink" target="_top">
+      <a href="../../../../index.html#io.gearpump.streaming.appmaster.TaskRegistry@&lt;init&gt;(expectedTasks:List[io.gearpump.streaming.task.TaskId],registeredTasks:Map[io.gearpump.streaming.task.TaskId,io.gearpump.streaming.appmaster.TaskRegistry.TaskLocation],deadTasks:Set[io.gearpump.streaming.task.TaskId]):io.gearpump.streaming.appmaster.TaskRegistry" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
@@ -210,6 +210,40 @@ when one application is booting up.
     </span>)</span>
               
         </dd></dl></div>
+    </li><li name="io.gearpump.streaming.appmaster.TaskRegistry#copy" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="copy(expectedTasks:List[io.gearpump.streaming.task.TaskId],registeredTasks:Map[io.gearpump.streaming.task.TaskId,io.gearpump.streaming.appmaster.TaskRegistry.TaskLocation],deadTasks:Set[io.gearpump.streaming.task.TaskId]):io.gearpump.streaming.appmaster.TaskRegistry"></a>
+      <a id="copy(List[TaskId],Map[TaskId,TaskLocation],Set[TaskId]):TaskRegistry"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">copy</span><span class="params">(<span name="expectedTasks">expectedTasks: <span class="extype" name="scala.List">List</span>[<a href="../task/TaskId.html" class="extype" name="io.gearpump.streaming.task.TaskId">TaskId</a>] = <span class="symbol"><span class="name"><a href="#expectedTasks:List[io.gearpump.streaming.task.TaskId]">this.expectedTasks</a></span></span></span>, <span name="registeredTasks">registeredTasks: <span class="extype" name="scala.Predef.Map">Map</span>[<a href="../task/TaskId.html" class="extype" name="io.gearpump.streaming.task.TaskId">TaskId</a>, <a href="TaskRegistry$$TaskLocation.html" class="extype" name="io.gearpump.streaming.appmaster.TaskRegistry.TaskLocation">TaskLocation</a>] = <span class="symbol"><span class="name"><a href="#registeredTasks:Map[io.gearpump.streaming.task.TaskId,io.gearpump.streaming.appmaster.TaskRegistry.TaskLocation]">this.registeredTasks</a></span></span></span>, <span name="deadTasks">deadTasks: <span class="extype" name="scala.Predef.Set">Set</span>[<a href="../task/TaskId.html" class="extype" name="io.gearpump.streaming.task.TaskId">TaskId</a>] = <span class="symbol"><span class="name"><a href="#deadTasks:Set[io.gearpump.streaming.task.TaskId]">this.deadTasks</a></span></span></span>)</span><span class="result">: <a href="" class="extype" name="io.gearpump.streaming.appmaster.TaskRegistry">TaskRegistry</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.gearpump.streaming.appmaster.TaskRegistry@copy(expectedTasks:List[io.gearpump.streaming.task.TaskId],registeredTasks:Map[io.gearpump.streaming.task.TaskId,io.gearpump.streaming.appmaster.TaskRegistry.TaskLocation],deadTasks:Set[io.gearpump.streaming.task.TaskId]):io.gearpump.streaming.appmaster.TaskRegistry" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="io.gearpump.streaming.appmaster.TaskRegistry#deadTasks" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="deadTasks:Set[io.gearpump.streaming.task.TaskId]"></a>
+      <a id="deadTasks:Set[TaskId]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">var</span>
+      </span>
+      <span class="symbol">
+        <span class="name">deadTasks</span><span class="result">: <span class="extype" name="scala.Predef.Set">Set</span>[<a href="../task/TaskId.html" class="extype" name="io.gearpump.streaming.task.TaskId">TaskId</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.gearpump.streaming.appmaster.TaskRegistry@deadTasks:Set[io.gearpump.streaming.task.TaskId]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a>
       <a id="eq(AnyRef):Boolean"></a>
@@ -257,6 +291,23 @@ when one application is booting up.
       </span>
       </h4><span class="permalink">
       <a href="../../../../index.html#io.gearpump.streaming.appmaster.TaskRegistry@executors:List[io.gearpump.streaming.ExecutorId]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="io.gearpump.streaming.appmaster.TaskRegistry#expectedTasks" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="expectedTasks:List[io.gearpump.streaming.task.TaskId]"></a>
+      <a id="expectedTasks:List[TaskId]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">expectedTasks</span><span class="result">: <span class="extype" name="scala.List">List</span>[<a href="../task/TaskId.html" class="extype" name="io.gearpump.streaming.task.TaskId">TaskId</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.gearpump.streaming.appmaster.TaskRegistry@expectedTasks:List[io.gearpump.streaming.task.TaskId]" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>

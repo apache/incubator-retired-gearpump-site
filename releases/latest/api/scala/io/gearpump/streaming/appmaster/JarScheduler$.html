@@ -93,7 +93,58 @@
 
         <div id="types" class="types members">
               <h3>Type Members</h3>
-              <ol><li name="io.gearpump.streaming.appmaster.JarScheduler.ResourceRequestDetail" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+              <ol><li name="io.gearpump.streaming.appmaster.JarScheduler.ExecutorFailed" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ExecutorFailedextendsProductwithSerializable"></a>
+      <a id="ExecutorFailed:ExecutorFailed"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="JarScheduler$$ExecutorFailed.html"><span class="name">ExecutorFailed</span></a><span class="params">(<span name="executorId">executorId: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.gearpump.streaming.appmaster.JarScheduler$@ExecutorFailedextendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="io.gearpump.streaming.appmaster.JarScheduler.JarSchedulerImpl" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="JarSchedulerImplextendsActorwithStash"></a>
+      <a id="JarSchedulerImpl:JarSchedulerImpl"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="JarScheduler$$JarSchedulerImpl.html"><span class="name">JarSchedulerImpl</span></a><span class="result"> extends <span class="extype" name="akka.actor.Actor">Actor</span> with <span class="extype" name="akka.actor.Stash">Stash</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.gearpump.streaming.appmaster.JarScheduler$@JarSchedulerImplextendsActorwithStash" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="io.gearpump.streaming.appmaster.JarScheduler.NewDag" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="NewDagextendsProductwithSerializable"></a>
+      <a id="NewDag:NewDag"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="JarScheduler$$NewDag.html"><span class="name">NewDag</span></a><span class="params">(<span name="dag">dag: <a href="../DAG.html" class="extype" name="io.gearpump.streaming.DAG">DAG</a></span>, <span name="startTime">startTime: <a href="../../package.html#TimeStamp=Long" class="extmbr" name="io.gearpump.TimeStamp">TimeStamp</a></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.gearpump.streaming.appmaster.JarScheduler$@NewDagextendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="io.gearpump.streaming.appmaster.JarScheduler.ResourceRequestDetail" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="ResourceRequestDetailextendsProductwithSerializable"></a>
       <a id="ResourceRequestDetail:ResourceRequestDetail"></a>
       <h4 class="signature">
@@ -106,6 +157,23 @@
       </span>
       </h4><span class="permalink">
       <a href="../../../../index.html#io.gearpump.streaming.appmaster.JarScheduler$@ResourceRequestDetailextendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="io.gearpump.streaming.appmaster.JarScheduler.ScheduleTask" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ScheduleTaskextendsProductwithSerializable"></a>
+      <a id="ScheduleTask:ScheduleTask"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="JarScheduler$$ScheduleTask.html"><span class="name">ScheduleTask</span></a><span class="params">(<span name="appJar">appJar: <a href="../../cluster/AppJar.html" class="extype" name="io.gearpump.cluster.AppJar">AppJar</a></span>, <span name="workerId">workerId: <span class="extype" name="scala.Int">Int</span></span>, <span name="executorId">executorId: <span class="extype" name="scala.Int">Int</span></span>, <span name="resource">resource: <a href="../../cluster/scheduler/Resource.html" class="extype" name="io.gearpump.cluster.scheduler.Resource">Resource</a></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.gearpump.streaming.appmaster.JarScheduler$@ScheduleTaskextendsProductwithSerializable" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
@@ -168,6 +236,40 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="io.gearpump.streaming.appmaster.JarScheduler.GetRequestDetails" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="GetRequestDetails"></a>
+      <a id="GetRequestDetails:GetRequestDetails"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="JarScheduler$$GetRequestDetails$.html"><span class="name">GetRequestDetails</span></a><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.gearpump.streaming.appmaster.JarScheduler$@GetRequestDetails" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="io.gearpump.streaming.appmaster.JarScheduler.TransitToNewDag" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="TransitToNewDag"></a>
+      <a id="TransitToNewDag:TransitToNewDag"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="JarScheduler$$TransitToNewDag$.html"><span class="name">TransitToNewDag</span></a><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.gearpump.streaming.appmaster.JarScheduler$@TransitToNewDag" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
     </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <a id="asInstanceOf[T0]:T0"></a>

@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"/>
-  <title>Deployment with YARN - Gearpump 0.7.5 Documentation</title>
+  <title>Deployment with YARN - Gearpump 0.7.6 Documentation</title>
   
 
   
@@ -38,7 +38,7 @@
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="http://gearpump.io">Gearpump
-          <span class="label label-primary" style="font-size: .6em">0.7.5</span>
+          <span class="label label-primary" style="font-size: .6em">0.7.6</span>
         </a>
       </div>
       <div id="navbar" class="collapse navbar-collapse">
@@ -123,7 +123,7 @@
 
 <ol>
   <li>
-    <p>Upload the <code>gearpump-2.11-0.7.5.zip</code> to remote HDFS Folder, suggest to put it under <code>/usr/lib/gearpump/gearpump-2.11-0.7.5.zip</code></p>
+    <p>Upload the <code>gearpump-2.11-0.7.6.zip</code> to remote HDFS Folder, suggest to put it under <code>/usr/lib/gearpump/gearpump-2.11-0.7.6.zip</code></p>
   </li>
   <li>
     <p>Make sure the home directory on HDFS is already created and all read-write rights are granted for user. For example, user <code>gear</code>&#8217;s home directory is <code>/user/gear</code></p>
@@ -137,7 +137,7 @@
   <li>
     <p>Launch the gearpump cluster on YARN</p>
 
-    <div class="highlight"><pre><code> yarnclient launch -package /usr/lib/gearpump/gearpump-2.11-0.7.5.zip
+    <div class="highlight"><pre><code> yarnclient launch -package /usr/lib/gearpump/gearpump-2.11-0.7.6.zip
 </code></pre></div>
 
     <p>If you don&#8217;t specify package path, it will read default package-path (<code>gearpump.yarn.client.package-path</code>) from <code>gear.conf</code>.</p>
@@ -169,7 +169,7 @@ a active configuration file first.</p>
   <li>
     <p>Option 1: specify &#8220;-output&#8221; option when you launch the cluster.</p>
 
-    <div class="highlight"><pre><code> yarnclient launch -package /usr/lib/gearpump/gearpump-2.11-0.7.5.zip -output /tmp/mycluster.conf
+    <div class="highlight"><pre><code> yarnclient launch -package /usr/lib/gearpump/gearpump-2.11-0.7.6.zip -output /tmp/mycluster.conf
 </code></pre></div>
 
     <p>It will return in console like this:</p>
@@ -189,14 +189,14 @@ a active configuration file first.</p>
   <li>
     <p>After you downloaded the configuration file, you can launch application with that config file.</p>
 
-    <div class="highlight"><pre><code> gear app -jar examples/wordcount-2.11-0.7.5.jar -conf /tmp/mycluster.conf
+    <div class="highlight"><pre><code> gear app -jar examples/wordcount-2.11-0.7.6.jar -conf /tmp/mycluster.conf
 </code></pre></div>
   </li>
   <li>
     <p>To run Storm application over Gearpump on YARN, please store the configuration file with <code>-output application.conf</code> 
 and then launch Storm application with</p>
 
-    <div class="highlight"><pre><code> storm -jar examples/storm-2.11-0.7.5.jar storm.starter.ExclamationTopology exclamation
+    <div class="highlight"><pre><code> storm -jar examples/storm-2.11-0.7.6.jar storm.starter.ExclamationTopology exclamation
 </code></pre></div>
   </li>
   <li>

@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"/>
-  <title>Storm Compatibility - Gearpump 0.7.5 Documentation</title>
+  <title>Storm Compatibility - Gearpump 0.7.6 Documentation</title>
   
 
   
@@ -38,7 +38,7 @@
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="http://gearpump.io">Gearpump
-          <span class="label label-primary" style="font-size: .6em">0.7.5</span>
+          <span class="label label-primary" style="font-size: .6em">0.7.6</span>
         </a>
       </div>
       <div id="navbar" class="collapse navbar-collapse">
@@ -266,25 +266,46 @@ on Gearpump. This documentation illustrates Gearpump&#8217;s comapatibility with
   <li>
     <p>launch a local cluster</p>
 
-    <div class="highlight"><pre><code>./target/pack/bin/local
+    <div class="highlight"><pre><code>bin/local
 </code></pre></div>
   </li>
   <li>
-    <p>submit a topology from storm-starter. 
-<code>
-bin/storm -verbose -config storm.yaml -jar storm-starter-${STORM_VERSION}.jar storm.starter.ExclamationTopology exclamation 
-</code></p>
+    <p>start a Gearpump Nimbus server</p>
+
+    <p>Users need server&#8217;s address(<code>nimbus.host</code> and <code>nimbus.thrift.port</code>) to submit topologies later. The address is written to a yaml config file set with <code>-output</code> option. 
+Users can provide an existing config file where only the address will be overwritten. If not provided, a new file <code>app.yaml</code> is created with the config.</p>
+
+    <div class="highlight"><pre><code>bin/storm nimbus -output [conf &lt;custom yaml config&gt;]
+</code></pre></div>
+  </li>
+  <li>
+    <p>submit Storm applications</p>
+
+    <p>Users can either submit Storm applications through command line or UI.</p>
+
+    <p>a. submit Storm applications through command line</p>
+
+    <p><code>
+  bin/storm app -verbose -config app.yaml -jar storm-starter-${STORM_VERSION}.jar storm.starter.ExclamationTopology exclamation 
+ </code></p>
 
     <p>Users are able to configure their applications through following options</p>
 
-    <ul>
-      <li><code>jar</code> - set the path of a storm application jar</li>
-      <li><code>config</code> - submit a customized storm configuration file</li>
-    </ul>
+    <div class="highlight"><pre><code>* `jar` - set the path of a Storm application jar
+* `config` - submit the custom configuration file generated when launching Nimbus
+</code></pre></div>
 
-    <p>That&#8217;s it. Check the dashboard and you should see data flowing through your topology.</p>
+    <p>b. submit Storm application through UI</p>
 
-    <p><em>Note that submission from UI is not supported yet</em>.</p>
+    <ol>
+      <li>Click on the &#8220;Create&#8221; button on the applications page on UI.</li>
+      <li>Click on the &#8220;Submit Storm Application&#8221; item in the pull down menu.</li>
+      <li>In the popup console, upload the Storm application jar and the configuration file generated when launching Nimbus,
+and fill in <code>storm.starter.ExclamationTopology exclamation</code> as arguments.</li>
+      <li>Click on the &#8220;Submit&#8221; button</li>
+    </ol>
+
+    <p>Either way, check the dashboard and you should see data flowing through your topology.</p>
   </li>
 </ol>
 
@@ -338,7 +359,7 @@ fall back to the Storm way by setting <code>gearpump.task-dispatcher</code> to <
 
 <p>All Storm configurations are respected with the following priority order</p>
 
-<div class="highlight"><pre><code>defaults.yaml &lt; storm.yaml &lt; application config &lt; component config &lt; custom user config
+<div class="highlight"><pre><code>defaults.yaml &lt; custom file config &lt; application config &lt; component config
 </code></pre></div>
 
 <p>where</p>
@@ -346,8 +367,63 @@ fall back to the Storm way by setting <code>gearpump.task-dispatcher</code> to <
 <ul>
   <li>application config is submit from Storm application along with the topology</li>
   <li>component config is set in spout / bolt with <code>getComponentConfiguration</code></li>
-  <li>custom user config is specified with the <code>-config</code> option when submitting Storm application from command line</li>
+  <li>custom file config is specified with the <code>-config</code> option when submitting Storm application from command line or uploaded from UI</li>
 </ul>
+
+<h2 id="streamcql-support">StreamCQL Support</h2>
+
+<p><a href="https://github.com/HuaweiBigData/StreamCQL">StreamCQL</a> is a Continuous Query Language on RealTime Computation System open sourced by Huawei.
+Since StreamCQL already supports Storm, it&#8217;s straightforward to run StreamCQL over Gearpump.</p>
+
+<ol>
+  <li>
+    <p>Install StreamCQL as in the official <a href="https://github.com/HuaweiBigData/StreamCQL#install-streamcql">README</a></p>
+  </li>
+  <li>
+    <p>Launch Gearpump Nimbus Server as before</p>
+  </li>
+  <li>
+    <p>Go to the installed stream-cql-binary, and change following settings in <code>conf/streaming-site.xml</code> with the output Nimbus configs in Step 2.</p>
+
+    <p>```xml</p>
+    <property>
+   <name>streaming.storm.nimbus.host</name>
+   <value>${nimbus.host}</value>
+ </property>
+    <property>
+   <name>streaming.storm.nimbus.port</name>
+   <value>${nimbus.thrift.port}</value>
+ </property>
+    <p>```</p>
+  </li>
+  <li>
+    <p>Open CQL client shell and execute a simple cql example</p>
+
+    <div class="highlight"><pre><code>bin/cql
+</code></pre></div>
+
+    <div class="highlight"><pre><code>Streaming&gt; CREATE INPUT STREAM s
+    (id INT, name STRING, type INT)
+SOURCE randomgen
+    PROPERTIES ( timeUnit = "SECONDS", period = "1",
+        eventNumPerperiod = "1", isSchedule = "true" );
+   
+CREATE OUTPUT STREAM rs
+    (type INT, cc INT)
+SINK consoleOutput;
+   
+INSERT INTO STREAM rs SELECT type, COUNT(id) as cc
+    FROM s[RANGE 20 SECONDS BATCH]
+    WHERE id &gt; 5 GROUP BY type;
+   
+SUBMIT APPLICATION example;    
+</code></pre></div>
+  </li>
+  <li>
+    <p>Check the dashboard and you should see data flowing through a topology of 3 components</p>
+  </li>
+</ol>
+
 
 
   </div> <!-- /container -->

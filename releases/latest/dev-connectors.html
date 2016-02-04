@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"/>
-  <title>Gearpump Connectors - Gearpump 0.7.5 Documentation</title>
+  <title>Gearpump Connectors - Gearpump 0.7.6 Documentation</title>
   
 
   
@@ -38,7 +38,7 @@
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="http://gearpump.io">Gearpump
-          <span class="label label-primary" style="font-size: .6em">0.7.5</span>
+          <span class="label label-primary" style="font-size: .6em">0.7.6</span>
         </a>
       </div>
       <div id="navbar" class="collapse navbar-collapse">
@@ -183,13 +183,13 @@
 <h3 id="use-of-kafkasource">Use of <code>KafkaSource</code></h3>
 <p>To use <code>kafkaSource</code> in your application, you first need to add the <code>gearpump-external-Kafka</code> library dependency in your application:</p>
 
-<div class="highlight"><pre><code>"com.github.intel-hadoop" %% "gearpump-external-kafka" % 0.7.5
+<div class="highlight"><pre><code>"com.github.intel-hadoop" %% "gearpump-external-kafka" % 0.7.6
 </code></pre></div>
 
 <div class="highlight"><pre><code class="language-xml"><span class="nt">&lt;dependency&gt;</span>
   <span class="nt">&lt;groupId&gt;</span>com.github.intel-hadoop<span class="nt">&lt;/groupId&gt;</span>
   <span class="nt">&lt;artifactId&gt;</span>gearpump-external-kafka<span class="nt">&lt;/artifactId&gt;</span>
-  <span class="nt">&lt;version&gt;</span>0.7.5<span class="nt">&lt;/version&gt;</span>
+  <span class="nt">&lt;version&gt;</span>0.7.6<span class="nt">&lt;/version&gt;</span>
 <span class="nt">&lt;/dependency&gt;</span></code></pre></div>
 
 <p>To connect to Kafka, you need to provide following info:
@@ -222,13 +222,13 @@
 
 <p>To use <code>HBaseSink</code> in your application, you first need to add the <code>gearpump-external-hbase</code> library dependency in your application:</p>
 
-<div class="highlight"><pre><code>"com.github.intel-hadoop" %% "gearpump-external-hbase" % 0.7.5
+<div class="highlight"><pre><code>"com.github.intel-hadoop" %% "gearpump-external-hbase" % 0.7.6
 </code></pre></div>
 
 <div class="highlight"><pre><code class="language-xml"><span class="nt">&lt;dependency&gt;</span>
   <span class="nt">&lt;groupId&gt;</span>com.github.intel-hadoop<span class="nt">&lt;/groupId&gt;</span>
   <span class="nt">&lt;artifactId&gt;</span>gearpump-external-hbase<span class="nt">&lt;/artifactId&gt;</span>
-  <span class="nt">&lt;version&gt;</span>0.7.5<span class="nt">&lt;/version&gt;</span>
+  <span class="nt">&lt;version&gt;</span>0.7.6<span class="nt">&lt;/version&gt;</span>
 <span class="nt">&lt;/dependency&gt;</span></code></pre></div>
 
 <p>To connect to HBase, you need to provide following info:
@@ -238,10 +238,10 @@
 <p>Then, you can use <code>HBaseSink</code> in your application:</p>
 
 <div class="highlight"><pre><code class="language-scala">   <span class="c1">//create the HBase data sink</span>
-   <span class="k">val</span> <span class="n">sink</span> <span class="k">=</span> <span class="nc">HBaseSink</span><span class="o">(</span><span class="nc">UserConfig</span><span class="o">.</span><span class="n">empty</span><span class="o">,</span> <span class="n">tableName</span><span class="o">,</span> <span class="k">new</span> <span class="nc">HBaseConfiguration</span><span class="o">)</span>
+   <span class="k">val</span> <span class="n">sink</span> <span class="k">=</span> <span class="nc">HBaseSink</span><span class="o">(</span><span class="nc">UserConfig</span><span class="o">.</span><span class="n">empty</span><span class="o">,</span> <span class="n">tableName</span><span class="o">,</span> <span class="nc">HBaseConfiguration</span><span class="o">.</span><span class="n">create</span><span class="o">())</span>
 
    <span class="c1">//create Gearpump Processor</span>
-   <span class="k">val</span> <span class="n">sinkProcessor</span> <span class="k">=</span> <span class="nc">DataSinkProcessor</span><span class="o">(</span><span class="n">source</span><span class="o">,</span> <span class="n">parallelism</span><span class="o">)</span></code></pre></div>
+   <span class="k">val</span> <span class="n">sinkProcessor</span> <span class="k">=</span> <span class="nc">DataSinkProcessor</span><span class="o">(</span><span class="n">sink</span><span class="o">,</span> <span class="n">parallelism</span><span class="o">)</span></code></pre></div>
 
 <div class="highlight"><pre><code class="language-scala">  <span class="c1">//assume stream is a normal `Stream` in DSL</span>
   <span class="n">stream</span><span class="o">.</span><span class="n">writeToHbase</span><span class="o">(</span><span class="nc">UserConfig</span><span class="o">.</span><span class="n">empty</span><span class="o">,</span> <span class="n">tableName</span><span class="o">,</span> <span class="n">parallelism</span><span class="o">,</span> <span class="s">&quot;write to HBase&quot;</span><span class="o">)</span></code></pre></div>
@@ -254,14 +254,14 @@
 
 <ol>
   <li>The data source itself</li>
-  <li>a helper class to make it easy use in DSL</li>
+  <li>a helper class to easy the usage in a DSL</li>
 </ol>
 
 <h3 id="implement-your-own-datasource">Implement your own <code>DataSource</code></h3>
 <p>You need to implement a class derived from <code>io.gearpump.streaming.transaction.api.TimeReplayableSource</code>.</p>
 
 <h3 id="implement-dsl-helper-optional">Implement DSL helper (Optional)</h3>
-<p>To make DSL easy of use this customized stream, it is better that if you can implement your own DSL helper.
+<p>If you would like to have a DSL at hand you may start with this customized stream; it is better if you can implement your own DSL helper.
 You can refer <code>KafkaDSLUtil</code> as an example in Gearpump source.</p>
 
 <p>Below is some code snippet from <code>KafkaDSLUtil</code>:</p>
@@ -292,7 +292,7 @@ You can refer <code>KafkaDSLUtil</code> as an example in Gearpump source.</p>
 <p>You need to implement a class derived from <code>io.gearpump.streaming.sink.DataSink</code>.</p>
 
 <h3 id="implement-dsl-helper-optional-1">Implement DSL helper (Optional)</h3>
-<p>To make DSL easy of use this customized stream, it is better that if you can implement your own DSL helper.
+<p>If you would like to have a DSL at hand you may start with this customized stream; it is better if you can implement your own DSL helper.
 You can refer <code>HBaseDSLSink</code> as an example in Gearpump source.</p>
 
 <p>Below is some code snippet from <code>HBaseDSLSink</code>:</p>

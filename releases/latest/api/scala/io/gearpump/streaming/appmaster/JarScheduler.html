@@ -93,7 +93,7 @@ parts, with each part use its own jar file.</p></div><div class="toggleContainer
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
               <ol><li name="io.gearpump.streaming.appmaster.JarScheduler#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="&lt;init&gt;(appId:Int,appName:String,config:com.typesafe.config.Config):io.gearpump.streaming.appmaster.JarScheduler"></a>
+      <a id="&lt;init&gt;(appId:Int,appName:String,config:com.typesafe.config.Config,factory:akka.actor.ActorRefFactory):io.gearpump.streaming.appmaster.JarScheduler"></a>
       <a id="&lt;init&gt;:JarScheduler"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -101,10 +101,10 @@ parts, with each part use its own jar file.</p></div><div class="toggleContainer
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">JarScheduler</span><span class="params">(<span name="appId">appId: <span class="extype" name="scala.Int">Int</span></span>, <span name="appName">appName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="config">config: <span class="extype" name="com.typesafe.config.Config">Config</span></span>)</span>
+        <span class="name">JarScheduler</span><span class="params">(<span name="appId">appId: <span class="extype" name="scala.Int">Int</span></span>, <span name="appName">appName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="config">config: <span class="extype" name="com.typesafe.config.Config">Config</span></span>, <span name="factory">factory: <span class="extype" name="akka.actor.ActorRefFactory">ActorRefFactory</span></span>)</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#io.gearpump.streaming.appmaster.JarScheduler@&lt;init&gt;(appId:Int,appName:String,config:com.typesafe.config.Config):io.gearpump.streaming.appmaster.JarScheduler" title="Permalink" target="_top">
+      <a href="../../../../index.html#io.gearpump.streaming.appmaster.JarScheduler@&lt;init&gt;(appId:Int,appName:String,config:com.typesafe.config.Config,factory:akka.actor.ActorRefFactory):io.gearpump.streaming.appmaster.JarScheduler" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
@@ -244,18 +244,18 @@ parts, with each part use its own jar file.</p></div><div class="toggleContainer
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="io.gearpump.streaming.appmaster.JarScheduler#executorFailed" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="executorFailed(executorId:Int):Option[io.gearpump.streaming.appmaster.JarScheduler.ResourceRequestDetail]"></a>
-      <a id="executorFailed(Int):Option[ResourceRequestDetail]"></a>
+      <a id="executorFailed(executorId:Int):scala.concurrent.Future[Option[io.gearpump.streaming.appmaster.JarScheduler.ResourceRequestDetail]]"></a>
+      <a id="executorFailed(Int):Future[Option[ResourceRequestDetail]]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">executorFailed</span><span class="params">(<span name="executorId">executorId: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<a href="JarScheduler$$ResourceRequestDetail.html" class="extype" name="io.gearpump.streaming.appmaster.JarScheduler.ResourceRequestDetail">ResourceRequestDetail</a>]</span>
+        <span class="name">executorFailed</span><span class="params">(<span name="executorId">executorId: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="scala.Option">Option</span>[<a href="JarScheduler$$ResourceRequestDetail.html" class="extype" name="io.gearpump.streaming.appmaster.JarScheduler.ResourceRequestDetail">ResourceRequestDetail</a>]]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#io.gearpump.streaming.appmaster.JarScheduler@executorFailed(executorId:Int):Option[io.gearpump.streaming.appmaster.JarScheduler.ResourceRequestDetail]" title="Permalink" target="_top">
+      <a href="../../../../index.html#io.gearpump.streaming.appmaster.JarScheduler@executorFailed(executorId:Int):scala.concurrent.Future[Option[io.gearpump.streaming.appmaster.JarScheduler.ResourceRequestDetail]]" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
@@ -301,18 +301,18 @@ parts, with each part use its own jar file.</p></div><div class="toggleContainer
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="io.gearpump.streaming.appmaster.JarScheduler#getRequestDetails" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="getRequestDetails():Array[io.gearpump.streaming.appmaster.JarScheduler.ResourceRequestDetail]"></a>
-      <a id="getRequestDetails():Array[ResourceRequestDetail]"></a>
+      <a id="getRequestDetails():scala.concurrent.Future[Array[io.gearpump.streaming.appmaster.JarScheduler.ResourceRequestDetail]]"></a>
+      <a id="getRequestDetails():Future[Array[ResourceRequestDetail]]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">getRequestDetails</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Array">Array</span>[<a href="JarScheduler$$ResourceRequestDetail.html" class="extype" name="io.gearpump.streaming.appmaster.JarScheduler.ResourceRequestDetail">ResourceRequestDetail</a>]</span>
+        <span class="name">getRequestDetails</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="scala.Array">Array</span>[<a href="JarScheduler$$ResourceRequestDetail.html" class="extype" name="io.gearpump.streaming.appmaster.JarScheduler.ResourceRequestDetail">ResourceRequestDetail</a>]]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#io.gearpump.streaming.appmaster.JarScheduler@getRequestDetails():Array[io.gearpump.streaming.appmaster.JarScheduler.ResourceRequestDetail]" title="Permalink" target="_top">
+      <a href="../../../../index.html#io.gearpump.streaming.appmaster.JarScheduler@getRequestDetails():scala.concurrent.Future[Array[io.gearpump.streaming.appmaster.JarScheduler.ResourceRequestDetail]]" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
@@ -403,35 +403,35 @@ parts, with each part use its own jar file.</p></div><div class="toggleContainer
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
     </li><li name="io.gearpump.streaming.appmaster.JarScheduler#scheduleTask" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="scheduleTask(appJar:io.gearpump.cluster.AppJar,workerId:Int,executorId:Int,resource:io.gearpump.cluster.scheduler.Resource):List[io.gearpump.streaming.task.TaskId]"></a>
-      <a id="scheduleTask(AppJar,Int,Int,Resource):List[TaskId]"></a>
+      <a id="scheduleTask(appJar:io.gearpump.cluster.AppJar,workerId:Int,executorId:Int,resource:io.gearpump.cluster.scheduler.Resource):scala.concurrent.Future[List[io.gearpump.streaming.task.TaskId]]"></a>
+      <a id="scheduleTask(AppJar,Int,Int,Resource):Future[List[TaskId]]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">scheduleTask</span><span class="params">(<span name="appJar">appJar: <a href="../../cluster/AppJar.html" class="extype" name="io.gearpump.cluster.AppJar">AppJar</a></span>, <span name="workerId">workerId: <span class="extype" name="scala.Int">Int</span></span>, <span name="executorId">executorId: <span class="extype" name="scala.Int">Int</span></span>, <span name="resource">resource: <a href="../../cluster/scheduler/Resource.html" class="extype" name="io.gearpump.cluster.scheduler.Resource">Resource</a></span>)</span><span class="result">: <span class="extype" name="scala.List">List</span>[<a href="../task/TaskId.html" class="extype" name="io.gearpump.streaming.task.TaskId">TaskId</a>]</span>
+        <span class="name">scheduleTask</span><span class="params">(<span name="appJar">appJar: <a href="../../cluster/AppJar.html" class="extype" name="io.gearpump.cluster.AppJar">AppJar</a></span>, <span name="workerId">workerId: <span class="extype" name="scala.Int">Int</span></span>, <span name="executorId">executorId: <span class="extype" name="scala.Int">Int</span></span>, <span name="resource">resource: <a href="../../cluster/scheduler/Resource.html" class="extype" name="io.gearpump.cluster.scheduler.Resource">Resource</a></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="scala.List">List</span>[<a href="../task/TaskId.html" class="extype" name="io.gearpump.streaming.task.TaskId">TaskId</a>]]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#io.gearpump.streaming.appmaster.JarScheduler@scheduleTask(appJar:io.gearpump.cluster.AppJar,workerId:Int,executorId:Int,resource:io.gearpump.cluster.scheduler.Resource):List[io.gearpump.streaming.task.TaskId]" title="Permalink" target="_top">
+      <a href="../../../../index.html#io.gearpump.streaming.appmaster.JarScheduler@scheduleTask(appJar:io.gearpump.cluster.AppJar,workerId:Int,executorId:Int,resource:io.gearpump.cluster.scheduler.Resource):scala.concurrent.Future[List[io.gearpump.streaming.task.TaskId]]" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
       
     </li><li name="io.gearpump.streaming.appmaster.JarScheduler#setDag" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="setDag(dag:io.gearpump.streaming.DAG):Unit"></a>
-      <a id="setDag(DAG):Unit"></a>
+      <a id="setDag(dag:io.gearpump.streaming.DAG,startClock:scala.concurrent.Future[io.gearpump.TimeStamp]):Unit"></a>
+      <a id="setDag(DAG,Future[TimeStamp]):Unit"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">setDag</span><span class="params">(<span name="dag">dag: <a href="../DAG.html" class="extype" name="io.gearpump.streaming.DAG">DAG</a></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">setDag</span><span class="params">(<span name="dag">dag: <a href="../DAG.html" class="extype" name="io.gearpump.streaming.DAG">DAG</a></span>, <span name="startClock">startClock: <span class="extype" name="scala.concurrent.Future">Future</span>[<a href="../../package.html#TimeStamp=Long" class="extmbr" name="io.gearpump.TimeStamp">TimeStamp</a>]</span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#io.gearpump.streaming.appmaster.JarScheduler@setDag(dag:io.gearpump.streaming.DAG):Unit" title="Permalink" target="_top">
+      <a href="../../../../index.html#io.gearpump.streaming.appmaster.JarScheduler@setDag(dag:io.gearpump.streaming.DAG,startClock:scala.concurrent.Future[io.gearpump.TimeStamp]):Unit" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>

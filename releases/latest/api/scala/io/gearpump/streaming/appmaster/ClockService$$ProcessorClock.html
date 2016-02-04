@@ -90,7 +90,7 @@
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
               <ol><li name="io.gearpump.streaming.appmaster.ClockService.ProcessorClock#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="&lt;init&gt;(processorId:io.gearpump.streaming.ProcessorId,parallism:Int):io.gearpump.streaming.appmaster.ClockService.ProcessorClock"></a>
+      <a id="&lt;init&gt;(processorId:io.gearpump.streaming.ProcessorId,life:io.gearpump.streaming.LifeTime,parallism:Int,_min:io.gearpump.TimeStamp,_taskClocks:Array[io.gearpump.TimeStamp]):io.gearpump.streaming.appmaster.ClockService.ProcessorClock"></a>
       <a id="&lt;init&gt;:ProcessorClock"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -98,10 +98,10 @@
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">ProcessorClock</span><span class="params">(<span name="processorId">processorId: <a href="../package.html#ProcessorId=Int" class="extmbr" name="io.gearpump.streaming.ProcessorId">ProcessorId</a></span>, <span name="parallism">parallism: <span class="extype" name="scala.Int">Int</span></span>)</span>
+        <span class="name">ProcessorClock</span><span class="params">(<span name="processorId">processorId: <a href="../package.html#ProcessorId=Int" class="extmbr" name="io.gearpump.streaming.ProcessorId">ProcessorId</a></span>, <span name="life">life: <a href="../LifeTime.html" class="extype" name="io.gearpump.streaming.LifeTime">LifeTime</a></span>, <span name="parallism">parallism: <span class="extype" name="scala.Int">Int</span></span>, <span name="_min">_min: <a href="../../package.html#TimeStamp=Long" class="extmbr" name="io.gearpump.TimeStamp">TimeStamp</a> = <span class="symbol">0L</span></span>, <span name="_taskClocks">_taskClocks: <span class="extype" name="scala.Array">Array</span>[<a href="../../package.html#TimeStamp=Long" class="extmbr" name="io.gearpump.TimeStamp">TimeStamp</a>] = <span class="symbol">null</span></span>)</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#io.gearpump.streaming.appmaster.ClockService$$ProcessorClock@&lt;init&gt;(processorId:io.gearpump.streaming.ProcessorId,parallism:Int):io.gearpump.streaming.appmaster.ClockService.ProcessorClock" title="Permalink" target="_top">
+      <a href="../../../../index.html#io.gearpump.streaming.appmaster.ClockService$$ProcessorClock@&lt;init&gt;(processorId:io.gearpump.streaming.ProcessorId,life:io.gearpump.streaming.LifeTime,parallism:Int,_min:io.gearpump.TimeStamp,_taskClocks:Array[io.gearpump.TimeStamp]):io.gearpump.streaming.appmaster.ClockService.ProcessorClock" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
@@ -206,6 +206,23 @@
     </span>)</span>
               
         </dd></dl></div>
+    </li><li name="io.gearpump.streaming.appmaster.ClockService.ProcessorClock#copy" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="copy(life:io.gearpump.streaming.LifeTime):io.gearpump.streaming.appmaster.ClockService.ProcessorClock"></a>
+      <a id="copy(LifeTime):ProcessorClock"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">copy</span><span class="params">(<span name="life">life: <a href="../LifeTime.html" class="extype" name="io.gearpump.streaming.LifeTime">LifeTime</a></span>)</span><span class="result">: <a href="" class="extype" name="io.gearpump.streaming.appmaster.ClockService.ProcessorClock">ProcessorClock</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.gearpump.streaming.appmaster.ClockService$$ProcessorClock@copy(life:io.gearpump.streaming.LifeTime):io.gearpump.streaming.appmaster.ClockService.ProcessorClock" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a>
       <a id="eq(AnyRef):Boolean"></a>
@@ -331,13 +348,30 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="io.gearpump.streaming.appmaster.ClockService.ProcessorClock#life" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="life:io.gearpump.streaming.LifeTime"></a>
+      <a id="life:LifeTime"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">life</span><span class="result">: <a href="../LifeTime.html" class="extype" name="io.gearpump.streaming.LifeTime">LifeTime</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.gearpump.streaming.appmaster.ClockService$$ProcessorClock@life:io.gearpump.streaming.LifeTime" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
     </li><li name="io.gearpump.streaming.appmaster.ClockService.ProcessorClock#min" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="min:io.gearpump.TimeStamp"></a>
       <a id="min:TimeStamp"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">var</span>
+        <span class="kind">def</span>
       </span>
       <span class="symbol">
         <span class="name">min</span><span class="result">: <a href="../../package.html#TimeStamp=Long" class="extmbr" name="io.gearpump.TimeStamp">TimeStamp</a></span>
@@ -456,7 +490,7 @@
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">var</span>
+        <span class="kind">def</span>
       </span>
       <span class="symbol">
         <span class="name">taskClocks</span><span class="result">: <span class="extype" name="scala.Array">Array</span>[<a href="../../package.html#TimeStamp=Long" class="extmbr" name="io.gearpump.TimeStamp">TimeStamp</a>]</span>
