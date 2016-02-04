@@ -385,16 +385,14 @@ Since StreamCQL already supports Storm, it&#8217;s straightforward to run Stream
   <li>
     <p>Go to the installed stream-cql-binary, and change following settings in <code>conf/streaming-site.xml</code> with the output Nimbus configs in Step 2.</p>
 
-    <p>```xml</p>
-    <property>
-   <name>streaming.storm.nimbus.host</name>
-   <value>${nimbus.host}</value>
- </property>
-    <property>
-   <name>streaming.storm.nimbus.port</name>
-   <value>${nimbus.thrift.port}</value>
- </property>
-    <p>```</p>
+    <div class="highlight"><pre><code class="language-xml"> <span class="nt">&lt;property&gt;</span>
+   <span class="nt">&lt;name&gt;</span>streaming.storm.nimbus.host<span class="nt">&lt;/name&gt;</span>
+   <span class="nt">&lt;value&gt;</span>${nimbus.host}<span class="nt">&lt;/value&gt;</span>
+ <span class="nt">&lt;/property&gt;</span>
+ <span class="nt">&lt;property&gt;</span>
+   <span class="nt">&lt;name&gt;</span>streaming.storm.nimbus.port<span class="nt">&lt;/name&gt;</span>
+   <span class="nt">&lt;value&gt;</span>${nimbus.thrift.port}<span class="nt">&lt;/value&gt;</span>
+ <span class="nt">&lt;/property&gt;</span></code></pre></div>
   </li>
   <li>
     <p>Open CQL client shell and execute a simple cql example</p>
@@ -402,22 +400,21 @@ Since StreamCQL already supports Storm, it&#8217;s straightforward to run Stream
     <div class="highlight"><pre><code>bin/cql
 </code></pre></div>
 
-    <div class="highlight"><pre><code>Streaming&gt; CREATE INPUT STREAM s
-    (id INT, name STRING, type INT)
-SOURCE randomgen
-    PROPERTIES ( timeUnit = "SECONDS", period = "1",
-        eventNumPerperiod = "1", isSchedule = "true" );
+    <div class="highlight"><pre><code class="language-sql"><span class="n">Streaming</span><span class="o">&gt;</span> <span class="k">CREATE</span> <span class="k">INPUT</span> <span class="n">STREAM</span> <span class="n">s</span>
+    <span class="p">(</span><span class="n">id</span> <span class="nb">INT</span><span class="p">,</span> <span class="n">name</span> <span class="n">STRING</span><span class="p">,</span> <span class="k">type</span> <span class="nb">INT</span><span class="p">)</span>
+<span class="k">SOURCE</span> <span class="n">randomgen</span>
+    <span class="n">PROPERTIES</span> <span class="p">(</span> <span class="n">timeUnit</span> <span class="o">=</span> <span class="ss">&quot;SECONDS&quot;</span><span class="p">,</span> <span class="n">period</span> <span class="o">=</span> <span class="ss">&quot;1&quot;</span><span class="p">,</span>
+        <span class="n">eventNumPerperiod</span> <span class="o">=</span> <span class="ss">&quot;1&quot;</span><span class="p">,</span> <span class="n">isSchedule</span> <span class="o">=</span> <span class="ss">&quot;true&quot;</span> <span class="p">);</span>
    
-CREATE OUTPUT STREAM rs
-    (type INT, cc INT)
-SINK consoleOutput;
+<span class="k">CREATE</span> <span class="k">OUTPUT</span> <span class="n">STREAM</span> <span class="n">rs</span>
+    <span class="p">(</span><span class="k">type</span> <span class="nb">INT</span><span class="p">,</span> <span class="n">cc</span> <span class="nb">INT</span><span class="p">)</span>
+<span class="n">SINK</span> <span class="n">consoleOutput</span><span class="p">;</span>
    
-INSERT INTO STREAM rs SELECT type, COUNT(id) as cc
-    FROM s[RANGE 20 SECONDS BATCH]
-    WHERE id &gt; 5 GROUP BY type;
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">STREAM</span> <span class="n">rs</span> <span class="k">SELECT</span> <span class="k">type</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="k">as</span> <span class="n">cc</span>
+    <span class="k">FROM</span> <span class="n">s</span><span class="p">[</span><span class="n">RANGE</span> <span class="mi">20</span> <span class="n">SECONDS</span> <span class="n">BATCH</span><span class="p">]</span>
+    <span class="k">WHERE</span> <span class="n">id</span> <span class="o">&gt;</span> <span class="mi">5</span> <span class="k">GROUP</span> <span class="k">BY</span> <span class="k">type</span><span class="p">;</span>
    
-SUBMIT APPLICATION example;    
-</code></pre></div>
+<span class="n">SUBMIT</span> <span class="n">APPLICATION</span> <span class="n">example</span><span class="p">;</span></code></pre></div>
   </li>
   <li>
     <p>Check the dashboard and you should see data flowing through a topology of 3 components</p>
