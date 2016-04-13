@@ -15,6 +15,3 @@ include:
 GEARPUMP_VERSION: 0.8.0
 SCALA_BINARY_VERSION: "2.11"
 SCALA_VERSION: "2.11.8"
-GEARPUMP_ISSUE_TRACKER_URL: https://github.com/gearpump/gearpump/issues
-GEARPUMP_GITHUB_URL: https://github.com/gearpump/gearpump
-GEARPUMP_EXAMPLES_URL: https://github.com/gearpump/gearpump-examples

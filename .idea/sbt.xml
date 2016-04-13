@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="ScalaSbtSettings">
-    <option name="customLauncherEnabled" value="true" />
-    <option name="customLauncherPath" value="$USER_HOME$/sbt/bin/sbt-launch.jar" />
-    <option name="vmParameters" value="-XX:MaxPermSize=384M -Dhttps.proxyHost=child-prc.intel.com -Dhttps.proxyPort=913 -Dhttp.proxyHost=child-prc.intel.com -Dhttp.proxyPort=913 -Dsbt.ivy.home=/home/xzhong10/.ivy2/ -Duser.home=/home/xzhong10/" />
-  </component>
-</project>
