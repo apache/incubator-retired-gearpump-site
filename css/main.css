@@ -28,18 +28,18 @@ body #content {
 }
 
 h1 {
-  font-size: 28px;
-  margin-top: 12px;
+  font-size: 24px;
+  margin-top: 20px;
 }
 
 h2 {
-  font-size: 24px;
-  margin-top: 12px;
+  font-size: 20px;
+  margin-top: 18px;
 }
 
 h3 {
-  font-size: 21px;
-  margin-top: 10px;
+  font-size: 16px;
+  margin-top: 16px;
 }
 
 .container {
@@ -63,8 +63,9 @@ a.menu:after, .dropdown-toggle:after {
  * Made the navigation bar buttons not grey out when clicked.
  * Essentially making nav bar buttons not react to clicks, only hover events.
  */
+.navbar .nav li.dropdown:hover,
 .navbar .nav li.dropdown.open > .dropdown-toggle {
-  background-color: transparent;
+  background-color: #052c46;
 }
 
 /**
@@ -102,9 +103,9 @@ a.anchorjs-link:hover { text-decoration: none; }
 
 pre, pre > *,
 code, code > * {
-  font-family: "roboto mono",monaco,consolas,menlo,"Lucida Console",monospace !important;
+  font-family: "roboto mono",monaco,consolas,menlo,"Lucida Console",monospace;
   font-size: 12px;
-  font-weight: normal !important;
+  font-weight: 400 !important;
   line-height: 165%;
 }
 
@@ -120,4 +121,8 @@ img {
   top: 0;
   right: 0;
   border: 0;
+}
+
+table {
+  padding: 10px 10px 10px 10px;
 }

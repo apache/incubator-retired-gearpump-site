@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"/>
-  <title>{{ page.title }} - GEARPUMP {{site.GEARPUMP_VERSION}} Documentation</title>
+  <title>Apache Gearpump (Incubating): {{ page.title }}</title>
   {% if page.description %}
     <meta name="description" content="{{page.description | replace: 'GEARPUMP_VERSION', site.GEARPUMP_VERSION}}">
   {% endif %}
@@ -36,7 +36,7 @@
 </head>
 <body>
   <!--[if lt IE 7]>
-    <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+    <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>l
   <![endif]-->
 
   <div class="navbar navbar-inverse navbar-fixed-top" id="topbar">
@@ -48,38 +48,49 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/">Gearpump</a>
+        <a class="navbar-brand" href="/">Apache Gearpump (incubating)</a>
       </div>
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <li><a href="index.html">Overview</a></li>
-
+          <li><a href="overview.html">Overview</a></li>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation<b class="caret"></b></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Docs<b class="caret"></b></a>
             <ul class="dropdown-menu">
               <li><a href="releases/latest/index.html">Latest Release ({{site.GEARPUMP_VERSION}})</a></li>
               <li><a href="usecases.html">Use Cases</a></li>
-              <!--
-              <li><a href="roadmap.html">Roadmap</a></li>
-              -->
               <li class="divider"></li>
               <li><a href="publications.html">Publications</a></li>
             </ul>
           </li>
-
+          <li><a href="downloads.html">Downloads</a></li>
+          <li><a href="faq.html">FAQ</a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Community<b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li><a href="https://groups.google.com/forum/#!forum/gearpump-user">Mailing List</a></li>
+              <li class="dropdown-header">Community</li>
+              <li><a href="community.html#mailing-lists">Mailing Lists</a></li>
+              <li><a href="community.html#issue-tracker">Issue Tracker</a></li>
+              <li><a href="community.html#source-code-repositories">Source Code Repositories</a></li>
+              <li><a href="community.html#who-we-are">Who We Are</a></li>
+              <li><a href="https://twitter.com/ApacheGearpump" target="_blank">Follow us on Twitter</a></li>
+              <li class="divider"></li>
+              <li class="dropdown-header">Contribute</li>
               <li><a href="how-to-contribute.html">How to Contribute</a></li>
               <li><a href="coding-style.html">Coding Style</a></li>
-              <li class="divider"></li>
-              <li><a href="faq.html">FAQ</a></li>
-              <li><a href="about.html">About</a></li>
             </ul>
           </li>
+        </ul>
 
-          <li><a href="download.html">Download</a></li>
+        <ul class="nav navbar-nav">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">ASF<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="license.html">License</a></li>
+              <li><a href="//apache.org/foundation/how-it-works.html" target="_blank">How Apache Works</a></li>
+              <li><a href="//apache.org/foundation" target="_blank">Foundation</a></li>
+              <li><a href="//www.apache.org/foundation/sponsorship.html" target="_blank">Sponsoring Apache</a></li>
+            </ul>
+          </li>
         </ul>
 
 <a class="ribbon hidden-xs" href="//github.com/gearpump/gearpump"><img src="img/forkme_right_red_aa0000.png" alt="Fork me on GitHub"/></a>
@@ -88,7 +99,7 @@
     </div>
   </div>
 
-  <div class="container" id="content">
+  <div class="container" id="content" style="margin-bottom: 50px">
    {% if page.displayTitle %}
     <h1 class="title">{{ page.displayTitle }}</h1>
    {% else %}
@@ -96,8 +107,17 @@
    {% endif %}
 
    {{ content }}
-
   </div> <!-- /container -->
+
+  <footer class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container text-center" style="padding: 14px 0 10px 0; line-height: 150%">
+      <p class="text-muted">
+        Copyright © 2016 <a href="//apache.org" target="_blank">The Apache Software Foundation</a>.
+        All Rights Reserved.<br/>
+        Apache and the Apache feather logo are trademarks of The Apache Software Foundation.
+      </p>
+    </div>
+  </footer>
 
   <script src="js/vendor/jquery-2.1.4.min.js"></script>
   <script src="js/vendor/bootstrap-3.3.5.min.js"></script>
