@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"/>
+  <title>Apache Gearpump (Incubating): highlights</title>
+  
+    <meta name="description" content="Gearpump Technical Highlights">
+  
+
+  
+
+  
+
+  <link rel="stylesheet" href="./css/bootstrap-3.3.5.min.css">
+  <style>
+    body {
+      padding-top: 60px;
+      padding-bottom: 40px;
+    }
+  </style>
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="css/pygments-default.css">
+  <script src="./js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+</head>
+<body>
+  <!--[if lt IE 7]>
+    <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>l
+  <![endif]-->
+
+  <div class="navbar navbar-inverse navbar-fixed-top" id="topbar">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Apache Gearpump (incubating)</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="overview.html">Overview</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Docs<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="releases/latest/index.html">Latest Release (0.8.0)</a></li>
+              <li><a href="usecases.html">Use Cases</a></li>
+              <li class="divider"></li>
+              <li><a href="publications.html">Publications</a></li>
+            </ul>
+          </li>
+          <li><a href="downloads.html">Downloads</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Community<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li class="dropdown-header">Community</li>
+              <li><a href="community.html#mailing-lists">Mailing Lists</a></li>
+              <li><a href="community.html#issue-tracker">Issue Tracker</a></li>
+              <li><a href="community.html#source-code-repositories">Source Code Repositories</a></li>
+              <li><a href="community.html#who-we-are">Who We Are</a></li>
+              <li><a href="https://twitter.com/ApacheGearpump" target="_blank">Follow us on Twitter</a></li>
+              <li class="divider"></li>
+              <li class="dropdown-header">Contribute</li>
+              <li><a href="how-to-contribute.html">How to Contribute</a></li>
+              <li><a href="coding-style.html">Coding Style</a></li>
+            </ul>
+          </li>
+        </ul>
+
+        <ul class="nav navbar-nav">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">ASF<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="license.html">License</a></li>
+              <li><a href="//apache.org/foundation/how-it-works.html" target="_blank">How Apache Works</a></li>
+              <li><a href="//apache.org/foundation" target="_blank">Foundation</a></li>
+              <li><a href="//www.apache.org/foundation/sponsorship.html" target="_blank">Sponsoring Apache</a></li>
+            </ul>
+          </li>
+        </ul>
+
+<a class="ribbon hidden-xs" href="//github.com/gearpump/gearpump"><img src="img/forkme_right_red_aa0000.png" alt="Fork me on GitHub"/></a>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="container" id="content" style="margin-bottom: 50px">
+   
+    <h1 class="title">Gearpump Technical Highlights</h1>
+   
+
+   <h3 id="technical-highlights-of-gearpump">Technical highlights of Gearpump</h3>
+
+<p>Gearpump is a performant, flexible, fault-tolerant, and responsive streaming platform with a lot of nice features, its technical highlights include:</p>
+
+<h4 id="actors-everywhere">Actors everywhere</h4>
+
+<p>The Actor model is a concurrency model proposed by Carl Hewitt at 1973. The Actor model is like a micro-service which is cohesive in the inside and isolated from other outside actors. Actors are the cornerstone of Gearpump, they provide facilities to do message passing, error handling, liveliness monitoring. Gearpump uses Actors everywhere; every entity within the cluster that can be treated as a service.</p>
+
+<p><img src="img/actor_hierarchy.png" alt="Actor Hierarchy" /></p>
+
+<h4 id="exactly-once-message-processing">Exactly once Message Processing</h4>
+
+<p>Exactly once is defined as: the effect of a message will be calculated only once in the persisted state and computation errors in the history will not be propagated to future computations.</p>
+
+<p><img src="img/exact.png" alt="Exact Once Semantics" /></p>
+
+<h4 id="topology-dag-dsl">Topology DAG DSL</h4>
+
+<p>User can submit to Gearpump a computation DAG, which contains a list of nodes and edges, and each node can be parallelized to a set of tasks. Gearpump will then schedule and distribute different tasks in the DAG to different machines automatically. Each task will be started as an actor, which is long running micro-service.</p>
+
+<p><img src="img/dag.png" alt="DAG" /></p>
+
+<h4 id="flow-control">Flow control</h4>
+
+<p>Gearpump has built-in support for flow control. For all message passing between different tasks, the framework will assure the upstream tasks will not flood the downstream tasks.
+<img src="img/flowcontrol.png" alt="Flow Control" /></p>
+
+<h4 id="no-inherent-end-to-end-latency">No inherent end to end latency</h4>
+
+<p>Gearpump is a message level streaming engine, which means every task in the DAG will process messages immediately upon receiving, and deliver messages to downstream immediately without waiting. Gearpump doesn&#8217;t do batching when data sourcing.</p>
+
+<h4 id="high-performance-message-passing">High Performance message passing</h4>
+
+<p>By implementing smart batching strategies, Gearpump is extremely effective in transferring small messages. In one test of 4 machines, the whole cluster throughput can reach 11 million messages per second, with message size of 100 bytes.
+<img src="img/dashboard.png" alt="Dashboard" /></p>
+
+<h4 id="high-availability-no-single-point-of-failure">High availability, No single point of failure</h4>
+
+<p>Gearpump has a careful design for high availability. We have considered message loss, worker machine crash, application crash, master crash, brain-split, and have made sure Gearpump recovers when there errors happen. When there is message loss, lost message will be replayed; when there is worker machine crash or application crash, computation tasks will be rescheduled to new machines. For master high availability, several master nodes will form a Akka cluster, and CRDT (conflict free data type) is used to exchange the state, so as long as there is still a quorum, the master will stay functional. When one master node crash, other master nodes in the cluster will take over and state will be recovered.</p>
+
+<p><img src="img/ha.png" alt="HA" /></p>
+
+<h4 id="dynamic-computation-dag">Dynamic Computation DAG</h4>
+
+<p>Gearpump provides a feature which allows the user to dynamically add, remove, or replace a sub graph at runtime, without the need to restart the whole computation topology.</p>
+
+<p><img src="img/dynamic.png" alt="Dynamic DAG" /></p>
+
+<h4 id="able-to-handle-out-of-order-messages">Able to handle out of order messages</h4>
+
+<p>For a window operation like moving average on a sliding window, it is important to make sure we have received all messages in that time window so that we can get an accurate result, but how do we handle stranglers or late arriving messages? Gearpump solves this problem by tracking the low watermark of timestamp of all messages, so it knows whether we&#8217;ve received all the messages in the time window or not.</p>
+
+<p><img src="img/clock.png" alt="Clock" /></p>
+
+<h4 id="customizable-platform">Customizable platform</h4>
+
+<p>Different applications have different requirements related to performance metrics, some may want higher throughput, some may require strong eventual data consistency; and different applications have different resource requirements profiles, some may demand high CPU performance, some may require data locality. Gearpump meets these requirements by allowing the user to arbitrate between different performance metrics and define customized resource scheduling strategies.</p>
+
+<h4 id="built-in-dashboard-ui">Built-in Dashboard UI</h4>
+
+<p>Gearpump has a built-in dashboard UI to manage the cluster and visualize the applications. The UI uses REST call to connect with backend, so it is easy to embed the UI within other dashboards.</p>
+
+<p><img src="img/dashboard.gif" alt="Dashboard" /></p>
+
+<h4 id="data-connectors-for-kafka-and-hdfs">Data connectors for Kafka and HDFS</h4>
+
+<p>Gearpump has built-in data connectors for Kafka and HDFS. For the Kafka connector, we support message replay from a specified timestamp.</p>
+
+  </div> <!-- /container -->
+
+  <footer class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container text-center" style="padding: 14px 0 10px 0; line-height: 150%">
+      <p class="text-muted">
+        Copyright © 2016 <a href="//apache.org" target="_blank">The Apache Software Foundation</a>.
+        All Rights Reserved.<br/>
+        Apache and the Apache feather logo are trademarks of The Apache Software Foundation.
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/vendor/jquery-2.1.4.min.js"></script>
+  <script src="js/vendor/bootstrap-3.3.5.min.js"></script>
+  <script src="js/vendor/anchor-1.1.1.min.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- MathJax Section -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      TeX: { equationNumbers: { autoNumber: "AMS" } }
+    });
+  </script>
+  <script>
+    // Note that we load MathJax this way to work with local file (file://), HTTP and HTTPS.
+    // We could use "//cdn.mathjax...", but that won't support "file://".
+    (function(d, script) {
+      script = d.createElement('script');
+      script.type = 'text/javascript';
+      script.async = true;
+      script.onload = function(){
+        MathJax.Hub.Config({
+          tex2jax: {
+            inlineMath: [ ["$", "$"], ["\\\\(","\\\\)"] ],
+            displayMath: [ ["$$","$$"], ["\\[", "\\]"] ],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+          }
+        });
+      };
+      script.src = ('https:' == document.location.protocol ? 'https://' : 'http://') +
+        'cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+      d.getElementsByTagName('head')[0].appendChild(script);
+    }(document));
+  </script>
+</body>
+</html>
+

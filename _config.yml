@@ -1,3 +1,5 @@
+destination: content/
+
 highlighter: pygments
 markdown: kramdown
 

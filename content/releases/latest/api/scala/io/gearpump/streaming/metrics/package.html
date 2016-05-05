@@ -1,0 +1,179 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>metrics - io.gearpump.streaming.metrics</title>
+          <meta name="description" content="metrics - io.gearpump.streaming.metrics" />
+          <meta name="keywords" content="metrics io.gearpump.streaming.metrics" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../../lib/tools.tooltip.js"></script>
+      
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../../index.html';
+            var hash = 'io.gearpump.streaming.metrics.package';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="value">
+      <div id="definition">
+        <img alt="Package" src="../../../../lib/package_big.png" />
+        <p id="owner"><a href="../../../package.html" class="extype" name="io">io</a>.<a href="../../package.html" class="extype" name="io.gearpump">gearpump</a>.<a href="../package.html" class="extype" name="io.gearpump.streaming">streaming</a></p>
+        <h1>metrics</h1><span class="permalink">
+      <a href="../../../../index.html#io.gearpump.streaming.metrics.package" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <span class="name">metrics</span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        
+        
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="io.gearpump.streaming.metrics.ProcessorAggregator" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ProcessorAggregatorextendsMetricsAggregator"></a>
+      <a id="ProcessorAggregator:ProcessorAggregator"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="ProcessorAggregator.html"><span class="name">ProcessorAggregator</span></a><span class="result"> extends <a href="../../metrics/MetricsAggregator.html" class="extype" name="io.gearpump.metrics.MetricsAggregator">MetricsAggregator</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.gearpump.streaming.metrics.package@ProcessorAggregatorextendsMetricsAggregator" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt"><a href="ProcessorAggregator.html" class="extype" name="io.gearpump.streaming.metrics.ProcessorAggregator">ProcessorAggregator</a> does aggregation after grouping by these three attributes:
+1.</p><div class="fullcomment"><div class="comment cmt"><p><a href="ProcessorAggregator.html" class="extype" name="io.gearpump.streaming.metrics.ProcessorAggregator">ProcessorAggregator</a> does aggregation after grouping by these three attributes:
+1. processorId
+2. time section(represented as a index integer)
+3. metricName(like sendThroughput)</p><p>It assumes for each <span class="extype" name="HistoryMetricsItem">HistoryMetricsItem</span>, the name follow the format
+  app[appId].processor[processorId].task[taskId].[metricName]</p><p>It parses the name to get processorId and metricName. If the parsing fails, then current
+<span class="extype" name="HistoryMetricsItem">HistoryMetricsItem</span> will be skipped.</p><p>This class is optimized for performance.</p></div></div>
+    </li><li name="io.gearpump.streaming.metrics.TaskFilterAggregator" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="TaskFilterAggregatorextendsMetricsAggregator"></a>
+      <a id="TaskFilterAggregator:TaskFilterAggregator"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="TaskFilterAggregator.html"><span class="name">TaskFilterAggregator</span></a><span class="result"> extends <a href="../../metrics/MetricsAggregator.html" class="extype" name="io.gearpump.metrics.MetricsAggregator">MetricsAggregator</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.gearpump.streaming.metrics.package@TaskFilterAggregatorextendsMetricsAggregator" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">It filters the latest metrics data by specifying a
+processor Id range, and taskId range.</p>
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="io.gearpump.streaming.metrics.ProcessorAggregator" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ProcessorAggregator"></a>
+      <a id="ProcessorAggregator:ProcessorAggregator"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ProcessorAggregator$.html"><span class="name">ProcessorAggregator</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.gearpump.streaming.metrics.package@ProcessorAggregator" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="io.gearpump.streaming.metrics.TaskFilterAggregator" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="TaskFilterAggregator"></a>
+      <a id="TaskFilterAggregator:TaskFilterAggregator"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="TaskFilterAggregator$.html"><span class="name">TaskFilterAggregator</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#io.gearpump.streaming.metrics.package@TaskFilterAggregator" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>
