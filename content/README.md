@@ -1,4 +1,4 @@
-This README gives an overview of how to build and contribute to the documentation of [Gearpump](https://github.com/gearpump/gearpump).
+This README gives an overview of how to build and contribute to the documentation of [Gearpump](https://github.com/apache/incubator-gearpump).
 
 The documentation is included with the source of Gearpump in order to ensure that you always
 have docs corresponding to your checked out version.
@@ -22,10 +22,10 @@ highlighting.
 # How to contribute
 
 ## Step1: Update the documents for specific Gearpump version if needed
-The documents for specific Gearpump version can be updated under [Gearpump docs](https://github.com/gearpump/gearpump/tree/master/docs).
-After it is updated, check [How to Build](https://github.com/gearpump/gearpump/tree/master/docs#how-to-build) to generate documents for that specific version.
+The documents for specific Gearpump version can be updated under [Gearpump docs](https://github.com/apache/incubator-gearpump/tree/master/docs).
+After it is updated, check [How to Build](https://github.com/apache/incubator-gearpump/tree/master/docs#how-to-build) to generate documents for that specific version.
 
-## Step2: Upload the generated documents in step 1 to [/release](https://github.com/gearpump/gearpump.github.io/tree/master/releases) folder.
+## Step2: Upload the generated documents in step 1 to [/release](https://github.com/apache/incubator-gearpump-site/tree/asf-site/releases) folder.
 
 ## Step3: Update the documents for the general site under this repo.
 
