@@ -4,7 +4,7 @@ layout: global
 
 ## Downloads
 
-### Latest Stable Release (v{{ site.GEARPUMP_VERSION }}) 
+### Latest Stable Release (v{{ site.GEARPUMP_VERSION }}) (This is not an Apache release)
 
 [Release Notes](https://github.com/gearpump/gearpump/releases)
 
