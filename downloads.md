@@ -4,13 +4,11 @@ layout: global
 
 ## Downloads
 
-### Latest Stable Release (v{{ site.GEARPUMP_VERSION }}) (This is not an Apache release)
+### Latest Stable Release (v{{ site.GEARPUMP_VERSION }}) 
 
-[Release Notes](https://github.com/gearpump/gearpump/releases)
+[Release Notes](https://git-wip-us.apache.org/repos/asf?p=incubator-gearpump.git;a=blob;f=CHANGELOG.md;h=564899ef23176c304f03c4decb2266c19d88d46f;hb=9063ae8c447b711b4b512e79ce8d7aff66924e79)
 
-* [Binary (for Scala 2.11)](https://github.com/gearpump/gearpump/releases/download/{{ site.GEARPUMP_VERSION }}/gearpump-2.11-{{ site.GEARPUMP_VERSION }}.zip)
-* [Source code (.zip)](https://github.com/gearpump/gearpump/archive/{{ site.GEARPUMP_VERSION }}.zip)
-* [Source code (.tar.gz)](https://github.com/gearpump/gearpump/archive/{{ site.GEARPUMP_VERSION }}.tar.gz)
+* [The source tarball, including signatures, digests, etc.](https://dist.apache.org/repos/dist/release/incubator/gearpump/0.8.1-incubating/)
 
 *Note that as we have upgraded the Akka library to 2.4.x, which has dropped the Scala 2.10 support, we do NOT provide Gearpump build for Scala 2.10 since Gearpump 0.8.0.* 
 
