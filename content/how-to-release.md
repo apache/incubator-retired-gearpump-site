@@ -1,6 +1,6 @@
-# How to update http://gearpump.io website for a Gearpump release
+# How to update http://gearpump.apache.org website for a Gearpump release
 Gearpump
-This guide is for how to update http://gearpump.io website for a Gearpump release.
+This guide is for how to update http://gearpump.apache.org website for a Gearpump release.
 It is *NOT* for how to release Gearpump itself.
 
 ## Cleanup the old release documentation
@@ -24,11 +24,11 @@ cd docs
 
 It will generate all release documents under `_site`.
 
-## Upload the release documentation to http://gearpump.io
+## Upload the release documentation to http://gearpump.apache.org
 You need to upload the generated `_site` directory in previous step to *THIS* repository's `releases/` directory
 and rename `_site` directory to `latest`.
 
-## Update http://gearpump.io content
+## Update http://gearpump.apache.org content
 ### Update the Gearpump version number in `_config.yml`
 
 ### Update `_layouts/global.html` for current link
@@ -67,5 +67,5 @@ And then after a *careful check*, please raise a PR.
 When PR is merged, the website is updated corresponding automatically.
 
 *NOTE* Here we need to also include `_site` in Git as there is no automatically mechanism for
-http://gearpump.io to read from `.md` files.
+http://gearpump.apache.org to read from `.md` files.
 Gearpump
