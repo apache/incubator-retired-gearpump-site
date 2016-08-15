@@ -37,6 +37,11 @@ To ensure above dependencies resolved, you will need to add the following reposi
 {% highlight xml %}
 <repositories>
   <repository>
+    <id>apache-repo</id>
+    <name>Apache Maven Repo</name>
+    <url>https://repository.apache.org/content/repositories/snapshots</url>
+  </repository>
+  <repository>
     <id>sonatype-nexus-releases</id>
     <name>Sonatype Nexus Snapshots</name>
     <url>https://oss.sonatype.org/content/repositories/snapshots</url>
