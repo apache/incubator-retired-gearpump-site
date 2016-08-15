@@ -211,4 +211,4 @@ The project is licensed under Apache License 2.0.
 
 ```
 
-Here is the [full license statement](http://gearpump.io/LICENSE) for all its dependencies.
+Here is the [full license statement](http://gearpump.apache.org/LICENSE) for all its dependencies.

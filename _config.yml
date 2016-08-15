@@ -1,4 +1,6 @@
 destination: content/
+exclude: 
+  - releases/[0-9][.][0-9][.][0-9]
 
 highlighter: pygments
 markdown: kramdown
@@ -8,10 +10,6 @@ markdown: kramdown
 kramdown:
   entity_output: numeric
   input: GFM
-
-include:
-  - _static
-  - _modules
 
 # These allow the documentation to be updated with newer releases of Gearpump
 GEARPUMP_VERSION: 0.8.1
