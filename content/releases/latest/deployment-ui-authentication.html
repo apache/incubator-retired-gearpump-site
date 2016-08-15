@@ -1,13 +1,17 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"/>
-  <title>UI Dashboard Authentication and Authorization - Gearpump 0.8.0 Documentation</title>
+  <title>UI Dashboard Authentication and Authorization - Gearpump 0.8.1 Documentation</title>
   
 
   
@@ -24,102 +28,105 @@
   <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
 </head>
 <body>
-  <!--[if lt IE 7]>
-    <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
-  <![endif]-->
+<!--[if lt IE 7]>
+<p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade
+  your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install
+  Google Chrome Frame</a> to better experience this site.</p>
+<![endif]-->
 
-  <div class="navbar navbar-inverse navbar-fixed-top" id="topbar">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="http://gearpump.io">Gearpump
-          <span class="label label-primary" style="font-size: .6em">0.8.0</span>
-        </a>
-      </div>
-      <div id="navbar" class="collapse navbar-collapse">
-        <ul class="nav navbar-nav">
-          <li><a href="index.html">Overview</a></li>
+<div class="navbar navbar-inverse navbar-fixed-top" id="topbar">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://gearpump.apache.org">Gearpump
+        <span class="label label-primary" style="font-size: .6em">0.8.1</span>
+      </a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="index.html">Overview</a></li>
 
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Introduction<b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li><a href="submit-your-1st-application.html">Submit Your 1st Application</a></li>
-              <li><a href="commandline.html">Client Command Line</a></li>
-              <li class="divider"></li>
-              <li><a href="basic-concepts.html">Basic Concepts</a></li>
-              <li><a href="features.html">Technical Highlights</a></li>
-              <li><a href="message-delivery.html">Reliable Message Delivery</a></li>
-              <li><a href="performance-report.html">Performance</a></li>
-              <li><a href="gearpump-internals.html">Gearpump Internals</a></li>
-            </ul>
-          </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Introduction<b
+            class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="submit-your-1st-application.html">Submit Your 1st Application</a></li>
+            <li><a href="commandline.html">Client Command Line</a></li>
+            <li class="divider"></li>
+            <li><a href="basic-concepts.html">Basic Concepts</a></li>
+            <li><a href="features.html">Technical Highlights</a></li>
+            <li><a href="message-delivery.html">Reliable Message Delivery</a></li>
+            <li><a href="performance-report.html">Performance</a></li>
+            <li><a href="gearpump-internals.html">Gearpump Internals</a></li>
+          </ul>
+        </li>
 
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Deploying<b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li class="dropdown-header">Deployment</li>
-              <li><a href="deployment-local.html">Local Mode</a><li>
-              <li><a href="deployment-standalone.html">Standalone Mode</a></li>
-              <li><a href="deployment-yarn.html">YARN Mode</a></li>
-              <li><a href="deployment-docker.html">Docker Mode</a><li>
-              <li class="divider"></li>
-              <li><a href="deployment-ui-authentication.html">UI Authentication</a></li>
-              <li><a href="deployment-ha.html">High Availability</a></li>
-              <li><a href="deployment-msg-delivery.html">Reliable Message Delivery</a></li>
-              <li><a href="deployment-configuration.html">Configuration</a></li>
-              <li><a href="deployment-resource-isolation.html">Resource Isolation</a></li>
-              <li class="divider"></li>
-              <li><a href="deployment-security.html">YARN Security Guide</a></li>
-            </ul>
-          </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Deploying<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li class="dropdown-header">Deployment</li>
+            <li><a href="deployment-local.html">Local Mode</a>
+            <li>
+            <li><a href="deployment-standalone.html">Standalone Mode</a></li>
+            <li><a href="deployment-yarn.html">YARN Mode</a></li>
+            <li><a href="deployment-docker.html">Docker Mode</a>
+            <li>
+            <li class="divider"></li>
+            <li><a href="deployment-ui-authentication.html">UI Authentication</a></li>
+            <li><a href="deployment-ha.html">High Availability</a></li>
+            <li><a href="deployment-msg-delivery.html">Reliable Message Delivery</a></li>
+            <li><a href="deployment-configuration.html">Configuration</a></li>
+            <li><a href="deployment-resource-isolation.html">Resource Isolation</a></li>
+            <li class="divider"></li>
+            <li><a href="deployment-security.html">YARN Security Guide</a></li>
+          </ul>
+        </li>
 
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Programming Guide<b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li><a href="dev-write-1st-app.html">Write Your 1st App</a></li>
-              <li><a href="dev-custom-serializer.html">Customized Message Passing</a></li>
-              <li class="divider"></li>
-              <li><a href="api/scala/index.html">Scala API</a></li>
-              <li><a href="api/java/index.html">Java API</a></li>
-              <li><a href="dev-rest-api.html">RESTful API</a></li>
-              <li class="divider"></li>
-              <li><a href="dev-connectors.html">Gearpump Connectors</a></li>
-              <li class="divider"></li>
-              <li><a href="dev-storm.html">Storm Compatibility</a></li>
-              <!--
-              <li><a href="dev-samoa.html">Samoa Compatibility</a></li>
-              <li class="divider"></li>
-              <li><a href="dev-iot.html">Gearpump with IoT</a></li>
-              -->
-            </ul>
-          </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Programming Guide<b
+            class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="dev-write-1st-app.html">Write Your 1st App</a></li>
+            <li><a href="dev-custom-serializer.html">Customized Message Passing</a></li>
+            <li class="divider"></li>
+            <li><a href="api/scala/index.html">Scala API</a></li>
+            <li><a href="api/java/index.html">Java API</a></li>
+            <li><a href="dev-rest-api.html">RESTful API</a></li>
+            <li class="divider"></li>
+            <li><a href="dev-connectors.html">Gearpump Connectors</a></li>
+            <li class="divider"></li>
+            <li><a href="dev-storm.html">Storm Compatibility</a></li>
+            <!--
+            <li><a href="dev-samoa.html">Samoa Compatibility</a></li>
+            <li class="divider"></li>
+            <li><a href="dev-iot.html">Gearpump with IoT</a></li>
+            -->
+          </ul>
+        </li>
 
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">More<b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li><a href="how-to-contribute.html">How to Contribute</a></li>
-              <li><a href="coding-style.html">Coding Style</a></li>
-              <li class="divider"></li>
-              <li><a href="faq.html">FAQ</a><li>
-              <li><a href="about.html">About</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">More<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </li>
+      </ul>
     </div>
   </div>
+</div>
 
-  <div class="container" id="content">
-   
-    <h1 class="title">UI Dashboard Authentication and Authorization</h1>
-   
+<div class="container" id="content">
+  
+  <h1 class="title">UI Dashboard Authentication and Authorization</h1>
+  
 
-   <h2 id="what-is-this-about">What is this about?</h2>
+  <h2 id="what-is-this-about">What is this about?</h2>
 
 <h2 id="how-to-enable-ui-authentication">How to enable UI authentication?</h2>
 
@@ -156,7 +163,7 @@
 <p>Gearpump provides a built-in ConfigFileBasedAuthenticator which verify user name and password
    against password hashcode stored in config files.</p>
 
-<p>However, developer can choose to extends the <code>io.gearpump.security.Authenticator</code> to provide a custom
+<p>However, developer can choose to extends the <code>org.apache.gearpump.security.Authenticator</code> to provide a custom
    User-Password based authenticator, to support LDAP, Kerberos, and Database-based authentication&#8230;</p>
 
 <h3 id="configfilebasedauthenticator-built-in-user-password-authenticator">ConfigFileBasedAuthenticator: built-in User-Password Authenticator</h3>
@@ -183,7 +190,7 @@ is the steps to configure ConfigFileBasedAuthenticator.</p>
     <p>Pick a password, and generate the digest for this password. Suppose we use password <code>ilovegearpump</code>, 
 to generate the digest:</p>
 
-    <div class="highlight"><pre><code>bin/gear io.gearpump.security.PasswordUtil -password  ilovegearpump
+    <div class="highlight"><pre><code>bin/gear org.apache.gearpump.security.PasswordUtil -password  ilovegearpump
 </code></pre></div>
 
     <p>It will generate a digest value like this:</p>
@@ -239,8 +246,8 @@ We will use one-way hash digest to verify the user input password.</p>
 <p>If developer choose to define his/her own User-Password based authenticator, it is required that user
     modify configuration option:</p>
 
-<div class="highlight"><pre><code>## Replace "io.gearpump.security.CustomAuthenticator" with your real authenticator class.
-gearpump.ui-security.authenticator = "io.gearpump.security.CustomAuthenticator"
+<div class="highlight"><pre><code>## Replace "org.apache.gearpump.security.CustomAuthenticator" with your real authenticator class.
+gearpump.ui-security.authenticator = "org.apache.gearpump.security.CustomAuthenticator"
 </code></pre></div>
 
 <p>Make sure CustomAuthenticator extends interface:
@@ -277,7 +284,7 @@ trait Authenticator {</p>
 
 <h4 id="if-you-are-on-windows">If you are on Windows</h4>
 
-<div class="highlight"><pre><code class="language-bash">  &gt; <span class="nb">set </span><span class="nv">JAVA_OPTS</span><span class="o">=</span>-Dhttp.proxyHost<span class="o">=</span>xx.com -Dhttp.proxyPort<span class="o">=</span>8088 -Dhttps.proxyHost<span class="o">=</span>xx.com -Dhttps.proxyPort<span class="o">=</span>8088
+<div class="highlight"><pre><code class="language-bash">  &gt; <span class="nb">set </span><span class="nv">JAVA_OPTS</span><span class="o">=</span>-Dhttp.proxyHost<span class="o">=</span>xx.com -Dhttp.proxyPort<span class="o">=</span><span class="m">8088</span> -Dhttps.proxyHost<span class="o">=</span>xx.com -Dhttps.proxyPort<span class="o">=</span>8088
   &gt; bin<span class="se">\s</span>ervices</code></pre></div>
 
 <h4 id="if-you-are-on-linux">If you are on Linux</h4>
@@ -381,7 +388,7 @@ class name, client ID, client Secret, and callback URL are set properly.</li>
 Please make sure class name, client ID, client Secret, and callback URL are set properly.</li>
 </ol>
 
-<p><strong>NOTE:</strong> The callback URL here should matche what you set on CloudFoundry UAA in step1.</p>
+<p><strong>NOTE:</strong> The callback URL here should match what you set on CloudFoundry UAA in step1.</p>
 
 <h4 id="step3-configure-network-proxy-for-gearpump-ui-server-if-applies">Step3: Configure network proxy for Gearpump UI server if applies</h4>
 
@@ -422,7 +429,7 @@ Please make sure class name, client ID, client Secret, and callback URL are set 
 <span class="cm"> * parameters and form fields.</span>
 <span class="cm"> *</span>
 <span class="cm"> * @note &#39;&#39;&#39;Thread-safety&#39;&#39;&#39; is a MUST requirement. Developer need to ensure the sub-class is thread-safe.</span>
-<span class="cm"> * Sub-class should have a parameterless constructor.</span>
+<span class="cm"> * Sub-class should have a parameter-less constructor.</span>
 <span class="cm"> *</span>
 <span class="cm"> * @note OAuth2 Authenticator requires access of Internet. Please make sure HTTP proxy are</span>
 <span class="cm"> * set properly if applied.</span>
@@ -487,7 +494,7 @@ Please make sure class name, client ID, client Secret, and callback URL are set 
 
     <div class="highlight"><pre><code> ## name of this authenticator
 "socialnetworkx" {
-  "class" = "io.gearpump.services.security.oauth2.impl.SocialNetworkXAuthenticator"
+  "class" = "org.apache.gearpump.services.security.oauth2.impl.SocialNetworkXAuthenticator"
 
   ## Please make sure this URL matches the name
   "callback" = "http://127.0.0.1:8090/login/oauth2/socialnetworkx/callback"
@@ -506,40 +513,42 @@ Please make sure class name, client ID, client Secret, and callback URL are set 
 
 
 
-  </div> <!-- /container -->
+</div>
+<!-- /container -->
 
-  <script src="js/vendor/jquery-2.1.4.min.js"></script>
-  <script src="js/vendor/bootstrap-3.3.5.min.js"></script>
-  <script src="js/vendor/anchor-1.1.1.min.js"></script>
-  <script src="js/main.js"></script>
+<script src="js/vendor/jquery-2.1.4.min.js"></script>
+<script src="js/vendor/bootstrap-3.3.5.min.js"></script>
+<script src="js/vendor/anchor-1.1.1.min.js"></script>
+<script src="js/main.js"></script>
 
-  <!-- MathJax Section -->
-  <script type="text/x-mathjax-config">
+<!-- MathJax Section -->
+<script type="text/x-mathjax-config">
     MathJax.Hub.Config({
       TeX: { equationNumbers: { autoNumber: "AMS" } }
     });
-  </script>
-  <script>
-    // Note that we load MathJax this way to work with local file (file://), HTTP and HTTPS.
-    // We could use "//cdn.mathjax...", but that won't support "file://".
-    (function(d, script) {
-      script = d.createElement('script');
-      script.type = 'text/javascript';
-      script.async = true;
-      script.onload = function(){
-        MathJax.Hub.Config({
-          tex2jax: {
-            inlineMath: [ ["$", "$"], ["\\\\(","\\\\)"] ],
-            displayMath: [ ["$$","$$"], ["\\[", "\\]"] ],
-            processEscapes: true,
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
-          }
-        });
-      };
-      script.src = ('https:' == document.location.protocol ? 'https://' : 'http://') +
-        'cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
-      d.getElementsByTagName('head')[0].appendChild(script);
-    }(document));
-  </script>
+
+</script>
+<script>
+  // Note that we load MathJax this way to work with local file (file://), HTTP and HTTPS.
+  // We could use "//cdn.mathjax...", but that won't support "file://".
+  (function (d, script) {
+    script = d.createElement('script');
+    script.type = 'text/javascript';
+    script.async = true;
+    script.onload = function () {
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [["$", "$"], ["\\\\(", "\\\\)"]],
+          displayMath: [["$$", "$$"], ["\\[", "\\]"]],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+        }
+      });
+    };
+    script.src = ('https:' == document.location.protocol ? 'https://' : 'http://') +
+      'cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    d.getElementsByTagName('head')[0].appendChild(script);
+  }(document));
+</script>
 </body>
 </html>

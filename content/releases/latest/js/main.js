@@ -25,7 +25,7 @@ function codeTabs() {
     "python": "img/python-sm.png",
     "java": "img/java-sm.png"
   };
-  $("div.codetabs").each(function() {
+  $("div.codetabs").each(function () {
     $(this).addClass("tab-content");
 
     // Insert the tab bar
@@ -34,19 +34,23 @@ function codeTabs() {
 
     // Add each code sample to the tab bar:
     var codeSamples = $(this).children("div");
-    codeSamples.each(function() {
+    codeSamples.each(function () {
       $(this).addClass("tab-pane");
       var lang = $(this).data("lang");
       var image = $(this).data("image");
+      var label = $(this).data("label");
       var notabs = $(this).data("notabs");
-      var capitalizedLang = lang.substr(0, 1).toUpperCase() + lang.substr(1);
+      if (label == null) {
+        var capitalizedLang = lang.substr(0, 1).toUpperCase() + lang.substr(1);
+        label = capitalizedLang;
+      }
       lang = lang.replace(/ /g, '');
-      var id = "tab_" + lang + "_" + counter;
+      var id = "tab_" + label.replace(/ /g, '_') + "_" + counter;
       $(this).attr("id", id);
       if (image != null && langImages[lang]) {
-        var buttonLabel = "<img src='" +langImages[lang] + "' alt='" + capitalizedLang + "' />";
+        var buttonLabel = "<img src='" + langImages[lang] + "' alt='" + label + "' />";
       } else if (notabs == null) {
-        var buttonLabel = "<b>" + capitalizedLang + "</b>";
+        var buttonLabel = "<b>" + label + "</b>";
       } else {
         var buttonLabel = ""
       }
@@ -67,11 +71,10 @@ function codeTabs() {
     $(this).tab('show');
     $(document).scrollTop($(this).offset().top - scrollOffset);
   });
-  $("table").each(function() {
+  $("table").each(function () {
     $(this).addClass("table table-bordered");
   });
 }
-
 
 // A script to fix internal hash links because we have an overlapping top bar.
 // Based on https://github.com/twitter/bootstrap/issues/193#issuecomment-2281510
@@ -82,7 +85,7 @@ function maybeScrollToHash() {
   }
 }
 
-$(function() {
+$(function () {
   codeTabs();
   // Display anchor links when hovering over headers. For documentation of the
   // configuration options, see the AnchorJS documentation.
@@ -91,11 +94,15 @@ $(function() {
   };
   anchors.add();
 
-  $(window).bind('hashchange', function() {
+  $(window).bind('hashchange', function () {
     maybeScrollToHash();
   });
 
   // Scroll now too in case we had opened the page on a hash, but wait a bit because some browsers
   // will try to do *their* initial scroll after running the onReady handler.
-  $(window).load(function() { setTimeout(function() { maybeScrollToHash(); }, 25); }); 
+  $(window).load(function () {
+    setTimeout(function () {
+      maybeScrollToHash();
+    }, 25);
+  });
 });
