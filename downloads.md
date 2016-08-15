@@ -4,7 +4,7 @@ layout: global
 
 ## Downloads
 
-### Latest Stable Release (v{{ site.GEARPUMP_VERSION }}) 
+### Current 0.8.1 Release (v{{ site.GEARPUMP_VERSION }}) 
 
 [Release Notes](https://git-wip-us.apache.org/repos/asf?p=incubator-gearpump.git;a=blob;f=CHANGELOG.md;h=564899ef23176c304f03c4decb2266c19d88d46f;hb=9063ae8c447b711b4b512e79ce8d7aff66924e79)
 
@@ -19,12 +19,12 @@ To program against this version, you need to add below artifact dependencies to 
 {% highlight xml %}
 <dependencies>
   <dependency>
-    <groupId>com.github.intel-hadoop</groupId>
+    <groupId>org.apache.gearpump</groupId>
     <artifactId>gearpump-core_2.11</artifactId>
     <version>{{ site.GEARPUMP_VERSION }}</version>
   </dependency>
   <dependency>
-    <groupId>com.github.intel-hadoop</groupId>
+    <groupId>org.apache.gearpump</groupId>
     <artifactId>gearpump-streaming_2.11</artifactId>
     <version>{{ site.GEARPUMP_VERSION }}</version>
   </dependency>
@@ -50,16 +50,6 @@ To ensure above dependencies resolved, you will need to add the following reposi
     <id>akka-data-replication</id>
     <name>Patrik at Bintray</name>
     <url>http://dl.bintray.com/patriknw/maven</url>
-  </repository>
-  <repository>
-    <id>cloudera</id>
-    <name>Cloudera repo</name>
-    <url>https://repository.cloudera.com/artifactory/cloudera-repos</url>
-  </repository>
-  <repository>
-    <id>vincent</id>
-    <name>vincent</name>
-    <url>http://dl.bintray.com/fvunicorn/maven</url>
   </repository>
   <repository>
     <id>non</id>
@@ -95,16 +85,6 @@ To ensure above dependencies resolved, you will need to add the following reposi
     <id>akka-data-replication</id>
     <name>Patrik at Bintray</name>
     <url>http://dl.bintray.com/patriknw/maven</url>
-  </repository>
-  <repository>
-    <id>cloudera</id>
-    <name>Cloudera repo</name>
-    <url>https://repository.cloudera.com/artifactory/cloudera-repos</url>
-  </repository>
-  <repository>
-    <id>vincent</id>
-    <name>vincent</name>
-    <url>http://dl.bintray.com/fvunicorn/maven</url>
   </repository>
   <repository>
     <id>non</id>

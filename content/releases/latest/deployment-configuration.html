@@ -1,15 +1,20 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"/>
-  <title>Gearpump Configuration - Gearpump 0.8.0 Documentation</title>
+  <title>Gearpump Configuration - Gearpump 0.8.1 Documentation</title>
   
-   <meta name="description" content="Gearpump Configuration">
+  <meta name="description"
+        content="Gearpump Configuration">
   
 
   
@@ -26,102 +31,105 @@
   <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
 </head>
 <body>
-  <!--[if lt IE 7]>
-    <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
-  <![endif]-->
+<!--[if lt IE 7]>
+<p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade
+  your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install
+  Google Chrome Frame</a> to better experience this site.</p>
+<![endif]-->
 
-  <div class="navbar navbar-inverse navbar-fixed-top" id="topbar">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="http://gearpump.io">Gearpump
-          <span class="label label-primary" style="font-size: .6em">0.8.0</span>
-        </a>
-      </div>
-      <div id="navbar" class="collapse navbar-collapse">
-        <ul class="nav navbar-nav">
-          <li><a href="index.html">Overview</a></li>
+<div class="navbar navbar-inverse navbar-fixed-top" id="topbar">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://gearpump.apache.org">Gearpump
+        <span class="label label-primary" style="font-size: .6em">0.8.1</span>
+      </a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="index.html">Overview</a></li>
 
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Introduction<b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li><a href="submit-your-1st-application.html">Submit Your 1st Application</a></li>
-              <li><a href="commandline.html">Client Command Line</a></li>
-              <li class="divider"></li>
-              <li><a href="basic-concepts.html">Basic Concepts</a></li>
-              <li><a href="features.html">Technical Highlights</a></li>
-              <li><a href="message-delivery.html">Reliable Message Delivery</a></li>
-              <li><a href="performance-report.html">Performance</a></li>
-              <li><a href="gearpump-internals.html">Gearpump Internals</a></li>
-            </ul>
-          </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Introduction<b
+            class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="submit-your-1st-application.html">Submit Your 1st Application</a></li>
+            <li><a href="commandline.html">Client Command Line</a></li>
+            <li class="divider"></li>
+            <li><a href="basic-concepts.html">Basic Concepts</a></li>
+            <li><a href="features.html">Technical Highlights</a></li>
+            <li><a href="message-delivery.html">Reliable Message Delivery</a></li>
+            <li><a href="performance-report.html">Performance</a></li>
+            <li><a href="gearpump-internals.html">Gearpump Internals</a></li>
+          </ul>
+        </li>
 
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Deploying<b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li class="dropdown-header">Deployment</li>
-              <li><a href="deployment-local.html">Local Mode</a><li>
-              <li><a href="deployment-standalone.html">Standalone Mode</a></li>
-              <li><a href="deployment-yarn.html">YARN Mode</a></li>
-              <li><a href="deployment-docker.html">Docker Mode</a><li>
-              <li class="divider"></li>
-              <li><a href="deployment-ui-authentication.html">UI Authentication</a></li>
-              <li><a href="deployment-ha.html">High Availability</a></li>
-              <li><a href="deployment-msg-delivery.html">Reliable Message Delivery</a></li>
-              <li><a href="deployment-configuration.html">Configuration</a></li>
-              <li><a href="deployment-resource-isolation.html">Resource Isolation</a></li>
-              <li class="divider"></li>
-              <li><a href="deployment-security.html">YARN Security Guide</a></li>
-            </ul>
-          </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Deploying<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li class="dropdown-header">Deployment</li>
+            <li><a href="deployment-local.html">Local Mode</a>
+            <li>
+            <li><a href="deployment-standalone.html">Standalone Mode</a></li>
+            <li><a href="deployment-yarn.html">YARN Mode</a></li>
+            <li><a href="deployment-docker.html">Docker Mode</a>
+            <li>
+            <li class="divider"></li>
+            <li><a href="deployment-ui-authentication.html">UI Authentication</a></li>
+            <li><a href="deployment-ha.html">High Availability</a></li>
+            <li><a href="deployment-msg-delivery.html">Reliable Message Delivery</a></li>
+            <li><a href="deployment-configuration.html">Configuration</a></li>
+            <li><a href="deployment-resource-isolation.html">Resource Isolation</a></li>
+            <li class="divider"></li>
+            <li><a href="deployment-security.html">YARN Security Guide</a></li>
+          </ul>
+        </li>
 
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Programming Guide<b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li><a href="dev-write-1st-app.html">Write Your 1st App</a></li>
-              <li><a href="dev-custom-serializer.html">Customized Message Passing</a></li>
-              <li class="divider"></li>
-              <li><a href="api/scala/index.html">Scala API</a></li>
-              <li><a href="api/java/index.html">Java API</a></li>
-              <li><a href="dev-rest-api.html">RESTful API</a></li>
-              <li class="divider"></li>
-              <li><a href="dev-connectors.html">Gearpump Connectors</a></li>
-              <li class="divider"></li>
-              <li><a href="dev-storm.html">Storm Compatibility</a></li>
-              <!--
-              <li><a href="dev-samoa.html">Samoa Compatibility</a></li>
-              <li class="divider"></li>
-              <li><a href="dev-iot.html">Gearpump with IoT</a></li>
-              -->
-            </ul>
-          </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Programming Guide<b
+            class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="dev-write-1st-app.html">Write Your 1st App</a></li>
+            <li><a href="dev-custom-serializer.html">Customized Message Passing</a></li>
+            <li class="divider"></li>
+            <li><a href="api/scala/index.html">Scala API</a></li>
+            <li><a href="api/java/index.html">Java API</a></li>
+            <li><a href="dev-rest-api.html">RESTful API</a></li>
+            <li class="divider"></li>
+            <li><a href="dev-connectors.html">Gearpump Connectors</a></li>
+            <li class="divider"></li>
+            <li><a href="dev-storm.html">Storm Compatibility</a></li>
+            <!--
+            <li><a href="dev-samoa.html">Samoa Compatibility</a></li>
+            <li class="divider"></li>
+            <li><a href="dev-iot.html">Gearpump with IoT</a></li>
+            -->
+          </ul>
+        </li>
 
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">More<b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li><a href="how-to-contribute.html">How to Contribute</a></li>
-              <li><a href="coding-style.html">Coding Style</a></li>
-              <li class="divider"></li>
-              <li><a href="faq.html">FAQ</a><li>
-              <li><a href="about.html">About</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">More<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </li>
+      </ul>
     </div>
   </div>
+</div>
 
-  <div class="container" id="content">
-   
-    <h1 class="title">Gearpump Configuration</h1>
-   
+<div class="container" id="content">
+  
+  <h1 class="title">Gearpump Configuration</h1>
+  
 
-   <h2 id="master-and-worker-configuration">Master and Worker configuration</h2>
+  <h2 id="master-and-worker-configuration">Master and Worker configuration</h2>
 
 <p>Master and Worker daemons will only read configuration from conf/gear.conf.</p>
 
@@ -141,7 +149,7 @@ gearpump<span class="o">{</span>
 
 <h2 id="configuration-for-user-submitted-application-job">Configuration for user submitted application job</h2>
 
-<p>For user application job, it will read configuration file <code>gear.conf</code> and <code>application.conf</code> from classpath, while <code>application.conf</code> has higher prioprty. 
+<p>For user application job, it will read configuration file <code>gear.conf</code> and <code>application.conf</code> from classpath, while <code>application.conf</code> has higher priority.
 The default classpath contains:</p>
 
 <ol>
@@ -274,11 +282,11 @@ The default classpath contains:</p>
     <tr>
       <td style="text-align: left">gearpump.jarstore.rootpath</td>
       <td style="text-align: left">&#8220;jarstore/&#8221;</td>
-      <td style="text-align: left">Define where the submitted jar file will be stored. This path follows the hadoop path schema. For HDFS, use <code>hdfs://host:port/path/</code>; if you want to store on master nodes, then use local directory. <code>jarstore.rootpath = "jarstore/"</code> will point to relative directory where master is started. <code>jarstore.rootpath = "/jarstore/"</code> will point to absolute directory on master server</td>
+      <td style="text-align: left">Define where the submitted jar file will be stored. This path follows the hadoop path schema. For HDFS, use <code>hdfs://host:port/path/</code>, and HDFS HA, <code>hdfs://namespace/path/</code>; if you want to store on master nodes, then use local directory. <code>jarstore.rootpath = "jarstore/"</code> will point to relative directory where master is started. <code>jarstore.rootpath = "/jarstore/"</code> will point to absolute directory on master server</td>
     </tr>
     <tr>
       <td style="text-align: left">gearpump.scheduling.scheduler-class</td>
-      <td style="text-align: left">&#8220;io.gearpump.cluster.scheduler.PriorityScheduler&#8221;</td>
+      <td style="text-align: left">&#8220;org.apache.gearpump.cluster.scheduler.PriorityScheduler&#8221;</td>
       <td style="text-align: left">Class to schedule the applications.</td>
     </tr>
     <tr>
@@ -337,48 +345,55 @@ The default classpath contains:</p>
       <td style="text-align: left">default single thread dispatcher</td>
     </tr>
     <tr>
-      <td style="text-align: left">serialization-framework</td>
-      <td style="text-align: left">&#8220;io.gearpump.serializer.FastKryoSerializationFramework&#8221;</td>
-      <td style="text-align: left">Gearpump has built-in serialization framework using Kryo. Users are allowed to use a different serialization framework, like Protobuf. See <code>io.gearpump.serializer.FastKryoSerializationFramework</code> to find how a custom serialization framework can be defined</td>
+      <td style="text-align: left">gearpump.serialization-framework</td>
+      <td style="text-align: left">&#8220;org.apache.gearpump.serializer.FastKryoSerializationFramework&#8221;</td>
+      <td style="text-align: left">Gearpump has built-in serialization framework using Kryo. Users are allowed to use a different serialization framework, like Protobuf. See <code>org.apache.gearpump.serializer.FastKryoSerializationFramework</code> to find how a custom serialization framework can be defined</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">worker.executor-share-same-jvm-as-worker</td>
+      <td style="text-align: left">false</td>
+      <td style="text-align: left">whether the executor actor is started in the same jvm(process) from which running the worker actor, the intention of this setting is for the convenience of single machine debugging, however, the app jar need to be added to the worker&#8217;s classpath when you set it true and have a &#8216;real&#8217; worker in the cluster</td>
     </tr>
   </tbody>
 </table>
 
 
-  </div> <!-- /container -->
+</div>
+<!-- /container -->
 
-  <script src="js/vendor/jquery-2.1.4.min.js"></script>
-  <script src="js/vendor/bootstrap-3.3.5.min.js"></script>
-  <script src="js/vendor/anchor-1.1.1.min.js"></script>
-  <script src="js/main.js"></script>
+<script src="js/vendor/jquery-2.1.4.min.js"></script>
+<script src="js/vendor/bootstrap-3.3.5.min.js"></script>
+<script src="js/vendor/anchor-1.1.1.min.js"></script>
+<script src="js/main.js"></script>
 
-  <!-- MathJax Section -->
-  <script type="text/x-mathjax-config">
+<!-- MathJax Section -->
+<script type="text/x-mathjax-config">
     MathJax.Hub.Config({
       TeX: { equationNumbers: { autoNumber: "AMS" } }
     });
-  </script>
-  <script>
-    // Note that we load MathJax this way to work with local file (file://), HTTP and HTTPS.
-    // We could use "//cdn.mathjax...", but that won't support "file://".
-    (function(d, script) {
-      script = d.createElement('script');
-      script.type = 'text/javascript';
-      script.async = true;
-      script.onload = function(){
-        MathJax.Hub.Config({
-          tex2jax: {
-            inlineMath: [ ["$", "$"], ["\\\\(","\\\\)"] ],
-            displayMath: [ ["$$","$$"], ["\\[", "\\]"] ],
-            processEscapes: true,
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
-          }
-        });
-      };
-      script.src = ('https:' == document.location.protocol ? 'https://' : 'http://') +
-        'cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
-      d.getElementsByTagName('head')[0].appendChild(script);
-    }(document));
-  </script>
+
+</script>
+<script>
+  // Note that we load MathJax this way to work with local file (file://), HTTP and HTTPS.
+  // We could use "//cdn.mathjax...", but that won't support "file://".
+  (function (d, script) {
+    script = d.createElement('script');
+    script.type = 'text/javascript';
+    script.async = true;
+    script.onload = function () {
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [["$", "$"], ["\\\\(", "\\\\)"]],
+          displayMath: [["$$", "$$"], ["\\[", "\\]"]],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+        }
+      });
+    };
+    script.src = ('https:' == document.location.protocol ? 'https://' : 'http://') +
+      'cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    d.getElementsByTagName('head')[0].appendChild(script);
+  }(document));
+</script>
 </body>
 </html>
