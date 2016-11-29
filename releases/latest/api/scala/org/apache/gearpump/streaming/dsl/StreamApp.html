@@ -116,7 +116,7 @@ context.close()</pre></div><div class="toggleContainer block">
     </span>
       
     </li><li name="org.apache.gearpump.streaming.dsl.StreamApp#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="&lt;init&gt;(name:String,system:akka.actor.ActorSystem,userConfig:org.apache.gearpump.cluster.UserConfig,graph:org.apache.gearpump.util.Graph[org.apache.gearpump.streaming.dsl.op.Op,org.apache.gearpump.streaming.dsl.op.OpEdge]):org.apache.gearpump.streaming.dsl.StreamApp"></a>
+      <a id="&lt;init&gt;(name:String,system:akka.actor.ActorSystem,userConfig:org.apache.gearpump.cluster.UserConfig,graph:org.apache.gearpump.util.Graph[org.apache.gearpump.streaming.dsl.plan.Op,org.apache.gearpump.streaming.dsl.plan.OpEdge]):org.apache.gearpump.streaming.dsl.StreamApp"></a>
       <a id="&lt;init&gt;:StreamApp"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -124,10 +124,10 @@ context.close()</pre></div><div class="toggleContainer block">
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">StreamApp</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="system">system: <span class="extype" name="akka.actor.ActorSystem">ActorSystem</span></span>, <span name="userConfig">userConfig: <a href="../../cluster/UserConfig.html" class="extype" name="org.apache.gearpump.cluster.UserConfig">UserConfig</a></span>, <span name="graph">graph: <a href="../../util/Graph.html" class="extype" name="org.apache.gearpump.util.Graph">Graph</a>[<a href="op/Op.html" class="extype" name="org.apache.gearpump.streaming.dsl.op.Op">Op</a>, <a href="op/OpEdge.html" class="extype" name="org.apache.gearpump.streaming.dsl.op.OpEdge">OpEdge</a>]</span>)</span>
+        <span class="name">StreamApp</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="system">system: <span class="extype" name="akka.actor.ActorSystem">ActorSystem</span></span>, <span name="userConfig">userConfig: <a href="../../cluster/UserConfig.html" class="extype" name="org.apache.gearpump.cluster.UserConfig">UserConfig</a></span>, <span name="graph">graph: <a href="../../util/Graph.html" class="extype" name="org.apache.gearpump.util.Graph">Graph</a>[<a href="plan/Op.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.Op">Op</a>, <a href="plan/OpEdge.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.OpEdge">OpEdge</a>]</span>)</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#org.apache.gearpump.streaming.dsl.StreamApp@&lt;init&gt;(name:String,system:akka.actor.ActorSystem,userConfig:org.apache.gearpump.cluster.UserConfig,graph:org.apache.gearpump.util.Graph[org.apache.gearpump.streaming.dsl.op.Op,org.apache.gearpump.streaming.dsl.op.OpEdge]):org.apache.gearpump.streaming.dsl.StreamApp" title="Permalink" target="_top">
+      <a href="../../../../../index.html#org.apache.gearpump.streaming.dsl.StreamApp@&lt;init&gt;(name:String,system:akka.actor.ActorSystem,userConfig:org.apache.gearpump.cluster.UserConfig,graph:org.apache.gearpump.util.Graph[org.apache.gearpump.streaming.dsl.plan.Op,org.apache.gearpump.streaming.dsl.plan.OpEdge]):org.apache.gearpump.streaming.dsl.StreamApp" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -306,23 +306,6 @@ context.close()</pre></div><div class="toggleContainer block">
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="org.apache.gearpump.streaming.dsl.StreamApp#graph" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="graph:org.apache.gearpump.util.Graph[org.apache.gearpump.streaming.dsl.op.Op,org.apache.gearpump.streaming.dsl.op.OpEdge]"></a>
-      <a id="graph:Graph[Op,OpEdge]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">val</span>
-      </span>
-      <span class="symbol">
-        <span class="name">graph</span><span class="result">: <a href="../../util/Graph.html" class="extype" name="org.apache.gearpump.util.Graph">Graph</a>[<a href="op/Op.html" class="extype" name="org.apache.gearpump.streaming.dsl.op.Op">Op</a>, <a href="op/OpEdge.html" class="extype" name="org.apache.gearpump.streaming.dsl.op.OpEdge">OpEdge</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../index.html#org.apache.gearpump.streaming.dsl.StreamApp@graph:org.apache.gearpump.util.Graph[org.apache.gearpump.streaming.dsl.op.Op,org.apache.gearpump.streaming.dsl.op.OpEdge]" title="Permalink" target="_top">
-        <img src="../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
     </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="hashCode():Int"></a>
       <a id="hashCode():Int"></a>
@@ -357,23 +340,6 @@ context.close()</pre></div><div class="toggleContainer block">
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
-    </li><li name="org.apache.gearpump.streaming.dsl.StreamApp#name" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="name:String"></a>
-      <a id="name:String"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">val</span>
-      </span>
-      <span class="symbol">
-        <span class="name">name</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../index.html#org.apache.gearpump.streaming.dsl.StreamApp@name:String" title="Permalink" target="_top">
-        <img src="../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">name of app</p>
     </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a>
       <a id="ne(AnyRef):Boolean"></a>

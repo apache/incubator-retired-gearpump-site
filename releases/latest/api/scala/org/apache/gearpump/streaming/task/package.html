@@ -309,23 +309,6 @@ networking to customized implementation <a href="../../transport/Express.html" c
       </a>
     </span>
       
-    </li><li name="org.apache.gearpump.streaming.task.StartTime" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="StartTimeextendsProductwithSerializable"></a>
-      <a id="StartTime:StartTime"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">case class</span>
-      </span>
-      <span class="symbol">
-        <a href="StartTime.html"><span class="name">StartTime</span></a><span class="params">(<span name="startTime">startTime: <a href="../../package.html#TimeStamp=Long" class="extmbr" name="org.apache.gearpump.TimeStamp">TimeStamp</a> = <span class="symbol">0</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../index.html#org.apache.gearpump.streaming.task.package@StartTimeextendsProductwithSerializable" title="Permalink" target="_top">
-        <img src="../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">Start time of streaming application.</p><div class="fullcomment"><div class="comment cmt"><p>Start time of streaming application. All message older than start time will be dropped</p></div></div>
     </li><li name="org.apache.gearpump.streaming.task.StreamingTransportSerializer" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="StreamingTransportSerializerextendsITransportMessageSerializer"></a>
       <a id="StreamingTransportSerializer:StreamingTransportSerializer"></a>
@@ -352,7 +335,7 @@ networking to customized implementation <a href="../../transport/Express.html" c
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="Subscriber.html"><span class="name">Subscriber</span></a><span class="params">(<span name="processorId">processorId: <span class="extype" name="scala.Int">Int</span></span>, <span name="partitionerDescription">partitionerDescription: <a href="../../partitioner/PartitionerDescription.html" class="extype" name="org.apache.gearpump.partitioner.PartitionerDescription">PartitionerDescription</a></span>, <span name="parallelism">parallelism: <span class="extype" name="scala.Int">Int</span></span>, <span name="lifeTime">lifeTime: <a href="../LifeTime.html" class="extype" name="org.apache.gearpump.streaming.LifeTime">LifeTime</a></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <a href="Subscriber.html"><span class="name">Subscriber</span></a><span class="params">(<span name="processorId">processorId: <span class="extype" name="scala.Int">Int</span></span>, <span name="partitionerDescription">partitionerDescription: <a href="../partitioner/PartitionerDescription.html" class="extype" name="org.apache.gearpump.streaming.partitioner.PartitionerDescription">PartitionerDescription</a></span>, <span name="parallelism">parallelism: <span class="extype" name="scala.Int">Int</span></span>, <span name="lifeTime">lifeTime: <a href="../LifeTime.html" class="extype" name="org.apache.gearpump.streaming.LifeTime">LifeTime</a></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../../../index.html#org.apache.gearpump.streaming.task.package@SubscriberextendsProductwithSerializable" title="Permalink" target="_top">

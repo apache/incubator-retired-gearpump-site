@@ -506,18 +506,18 @@ containing environment.
       <p class="shortcomment cmt">Method called for each message received.</p><div class="fullcomment"><div class="comment cmt"><p>Method called for each message received.
 </p></div><dl class="paramcmts block"><dt class="param">msg</dt><dd class="cmt"><p>Message send by upstream tasks</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="org.apache.gearpump.streaming.task.TaskWrapper">TaskWrapper</a> → <a href="TaskInterface.html" class="extype" name="org.apache.gearpump.streaming.task.TaskInterface">TaskInterface</a></dd></dl></div>
     </li><li name="org.apache.gearpump.streaming.task.TaskWrapper#onStart" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="onStart(startTime:org.apache.gearpump.streaming.task.StartTime):Unit"></a>
-      <a id="onStart(StartTime):Unit"></a>
+      <a id="onStart(startTime:java.time.Instant):Unit"></a>
+      <a id="onStart(Instant):Unit"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">onStart</span><span class="params">(<span name="startTime">startTime: <a href="StartTime.html" class="extype" name="org.apache.gearpump.streaming.task.StartTime">StartTime</a></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">onStart</span><span class="params">(<span name="startTime">startTime: <span class="extype" name="java.time.Instant">Instant</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#org.apache.gearpump.streaming.task.TaskWrapper@onStart(startTime:org.apache.gearpump.streaming.task.StartTime):Unit" title="Permalink" target="_top">
+      <a href="../../../../../index.html#org.apache.gearpump.streaming.task.TaskWrapper@onStart(startTime:java.time.Instant):Unit" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -542,6 +542,25 @@ containing environment.
     </span>
       <p class="shortcomment cmt">Method called when task is under clean up.</p><div class="fullcomment"><div class="comment cmt"><p>Method called when task is under clean up.</p><p>This can be used to cleanup resource when the application finished.
 </p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="org.apache.gearpump.streaming.task.TaskWrapper">TaskWrapper</a> → <a href="TaskInterface.html" class="extype" name="org.apache.gearpump.streaming.task.TaskInterface">TaskInterface</a></dd></dl></div>
+    </li><li name="org.apache.gearpump.streaming.task.TaskWrapper#onWatermarkProgress" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="onWatermarkProgress(watermark:java.time.Instant):Unit"></a>
+      <a id="onWatermarkProgress(Instant):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">onWatermarkProgress</span><span class="params">(<span name="watermark">watermark: <span class="extype" name="java.time.Instant">Instant</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.apache.gearpump.streaming.task.TaskWrapper@onWatermarkProgress(watermark:java.time.Instant):Unit" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Method called on watermark update.</p><div class="fullcomment"><div class="comment cmt"><p>Method called on watermark update.
+Usually safe to output or checkpoint states earlier than watermark.
+</p></div><dl class="paramcmts block"><dt class="param">watermark</dt><dd class="cmt"><p>represents event time progress.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="org.apache.gearpump.streaming.task.TaskWrapper">TaskWrapper</a> → <a href="TaskInterface.html" class="extype" name="org.apache.gearpump.streaming.task.TaskInterface">TaskInterface</a></dd></dl></div>
     </li><li name="org.apache.gearpump.streaming.task.TaskWrapper#output" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="output(index:Int,msg:org.apache.gearpump.Message):Unit"></a>
       <a id="output(Int,Message):Unit"></a>
@@ -763,6 +782,23 @@ It's address is not something meaningful, you should not use this directly</p><p
       </a>
     </span>
       <p class="shortcomment cmt">Please don't use this if possible</p><div class="fullcomment"><div class="comment cmt"><p>Please don't use this if possible</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>the actor system</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="org.apache.gearpump.streaming.task.TaskWrapper">TaskWrapper</a> → <a href="TaskContext.html" class="extype" name="org.apache.gearpump.streaming.task.TaskContext">TaskContext</a></dd></dl></div>
+    </li><li name="org.apache.gearpump.streaming.task.TaskWrapper#taskClass" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="taskClass:Class[_&lt;:org.apache.gearpump.streaming.task.Task]"></a>
+      <a id="taskClass:Class[_&lt;:Task]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">taskClass</span><span class="result">: <span class="extype" name="scala.Predef.Class">Class</span>[_ &lt;: <a href="Task.html" class="extype" name="org.apache.gearpump.streaming.task.Task">Task</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.apache.gearpump.streaming.task.TaskWrapper@taskClass:Class[_&lt;:org.apache.gearpump.streaming.task.Task]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">task class</p>
     </li><li name="org.apache.gearpump.streaming.task.TaskWrapper#taskId" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="taskId:org.apache.gearpump.streaming.task.TaskId"></a>
       <a id="taskId:TaskId"></a>

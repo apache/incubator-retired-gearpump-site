@@ -364,8 +364,8 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="org.apache.gearpump.streaming.dsl.plan.Planner#plan" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="plan(dag:org.apache.gearpump.util.Graph[org.apache.gearpump.streaming.dsl.op.Op,org.apache.gearpump.streaming.dsl.op.OpEdge])(implicitsystem:akka.actor.ActorSystem):org.apache.gearpump.util.Graph[org.apache.gearpump.streaming.Processor[_&lt;:org.apache.gearpump.streaming.task.Task],_&lt;:org.apache.gearpump.partitioner.Partitioner]"></a>
+    </li><li name="org.apache.gearpump.streaming.dsl.plan.Planner#plan" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="plan(dag:org.apache.gearpump.util.Graph[org.apache.gearpump.streaming.dsl.plan.Op,org.apache.gearpump.streaming.dsl.plan.OpEdge])(implicitsystem:akka.actor.ActorSystem):org.apache.gearpump.util.Graph[org.apache.gearpump.streaming.Processor[_&lt;:org.apache.gearpump.streaming.task.Task],_&lt;:org.apache.gearpump.streaming.partitioner.Partitioner]"></a>
       <a id="plan(Graph[Op,OpEdge])(ActorSystem):Graph[Processor[_&lt;:Task],_&lt;:Partitioner]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -373,14 +373,16 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">plan</span><span class="params">(<span name="dag">dag: <a href="../../../util/Graph.html" class="extype" name="org.apache.gearpump.util.Graph">Graph</a>[<a href="../op/Op.html" class="extype" name="org.apache.gearpump.streaming.dsl.op.Op">Op</a>, <a href="../op/OpEdge.html" class="extype" name="org.apache.gearpump.streaming.dsl.op.OpEdge">OpEdge</a>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="system">system: <span class="extype" name="akka.actor.ActorSystem">ActorSystem</span></span>)</span><span class="result">: <a href="../../../util/Graph.html" class="extype" name="org.apache.gearpump.util.Graph">Graph</a>[<a href="../../Processor.html" class="extype" name="org.apache.gearpump.streaming.Processor">Processor</a>[_ &lt;: <a href="../../task/Task.html" class="extype" name="org.apache.gearpump.streaming.task.Task">Task</a>], _ &lt;: <a href="../../../partitioner/Partitioner.html" class="extype" name="org.apache.gearpump.partitioner.Partitioner">Partitioner</a>]</span>
+        <span class="name">plan</span><span class="params">(<span name="dag">dag: <a href="../../../util/Graph.html" class="extype" name="org.apache.gearpump.util.Graph">Graph</a>[<a href="Op.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.Op">Op</a>, <a href="OpEdge.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.OpEdge">OpEdge</a>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="system">system: <span class="extype" name="akka.actor.ActorSystem">ActorSystem</span></span>)</span><span class="result">: <a href="../../../util/Graph.html" class="extype" name="org.apache.gearpump.util.Graph">Graph</a>[<a href="../../Processor.html" class="extype" name="org.apache.gearpump.streaming.Processor">Processor</a>[_ &lt;: <a href="../../task/Task.html" class="extype" name="org.apache.gearpump.streaming.task.Task">Task</a>], _ &lt;: <a href="../../partitioner/Partitioner.html" class="extype" name="org.apache.gearpump.streaming.partitioner.Partitioner">Partitioner</a>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.plan.Planner@plan(dag:org.apache.gearpump.util.Graph[org.apache.gearpump.streaming.dsl.op.Op,org.apache.gearpump.streaming.dsl.op.OpEdge])(implicitsystem:akka.actor.ActorSystem):org.apache.gearpump.util.Graph[org.apache.gearpump.streaming.Processor[_&lt;:org.apache.gearpump.streaming.task.Task],_&lt;:org.apache.gearpump.partitioner.Partitioner]" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.plan.Planner@plan(dag:org.apache.gearpump.util.Graph[org.apache.gearpump.streaming.dsl.plan.Op,org.apache.gearpump.streaming.dsl.plan.OpEdge])(implicitsystem:akka.actor.ActorSystem):org.apache.gearpump.util.Graph[org.apache.gearpump.streaming.Processor[_&lt;:org.apache.gearpump.streaming.task.Task],_&lt;:org.apache.gearpump.streaming.partitioner.Partitioner]" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt">Converts Dag of Op to Dag of TaskDescription.</p><div class="fullcomment"><div class="comment cmt"><p>Converts Dag of Op to Dag of TaskDescription. TaskDescription is part of the low
+level Graph API.
+</p></div></div>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>

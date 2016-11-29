@@ -16,17 +16,20 @@ obselete releases by removing corresponding version directories under `releases`
 ## Generate Gearpump release documentation (including API doc)
 
 You need to under Gearpump source code root directory execute command
+Note: If you are using macos Sierra you'll need to follow these instructions:
+http://railsapps.github.io/installrubyonrails-mac.html
 
 ```bash
 cd docs
 ./build_doc.sh  2.11  1
 ```
 
-It will generate all release documents under `_site`.
+
+It will generate all release documents under `site`.
 
 ## Upload the release documentation to http://gearpump.apache.org
-You need to upload the generated `_site` directory in previous step to *THIS* repository's `releases/` directory
-and rename `_site` directory to `latest`.
+You need to upload the generated `site` directory in previous step to *THIS* repository's `releases/` directory
+and rename `site` directory to `latest`.
 
 ## Update http://gearpump.apache.org content
 ### Update the Gearpump version number in `_config.yml`
@@ -48,7 +51,7 @@ You need to run
 jekyll build
 ```
 
-to generate all the HTML pages. These pages are under `_site` directory.
+to generate all the HTML pages. These pages are under `site` directory.
 
 You can make a local check by
 
@@ -60,12 +63,12 @@ And use browser to visit http://127.0.0.1:4000 for a dry run.
 
 ## Check in your changes
 Please check in all the pages you modified, all the changes you made under `releases` directory,
-and jekyll *generated* files under `_site` directory to Git repository.
+and jekyll *generated* files under `site` directory to Git repository.
 
 And then after a *careful check*, please raise a PR.
 
 When PR is merged, the website is updated corresponding automatically.
 
-*NOTE* Here we need to also include `_site` in Git as there is no automatically mechanism for
+*NOTE* Here we need to also include `site` in Git as there is no automatically mechanism for
 http://gearpump.apache.org to read from `.md` files.
 Gearpump

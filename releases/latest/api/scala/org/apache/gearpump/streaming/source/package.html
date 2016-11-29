@@ -95,18 +95,18 @@ a DataSource could be a message queue like kafka or simply data generation sourc
 }</pre><p>subclass is required to be serializable
 </p></div></div>
     </li><li name="org.apache.gearpump.streaming.source.DataSourceTask" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="DataSourceTaskextendsTask"></a>
-      <a id="DataSourceTask:DataSourceTask"></a>
+      <a id="DataSourceTask[IN,OUT]extendsTask"></a>
+      <a id="DataSourceTask[IN,OUT]:DataSourceTask[IN,OUT]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <a href="DataSourceTask.html"><span class="name">DataSourceTask</span></a><span class="result"> extends <a href="../task/Task.html" class="extype" name="org.apache.gearpump.streaming.task.Task">Task</a></span>
+        <a href="DataSourceTask.html"><span class="name">DataSourceTask</span></a><span class="tparams">[<span name="IN">IN</span>, <span name="OUT">OUT</span>]</span><span class="result"> extends <a href="../task/Task.html" class="extype" name="org.apache.gearpump.streaming.task.Task">Task</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#org.apache.gearpump.streaming.source.package@DataSourceTaskextendsTask" title="Permalink" target="_top">
+      <a href="../../../../../index.html#org.apache.gearpump.streaming.source.package@DataSourceTask[IN,OUT]extendsTask" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -118,23 +118,23 @@ See <a href="DataSourceProcessor$.html" class="extype" name="org.apache.gearpump
  <a href="../task/TaskContext.html" class="extype" name="org.apache.gearpump.streaming.task.TaskContext">org.apache.gearpump.streaming.task.TaskContext</a>
 and application start time</li><li><code>DataSource.read()</code> in each <code>onNext</code>, which reads a batch of messages</li><li><code>DataSource.close()</code> in <code>onStop</code>
 </li></ul></div></div>
-    </li><li name="org.apache.gearpump.streaming.source.DefaultTimeStampFilter" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="DefaultTimeStampFilterextendsTimeStampFilter"></a>
-      <a id="DefaultTimeStampFilter:DefaultTimeStampFilter"></a>
+    </li><li name="org.apache.gearpump.streaming.source.Watermark" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="WatermarkextendsProductwithSerializable"></a>
+      <a id="Watermark:Watermark"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">class</span>
+        <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="DefaultTimeStampFilter.html"><span class="name">DefaultTimeStampFilter</span></a><span class="result"> extends <a href="../transaction/api/TimeStampFilter.html" class="extype" name="org.apache.gearpump.streaming.transaction.api.TimeStampFilter">TimeStampFilter</a></span>
+        <a href="Watermark.html"><span class="name">Watermark</span></a><span class="params">(<span name="instant">instant: <span class="extype" name="java.time.Instant">Instant</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#org.apache.gearpump.streaming.source.package@DefaultTimeStampFilterextendsTimeStampFilter" title="Permalink" target="_top">
+      <a href="../../../../../index.html#org.apache.gearpump.streaming.source.package@WatermarkextendsProductwithSerializable" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">TimeStampFilter filters out messages which have obsolete (smaller) timestamp.</p>
+      <p class="shortcomment cmt">message used by source task to report source watermark.</p>
     </li></ol>
             </div>
 
@@ -182,23 +182,6 @@ user should pass in a <a href="DataSource.html" class="extype" name="org.apache.
 <span class="kw">val</span> split = Processor[Split](<span class="num">1</span>)
 <span class="kw">val</span> sum = Processor[Sum](<span class="num">1</span>)
 <span class="kw">val</span> dag = sourceProcessor ~&gt; split ~&gt; sum</pre></div></div>
-    </li><li name="org.apache.gearpump.streaming.source.DataSourceTask" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="DataSourceTask"></a>
-      <a id="DataSourceTask:DataSourceTask"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">object</span>
-      </span>
-      <span class="symbol">
-        <a href="DataSourceTask$.html"><span class="name">DataSourceTask</span></a>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../index.html#org.apache.gearpump.streaming.source.package@DataSourceTask" title="Permalink" target="_top">
-        <img src="../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
     </li></ol>
             </div>
 
