@@ -91,7 +91,7 @@
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
               <ol><li name="org.apache.gearpump.streaming.dsl.Stream#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="&lt;init&gt;(graph:org.apache.gearpump.util.Graph[org.apache.gearpump.streaming.dsl.op.Op,org.apache.gearpump.streaming.dsl.op.OpEdge],thisNode:org.apache.gearpump.streaming.dsl.op.Op,edge:Option[org.apache.gearpump.streaming.dsl.op.OpEdge]):org.apache.gearpump.streaming.dsl.Stream[T]"></a>
+      <a id="&lt;init&gt;(graph:org.apache.gearpump.util.Graph[org.apache.gearpump.streaming.dsl.plan.Op,org.apache.gearpump.streaming.dsl.plan.OpEdge],thisNode:org.apache.gearpump.streaming.dsl.plan.Op,edge:Option[org.apache.gearpump.streaming.dsl.plan.OpEdge]):org.apache.gearpump.streaming.dsl.Stream[T]"></a>
       <a id="&lt;init&gt;:Stream[T]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -99,10 +99,10 @@
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">Stream</span><span class="params">(<span name="graph">graph: <a href="../../util/Graph.html" class="extype" name="org.apache.gearpump.util.Graph">Graph</a>[<a href="op/Op.html" class="extype" name="org.apache.gearpump.streaming.dsl.op.Op">Op</a>, <a href="op/OpEdge.html" class="extype" name="org.apache.gearpump.streaming.dsl.op.OpEdge">OpEdge</a>]</span>, <span name="thisNode">thisNode: <a href="op/Op.html" class="extype" name="org.apache.gearpump.streaming.dsl.op.Op">Op</a></span>, <span name="edge">edge: <span class="extype" name="scala.Option">Option</span>[<a href="op/OpEdge.html" class="extype" name="org.apache.gearpump.streaming.dsl.op.OpEdge">OpEdge</a>] = <span class="symbol">None</span></span>)</span>
+        <span class="name">Stream</span><span class="params">(<span name="graph">graph: <a href="../../util/Graph.html" class="extype" name="org.apache.gearpump.util.Graph">Graph</a>[<a href="plan/Op.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.Op">Op</a>, <a href="plan/OpEdge.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.OpEdge">OpEdge</a>]</span>, <span name="thisNode">thisNode: <a href="plan/Op.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.Op">Op</a></span>, <span name="edge">edge: <span class="extype" name="scala.Option">Option</span>[<a href="plan/OpEdge.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.OpEdge">OpEdge</a>] = <span class="symbol">None</span></span>)</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#org.apache.gearpump.streaming.dsl.Stream@&lt;init&gt;(graph:org.apache.gearpump.util.Graph[org.apache.gearpump.streaming.dsl.op.Op,org.apache.gearpump.streaming.dsl.op.OpEdge],thisNode:org.apache.gearpump.streaming.dsl.op.Op,edge:Option[org.apache.gearpump.streaming.dsl.op.OpEdge]):org.apache.gearpump.streaming.dsl.Stream[T]" title="Permalink" target="_top">
+      <a href="../../../../../index.html#org.apache.gearpump.streaming.dsl.Stream@&lt;init&gt;(graph:org.apache.gearpump.util.Graph[org.apache.gearpump.streaming.dsl.plan.Op,org.apache.gearpump.streaming.dsl.plan.OpEdge],thisNode:org.apache.gearpump.streaming.dsl.plan.Op,edge:Option[org.apache.gearpump.streaming.dsl.plan.OpEdge]):org.apache.gearpump.streaming.dsl.Stream[T]" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -242,7 +242,7 @@
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="org.apache.gearpump.streaming.dsl.Stream#filter" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="filter(fun:T=&gt;Boolean,description:String):org.apache.gearpump.streaming.dsl.Stream[T]"></a>
+      <a id="filter(fn:T=&gt;Boolean,description:String):org.apache.gearpump.streaming.dsl.Stream[T]"></a>
       <a id="filter((T)⇒Boolean,String):Stream[T]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -250,16 +250,16 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">filter</span><span class="params">(<span name="fun">fun: (<span class="extype" name="org.apache.gearpump.streaming.dsl.Stream.T">T</span>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="description">description: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">null</span></span>)</span><span class="result">: <a href="" class="extype" name="org.apache.gearpump.streaming.dsl.Stream">Stream</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.Stream.T">T</span>]</span>
+        <span class="name">filter</span><span class="params">(<span name="fn">fn: (<span class="extype" name="org.apache.gearpump.streaming.dsl.Stream.T">T</span>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="description">description: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">&quot;filter&quot;</span></span>)</span><span class="result">: <a href="" class="extype" name="org.apache.gearpump.streaming.dsl.Stream">Stream</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.Stream.T">T</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#org.apache.gearpump.streaming.dsl.Stream@filter(fun:T=&gt;Boolean,description:String):org.apache.gearpump.streaming.dsl.Stream[T]" title="Permalink" target="_top">
+      <a href="../../../../../index.html#org.apache.gearpump.streaming.dsl.Stream@filter(fn:T=&gt;Boolean,description:String):org.apache.gearpump.streaming.dsl.Stream[T]" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">Keeps records when fun(T) == true
 </p><div class="fullcomment"><div class="comment cmt"><p>Keeps records when fun(T) == true
-</p></div><dl class="paramcmts block"><dt class="param">fun</dt><dd class="cmt"><p>the filter</p></dd><dt>returns</dt><dd class="cmt"><p>a new stream after filter</p></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="param">fn</dt><dd class="cmt"><p>the filter</p></dd><dt>returns</dt><dd class="cmt"><p>a new stream after filter</p></dd></dl></div>
     </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="finalize():Unit"></a>
       <a id="finalize():Unit"></a>
@@ -284,7 +284,7 @@
               
         </dd></dl></div>
     </li><li name="org.apache.gearpump.streaming.dsl.Stream#flatMap" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="flatMap[R](fun:T=&gt;TraversableOnce[R],description:String):org.apache.gearpump.streaming.dsl.Stream[R]"></a>
+      <a id="flatMap[R](fn:T=&gt;TraversableOnce[R],description:String):org.apache.gearpump.streaming.dsl.Stream[R]"></a>
       <a id="flatMap[R]((T)⇒TraversableOnce[R],String):Stream[R]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -292,16 +292,16 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">flatMap</span><span class="tparams">[<span name="R">R</span>]</span><span class="params">(<span name="fun">fun: (<span class="extype" name="org.apache.gearpump.streaming.dsl.Stream.T">T</span>) ⇒ <span class="extype" name="scala.TraversableOnce">TraversableOnce</span>[<span class="extype" name="org.apache.gearpump.streaming.dsl.Stream.flatMap.R">R</span>]</span>, <span name="description">description: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">null</span></span>)</span><span class="result">: <a href="" class="extype" name="org.apache.gearpump.streaming.dsl.Stream">Stream</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.Stream.flatMap.R">R</span>]</span>
+        <span class="name">flatMap</span><span class="tparams">[<span name="R">R</span>]</span><span class="params">(<span name="fn">fn: (<span class="extype" name="org.apache.gearpump.streaming.dsl.Stream.T">T</span>) ⇒ <span class="extype" name="scala.TraversableOnce">TraversableOnce</span>[<span class="extype" name="org.apache.gearpump.streaming.dsl.Stream.flatMap.R">R</span>]</span>, <span name="description">description: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">&quot;flatMap&quot;</span></span>)</span><span class="result">: <a href="" class="extype" name="org.apache.gearpump.streaming.dsl.Stream">Stream</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.Stream.flatMap.R">R</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#org.apache.gearpump.streaming.dsl.Stream@flatMap[R](fun:T=&gt;TraversableOnce[R],description:String):org.apache.gearpump.streaming.dsl.Stream[R]" title="Permalink" target="_top">
+      <a href="../../../../../index.html#org.apache.gearpump.streaming.dsl.Stream@flatMap[R](fn:T=&gt;TraversableOnce[R],description:String):org.apache.gearpump.streaming.dsl.Stream[R]" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">converts a value[T] to a list of value[R]
 </p><div class="fullcomment"><div class="comment cmt"><p>converts a value[T] to a list of value[R]
-</p></div><dl class="paramcmts block"><dt class="param">fun</dt><dd class="cmt"><p>FlatMap function</p></dd><dt class="param">description</dt><dd class="cmt"><p>The description message for this operation</p></dd><dt>returns</dt><dd class="cmt"><p>A new stream with type [R]</p></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="param">fn</dt><dd class="cmt"><p>FlatMap function</p></dd><dt class="param">description</dt><dd class="cmt"><p>The description message for this operation</p></dd><dt>returns</dt><dd class="cmt"><p>A new stream with type [R]</p></dd></dl></div>
     </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getClass():Class[_]"></a>
       <a id="getClass():Class[_]"></a>
@@ -320,23 +320,23 @@
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="org.apache.gearpump.streaming.dsl.Stream#groupBy" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="groupBy[Group](fun:T=&gt;Group,parallelism:Int,description:String):org.apache.gearpump.streaming.dsl.Stream[T]"></a>
-      <a id="groupBy[Group]((T)⇒Group,Int,String):Stream[T]"></a>
+      <a id="groupBy[GROUP](fn:T=&gt;GROUP,parallelism:Int,description:String):org.apache.gearpump.streaming.dsl.Stream[T]"></a>
+      <a id="groupBy[GROUP]((T)⇒GROUP,Int,String):Stream[T]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">groupBy</span><span class="tparams">[<span name="Group">Group</span>]</span><span class="params">(<span name="fun">fun: (<span class="extype" name="org.apache.gearpump.streaming.dsl.Stream.T">T</span>) ⇒ <span class="extype" name="org.apache.gearpump.streaming.dsl.Stream.groupBy.Group">Group</span></span>, <span name="parallelism">parallelism: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">1</span></span>, <span name="description">description: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">null</span></span>)</span><span class="result">: <a href="" class="extype" name="org.apache.gearpump.streaming.dsl.Stream">Stream</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.Stream.T">T</span>]</span>
+        <span class="name">groupBy</span><span class="tparams">[<span name="GROUP">GROUP</span>]</span><span class="params">(<span name="fn">fn: (<span class="extype" name="org.apache.gearpump.streaming.dsl.Stream.T">T</span>) ⇒ <span class="extype" name="org.apache.gearpump.streaming.dsl.Stream.groupBy.GROUP">GROUP</span></span>, <span name="parallelism">parallelism: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">1</span></span>, <span name="description">description: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">&quot;groupBy&quot;</span></span>)</span><span class="result">: <a href="" class="extype" name="org.apache.gearpump.streaming.dsl.Stream">Stream</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.Stream.T">T</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#org.apache.gearpump.streaming.dsl.Stream@groupBy[Group](fun:T=&gt;Group,parallelism:Int,description:String):org.apache.gearpump.streaming.dsl.Stream[T]" title="Permalink" target="_top">
+      <a href="../../../../../index.html#org.apache.gearpump.streaming.dsl.Stream@groupBy[GROUP](fn:T=&gt;GROUP,parallelism:Int,description:String):org.apache.gearpump.streaming.dsl.Stream[T]" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">Group by function (T =&gt; Group)</p><div class="fullcomment"><div class="comment cmt"><p>Group by function (T =&gt; Group)</p><p>For example, we have T type, People(name: String, gender: String, age: Int)
-groupBy[People](_.gender) will group the people by gender.</p><p>You can append other combinators after groupBy</p><p>For example,</p><pre>Stream[People].groupBy(_.gender).flatmap(..).filter.(..).reduce(..)</pre></div><dl class="paramcmts block"><dt class="param">fun</dt><dd class="cmt"><p>Group by function</p></dd><dt class="param">parallelism</dt><dd class="cmt"><p>Parallelism level</p></dd><dt class="param">description</dt><dd class="cmt"><p>The description</p></dd><dt>returns</dt><dd class="cmt"><p>the grouped stream</p></dd></dl></div>
+groupBy[People](_.gender) will group the people by gender.</p><p>You can append other combinators after groupBy</p><p>For example,</p><pre>Stream[People].groupBy(_.gender).flatMap(..).filter(..).reduce(..)</pre></div><dl class="paramcmts block"><dt class="param">fn</dt><dd class="cmt"><p>Group by function</p></dd><dt class="param">parallelism</dt><dd class="cmt"><p>Parallelism level</p></dd><dt class="param">description</dt><dd class="cmt"><p>The description</p></dd><dt>returns</dt><dd class="cmt"><p>the grouped stream</p></dd></dl></div>
     </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="hashCode():Int"></a>
       <a id="hashCode():Int"></a>
@@ -390,7 +390,7 @@ groupBy[People](_.gender) will group the people by gender.</p><p>You can append 
       <p class="shortcomment cmt">Log to task log file
 </p>
     </li><li name="org.apache.gearpump.streaming.dsl.Stream#map" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="map[R](fun:T=&gt;R,description:String):org.apache.gearpump.streaming.dsl.Stream[R]"></a>
+      <a id="map[R](fn:T=&gt;R,description:String):org.apache.gearpump.streaming.dsl.Stream[R]"></a>
       <a id="map[R]((T)⇒R,String):Stream[R]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -398,16 +398,16 @@ groupBy[People](_.gender) will group the people by gender.</p><p>You can append 
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">map</span><span class="tparams">[<span name="R">R</span>]</span><span class="params">(<span name="fun">fun: (<span class="extype" name="org.apache.gearpump.streaming.dsl.Stream.T">T</span>) ⇒ <span class="extype" name="org.apache.gearpump.streaming.dsl.Stream.map.R">R</span></span>, <span name="description">description: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">null</span></span>)</span><span class="result">: <a href="" class="extype" name="org.apache.gearpump.streaming.dsl.Stream">Stream</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.Stream.map.R">R</span>]</span>
+        <span class="name">map</span><span class="tparams">[<span name="R">R</span>]</span><span class="params">(<span name="fn">fn: (<span class="extype" name="org.apache.gearpump.streaming.dsl.Stream.T">T</span>) ⇒ <span class="extype" name="org.apache.gearpump.streaming.dsl.Stream.map.R">R</span></span>, <span name="description">description: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">&quot;map&quot;</span></span>)</span><span class="result">: <a href="" class="extype" name="org.apache.gearpump.streaming.dsl.Stream">Stream</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.Stream.map.R">R</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#org.apache.gearpump.streaming.dsl.Stream@map[R](fun:T=&gt;R,description:String):org.apache.gearpump.streaming.dsl.Stream[R]" title="Permalink" target="_top">
+      <a href="../../../../../index.html#org.apache.gearpump.streaming.dsl.Stream@map[R](fn:T=&gt;R,description:String):org.apache.gearpump.streaming.dsl.Stream[R]" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">Maps message of type T message of type R
 </p><div class="fullcomment"><div class="comment cmt"><p>Maps message of type T message of type R
-</p></div><dl class="paramcmts block"><dt class="param">fun</dt><dd class="cmt"><p>Function</p></dd><dt>returns</dt><dd class="cmt"><p>A new stream with type [R]</p></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="param">fn</dt><dd class="cmt"><p>Function</p></dd><dt>returns</dt><dd class="cmt"><p>A new stream with type [R]</p></dd></dl></div>
     </li><li name="org.apache.gearpump.streaming.dsl.Stream#merge" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="merge(other:org.apache.gearpump.streaming.dsl.Stream[T],description:String):org.apache.gearpump.streaming.dsl.Stream[T]"></a>
       <a id="merge(Stream[T],String):Stream[T]"></a>
@@ -417,7 +417,7 @@ groupBy[People](_.gender) will group the people by gender.</p><p>You can append 
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">merge</span><span class="params">(<span name="other">other: <a href="" class="extype" name="org.apache.gearpump.streaming.dsl.Stream">Stream</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.Stream.T">T</span>]</span>, <span name="description">description: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">null</span></span>)</span><span class="result">: <a href="" class="extype" name="org.apache.gearpump.streaming.dsl.Stream">Stream</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.Stream.T">T</span>]</span>
+        <span class="name">merge</span><span class="params">(<span name="other">other: <a href="" class="extype" name="org.apache.gearpump.streaming.dsl.Stream">Stream</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.Stream.T">T</span>]</span>, <span name="description">description: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">&quot;merge&quot;</span></span>)</span><span class="result">: <a href="" class="extype" name="org.apache.gearpump.streaming.dsl.Stream">Stream</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.Stream.T">T</span>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../../../index.html#org.apache.gearpump.streaming.dsl.Stream@merge(other:org.apache.gearpump.streaming.dsl.Stream[T],description:String):org.apache.gearpump.streaming.dsl.Stream[T]" title="Permalink" target="_top">
@@ -487,7 +487,7 @@ groupBy[People](_.gender) will group the people by gender.</p><p>You can append 
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">process</span><span class="tparams">[<span name="R">R</span>]</span><span class="params">(<span name="processor">processor: <span class="extype" name="scala.Predef.Class">Class</span>[_ &lt;: <a href="../task/Task.html" class="extype" name="org.apache.gearpump.streaming.task.Task">Task</a>]</span>, <span name="parallelism">parallelism: <span class="extype" name="scala.Int">Int</span></span>, <span name="conf">conf: <a href="../../cluster/UserConfig.html" class="extype" name="org.apache.gearpump.cluster.UserConfig">UserConfig</a> = <span class="symbol"><span class="name"><a href="../../../../package.html">UserConfig.empty</a></span></span></span>, <span name="description">description: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">null</span></span>)</span><span class="result">: <a href="" class="extype" name="org.apache.gearpump.streaming.dsl.Stream">Stream</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.Stream.process.R">R</span>]</span>
+        <span class="name">process</span><span class="tparams">[<span name="R">R</span>]</span><span class="params">(<span name="processor">processor: <span class="extype" name="scala.Predef.Class">Class</span>[_ &lt;: <a href="../task/Task.html" class="extype" name="org.apache.gearpump.streaming.task.Task">Task</a>]</span>, <span name="parallelism">parallelism: <span class="extype" name="scala.Int">Int</span></span>, <span name="conf">conf: <a href="../../cluster/UserConfig.html" class="extype" name="org.apache.gearpump.cluster.UserConfig">UserConfig</a> = <span class="symbol"><span class="name"><a href="../../../../package.html">UserConfig.empty</a></span></span></span>, <span name="description">description: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">&quot;process&quot;</span></span>)</span><span class="result">: <a href="" class="extype" name="org.apache.gearpump.streaming.dsl.Stream">Stream</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.Stream.process.R">R</span>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../../../index.html#org.apache.gearpump.streaming.dsl.Stream@process[R](processor:Class[_&lt;:org.apache.gearpump.streaming.task.Task],parallelism:Int,conf:org.apache.gearpump.cluster.UserConfig,description:String):org.apache.gearpump.streaming.dsl.Stream[R]" title="Permalink" target="_top">
@@ -498,7 +498,7 @@ groupBy[People](_.gender) will group the people by gender.</p><p>You can append 
 </p><div class="fullcomment"><div class="comment cmt"><p>Connects with a low level Processor(TaskDescription)
 </p></div><dl class="paramcmts block"><dt class="param">processor</dt><dd class="cmt"><p>a user defined processor</p></dd><dt class="param">parallelism</dt><dd class="cmt"><p>parallelism level</p></dd><dt>returns</dt><dd class="cmt"><p>new stream after processing with type [R]</p></dd></dl></div>
     </li><li name="org.apache.gearpump.streaming.dsl.Stream#reduce" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="reduce(fun:(T,T)=&gt;T,description:String):org.apache.gearpump.streaming.dsl.Stream[T]"></a>
+      <a id="reduce(fn:(T,T)=&gt;T,description:String):org.apache.gearpump.streaming.dsl.Stream[T]"></a>
       <a id="reduce((T,T)⇒T,String):Stream[T]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -506,15 +506,15 @@ groupBy[People](_.gender) will group the people by gender.</p><p>You can append 
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">reduce</span><span class="params">(<span name="fun">fun: (<span class="extype" name="org.apache.gearpump.streaming.dsl.Stream.T">T</span>, <span class="extype" name="org.apache.gearpump.streaming.dsl.Stream.T">T</span>) ⇒ <span class="extype" name="org.apache.gearpump.streaming.dsl.Stream.T">T</span></span>, <span name="description">description: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">null</span></span>)</span><span class="result">: <a href="" class="extype" name="org.apache.gearpump.streaming.dsl.Stream">Stream</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.Stream.T">T</span>]</span>
+        <span class="name">reduce</span><span class="params">(<span name="fn">fn: (<span class="extype" name="org.apache.gearpump.streaming.dsl.Stream.T">T</span>, <span class="extype" name="org.apache.gearpump.streaming.dsl.Stream.T">T</span>) ⇒ <span class="extype" name="org.apache.gearpump.streaming.dsl.Stream.T">T</span></span>, <span name="description">description: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">&quot;reduce&quot;</span></span>)</span><span class="result">: <a href="" class="extype" name="org.apache.gearpump.streaming.dsl.Stream">Stream</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.Stream.T">T</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#org.apache.gearpump.streaming.dsl.Stream@reduce(fun:(T,T)=&gt;T,description:String):org.apache.gearpump.streaming.dsl.Stream[T]" title="Permalink" target="_top">
+      <a href="../../../../../index.html#org.apache.gearpump.streaming.dsl.Stream@reduce(fn:(T,T)=&gt;T,description:String):org.apache.gearpump.streaming.dsl.Stream[T]" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">Reduces operations.</p><div class="fullcomment"><div class="comment cmt"><p>Reduces operations.
-</p></div><dl class="paramcmts block"><dt class="param">fun</dt><dd class="cmt"><p>reduction function</p></dd><dt class="param">description</dt><dd class="cmt"><p>description message for this operator</p></dd><dt>returns</dt><dd class="cmt"><p>a new stream after reduction</p></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="param">fn</dt><dd class="cmt"><p>reduction function</p></dd><dt class="param">description</dt><dd class="cmt"><p>description message for this operator</p></dd><dt>returns</dt><dd class="cmt"><p>a new stream after reduction</p></dd></dl></div>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>
@@ -618,6 +618,25 @@ groupBy[People](_.gender) will group the people by gender.</p><p>You can append 
     </span>)</span>
               
         </dd></dl></div>
+    </li><li name="org.apache.gearpump.streaming.dsl.Stream#window" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="window(win:org.apache.gearpump.streaming.dsl.window.api.Window,description:String):org.apache.gearpump.streaming.dsl.WindowStream[T]"></a>
+      <a id="window(Window,String):WindowStream[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">window</span><span class="params">(<span name="win">win: <a href="window/api/Window.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.api.Window">Window</a></span>, <span name="description">description: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">&quot;window&quot;</span></span>)</span><span class="result">: <a href="WindowStream.html" class="extype" name="org.apache.gearpump.streaming.dsl.WindowStream">WindowStream</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.Stream.T">T</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.apache.gearpump.streaming.dsl.Stream@window(win:org.apache.gearpump.streaming.dsl.window.api.Window,description:String):org.apache.gearpump.streaming.dsl.WindowStream[T]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Window function
+</p><div class="fullcomment"><div class="comment cmt"><p>Window function
+</p></div><dl class="paramcmts block"><dt class="param">win</dt><dd class="cmt"><p>window definition</p></dd><dt class="param">description</dt><dd class="cmt"><p>window description</p></dd><dt>returns</dt><dd class="cmt"><p><a href="WindowStream.html" class="extype" name="org.apache.gearpump.streaming.dsl.WindowStream">WindowStream</a> where groupBy could be applied</p></dd></dl></div>
     </li></ol>
             </div>
 

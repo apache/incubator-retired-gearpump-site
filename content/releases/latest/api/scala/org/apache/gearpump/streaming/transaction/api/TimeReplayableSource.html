@@ -116,19 +116,42 @@ when an application crashed.
       <p class="shortcomment cmt">Closes connection to data source.</p><div class="fullcomment"><div class="comment cmt"><p>Closes connection to data source.
 invoked in onStop() method of <a href="../../source/DataSourceTask.html" class="extype" name="org.apache.gearpump.streaming.source.DataSourceTask">org.apache.gearpump.streaming.source.DataSourceTask</a>
 </p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../source/DataSource.html" class="extype" name="org.apache.gearpump.streaming.source.DataSource">DataSource</a></dd></dl></div>
-    </li><li name="org.apache.gearpump.streaming.source.DataSource#open" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="open(context:org.apache.gearpump.streaming.task.TaskContext,startTime:Long):Unit"></a>
-      <a id="open(TaskContext,Long):Unit"></a>
+    </li><li name="org.apache.gearpump.streaming.source.DataSource#getWatermark" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="getWatermark:java.time.Instant"></a>
+      <a id="getWatermark:Instant"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier">abstract </span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">open</span><span class="params">(<span name="context">context: <a href="../../task/TaskContext.html" class="extype" name="org.apache.gearpump.streaming.task.TaskContext">TaskContext</a></span>, <span name="startTime">startTime: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">getWatermark</span><span class="result">: <span class="extype" name="java.time.Instant">Instant</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#org.apache.gearpump.streaming.transaction.api.TimeReplayableSource@open(context:org.apache.gearpump.streaming.task.TaskContext,startTime:Long):Unit" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#org.apache.gearpump.streaming.transaction.api.TimeReplayableSource@getWatermark:java.time.Instant" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns a watermark
+no timestamp earlier than the watermark
+should enter the system
+</p><div class="fullcomment"><div class="comment cmt"><p>Returns a watermark
+no timestamp earlier than the watermark
+should enter the system
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../source/DataSource.html" class="extype" name="org.apache.gearpump.streaming.source.DataSource">DataSource</a></dd></dl></div>
+    </li><li name="org.apache.gearpump.streaming.source.DataSource#open" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="open(context:org.apache.gearpump.streaming.task.TaskContext,startTime:java.time.Instant):Unit"></a>
+      <a id="open(TaskContext,Instant):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">open</span><span class="params">(<span name="context">context: <a href="../../task/TaskContext.html" class="extype" name="org.apache.gearpump.streaming.task.TaskContext">TaskContext</a></span>, <span name="startTime">startTime: <span class="extype" name="java.time.Instant">Instant</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.apache.gearpump.streaming.transaction.api.TimeReplayableSource@open(context:org.apache.gearpump.streaming.task.TaskContext,startTime:java.time.Instant):Unit" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>

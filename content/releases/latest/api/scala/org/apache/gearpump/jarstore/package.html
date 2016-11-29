@@ -83,24 +83,76 @@
       </a>
     </span>
       
-    </li><li name="org.apache.gearpump.jarstore.JarStoreService" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
-      <a id="JarStoreServiceextendsAnyRef"></a>
-      <a id="JarStoreService:JarStoreService"></a>
+    </li><li name="org.apache.gearpump.jarstore.FileServer" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="FileServerextendsAnyRef"></a>
+      <a id="FileServer:FileServer"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="FileServer.html"><span class="name">FileServer</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#org.apache.gearpump.jarstore.package@FileServerextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A simple file server implemented with akka-http to store/fetch large
+binary files.</p>
+    </li><li name="org.apache.gearpump.jarstore.JarStore" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="JarStoreextendsAnyRef"></a>
+      <a id="JarStore:JarStore"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <a href="JarStoreService.html"><span class="name">JarStoreService</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+        <a href="JarStore.html"><span class="name">JarStore</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#org.apache.gearpump.jarstore.package@JarStoreServiceextendsAnyRef" title="Permalink" target="_top">
+      <a href="../../../../index.html#org.apache.gearpump.jarstore.package@JarStoreextendsAnyRef" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">JarStoreService is used to manage the upload/download of binary files,
+      <p class="shortcomment cmt">JarStore is used to manage the upload/download of binary files,
 like user submitted application jar.</p>
+    </li><li name="org.apache.gearpump.jarstore.JarStoreClient" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="JarStoreClientextendsAnyRef"></a>
+      <a id="JarStoreClient:JarStoreClient"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="JarStoreClient.html"><span class="name">JarStoreClient</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#org.apache.gearpump.jarstore.package@JarStoreClientextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.apache.gearpump.jarstore.JarStoreServer" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="JarStoreServerextendsActorwithStash"></a>
+      <a id="JarStoreServer:JarStoreServer"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="JarStoreServer.html"><span class="name">JarStoreServer</span></a><span class="result"> extends <span class="extype" name="akka.actor.Actor">Actor</span> with <span class="extype" name="akka.actor.Stash">Stash</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#org.apache.gearpump.jarstore.package@JarStoreServerextendsActorwithStash" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
     </li></ol>
             </div>
 
@@ -108,19 +160,71 @@ like user submitted application jar.</p>
 
         <div id="values" class="values members">
               <h3>Value Members</h3>
-              <ol><li name="org.apache.gearpump.jarstore.JarStoreService" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="JarStoreService"></a>
-      <a id="JarStoreService:JarStoreService"></a>
+              <ol><li name="org.apache.gearpump.jarstore.FileDirective" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="FileDirective"></a>
+      <a id="FileDirective:FileDirective"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a href="JarStoreService$.html"><span class="name">JarStoreService</span></a>
+        <a href="FileDirective$.html"><span class="name">FileDirective</span></a>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#org.apache.gearpump.jarstore.package@JarStoreService" title="Permalink" target="_top">
+      <a href="../../../../index.html#org.apache.gearpump.jarstore.package@FileDirective" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">FileDirective is a set of Akka-http directive to upload/download
+huge binary files to/from Akka-Http server.</p>
+    </li><li name="org.apache.gearpump.jarstore.FileServer" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="FileServer"></a>
+      <a id="FileServer:FileServer"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="FileServer$.html"><span class="name">FileServer</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#org.apache.gearpump.jarstore.package@FileServer" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.apache.gearpump.jarstore.JarStore" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="JarStore"></a>
+      <a id="JarStore:JarStore"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="JarStore$.html"><span class="name">JarStore</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#org.apache.gearpump.jarstore.package@JarStore" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.apache.gearpump.jarstore.local" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="local"></a>
+      <a id="local:local"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <a href="local/package.html"><span class="name">local</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#org.apache.gearpump.jarstore.package@local" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>

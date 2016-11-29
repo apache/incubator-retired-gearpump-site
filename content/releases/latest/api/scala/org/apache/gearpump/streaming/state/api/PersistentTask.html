@@ -408,6 +408,23 @@ offered two states:</p><ul><li>NonWindowState: state with no time or other bound
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="org.apache.gearpump.streaming.state.api.PersistentTask#getState" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="getState:org.apache.gearpump.streaming.state.api.PersistentState[T]"></a>
+      <a id="getState:PersistentState[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getState</span><span class="result">: <a href="PersistentState.html" class="extype" name="org.apache.gearpump.streaming.state.api.PersistentState">PersistentState</a>[<span class="extype" name="org.apache.gearpump.streaming.state.api.PersistentTask.T">T</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.apache.gearpump.streaming.state.api.PersistentTask@getState:org.apache.gearpump.streaming.state.api.PersistentState[T]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
     </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="hashCode():Int"></a>
       <a id="hashCode():Int"></a>
@@ -512,18 +529,18 @@ offered two states:</p><ul><li>NonWindowState: state with no time or other bound
       <p class="shortcomment cmt">Method called for each message received.</p><div class="fullcomment"><div class="comment cmt"><p>Method called for each message received.
 </p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="org.apache.gearpump.streaming.state.api.PersistentTask">PersistentTask</a> → <a href="../../task/Task.html" class="extype" name="org.apache.gearpump.streaming.task.Task">Task</a> → <a href="../../task/TaskInterface.html" class="extype" name="org.apache.gearpump.streaming.task.TaskInterface">TaskInterface</a></dd></dl></div>
     </li><li name="org.apache.gearpump.streaming.state.api.PersistentTask#onStart" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="onStart(startTime:org.apache.gearpump.streaming.task.StartTime):Unit"></a>
-      <a id="onStart(StartTime):Unit"></a>
+      <a id="onStart(startTime:java.time.Instant):Unit"></a>
+      <a id="onStart(Instant):Unit"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier">final </span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">onStart</span><span class="params">(<span name="startTime">startTime: <a href="../../task/StartTime.html" class="extype" name="org.apache.gearpump.streaming.task.StartTime">StartTime</a></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">onStart</span><span class="params">(<span name="startTime">startTime: <span class="extype" name="java.time.Instant">Instant</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#org.apache.gearpump.streaming.state.api.PersistentTask@onStart(startTime:org.apache.gearpump.streaming.task.StartTime):Unit" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#org.apache.gearpump.streaming.state.api.PersistentTask@onStart(startTime:java.time.Instant):Unit" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -548,6 +565,25 @@ offered two states:</p><ul><li>NonWindowState: state with no time or other bound
     </span>
       <p class="shortcomment cmt">Method called when task is under clean up.</p><div class="fullcomment"><div class="comment cmt"><p>Method called when task is under clean up.</p><p>This can be used to cleanup resource when the application finished.
 </p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="org.apache.gearpump.streaming.state.api.PersistentTask">PersistentTask</a> → <a href="../../task/Task.html" class="extype" name="org.apache.gearpump.streaming.task.Task">Task</a> → <a href="../../task/TaskInterface.html" class="extype" name="org.apache.gearpump.streaming.task.TaskInterface">TaskInterface</a></dd></dl></div>
+    </li><li name="org.apache.gearpump.streaming.state.api.PersistentTask#onWatermarkProgress" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="onWatermarkProgress(watermark:java.time.Instant):Unit"></a>
+      <a id="onWatermarkProgress(Instant):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">onWatermarkProgress</span><span class="params">(<span name="watermark">watermark: <span class="extype" name="java.time.Instant">Instant</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.apache.gearpump.streaming.state.api.PersistentTask@onWatermarkProgress(watermark:java.time.Instant):Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Method called on watermark update.</p><div class="fullcomment"><div class="comment cmt"><p>Method called on watermark update.
+Usually safe to output or checkpoint states earlier than watermark.
+</p></div><dl class="paramcmts block"><dt class="param">watermark</dt><dd class="cmt"><p>represents event time progress.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="org.apache.gearpump.streaming.state.api.PersistentTask">PersistentTask</a> → <a href="../../task/Task.html" class="extype" name="org.apache.gearpump.streaming.task.Task">Task</a> → <a href="../../task/TaskInterface.html" class="extype" name="org.apache.gearpump.streaming.task.TaskInterface">TaskInterface</a></dd></dl></div>
     </li><li name="org.apache.gearpump.streaming.task.Task#receiveUnManagedMessage" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="receiveUnManagedMessage:akka.actor.Actor.Receive"></a>
       <a id="receiveUnManagedMessage:Receive"></a>
@@ -603,23 +639,6 @@ offered two states:</p><ul><li>NonWindowState: state with no time or other bound
       <p class="shortcomment cmt">For managed message(type of Message), the sender mean nothing,
 you should not use this directory</p><div class="fullcomment"><div class="comment cmt"><p>For managed message(type of Message), the sender mean nothing,
 you should not use this directory</p><p>For unmanaged message, the sender represent the sender actor</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>the sender</p></dd></dl><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="../../task/Task.html" class="extype" name="org.apache.gearpump.streaming.task.Task">Task</a></dd></dl></div>
-    </li><li name="org.apache.gearpump.streaming.state.api.PersistentTask#state" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="state:org.apache.gearpump.streaming.state.api.PersistentState[T]"></a>
-      <a id="state:PersistentState[T]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">val</span>
-      </span>
-      <span class="symbol">
-        <span class="name">state</span><span class="result">: <a href="PersistentState.html" class="extype" name="org.apache.gearpump.streaming.state.api.PersistentState">PersistentState</a>[<span class="extype" name="org.apache.gearpump.streaming.state.api.PersistentTask.T">T</span>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#org.apache.gearpump.streaming.state.api.PersistentTask@state:org.apache.gearpump.streaming.state.api.PersistentState[T]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">Persistent state that will be stored (by checkpointing) automatically to storage like HDFS</p>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>

@@ -28,12 +28,10 @@
         </head>
         <body class="type">
       <div id="definition">
-        <a href="DataSourceTask$.html" title="See companion object"><img alt="Class/Object" src="../../../../../lib/class_to_object_big.png" /></a>
+        <img alt="Class" src="../../../../../lib/class_big.png" />
         <p id="owner"><a href="../../../../package.html" class="extype" name="org">org</a>.<a href="../../../package.html" class="extype" name="org.apache">apache</a>.<a href="../../package.html" class="extype" name="org.apache.gearpump">gearpump</a>.<a href="../package.html" class="extype" name="org.apache.gearpump.streaming">streaming</a>.<a href="package.html" class="extype" name="org.apache.gearpump.streaming.source">source</a></p>
-        <h1><a href="DataSourceTask$.html" title="See companion object">DataSourceTask</a></h1><h3><span class="morelinks"><div>
-            Related Docs:
-            <a href="DataSourceTask$.html" title="See companion object">object DataSourceTask</a>
-            | <a href="package.html" class="extype" name="org.apache.gearpump.streaming.source">package source</a>
+        <h1>DataSourceTask</h1><h3><span class="morelinks"><div>Related Doc:
+            <a href="package.html" class="extype" name="org.apache.gearpump.streaming.source">package source</a>
           </div></span></h3><span class="permalink">
       <a href="../../../../../index.html#org.apache.gearpump.streaming.source.DataSourceTask" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
@@ -47,7 +45,7 @@
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <span class="name">DataSourceTask</span><span class="result"> extends <a href="../task/Task.html" class="extype" name="org.apache.gearpump.streaming.task.Task">Task</a></span>
+        <span class="name">DataSourceTask</span><span class="tparams">[<span name="IN">IN</span>, <span name="OUT">OUT</span>]</span><span class="result"> extends <a href="../task/Task.html" class="extype" name="org.apache.gearpump.streaming.task.Task">Task</a></span>
       </span>
       </h4>
       
@@ -96,8 +94,8 @@ and application start time</li><li><code>DataSource.read()</code> in each <code>
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
               <ol><li name="org.apache.gearpump.streaming.source.DataSourceTask#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="&lt;init&gt;(context:org.apache.gearpump.streaming.task.TaskContext,conf:org.apache.gearpump.cluster.UserConfig):org.apache.gearpump.streaming.source.DataSourceTask"></a>
-      <a id="&lt;init&gt;:DataSourceTask"></a>
+      <a id="&lt;init&gt;(context:org.apache.gearpump.streaming.task.TaskContext,conf:org.apache.gearpump.cluster.UserConfig):org.apache.gearpump.streaming.source.DataSourceTask[IN,OUT]"></a>
+      <a id="&lt;init&gt;:DataSourceTask[IN,OUT]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
@@ -107,7 +105,7 @@ and application start time</li><li><code>DataSource.read()</code> in each <code>
         <span class="name">DataSourceTask</span><span class="params">(<span name="context">context: <a href="../task/TaskContext.html" class="extype" name="org.apache.gearpump.streaming.task.TaskContext">TaskContext</a></span>, <span name="conf">conf: <a href="../../cluster/UserConfig.html" class="extype" name="org.apache.gearpump.cluster.UserConfig">UserConfig</a></span>)</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#org.apache.gearpump.streaming.source.DataSourceTask@&lt;init&gt;(context:org.apache.gearpump.streaming.task.TaskContext,conf:org.apache.gearpump.cluster.UserConfig):org.apache.gearpump.streaming.source.DataSourceTask" title="Permalink" target="_top">
+      <a href="../../../../../index.html#org.apache.gearpump.streaming.source.DataSourceTask@&lt;init&gt;(context:org.apache.gearpump.streaming.task.TaskContext,conf:org.apache.gearpump.cluster.UserConfig):org.apache.gearpump.streaming.source.DataSourceTask[IN,OUT]" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -389,7 +387,7 @@ and application start time</li><li><code>DataSource.read()</code> in each <code>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
     </li><li name="org.apache.gearpump.streaming.source.DataSourceTask#onNext" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="onNext(message:org.apache.gearpump.Message):Unit"></a>
+      <a id="onNext(m:org.apache.gearpump.Message):Unit"></a>
       <a id="onNext(Message):Unit"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -397,32 +395,34 @@ and application start time</li><li><code>DataSource.read()</code> in each <code>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">onNext</span><span class="params">(<span name="message">message: <a href="../../Message.html" class="extype" name="org.apache.gearpump.Message">Message</a></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">onNext</span><span class="params">(<span name="m">m: <a href="../../Message.html" class="extype" name="org.apache.gearpump.Message">Message</a></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#org.apache.gearpump.streaming.source.DataSourceTask@onNext(message:org.apache.gearpump.Message):Unit" title="Permalink" target="_top">
+      <a href="../../../../../index.html#org.apache.gearpump.streaming.source.DataSourceTask@onNext(m:org.apache.gearpump.Message):Unit" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">Method called for each message received.</p><div class="fullcomment"><div class="comment cmt"><p>Method called for each message received.
 </p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="org.apache.gearpump.streaming.source.DataSourceTask">DataSourceTask</a> → <a href="../task/Task.html" class="extype" name="org.apache.gearpump.streaming.task.Task">Task</a> → <a href="../task/TaskInterface.html" class="extype" name="org.apache.gearpump.streaming.task.TaskInterface">TaskInterface</a></dd></dl></div>
     </li><li name="org.apache.gearpump.streaming.source.DataSourceTask#onStart" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="onStart(newStartTime:org.apache.gearpump.streaming.task.StartTime):Unit"></a>
-      <a id="onStart(StartTime):Unit"></a>
+      <a id="onStart(startTime:java.time.Instant):Unit"></a>
+      <a id="onStart(Instant):Unit"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">onStart</span><span class="params">(<span name="newStartTime">newStartTime: <a href="../task/StartTime.html" class="extype" name="org.apache.gearpump.streaming.task.StartTime">StartTime</a></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">onStart</span><span class="params">(<span name="startTime">startTime: <span class="extype" name="java.time.Instant">Instant</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#org.apache.gearpump.streaming.source.DataSourceTask@onStart(newStartTime:org.apache.gearpump.streaming.task.StartTime):Unit" title="Permalink" target="_top">
+      <a href="../../../../../index.html#org.apache.gearpump.streaming.source.DataSourceTask@onStart(startTime:java.time.Instant):Unit" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Method called with the task is initialized.</p><div class="fullcomment"><div class="comment cmt"><p>Method called with the task is initialized.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="org.apache.gearpump.streaming.source.DataSourceTask">DataSourceTask</a> → <a href="../task/Task.html" class="extype" name="org.apache.gearpump.streaming.task.Task">Task</a> → <a href="../task/TaskInterface.html" class="extype" name="org.apache.gearpump.streaming.task.TaskInterface">TaskInterface</a></dd></dl></div>
+      <p class="shortcomment cmt">Method called with the task is initialized.</p><div class="fullcomment"><div class="comment cmt"><p>Method called with the task is initialized.</p></div><dl class="paramcmts block"><dt class="param">startTime</dt><dd class="cmt"><p>startTime that can be used to decide from when a source producer task should
+                 replay the data source, or from when a processor task should recover its
+                 checkpoint data in to in-memory state.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="org.apache.gearpump.streaming.source.DataSourceTask">DataSourceTask</a> → <a href="../task/Task.html" class="extype" name="org.apache.gearpump.streaming.task.Task">Task</a> → <a href="../task/TaskInterface.html" class="extype" name="org.apache.gearpump.streaming.task.TaskInterface">TaskInterface</a></dd></dl></div>
     </li><li name="org.apache.gearpump.streaming.source.DataSourceTask#onStop" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="onStop():Unit"></a>
       <a id="onStop():Unit"></a>
@@ -441,6 +441,25 @@ and application start time</li><li><code>DataSource.read()</code> in each <code>
     </span>
       <p class="shortcomment cmt">Method called when task is under clean up.</p><div class="fullcomment"><div class="comment cmt"><p>Method called when task is under clean up.</p><p>This can be used to cleanup resource when the application finished.
 </p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="org.apache.gearpump.streaming.source.DataSourceTask">DataSourceTask</a> → <a href="../task/Task.html" class="extype" name="org.apache.gearpump.streaming.task.Task">Task</a> → <a href="../task/TaskInterface.html" class="extype" name="org.apache.gearpump.streaming.task.TaskInterface">TaskInterface</a></dd></dl></div>
+    </li><li name="org.apache.gearpump.streaming.task.Task#onWatermarkProgress" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="onWatermarkProgress(watermark:java.time.Instant):Unit"></a>
+      <a id="onWatermarkProgress(Instant):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">onWatermarkProgress</span><span class="params">(<span name="watermark">watermark: <span class="extype" name="java.time.Instant">Instant</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.apache.gearpump.streaming.source.DataSourceTask@onWatermarkProgress(watermark:java.time.Instant):Unit" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Method called on watermark update.</p><div class="fullcomment"><div class="comment cmt"><p>Method called on watermark update.
+Usually safe to output or checkpoint states earlier than watermark.
+</p></div><dl class="paramcmts block"><dt class="param">watermark</dt><dd class="cmt"><p>represents event time progress.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../task/Task.html" class="extype" name="org.apache.gearpump.streaming.task.Task">Task</a> → <a href="../task/TaskInterface.html" class="extype" name="org.apache.gearpump.streaming.task.TaskInterface">TaskInterface</a></dd></dl></div>
     </li><li name="org.apache.gearpump.streaming.task.Task#receiveUnManagedMessage" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="receiveUnManagedMessage:akka.actor.Actor.Receive"></a>
       <a id="receiveUnManagedMessage:Receive"></a>

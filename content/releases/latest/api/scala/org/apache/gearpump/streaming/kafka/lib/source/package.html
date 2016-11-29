@@ -84,46 +84,21 @@
     </span>
       <p class="shortcomment cmt">Contains implementation for Kafka source connectors, users should use
 <a href="../../KafkaSource.html" class="extype" name="org.apache.gearpump.streaming.kafka.KafkaSource">org.apache.gearpump.streaming.kafka.KafkaSource</a>.</p><div class="fullcomment"><div class="comment cmt"><p>Contains implementation for Kafka source connectors, users should use
-<a href="../../KafkaSource.html" class="extype" name="org.apache.gearpump.streaming.kafka.KafkaSource">org.apache.gearpump.streaming.kafka.KafkaSource</a>.</p><p>This is a TimeReplayableSource which is able to replay messages given a start time.
-Each kafka message is tagged with a timestamp by
-<a href="../../../transaction/api/MessageDecoder.html" class="extype" name="org.apache.gearpump.streaming.transaction.api.MessageDecoder">org.apache.gearpump.streaming.transaction.api.MessageDecoder</a> and the (timestamp, offset)
-mapping is stored to a <a href="../../../transaction/api/CheckpointStore.html" class="extype" name="org.apache.gearpump.streaming.transaction.api.CheckpointStore">org.apache.gearpump.streaming.transaction.api.CheckpointStore</a>.
-On recovery, we could retrieve the previously stored offset from the
-<a href="../../../transaction/api/CheckpointStore.html" class="extype" name="org.apache.gearpump.streaming.transaction.api.CheckpointStore">org.apache.gearpump.streaming.transaction.api.CheckpointStore</a> by timestamp and start to read
-from there.</p><p>kafka message is wrapped into gearpump <a href="../../../../Message.html" class="extype" name="org.apache.gearpump.Message">org.apache.gearpump.Message</a> and further filtered by a
-<a href="../../../transaction/api/TimeStampFilter.html" class="extype" name="org.apache.gearpump.streaming.transaction.api.TimeStampFilter">org.apache.gearpump.streaming.transaction.api.TimeStampFilter</a>
-such that obsolete messages are dropped.
+<a href="../../KafkaSource.html" class="extype" name="org.apache.gearpump.streaming.kafka.KafkaSource">org.apache.gearpump.streaming.kafka.KafkaSource</a>.</p><p>This is a TimeReplayableSource which is able to replay messages from kafka given a start time.
 </p></div></div>
-    </li><li name="org.apache.gearpump.streaming.kafka.lib.source.DefaultMessageDecoder" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="DefaultMessageDecoderextendsMessageDecoder"></a>
-      <a id="DefaultMessageDecoder:DefaultMessageDecoder"></a>
+    </li><li name="org.apache.gearpump.streaming.kafka.lib.source.DefaultKafkaMessageDecoder" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DefaultKafkaMessageDecoderextendsKafkaMessageDecoder"></a>
+      <a id="DefaultKafkaMessageDecoder:DefaultKafkaMessageDecoder"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <a href="DefaultMessageDecoder.html"><span class="name">DefaultMessageDecoder</span></a><span class="result"> extends <a href="../../../transaction/api/MessageDecoder.html" class="extype" name="org.apache.gearpump.streaming.transaction.api.MessageDecoder">MessageDecoder</a></span>
+        <a href="DefaultKafkaMessageDecoder.html"><span class="name">DefaultKafkaMessageDecoder</span></a><span class="result"> extends <a href="../KafkaMessageDecoder.html" class="extype" name="org.apache.gearpump.streaming.kafka.lib.KafkaMessageDecoder">KafkaMessageDecoder</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.kafka.lib.source.package@DefaultMessageDecoderextendsMessageDecoder" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li><li name="org.apache.gearpump.streaming.kafka.lib.source.StringMessageDecoder" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="StringMessageDecoderextendsMessageDecoder"></a>
-      <a id="StringMessageDecoder:StringMessageDecoder"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">class</span>
-      </span>
-      <span class="symbol">
-        <a href="StringMessageDecoder.html"><span class="name">StringMessageDecoder</span></a><span class="result"> extends <a href="../../../transaction/api/MessageDecoder.html" class="extype" name="org.apache.gearpump.streaming.transaction.api.MessageDecoder">MessageDecoder</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.kafka.lib.source.package@StringMessageDecoderextendsMessageDecoder" title="Permalink" target="_top">
+      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.kafka.lib.source.package@DefaultKafkaMessageDecoderextendsKafkaMessageDecoder" title="Permalink" target="_top">
         <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>

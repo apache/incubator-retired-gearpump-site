@@ -403,18 +403,18 @@
       <p class="shortcomment cmt">Method called for each message received.</p><div class="fullcomment"><div class="comment cmt"><p>Method called for each message received.
 </p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="org.apache.gearpump.streaming.sink.DataSinkTask">DataSinkTask</a> → <a href="../task/Task.html" class="extype" name="org.apache.gearpump.streaming.task.Task">Task</a> → <a href="../task/TaskInterface.html" class="extype" name="org.apache.gearpump.streaming.task.TaskInterface">TaskInterface</a></dd></dl></div>
     </li><li name="org.apache.gearpump.streaming.sink.DataSinkTask#onStart" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="onStart(startTime:org.apache.gearpump.streaming.task.StartTime):Unit"></a>
-      <a id="onStart(StartTime):Unit"></a>
+      <a id="onStart(startTime:java.time.Instant):Unit"></a>
+      <a id="onStart(Instant):Unit"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">onStart</span><span class="params">(<span name="startTime">startTime: <a href="../task/StartTime.html" class="extype" name="org.apache.gearpump.streaming.task.StartTime">StartTime</a></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">onStart</span><span class="params">(<span name="startTime">startTime: <span class="extype" name="java.time.Instant">Instant</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#org.apache.gearpump.streaming.sink.DataSinkTask@onStart(startTime:org.apache.gearpump.streaming.task.StartTime):Unit" title="Permalink" target="_top">
+      <a href="../../../../../index.html#org.apache.gearpump.streaming.sink.DataSinkTask@onStart(startTime:java.time.Instant):Unit" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -439,6 +439,25 @@
     </span>
       <p class="shortcomment cmt">Method called when task is under clean up.</p><div class="fullcomment"><div class="comment cmt"><p>Method called when task is under clean up.</p><p>This can be used to cleanup resource when the application finished.
 </p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="org.apache.gearpump.streaming.sink.DataSinkTask">DataSinkTask</a> → <a href="../task/Task.html" class="extype" name="org.apache.gearpump.streaming.task.Task">Task</a> → <a href="../task/TaskInterface.html" class="extype" name="org.apache.gearpump.streaming.task.TaskInterface">TaskInterface</a></dd></dl></div>
+    </li><li name="org.apache.gearpump.streaming.task.Task#onWatermarkProgress" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="onWatermarkProgress(watermark:java.time.Instant):Unit"></a>
+      <a id="onWatermarkProgress(Instant):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">onWatermarkProgress</span><span class="params">(<span name="watermark">watermark: <span class="extype" name="java.time.Instant">Instant</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.apache.gearpump.streaming.sink.DataSinkTask@onWatermarkProgress(watermark:java.time.Instant):Unit" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Method called on watermark update.</p><div class="fullcomment"><div class="comment cmt"><p>Method called on watermark update.
+Usually safe to output or checkpoint states earlier than watermark.
+</p></div><dl class="paramcmts block"><dt class="param">watermark</dt><dd class="cmt"><p>represents event time progress.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../task/Task.html" class="extype" name="org.apache.gearpump.streaming.task.Task">Task</a> → <a href="../task/TaskInterface.html" class="extype" name="org.apache.gearpump.streaming.task.TaskInterface">TaskInterface</a></dd></dl></div>
     </li><li name="org.apache.gearpump.streaming.task.Task#receiveUnManagedMessage" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="receiveUnManagedMessage:akka.actor.Actor.Receive"></a>
       <a id="receiveUnManagedMessage:Receive"></a>
