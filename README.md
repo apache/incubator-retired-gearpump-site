@@ -10,7 +10,6 @@ Jekyll, you need to install the software as follows:
 
 For redhat linux systems:
     `sudo yum install ruby ruby-devel nodejs python-pip`
-
     `sudo gem install jekyll`
     `sudo gem install kramdown`
     `sudo gem install html-proofer`
