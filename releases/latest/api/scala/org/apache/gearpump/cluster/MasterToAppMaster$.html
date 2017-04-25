@@ -116,7 +116,7 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="MasterToAppMaster$$AppMasterData.html"><span class="name">AppMasterData</span></a><span class="params">(<span name="status">status: <a href="#AppMasterStatus=String" class="extmbr" name="org.apache.gearpump.cluster.MasterToAppMaster.AppMasterStatus">AppMasterStatus</a></span>, <span name="appId">appId: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">0</span></span>, <span name="appName">appName: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">null</span></span>, <span name="appMasterPath">appMasterPath: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">null</span></span>, <span name="workerPath">workerPath: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">null</span></span>, <span name="submissionTime">submissionTime: <a href="../package.html#TimeStamp=Long" class="extmbr" name="org.apache.gearpump.TimeStamp">TimeStamp</a> = <span class="symbol">0</span></span>, <span name="startTime">startTime: <a href="../package.html#TimeStamp=Long" class="extmbr" name="org.apache.gearpump.TimeStamp">TimeStamp</a> = <span class="symbol">0</span></span>, <span name="finishTime">finishTime: <a href="../package.html#TimeStamp=Long" class="extmbr" name="org.apache.gearpump.TimeStamp">TimeStamp</a> = <span class="symbol">0</span></span>, <span name="user">user: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">null</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <a href="MasterToAppMaster$$AppMasterData.html"><span class="name">AppMasterData</span></a><span class="params">(<span name="status">status: <a href="ApplicationStatus.html" class="extype" name="org.apache.gearpump.cluster.ApplicationStatus">ApplicationStatus</a></span>, <span name="appId">appId: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">0</span></span>, <span name="appName">appName: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">null</span></span>, <span name="appMasterPath">appMasterPath: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">null</span></span>, <span name="workerPath">workerPath: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">null</span></span>, <span name="submissionTime">submissionTime: <a href="../package.html#TimeStamp=Long" class="extmbr" name="org.apache.gearpump.TimeStamp">TimeStamp</a> = <span class="symbol">0</span></span>, <span name="startTime">startTime: <a href="../package.html#TimeStamp=Long" class="extmbr" name="org.apache.gearpump.TimeStamp">TimeStamp</a> = <span class="symbol">0</span></span>, <span name="finishTime">finishTime: <a href="../package.html#TimeStamp=Long" class="extmbr" name="org.apache.gearpump.TimeStamp">TimeStamp</a> = <span class="symbol">0</span></span>, <span name="user">user: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">null</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../../index.html#org.apache.gearpump.cluster.MasterToAppMaster$@AppMasterDataextendsProductwithSerializable" title="Permalink" target="_top">
@@ -192,23 +192,6 @@
       </a>
     </span>
       <p class="shortcomment cmt">Master confirm reception of RegisterAppMaster message</p>
-    </li><li name="org.apache.gearpump.cluster.MasterToAppMaster.AppMasterStatus" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="AppMasterStatus=String"></a>
-      <a id="AppMasterStatus:AppMasterStatus"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">type</span>
-      </span>
-      <span class="symbol">
-        <span class="name">AppMasterStatus</span><span class="result"> = <span class="extype" name="java.lang.String">String</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../index.html#org.apache.gearpump.cluster.MasterToAppMaster$@AppMasterStatus=String" title="Permalink" target="_top">
-        <img src="../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
     </li><li name="org.apache.gearpump.cluster.MasterToAppMaster.AppMastersData" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="AppMastersDataextendsProductwithSerializable"></a>
       <a id="AppMastersData:AppMastersData"></a>
@@ -352,74 +335,6 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="org.apache.gearpump.cluster.MasterToAppMaster#AppMasterActive" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="AppMasterActive:org.apache.gearpump.cluster.MasterToAppMaster.AppMasterStatus"></a>
-      <a id="AppMasterActive:AppMasterStatus"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">val</span>
-      </span>
-      <span class="symbol">
-        <span class="name">AppMasterActive</span><span class="result">: <a href="#AppMasterStatus=String" class="extmbr" name="org.apache.gearpump.cluster.MasterToAppMaster.AppMasterStatus">AppMasterStatus</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../index.html#org.apache.gearpump.cluster.MasterToAppMaster$@AppMasterActive:org.apache.gearpump.cluster.MasterToAppMaster.AppMasterStatus" title="Permalink" target="_top">
-        <img src="../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li><li name="org.apache.gearpump.cluster.MasterToAppMaster#AppMasterInActive" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="AppMasterInActive:org.apache.gearpump.cluster.MasterToAppMaster.AppMasterStatus"></a>
-      <a id="AppMasterInActive:AppMasterStatus"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">val</span>
-      </span>
-      <span class="symbol">
-        <span class="name">AppMasterInActive</span><span class="result">: <a href="#AppMasterStatus=String" class="extmbr" name="org.apache.gearpump.cluster.MasterToAppMaster.AppMasterStatus">AppMasterStatus</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../index.html#org.apache.gearpump.cluster.MasterToAppMaster$@AppMasterInActive:org.apache.gearpump.cluster.MasterToAppMaster.AppMasterStatus" title="Permalink" target="_top">
-        <img src="../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li><li name="org.apache.gearpump.cluster.MasterToAppMaster#AppMasterNonExist" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="AppMasterNonExist:org.apache.gearpump.cluster.MasterToAppMaster.AppMasterStatus"></a>
-      <a id="AppMasterNonExist:AppMasterStatus"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">val</span>
-      </span>
-      <span class="symbol">
-        <span class="name">AppMasterNonExist</span><span class="result">: <a href="#AppMasterStatus=String" class="extmbr" name="org.apache.gearpump.cluster.MasterToAppMaster.AppMasterStatus">AppMasterStatus</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../index.html#org.apache.gearpump.cluster.MasterToAppMaster$@AppMasterNonExist:org.apache.gearpump.cluster.MasterToAppMaster.AppMasterStatus" title="Permalink" target="_top">
-        <img src="../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li><li name="org.apache.gearpump.cluster.MasterToAppMaster#AppMasterPending" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="AppMasterPending:org.apache.gearpump.cluster.MasterToAppMaster.AppMasterStatus"></a>
-      <a id="AppMasterPending:AppMasterStatus"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">val</span>
-      </span>
-      <span class="symbol">
-        <span class="name">AppMasterPending</span><span class="result">: <a href="#AppMasterStatus=String" class="extmbr" name="org.apache.gearpump.cluster.MasterToAppMaster.AppMasterStatus">AppMasterStatus</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../index.html#org.apache.gearpump.cluster.MasterToAppMaster$@AppMasterPending:org.apache.gearpump.cluster.MasterToAppMaster.AppMasterStatus" title="Permalink" target="_top">
-        <img src="../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
     </li><li name="org.apache.gearpump.cluster.MasterToAppMaster.AppMastersDataRequest" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="AppMastersDataRequest"></a>
       <a id="AppMastersDataRequest:AppMastersDataRequest"></a>

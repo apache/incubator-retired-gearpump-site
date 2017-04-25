@@ -66,40 +66,44 @@
 
         <div id="types" class="types members">
               <h3>Type Members</h3>
-              <ol><li name="org.apache.gearpump.cluster.appmaster.AppMasterRuntimeInfo" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="AppMasterRuntimeInfoextendsAppMasterRegisterDatawithProductwithSerializable"></a>
-      <a id="AppMasterRuntimeInfo:AppMasterRuntimeInfo"></a>
+              <ol><li name="org.apache.gearpump.cluster.appmaster.ApplicationMetaData" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ApplicationMetaDataextendsProductwithSerializable"></a>
+      <a id="ApplicationMetaData:ApplicationMetaData"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="AppMasterRuntimeInfo.html"><span class="name">AppMasterRuntimeInfo</span></a><span class="params">(<span name="appId">appId: <span class="extype" name="scala.Int">Int</span></span>, <span name="appName">appName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="worker">worker: <span class="extype" name="akka.actor.ActorRef">ActorRef</span> = <span class="symbol">null</span></span>, <span name="user">user: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">null</span></span>, <span name="submissionTime">submissionTime: <a href="../../package.html#TimeStamp=Long" class="extmbr" name="org.apache.gearpump.TimeStamp">TimeStamp</a> = <span class="symbol">0</span></span>, <span name="startTime">startTime: <a href="../../package.html#TimeStamp=Long" class="extmbr" name="org.apache.gearpump.TimeStamp">TimeStamp</a> = <span class="symbol">0</span></span>, <span name="finishTime">finishTime: <a href="../../package.html#TimeStamp=Long" class="extmbr" name="org.apache.gearpump.TimeStamp">TimeStamp</a> = <span class="symbol">0</span></span>, <span name="config">config: <span class="extype" name="com.typesafe.config.Config">Config</span> = <span class="symbol">null</span></span>)</span><span class="result"> extends <a href="../AppMasterRegisterData.html" class="extype" name="org.apache.gearpump.cluster.AppMasterRegisterData">AppMasterRegisterData</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <a href="ApplicationMetaData.html"><span class="name">ApplicationMetaData</span></a><span class="params">(<span name="appId">appId: <span class="extype" name="scala.Int">Int</span></span>, <span name="attemptId">attemptId: <span class="extype" name="scala.Int">Int</span></span>, <span name="appDesc">appDesc: <a href="../AppDescription.html" class="extype" name="org.apache.gearpump.cluster.AppDescription">AppDescription</a></span>, <span name="jar">jar: <span class="extype" name="scala.Option">Option</span>[<a href="../AppJar.html" class="extype" name="org.apache.gearpump.cluster.AppJar">AppJar</a>]</span>, <span name="username">username: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#org.apache.gearpump.cluster.appmaster.package@AppMasterRuntimeInfoextendsAppMasterRegisterDatawithProductwithSerializable" title="Permalink" target="_top">
+      <a href="../../../../../index.html#org.apache.gearpump.cluster.appmaster.package@ApplicationMetaDataextendsProductwithSerializable" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Run time info used to start an AppMaster</p>
-    </li><li name="org.apache.gearpump.cluster.appmaster.ApplicationState" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="ApplicationStateextendsSerializablewithProduct"></a>
-      <a id="ApplicationState:ApplicationState"></a>
+      <p class="shortcomment cmt">The meta data of an application, which stores the crucial infomation of how to launch
+the application, like the application jar file location.</p><div class="fullcomment"><div class="comment cmt"><p>The meta data of an application, which stores the crucial infomation of how to launch
+the application, like the application jar file location. This data is distributed
+across the masters.
+</p></div></div>
+    </li><li name="org.apache.gearpump.cluster.appmaster.ApplicationRuntimeInfo" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ApplicationRuntimeInfoextendsProductwithSerializable"></a>
+      <a id="ApplicationRuntimeInfo:ApplicationRuntimeInfo"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="ApplicationState.html"><span class="name">ApplicationState</span></a><span class="params">(<span name="appId">appId: <span class="extype" name="scala.Int">Int</span></span>, <span name="appName">appName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="attemptId">attemptId: <span class="extype" name="scala.Int">Int</span></span>, <span name="app">app: <a href="../AppDescription.html" class="extype" name="org.apache.gearpump.cluster.AppDescription">AppDescription</a></span>, <span name="jar">jar: <span class="extype" name="scala.Option">Option</span>[<a href="../AppJar.html" class="extype" name="org.apache.gearpump.cluster.AppJar">AppJar</a>]</span>, <span name="username">username: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="state">state: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span> with <span class="extype" name="scala.Product">Product</span></span>
+        <a href="ApplicationRuntimeInfo.html"><span class="name">ApplicationRuntimeInfo</span></a><span class="params">(<span name="appId">appId: <span class="extype" name="scala.Int">Int</span></span>, <span name="appName">appName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="appMaster">appMaster: <span class="extype" name="akka.actor.ActorRef">ActorRef</span> = <span class="symbol"><span class="name"><a href="../../../../../akka/package.html">ActorRef.noSender</a></span></span></span>, <span name="worker">worker: <span class="extype" name="akka.actor.ActorRef">ActorRef</span> = <span class="symbol"><span class="name"><a href="../../../../../akka/package.html">ActorRef.noSender</a></span></span></span>, <span name="user">user: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">&quot;&quot;</span></span>, <span name="submissionTime">submissionTime: <a href="../../package.html#TimeStamp=Long" class="extmbr" name="org.apache.gearpump.TimeStamp">TimeStamp</a> = <span class="symbol">0</span></span>, <span name="startTime">startTime: <a href="../../package.html#TimeStamp=Long" class="extmbr" name="org.apache.gearpump.TimeStamp">TimeStamp</a> = <span class="symbol">0</span></span>, <span name="finishTime">finishTime: <a href="../../package.html#TimeStamp=Long" class="extmbr" name="org.apache.gearpump.TimeStamp">TimeStamp</a> = <span class="symbol">0</span></span>, <span name="config">config: <span class="extype" name="com.typesafe.config.Config">Config</span> = <span class="symbol">ConfigFactory.empty()</span></span>, <span name="status">status: <a href="../ApplicationStatus.html" class="extype" name="org.apache.gearpump.cluster.ApplicationStatus">ApplicationStatus</a> = <span class="symbol"><span class="name"><a href="../../../../package.html">ApplicationStatus.NONEXIST</a></span></span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#org.apache.gearpump.cluster.appmaster.package@ApplicationStateextendsSerializablewithProduct" title="Permalink" target="_top">
+      <a href="../../../../../index.html#org.apache.gearpump.cluster.appmaster.package@ApplicationRuntimeInfoextendsProductwithSerializable" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">This state for single application, it is be distributed across the masters.</p>
+      <p class="shortcomment cmt">Run time info of Application</p>
     </li><li name="org.apache.gearpump.cluster.appmaster.ExecutorSystem" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ExecutorSystemextendsProductwithSerializable"></a>
       <a id="ExecutorSystem:ExecutorSystem"></a>

@@ -45,15 +45,14 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <span class="name">AppMasterContext</span><span class="params">(<span name="appId">appId: <span class="extype" name="scala.Int">Int</span></span>, <span name="username">username: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="resource">resource: <a href="scheduler/Resource.html" class="extype" name="org.apache.gearpump.cluster.scheduler.Resource">Resource</a></span>, <span name="workerInfo">workerInfo: <a href="appmaster/WorkerInfo.html" class="extype" name="org.apache.gearpump.cluster.appmaster.WorkerInfo">WorkerInfo</a></span>, <span name="appJar">appJar: <span class="extype" name="scala.Option">Option</span>[<a href="AppJar.html" class="extype" name="org.apache.gearpump.cluster.AppJar">AppJar</a>]</span>, <span name="masterProxy">masterProxy: <span class="extype" name="akka.actor.ActorRef">ActorRef</span></span>, <span name="registerData">registerData: <a href="AppMasterRegisterData.html" class="extype" name="org.apache.gearpump.cluster.AppMasterRegisterData">AppMasterRegisterData</a></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <span class="name">AppMasterContext</span><span class="params">(<span name="appId">appId: <span class="extype" name="scala.Int">Int</span></span>, <span name="username">username: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="resource">resource: <a href="scheduler/Resource.html" class="extype" name="org.apache.gearpump.cluster.scheduler.Resource">Resource</a></span>, <span name="workerInfo">workerInfo: <a href="appmaster/WorkerInfo.html" class="extype" name="org.apache.gearpump.cluster.appmaster.WorkerInfo">WorkerInfo</a></span>, <span name="appJar">appJar: <span class="extype" name="scala.Option">Option</span>[<a href="AppJar.html" class="extype" name="org.apache.gearpump.cluster.AppJar">AppJar</a>]</span>, <span name="masterProxy">masterProxy: <span class="extype" name="akka.actor.ActorRef">ActorRef</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       
           <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>This contains context information when starting an AppMaster
 </p></div><dl class="paramcmts block"><dt class="param">appId</dt><dd class="cmt"><p>application instance id assigned, it is unique in the cluster</p></dd><dt class="param">username</dt><dd class="cmt"><p>The username who submitted this application</p></dd><dt class="param">resource</dt><dd class="cmt"><p>Resouce allocated to start this AppMaster daemon. AppMaster are allowed to
                 request more resource from Master.</p></dd><dt class="param">appJar</dt><dd class="cmt"><p>application Jar. If the jar is already in classpath, then it can be None.</p></dd><dt class="param">masterProxy</dt><dd class="cmt"><p>The proxy to master actor, it bridges the messages between appmaster
-                   and master</p></dd><dt class="param">registerData</dt><dd class="cmt"><p>AppMaster are required to send this data to Master by when doing
-                    RegisterAppMaster.</p></dd></dl><div class="toggleContainer block">
+                   and master</p></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.Product">Product</span>, <span class="extype" name="scala.Equals">Equals</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
@@ -93,7 +92,7 @@
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
               <ol><li name="org.apache.gearpump.cluster.AppMasterContext#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="&lt;init&gt;(appId:Int,username:String,resource:org.apache.gearpump.cluster.scheduler.Resource,workerInfo:org.apache.gearpump.cluster.appmaster.WorkerInfo,appJar:Option[org.apache.gearpump.cluster.AppJar],masterProxy:akka.actor.ActorRef,registerData:org.apache.gearpump.cluster.AppMasterRegisterData):org.apache.gearpump.cluster.AppMasterContext"></a>
+      <a id="&lt;init&gt;(appId:Int,username:String,resource:org.apache.gearpump.cluster.scheduler.Resource,workerInfo:org.apache.gearpump.cluster.appmaster.WorkerInfo,appJar:Option[org.apache.gearpump.cluster.AppJar],masterProxy:akka.actor.ActorRef):org.apache.gearpump.cluster.AppMasterContext"></a>
       <a id="&lt;init&gt;:AppMasterContext"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -101,17 +100,16 @@
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">AppMasterContext</span><span class="params">(<span name="appId">appId: <span class="extype" name="scala.Int">Int</span></span>, <span name="username">username: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="resource">resource: <a href="scheduler/Resource.html" class="extype" name="org.apache.gearpump.cluster.scheduler.Resource">Resource</a></span>, <span name="workerInfo">workerInfo: <a href="appmaster/WorkerInfo.html" class="extype" name="org.apache.gearpump.cluster.appmaster.WorkerInfo">WorkerInfo</a></span>, <span name="appJar">appJar: <span class="extype" name="scala.Option">Option</span>[<a href="AppJar.html" class="extype" name="org.apache.gearpump.cluster.AppJar">AppJar</a>]</span>, <span name="masterProxy">masterProxy: <span class="extype" name="akka.actor.ActorRef">ActorRef</span></span>, <span name="registerData">registerData: <a href="AppMasterRegisterData.html" class="extype" name="org.apache.gearpump.cluster.AppMasterRegisterData">AppMasterRegisterData</a></span>)</span>
+        <span class="name">AppMasterContext</span><span class="params">(<span name="appId">appId: <span class="extype" name="scala.Int">Int</span></span>, <span name="username">username: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="resource">resource: <a href="scheduler/Resource.html" class="extype" name="org.apache.gearpump.cluster.scheduler.Resource">Resource</a></span>, <span name="workerInfo">workerInfo: <a href="appmaster/WorkerInfo.html" class="extype" name="org.apache.gearpump.cluster.appmaster.WorkerInfo">WorkerInfo</a></span>, <span name="appJar">appJar: <span class="extype" name="scala.Option">Option</span>[<a href="AppJar.html" class="extype" name="org.apache.gearpump.cluster.AppJar">AppJar</a>]</span>, <span name="masterProxy">masterProxy: <span class="extype" name="akka.actor.ActorRef">ActorRef</span></span>)</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#org.apache.gearpump.cluster.AppMasterContext@&lt;init&gt;(appId:Int,username:String,resource:org.apache.gearpump.cluster.scheduler.Resource,workerInfo:org.apache.gearpump.cluster.appmaster.WorkerInfo,appJar:Option[org.apache.gearpump.cluster.AppJar],masterProxy:akka.actor.ActorRef,registerData:org.apache.gearpump.cluster.AppMasterRegisterData):org.apache.gearpump.cluster.AppMasterContext" title="Permalink" target="_top">
+      <a href="../../../../index.html#org.apache.gearpump.cluster.AppMasterContext@&lt;init&gt;(appId:Int,username:String,resource:org.apache.gearpump.cluster.scheduler.Resource,workerInfo:org.apache.gearpump.cluster.appmaster.WorkerInfo,appJar:Option[org.apache.gearpump.cluster.AppJar],masterProxy:akka.actor.ActorRef):org.apache.gearpump.cluster.AppMasterContext" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">appId</dt><dd class="cmt"><p>application instance id assigned, it is unique in the cluster</p></dd><dt class="param">username</dt><dd class="cmt"><p>The username who submitted this application</p></dd><dt class="param">resource</dt><dd class="cmt"><p>Resouce allocated to start this AppMaster daemon. AppMaster are allowed to
                 request more resource from Master.</p></dd><dt class="param">appJar</dt><dd class="cmt"><p>application Jar. If the jar is already in classpath, then it can be None.</p></dd><dt class="param">masterProxy</dt><dd class="cmt"><p>The proxy to master actor, it bridges the messages between appmaster
-                   and master</p></dd><dt class="param">registerData</dt><dd class="cmt"><p>AppMaster are required to send this data to Master by when doing
-                    RegisterAppMaster.</p></dd></dl></div>
+                   and master</p></dd></dl></div>
     </li></ol>
             </div>
 
@@ -389,24 +387,6 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="org.apache.gearpump.cluster.AppMasterContext#registerData" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="registerData:org.apache.gearpump.cluster.AppMasterRegisterData"></a>
-      <a id="registerData:AppMasterRegisterData"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">val</span>
-      </span>
-      <span class="symbol">
-        <span class="name">registerData</span><span class="result">: <a href="AppMasterRegisterData.html" class="extype" name="org.apache.gearpump.cluster.AppMasterRegisterData">AppMasterRegisterData</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../index.html#org.apache.gearpump.cluster.AppMasterContext@registerData:org.apache.gearpump.cluster.AppMasterRegisterData" title="Permalink" target="_top">
-        <img src="../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">AppMaster are required to send this data to Master by when doing
-                    RegisterAppMaster.</p>
     </li><li name="org.apache.gearpump.cluster.AppMasterContext#resource" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="resource:org.apache.gearpump.cluster.scheduler.Resource"></a>
       <a id="resource:Resource"></a>

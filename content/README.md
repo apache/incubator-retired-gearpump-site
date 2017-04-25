@@ -10,7 +10,6 @@ Jekyll, you need to install the software as follows:
 
 For redhat linux systems:
     `sudo yum install ruby ruby-devel nodejs python-pip`
-
     `sudo gem install jekyll`
     `sudo gem install kramdown`
     `sudo gem install html-proofer`
@@ -73,3 +72,4 @@ automatically generated for each page.
 Please stick to the "logical order" when using the headlines, e.g. start with level-2 headings and
 use level-3 headings for subsections, etc. Don't use a different ordering, because you don't like
 how a headline looks.
+

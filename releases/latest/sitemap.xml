@@ -3,8 +3,8 @@
 
     
     <url>
-     <loc>/index.html</loc>
-     <lastmod>2016-11-28</lastmod>
+     <loc>None/index.html</loc>
+     <lastmod>2017-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -12,120 +12,44 @@
     
         
     <url>
-     <loc>/introduction/submit-your-1st-application/index.html</loc>
-     <lastmod>2016-11-28</lastmod>
+     <loc>None/introduction/submit-your-1st-application/index.html</loc>
+     <lastmod>2017-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/introduction/commandline/index.html</loc>
-     <lastmod>2016-11-28</lastmod>
+     <loc>None/introduction/commandline/index.html</loc>
+     <lastmod>2017-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/introduction/basic-concepts/index.html</loc>
-     <lastmod>2016-11-28</lastmod>
+     <loc>None/introduction/basic-concepts/index.html</loc>
+     <lastmod>2017-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/introduction/features/index.html</loc>
-     <lastmod>2016-11-28</lastmod>
+     <loc>None/introduction/features/index.html</loc>
+     <lastmod>2017-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/introduction/message-delivery/index.html</loc>
-     <lastmod>2016-11-28</lastmod>
+     <loc>None/introduction/message-delivery/index.html</loc>
+     <lastmod>2017-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/introduction/performance-report/index.html</loc>
-     <lastmod>2016-11-28</lastmod>
+     <loc>None/introduction/performance-report/index.html</loc>
+     <lastmod>2017-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/introduction/gearpump-internals/index.html</loc>
-     <lastmod>2016-11-28</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    
-
-    
-        
-    <url>
-     <loc>/deployment/deployment-local/index.html</loc>
-     <lastmod>2016-11-28</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/deployment/deployment-standalone/index.html</loc>
-     <lastmod>2016-11-28</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/deployment/deployment-yarn/index.html</loc>
-     <lastmod>2016-11-28</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/deployment/deployment-docker/index.html</loc>
-     <lastmod>2016-11-28</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/deployment/deployment-ui-authentication/index.html</loc>
-     <lastmod>2016-11-28</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/deployment/deployment-ha/index.html</loc>
-     <lastmod>2016-11-28</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/deployment/deployment-msg-delivery/index.html</loc>
-     <lastmod>2016-11-28</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/deployment/deployment-configuration/index.html</loc>
-     <lastmod>2016-11-28</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/deployment/deployment-resource-isolation/index.html</loc>
-     <lastmod>2016-11-28</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/deployment/deployment-security/index.html</loc>
-     <lastmod>2016-11-28</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/deployment/get-gearpump-distribution/index.html</loc>
-     <lastmod>2016-11-28</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/deployment/hardware-requirement/index.html</loc>
-     <lastmod>2016-11-28</lastmod>
+     <loc>None/introduction/gearpump-internals/index.html</loc>
+     <lastmod>2017-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -134,56 +58,132 @@
     
         
     <url>
-     <loc>/dev/dev-write-1st-app/index.html</loc>
-     <lastmod>2016-11-28</lastmod>
+     <loc>None/deployment/deployment-local/index.html</loc>
+     <lastmod>2017-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/dev/dev-custom-serializer/index.html</loc>
-     <lastmod>2016-11-28</lastmod>
+     <loc>None/deployment/deployment-standalone/index.html</loc>
+     <lastmod>2017-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/dev/dev-connectors/index.html</loc>
-     <lastmod>2016-11-28</lastmod>
+     <loc>None/deployment/deployment-yarn/index.html</loc>
+     <lastmod>2017-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/dev/dev-storm/index.html</loc>
-     <lastmod>2016-11-28</lastmod>
+     <loc>None/deployment/deployment-docker/index.html</loc>
+     <lastmod>2017-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/dev/dev-ide-setup/index.html</loc>
-     <lastmod>2016-11-28</lastmod>
+     <loc>None/deployment/deployment-ui-authentication/index.html</loc>
+     <lastmod>2017-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/dev/dev-non-streaming-example/index.html</loc>
-     <lastmod>2016-11-28</lastmod>
+     <loc>None/deployment/deployment-ha/index.html</loc>
+     <lastmod>2017-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/dev/dev-rest-api/index.html</loc>
-     <lastmod>2016-11-28</lastmod>
+     <loc>None/deployment/deployment-msg-delivery/index.html</loc>
+     <lastmod>2017-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/api/scala/index.html</loc>
-     <lastmod>2016-11-28</lastmod>
+     <loc>None/deployment/deployment-configuration/index.html</loc>
+     <lastmod>2017-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/api/java/index.html</loc>
-     <lastmod>2016-11-28</lastmod>
+     <loc>None/deployment/deployment-resource-isolation/index.html</loc>
+     <lastmod>2017-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/deployment/deployment-security/index.html</loc>
+     <lastmod>2017-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/deployment/get-gearpump-distribution/index.html</loc>
+     <lastmod>2017-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/deployment/hardware-requirement/index.html</loc>
+     <lastmod>2017-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>None/dev/dev-write-1st-app/index.html</loc>
+     <lastmod>2017-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/dev/dev-custom-serializer/index.html</loc>
+     <lastmod>2017-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/dev/dev-connectors/index.html</loc>
+     <lastmod>2017-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/dev/dev-storm/index.html</loc>
+     <lastmod>2017-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/dev/dev-ide-setup/index.html</loc>
+     <lastmod>2017-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/dev/dev-non-streaming-example/index.html</loc>
+     <lastmod>2017-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/dev/dev-rest-api/index.html</loc>
+     <lastmod>2017-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/api/scala/index.html</loc>
+     <lastmod>2017-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/api/java/index.html</loc>
+     <lastmod>2017-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         

@@ -155,9 +155,6 @@
       <div class="name">GEARPUMP_STREAMING_ACK_ONCE_EVERY_MESSAGE_COUNT</div>
       <div class="occurrences"><a href="../org/apache/gearpump/streaming/Constants$.html" class="extype" name="org.apache.gearpump.streaming.Constants">Constants</a> </div>
     </div><div class="entry">
-      <div class="name">GEARPUMP_STREAMING_EXECUTOR_RESTART_TIME_WINDOW</div>
-      <div class="occurrences"><a href="../org/apache/gearpump/streaming/Constants$.html" class="extype" name="org.apache.gearpump.streaming.Constants">Constants</a> </div>
-    </div><div class="entry">
       <div class="name">GEARPUMP_STREAMING_GROUPBY_FUNCTION</div>
       <div class="occurrences"><a href="../org/apache/gearpump/streaming/Constants$.html" class="extype" name="org.apache.gearpump.streaming.Constants">Constants</a> </div>
     </div><div class="entry">
@@ -320,11 +317,8 @@
       <div class="name">GroupAlsoByWindow</div>
       <div class="occurrences"><a href="../org/apache/gearpump/streaming/dsl/window/impl/package.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.impl">impl</a> </div>
     </div><div class="entry">
-      <div class="name">GroupByFn</div>
-      <div class="occurrences"><a href="../org/apache/gearpump/streaming/dsl/window/api/package.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.api">api</a> </div>
-    </div><div class="entry">
       <div class="name">GroupByFunction</div>
-      <div class="occurrences"><a href="../org/apache/gearpump/streaming/javaapi/dsl/functions/package.html" class="extype" name="org.apache.gearpump.streaming.javaapi.dsl.functions">functions</a> </div>
+      <div class="occurrences"><a href="../org/apache/gearpump/streaming/dsl/javaapi/functions/package.html" class="extype" name="org.apache.gearpump.streaming.dsl.javaapi.functions">functions</a> </div>
     </div><div class="entry">
       <div class="name">GroupByOp</div>
       <div class="occurrences"><a href="../org/apache/gearpump/streaming/dsl/plan/package.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan">plan</a> </div>
@@ -337,6 +331,9 @@
     </div><div class="entry">
       <div class="name">Guest</div>
       <div class="occurrences"><a href="../org/apache/gearpump/security/Authenticator$.html" class="extype" name="org.apache.gearpump.security.Authenticator">Authenticator</a> </div>
+    </div><div class="entry">
+      <div class="name">gap</div>
+      <div class="occurrences"><a href="../org/apache/gearpump/streaming/dsl/window/api/SessionWindowFunction.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.api.SessionWindowFunction">SessionWindowFunction</a> </div>
     </div><div class="entry">
       <div class="name">gearpump</div>
       <div class="occurrences"><a href="../org/apache/package.html" class="extype" name="org.apache">apache</a> </div>
@@ -453,7 +450,7 @@
       <div class="occurrences"><a href="../org/apache/gearpump/transport/netty/Client$$ClientPipelineFactory.html" class="extype" name="org.apache.gearpump.transport.netty.Client.ClientPipelineFactory">ClientPipelineFactory</a> <a href="../org/apache/gearpump/transport/netty/Server$$ServerPipelineFactory.html" class="extype" name="org.apache.gearpump.transport.netty.Server.ServerPipelineFactory">ServerPipelineFactory</a> </div>
     </div><div class="entry">
       <div class="name">getProcessor</div>
-      <div class="occurrences"><a href="../org/apache/gearpump/streaming/dsl/plan/ChainableOp.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.ChainableOp">ChainableOp</a> <a href="../org/apache/gearpump/streaming/dsl/plan/DataSinkOp.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.DataSinkOp">DataSinkOp</a> <a href="../org/apache/gearpump/streaming/dsl/plan/DataSourceOp.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.DataSourceOp">DataSourceOp</a> <a href="../org/apache/gearpump/streaming/dsl/plan/GroupByOp.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.GroupByOp">GroupByOp</a> <a href="../org/apache/gearpump/streaming/dsl/plan/MergeOp.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.MergeOp">MergeOp</a> <a href="../org/apache/gearpump/streaming/dsl/plan/Op.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.Op">Op</a> <a href="../org/apache/gearpump/streaming/dsl/plan/ProcessorOp.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.ProcessorOp">ProcessorOp</a> <a href="../org/apache/gearpump/streaming/dsl/window/api/GroupByFn.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.api.GroupByFn">GroupByFn</a> <a href="../org/apache/gearpump/streaming/dsl/window/impl/GroupAlsoByWindow.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.impl.GroupAlsoByWindow">GroupAlsoByWindow</a> </div>
+      <div class="occurrences"><a href="../org/apache/gearpump/streaming/dsl/plan/ChainableOp.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.ChainableOp">ChainableOp</a> <a href="../org/apache/gearpump/streaming/dsl/plan/DataSinkOp.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.DataSinkOp">DataSinkOp</a> <a href="../org/apache/gearpump/streaming/dsl/plan/DataSourceOp.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.DataSourceOp">DataSourceOp</a> <a href="../org/apache/gearpump/streaming/dsl/plan/GroupByOp.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.GroupByOp">GroupByOp</a> <a href="../org/apache/gearpump/streaming/dsl/plan/MergeOp.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.MergeOp">MergeOp</a> <a href="../org/apache/gearpump/streaming/dsl/plan/Op.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.Op">Op</a> <a href="../org/apache/gearpump/streaming/dsl/plan/ProcessorOp.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.ProcessorOp">ProcessorOp</a> <a href="../org/apache/gearpump/streaming/dsl/window/impl/GroupAlsoByWindow.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.impl.GroupAlsoByWindow">GroupAlsoByWindow</a> </div>
     </div><div class="entry">
       <div class="name">getProducerConfig</div>
       <div class="occurrences"><a href="../org/apache/gearpump/streaming/kafka/util/KafkaConfig.html" class="extype" name="org.apache.gearpump.streaming.kafka.util.KafkaConfig">KafkaConfig</a> </div>
@@ -492,7 +489,7 @@
       <div class="occurrences"><a href="../org/apache/gearpump/streaming/kafka/lib/util/KafkaClient.html" class="extype" name="org.apache.gearpump.streaming.kafka.lib.util.KafkaClient">KafkaClient</a> </div>
     </div><div class="entry">
       <div class="name">getTupleKey</div>
-      <div class="occurrences"><a href="../org/apache/gearpump/streaming/dsl/Stream$.html" class="extype" name="org.apache.gearpump.streaming.dsl.Stream">Stream</a> </div>
+      <div class="occurrences"><a href="../org/apache/gearpump/streaming/dsl/scalaapi/Stream$.html" class="extype" name="org.apache.gearpump.streaming.dsl.scalaapi.Stream">Stream</a> </div>
     </div><div class="entry">
       <div class="name">getUpstreamMinClock</div>
       <div class="occurrences"><a href="../org/apache/gearpump/streaming/task/TaskActor.html" class="extype" name="org.apache.gearpump.streaming.task.TaskActor">TaskActor</a> </div>
@@ -504,22 +501,22 @@
       <div class="occurrences"><a href="../org/apache/gearpump/streaming/hadoop/lib/format/DefaultSequenceFormatter.html" class="extype" name="org.apache.gearpump.streaming.hadoop.lib.format.DefaultSequenceFormatter">DefaultSequenceFormatter</a> <a href="../org/apache/gearpump/streaming/hadoop/lib/format/OutputFormatter.html" class="extype" name="org.apache.gearpump.streaming.hadoop.lib.format.OutputFormatter">OutputFormatter</a> </div>
     </div><div class="entry">
       <div class="name">getWatermark</div>
-      <div class="occurrences"><a href="../org/apache/gearpump/streaming/dsl/CollectionDataSource.html" class="extype" name="org.apache.gearpump.streaming.dsl.CollectionDataSource">CollectionDataSource</a> <a href="../org/apache/gearpump/streaming/kafka/lib/source/AbstractKafkaSource.html" class="extype" name="org.apache.gearpump.streaming.kafka.lib.source.AbstractKafkaSource">AbstractKafkaSource</a> <a href="../org/apache/gearpump/streaming/source/DataSource.html" class="extype" name="org.apache.gearpump.streaming.source.DataSource">DataSource</a> </div>
+      <div class="occurrences"><a href="../org/apache/gearpump/streaming/dsl/scalaapi/CollectionDataSource.html" class="extype" name="org.apache.gearpump.streaming.dsl.scalaapi.CollectionDataSource">CollectionDataSource</a> <a href="../org/apache/gearpump/streaming/kafka/lib/source/AbstractKafkaSource.html" class="extype" name="org.apache.gearpump.streaming.kafka.lib.source.AbstractKafkaSource">AbstractKafkaSource</a> <a href="../org/apache/gearpump/streaming/source/DataSource.html" class="extype" name="org.apache.gearpump.streaming.source.DataSource">DataSource</a> </div>
     </div><div class="entry">
       <div class="name">graph</div>
       <div class="occurrences"><a href="../org/apache/gearpump/streaming/DAG.html" class="extype" name="org.apache.gearpump.streaming.DAG">DAG</a> </div>
     </div><div class="entry">
       <div class="name">group</div>
-      <div class="occurrences"><a href="../org/apache/gearpump/cluster/master/InMemoryKVService$$DeleteKVGroup.html" class="extype" name="org.apache.gearpump.cluster.master.InMemoryKVService.DeleteKVGroup">DeleteKVGroup</a> <a href="../org/apache/gearpump/cluster/master/InMemoryKVService$$GetKV.html" class="extype" name="org.apache.gearpump.cluster.master.InMemoryKVService.GetKV">GetKV</a> <a href="../org/apache/gearpump/cluster/master/InMemoryKVService$$GroupDeleted.html" class="extype" name="org.apache.gearpump.cluster.master.InMemoryKVService.GroupDeleted">GroupDeleted</a> <a href="../org/apache/gearpump/cluster/master/InMemoryKVService$$PutKV.html" class="extype" name="org.apache.gearpump.cluster.master.InMemoryKVService.PutKV">PutKV</a> <a href="../org/apache/gearpump/streaming/dsl/window/impl/DefaultWindowRunner$$WindowGroup.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.impl.DefaultWindowRunner.WindowGroup">WindowGroup</a> <a href="../org/apache/gearpump/streaming/kafka/lib/source/grouper/DefaultPartitionGrouper.html" class="extype" name="org.apache.gearpump.streaming.kafka.lib.source.grouper.DefaultPartitionGrouper">DefaultPartitionGrouper</a> <a href="../org/apache/gearpump/streaming/kafka/lib/source/grouper/PartitionGrouper.html" class="extype" name="org.apache.gearpump.streaming.kafka.lib.source.grouper.PartitionGrouper">PartitionGrouper</a> </div>
+      <div class="occurrences"><a href="../org/apache/gearpump/cluster/master/InMemoryKVService$$DeleteKVGroup.html" class="extype" name="org.apache.gearpump.cluster.master.InMemoryKVService.DeleteKVGroup">DeleteKVGroup</a> <a href="../org/apache/gearpump/cluster/master/InMemoryKVService$$GetKV.html" class="extype" name="org.apache.gearpump.cluster.master.InMemoryKVService.GetKV">GetKV</a> <a href="../org/apache/gearpump/cluster/master/InMemoryKVService$$GroupDeleted.html" class="extype" name="org.apache.gearpump.cluster.master.InMemoryKVService.GroupDeleted">GroupDeleted</a> <a href="../org/apache/gearpump/cluster/master/InMemoryKVService$$PutKV.html" class="extype" name="org.apache.gearpump.cluster.master.InMemoryKVService.PutKV">PutKV</a> <a href="../org/apache/gearpump/streaming/kafka/lib/source/grouper/DefaultPartitionGrouper.html" class="extype" name="org.apache.gearpump.streaming.kafka.lib.source.grouper.DefaultPartitionGrouper">DefaultPartitionGrouper</a> <a href="../org/apache/gearpump/streaming/kafka/lib/source/grouper/PartitionGrouper.html" class="extype" name="org.apache.gearpump.streaming.kafka.lib.source.grouper.PartitionGrouper">PartitionGrouper</a> </div>
     </div><div class="entry">
       <div class="name">groupBy</div>
-      <div class="occurrences"><a href="../org/apache/gearpump/streaming/dsl/Stream.html" class="extype" name="org.apache.gearpump.streaming.dsl.Stream">Stream</a> <a href="../org/apache/gearpump/streaming/dsl/WindowStream.html" class="extype" name="org.apache.gearpump.streaming.dsl.WindowStream">WindowStream</a> <a href="../org/apache/gearpump/streaming/dsl/javaapi/JavaStream.html" class="extype" name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream">JavaStream</a> <a href="../org/apache/gearpump/streaming/dsl/javaapi/JavaWindowStream.html" class="extype" name="org.apache.gearpump.streaming.dsl.javaapi.JavaWindowStream">JavaWindowStream</a> <a href="../org/apache/gearpump/streaming/dsl/window/api/GroupByFn.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.api.GroupByFn">GroupByFn</a> <a href="../org/apache/gearpump/streaming/dsl/window/impl/GroupAlsoByWindow.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.impl.GroupAlsoByWindow">GroupAlsoByWindow</a> </div>
+      <div class="occurrences"><a href="../org/apache/gearpump/streaming/dsl/javaapi/JavaStream.html" class="extype" name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream">JavaStream</a> <a href="../org/apache/gearpump/streaming/dsl/javaapi/JavaWindowStream.html" class="extype" name="org.apache.gearpump.streaming.dsl.javaapi.JavaWindowStream">JavaWindowStream</a> <a href="../org/apache/gearpump/streaming/dsl/javaapi/functions/GroupByFunction.html" class="extype" name="org.apache.gearpump.streaming.dsl.javaapi.functions.GroupByFunction">GroupByFunction</a> <a href="../org/apache/gearpump/streaming/dsl/plan/GroupByOp.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.GroupByOp">GroupByOp</a> <a href="../org/apache/gearpump/streaming/dsl/scalaapi/Stream.html" class="extype" name="org.apache.gearpump.streaming.dsl.scalaapi.Stream">Stream</a> <a href="../org/apache/gearpump/streaming/dsl/scalaapi/WindowStream.html" class="extype" name="org.apache.gearpump.streaming.dsl.scalaapi.WindowStream">WindowStream</a> <a href="../org/apache/gearpump/streaming/dsl/window/impl/GroupAlsoByWindow.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.impl.GroupAlsoByWindow">GroupAlsoByWindow</a> </div>
     </div><div class="entry">
       <div class="name">groupByFn</div>
-      <div class="occurrences"><a href="../org/apache/gearpump/streaming/dsl/plan/GroupByOp.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.GroupByOp">GroupByOp</a> <a href="../org/apache/gearpump/streaming/dsl/window/impl/GroupAlsoByWindow.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.impl.GroupAlsoByWindow">GroupAlsoByWindow</a> </div>
+      <div class="occurrences"><a href="../org/apache/gearpump/streaming/dsl/window/impl/GroupAlsoByWindow.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.impl.GroupAlsoByWindow">GroupAlsoByWindow</a> </div>
     </div><div class="entry">
       <div class="name">groupByKey</div>
-      <div class="occurrences"><a href="../org/apache/gearpump/streaming/dsl/KVStream.html" class="extype" name="org.apache.gearpump.streaming.dsl.KVStream">KVStream</a> </div>
+      <div class="occurrences"><a href="../org/apache/gearpump/streaming/dsl/scalaapi/KVStream.html" class="extype" name="org.apache.gearpump.streaming.dsl.scalaapi.KVStream">KVStream</a> </div>
     </div><div class="entry">
       <div class="name">grouper</div>
       <div class="occurrences"><a href="../org/apache/gearpump/streaming/kafka/lib/source/package.html" class="extype" name="org.apache.gearpump.streaming.kafka.lib.source">source</a> </div>

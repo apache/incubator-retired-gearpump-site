@@ -67,96 +67,117 @@
         <div id="types" class="types members">
               <h3>Type Members</h3>
               <ol><li name="org.apache.gearpump.streaming.dsl.plan.functions.AndThen" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="AndThen[IN,MIDDLE,OUT]extendsSingleInputFunction[IN,OUT]"></a>
+      <a id="AndThen[IN,MIDDLE,OUT]extendsFunctionRunner[IN,OUT]withProductwithSerializable"></a>
       <a id="AndThen[IN,MIDDLE,OUT]:AndThen[IN,MIDDLE,OUT]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">class</span>
+        <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="AndThen.html"><span class="name">AndThen</span></a><span class="tparams">[<span name="IN">IN</span>, <span name="MIDDLE">MIDDLE</span>, <span name="OUT">OUT</span>]</span><span class="result"> extends <a href="SingleInputFunction.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.SingleInputFunction">SingleInputFunction</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.AndThen.IN">IN</span>, <span class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.AndThen.OUT">OUT</span>]</span>
+        <a href="AndThen.html"><span class="name">AndThen</span></a><span class="tparams">[<span name="IN">IN</span>, <span name="MIDDLE">MIDDLE</span>, <span name="OUT">OUT</span>]</span><span class="params">(<span name="first">first: <a href="FunctionRunner.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.FunctionRunner">FunctionRunner</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.AndThen.IN">IN</span>, <span class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.AndThen.MIDDLE">MIDDLE</span>]</span>, <span name="second">second: <a href="FunctionRunner.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.FunctionRunner">FunctionRunner</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.AndThen.MIDDLE">MIDDLE</span>, <span class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.AndThen.OUT">OUT</span>]</span>)</span><span class="result"> extends <a href="FunctionRunner.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.FunctionRunner">FunctionRunner</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.AndThen.IN">IN</span>, <span class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.AndThen.OUT">OUT</span>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.plan.functions.package@AndThen[IN,MIDDLE,OUT]extendsSingleInputFunction[IN,OUT]" title="Permalink" target="_top">
+      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.plan.functions.package@AndThen[IN,MIDDLE,OUT]extendsFunctionRunner[IN,OUT]withProductwithSerializable" title="Permalink" target="_top">
         <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       
-    </li><li name="org.apache.gearpump.streaming.dsl.plan.functions.EmitFunction" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="EmitFunction[T]extendsSingleInputFunction[T,Unit]"></a>
-      <a id="EmitFunction[T]:EmitFunction[T]"></a>
+    </li><li name="org.apache.gearpump.streaming.dsl.plan.functions.Emit" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Emit[T]extendsFunctionRunner[T,Unit]"></a>
+      <a id="Emit[T]:Emit[T]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <a href="EmitFunction.html"><span class="name">EmitFunction</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="SingleInputFunction.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.SingleInputFunction">SingleInputFunction</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.EmitFunction.T">T</span>, <span class="extype" name="scala.Unit">Unit</span>]</span>
+        <a href="Emit.html"><span class="name">Emit</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="FunctionRunner.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.FunctionRunner">FunctionRunner</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.Emit.T">T</span>, <span class="extype" name="scala.Unit">Unit</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.plan.functions.package@EmitFunction[T]extendsSingleInputFunction[T,Unit]" title="Permalink" target="_top">
+      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.plan.functions.package@Emit[T]extendsFunctionRunner[T,Unit]" title="Permalink" target="_top">
         <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       
-    </li><li name="org.apache.gearpump.streaming.dsl.plan.functions.FlatMapFunction" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="FlatMapFunction[IN,OUT]extendsSingleInputFunction[IN,OUT]"></a>
-      <a id="FlatMapFunction[IN,OUT]:FlatMapFunction[IN,OUT]"></a>
+    </li><li name="org.apache.gearpump.streaming.dsl.plan.functions.FlatMapper" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="FlatMapper[IN,OUT]extendsFunctionRunner[IN,OUT]"></a>
+      <a id="FlatMapper[IN,OUT]:FlatMapper[IN,OUT]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <a href="FlatMapFunction.html"><span class="name">FlatMapFunction</span></a><span class="tparams">[<span name="IN">IN</span>, <span name="OUT">OUT</span>]</span><span class="result"> extends <a href="SingleInputFunction.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.SingleInputFunction">SingleInputFunction</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.FlatMapFunction.IN">IN</span>, <span class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.FlatMapFunction.OUT">OUT</span>]</span>
+        <a href="FlatMapper.html"><span class="name">FlatMapper</span></a><span class="tparams">[<span name="IN">IN</span>, <span name="OUT">OUT</span>]</span><span class="result"> extends <a href="FunctionRunner.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.FunctionRunner">FunctionRunner</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.FlatMapper.IN">IN</span>, <span class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.FlatMapper.OUT">OUT</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.plan.functions.package@FlatMapFunction[IN,OUT]extendsSingleInputFunction[IN,OUT]" title="Permalink" target="_top">
+      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.plan.functions.package@FlatMapper[IN,OUT]extendsFunctionRunner[IN,OUT]" title="Permalink" target="_top">
         <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       
-    </li><li name="org.apache.gearpump.streaming.dsl.plan.functions.ReduceFunction" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="ReduceFunction[T]extendsSingleInputFunction[T,T]"></a>
-      <a id="ReduceFunction[T]:ReduceFunction[T]"></a>
+    </li><li name="org.apache.gearpump.streaming.dsl.plan.functions.FoldRunner" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="FoldRunner[T,A]extendsFunctionRunner[T,A]"></a>
+      <a id="FoldRunner[T,A]:FoldRunner[T,A]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <a href="ReduceFunction.html"><span class="name">ReduceFunction</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="SingleInputFunction.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.SingleInputFunction">SingleInputFunction</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.ReduceFunction.T">T</span>, <span class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.ReduceFunction.T">T</span>]</span>
+        <a href="FoldRunner.html"><span class="name">FoldRunner</span></a><span class="tparams">[<span name="T">T</span>, <span name="A">A</span>]</span><span class="result"> extends <a href="FunctionRunner.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.FunctionRunner">FunctionRunner</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.FoldRunner.T">T</span>, <span class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.FoldRunner.A">A</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.plan.functions.package@ReduceFunction[T]extendsSingleInputFunction[T,T]" title="Permalink" target="_top">
+      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.plan.functions.package@FoldRunner[T,A]extendsFunctionRunner[T,A]" title="Permalink" target="_top">
         <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       
-    </li><li name="org.apache.gearpump.streaming.dsl.plan.functions.SingleInputFunction" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
-      <a id="SingleInputFunction[IN,OUT]extendsSerializable"></a>
-      <a id="SingleInputFunction[IN,OUT]:SingleInputFunction[IN,OUT]"></a>
+    </li><li name="org.apache.gearpump.streaming.dsl.plan.functions.FunctionRunner" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="FunctionRunner[IN,OUT]extendsSerializable"></a>
+      <a id="FunctionRunner[IN,OUT]:FunctionRunner[IN,OUT]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
-        <span class="modifier"></span>
+        <span class="modifier">sealed </span>
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <a href="SingleInputFunction.html"><span class="name">SingleInputFunction</span></a><span class="tparams">[<span name="IN">IN</span>, <span name="OUT">OUT</span>]</span><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <a href="FunctionRunner.html"><span class="name">FunctionRunner</span></a><span class="tparams">[<span name="IN">IN</span>, <span name="OUT">OUT</span>]</span><span class="result"> extends <span class="extype" name="java.io.Serializable">Serializable</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.plan.functions.package@SingleInputFunction[IN,OUT]extendsSerializable" title="Permalink" target="_top">
+      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.plan.functions.package@FunctionRunner[IN,OUT]extendsSerializable" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Interface to invoke SerializableFunction methods
+</p>
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="org.apache.gearpump.streaming.dsl.plan.functions.FunctionRunner" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="FunctionRunner"></a>
+      <a id="FunctionRunner:FunctionRunner"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="FunctionRunner$.html"><span class="name">FunctionRunner</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.plan.functions.package@FunctionRunner" title="Permalink" target="_top">
         <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       
     </li></ol>
             </div>
-
-        
-
-        
 
         
 

@@ -42,16 +42,16 @@
       <h4 id="signature" class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">class</span>
+        <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <span class="name">AndThen</span><span class="tparams">[<span name="IN">IN</span>, <span name="MIDDLE">MIDDLE</span>, <span name="OUT">OUT</span>]</span><span class="result"> extends <a href="SingleInputFunction.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.SingleInputFunction">SingleInputFunction</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.AndThen.IN">IN</span>, <span class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.AndThen.OUT">OUT</span>]</span>
+        <span class="name">AndThen</span><span class="tparams">[<span name="IN">IN</span>, <span name="MIDDLE">MIDDLE</span>, <span name="OUT">OUT</span>]</span><span class="params">(<span name="first">first: <a href="FunctionRunner.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.FunctionRunner">FunctionRunner</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.AndThen.IN">IN</span>, <span class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.AndThen.MIDDLE">MIDDLE</span>]</span>, <span name="second">second: <a href="FunctionRunner.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.FunctionRunner">FunctionRunner</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.AndThen.MIDDLE">MIDDLE</span>, <span class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.AndThen.OUT">OUT</span>]</span>)</span><span class="result"> extends <a href="FunctionRunner.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.FunctionRunner">FunctionRunner</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.AndThen.IN">IN</span>, <span class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.AndThen.OUT">OUT</span>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       
           <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><a href="SingleInputFunction.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.SingleInputFunction">SingleInputFunction</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.AndThen.IN">IN</span>, <span class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.AndThen.OUT">OUT</span>], <span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+          <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="scala.Product">Product</span>, <span class="extype" name="scala.Equals">Equals</span>, <a href="FunctionRunner.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.FunctionRunner">FunctionRunner</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.AndThen.IN">IN</span>, <span class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.AndThen.OUT">OUT</span>], <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
         
 
@@ -69,7 +69,7 @@
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="org.apache.gearpump.streaming.dsl.plan.functions.AndThen"><span>AndThen</span></li><li class="in" name="org.apache.gearpump.streaming.dsl.plan.functions.SingleInputFunction"><span>SingleInputFunction</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="org.apache.gearpump.streaming.dsl.plan.functions.AndThen"><span>AndThen</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="scala.Product"><span>Product</span></li><li class="in" name="scala.Equals"><span>Equals</span></li><li class="in" name="org.apache.gearpump.streaming.dsl.plan.functions.FunctionRunner"><span>FunctionRunner</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                 </ol>
               </div><div id="ancestors">
             <span class="filtertype"></span>
@@ -89,7 +89,7 @@
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
               <ol><li name="org.apache.gearpump.streaming.dsl.plan.functions.AndThen#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="&lt;init&gt;(first:org.apache.gearpump.streaming.dsl.plan.functions.SingleInputFunction[IN,MIDDLE],second:org.apache.gearpump.streaming.dsl.plan.functions.SingleInputFunction[MIDDLE,OUT]):org.apache.gearpump.streaming.dsl.plan.functions.AndThen[IN,MIDDLE,OUT]"></a>
+      <a id="&lt;init&gt;(first:org.apache.gearpump.streaming.dsl.plan.functions.FunctionRunner[IN,MIDDLE],second:org.apache.gearpump.streaming.dsl.plan.functions.FunctionRunner[MIDDLE,OUT]):org.apache.gearpump.streaming.dsl.plan.functions.AndThen[IN,MIDDLE,OUT]"></a>
       <a id="&lt;init&gt;:AndThen[IN,MIDDLE,OUT]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -97,10 +97,10 @@
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">AndThen</span><span class="params">(<span name="first">first: <a href="SingleInputFunction.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.SingleInputFunction">SingleInputFunction</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.AndThen.IN">IN</span>, <span class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.AndThen.MIDDLE">MIDDLE</span>]</span>, <span name="second">second: <a href="SingleInputFunction.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.SingleInputFunction">SingleInputFunction</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.AndThen.MIDDLE">MIDDLE</span>, <span class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.AndThen.OUT">OUT</span>]</span>)</span>
+        <span class="name">AndThen</span><span class="params">(<span name="first">first: <a href="FunctionRunner.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.FunctionRunner">FunctionRunner</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.AndThen.IN">IN</span>, <span class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.AndThen.MIDDLE">MIDDLE</span>]</span>, <span name="second">second: <a href="FunctionRunner.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.FunctionRunner">FunctionRunner</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.AndThen.MIDDLE">MIDDLE</span>, <span class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.AndThen.OUT">OUT</span>]</span>)</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.plan.functions.AndThen@&lt;init&gt;(first:org.apache.gearpump.streaming.dsl.plan.functions.SingleInputFunction[IN,MIDDLE],second:org.apache.gearpump.streaming.dsl.plan.functions.SingleInputFunction[MIDDLE,OUT]):org.apache.gearpump.streaming.dsl.plan.functions.AndThen[IN,MIDDLE,OUT]" title="Permalink" target="_top">
+      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.plan.functions.AndThen@&lt;init&gt;(first:org.apache.gearpump.streaming.dsl.plan.functions.FunctionRunner[IN,MIDDLE],second:org.apache.gearpump.streaming.dsl.plan.functions.FunctionRunner[MIDDLE,OUT]):org.apache.gearpump.streaming.dsl.plan.functions.AndThen[IN,MIDDLE,OUT]" title="Permalink" target="_top">
         <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -165,23 +165,6 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="org.apache.gearpump.streaming.dsl.plan.functions.SingleInputFunction#andThen" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="andThen[OUTER](other:org.apache.gearpump.streaming.dsl.plan.functions.SingleInputFunction[OUT,OUTER]):org.apache.gearpump.streaming.dsl.plan.functions.SingleInputFunction[IN,OUTER]"></a>
-      <a id="andThen[OUTER](SingleInputFunction[OUT,OUTER]):SingleInputFunction[IN,OUTER]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">andThen</span><span class="tparams">[<span name="OUTER">OUTER</span>]</span><span class="params">(<span name="other">other: <a href="SingleInputFunction.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.SingleInputFunction">SingleInputFunction</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.AndThen.OUT">OUT</span>, <span class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.SingleInputFunction.andThen.OUTER">OUTER</span>]</span>)</span><span class="result">: <a href="SingleInputFunction.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.SingleInputFunction">SingleInputFunction</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.AndThen.IN">IN</span>, <span class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.SingleInputFunction.andThen.OUTER">OUTER</span>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.plan.functions.AndThen@andThen[OUTER](other:org.apache.gearpump.streaming.dsl.plan.functions.SingleInputFunction[OUT,OUTER]):org.apache.gearpump.streaming.dsl.plan.functions.SingleInputFunction[IN,OUTER]" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="SingleInputFunction.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.SingleInputFunction">SingleInputFunction</a></dd></dl></div>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <a id="asInstanceOf[T0]:T0"></a>
@@ -199,23 +182,6 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
-    </li><li name="org.apache.gearpump.streaming.dsl.plan.functions.AndThen#clearState" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="clearState():Unit"></a>
-      <a id="clearState():Unit"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">clearState</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.plan.functions.AndThen@clearState():Unit" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.AndThen">AndThen</a> → <a href="SingleInputFunction.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.SingleInputFunction">SingleInputFunction</a></dd></dl></div>
     </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="clone():Object"></a>
       <a id="clone():AnyRef"></a>
@@ -255,7 +221,7 @@
         <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.AndThen">AndThen</a> → <a href="SingleInputFunction.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.SingleInputFunction">SingleInputFunction</a></dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.AndThen">AndThen</a> → <a href="FunctionRunner.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.FunctionRunner">FunctionRunner</a></dd></dl></div>
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a>
       <a id="eq(AnyRef):Boolean"></a>
@@ -273,23 +239,6 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="scala.AnyRef#equals" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="equals(x$1:Any):Boolean"></a>
-      <a id="equals(Any):Boolean"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.plan.functions.AndThen@equals(x$1:Any):Boolean" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="finalize():Unit"></a>
       <a id="finalize():Unit"></a>
@@ -329,7 +278,24 @@
         <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.AndThen">AndThen</a> → <a href="SingleInputFunction.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.SingleInputFunction">SingleInputFunction</a></dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.AndThen">AndThen</a> → <a href="FunctionRunner.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.FunctionRunner">FunctionRunner</a></dd></dl></div>
+    </li><li name="org.apache.gearpump.streaming.dsl.plan.functions.AndThen#first" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="first:org.apache.gearpump.streaming.dsl.plan.functions.FunctionRunner[IN,MIDDLE]"></a>
+      <a id="first:FunctionRunner[IN,MIDDLE]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">first</span><span class="result">: <a href="FunctionRunner.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.FunctionRunner">FunctionRunner</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.AndThen.IN">IN</span>, <span class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.AndThen.MIDDLE">MIDDLE</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.plan.functions.AndThen@first:org.apache.gearpump.streaming.dsl.plan.functions.FunctionRunner[IN,MIDDLE]" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
     </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getClass():Class[_]"></a>
       <a id="getClass():Class[_]"></a>
@@ -343,23 +309,6 @@
       </span>
       </h4><span class="permalink">
       <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.plan.functions.AndThen@getClass():Class[_]" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="hashCode():Int"></a>
-      <a id="hashCode():Int"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.plan.functions.AndThen@hashCode():Int" title="Permalink" target="_top">
         <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -448,7 +397,41 @@
         <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.AndThen">AndThen</a> → <a href="SingleInputFunction.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.SingleInputFunction">SingleInputFunction</a></dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.AndThen">AndThen</a> → <a href="FunctionRunner.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.FunctionRunner">FunctionRunner</a></dd></dl></div>
+    </li><li name="org.apache.gearpump.streaming.dsl.plan.functions.AndThen#second" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="second:org.apache.gearpump.streaming.dsl.plan.functions.FunctionRunner[MIDDLE,OUT]"></a>
+      <a id="second:FunctionRunner[MIDDLE,OUT]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">second</span><span class="result">: <a href="FunctionRunner.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.FunctionRunner">FunctionRunner</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.AndThen.MIDDLE">MIDDLE</span>, <span class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.AndThen.OUT">OUT</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.plan.functions.AndThen@second:org.apache.gearpump.streaming.dsl.plan.functions.FunctionRunner[MIDDLE,OUT]" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.apache.gearpump.streaming.dsl.plan.functions.AndThen#setup" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setup():Unit"></a>
+      <a id="setup():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setup</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.plan.functions.AndThen@setup():Unit" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.AndThen">AndThen</a> → <a href="FunctionRunner.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.FunctionRunner">FunctionRunner</a></dd></dl></div>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>
@@ -466,23 +449,23 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="scala.AnyRef#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="toString():String"></a>
-      <a id="toString():String"></a>
+    </li><li name="org.apache.gearpump.streaming.dsl.plan.functions.AndThen#teardown" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="teardown():Unit"></a>
+      <a id="teardown():Unit"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+        <span class="name">teardown</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.plan.functions.AndThen@toString():String" title="Permalink" target="_top">
+      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.plan.functions.AndThen@teardown():Unit" title="Permalink" target="_top">
         <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.AndThen">AndThen</a> → <a href="FunctionRunner.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.FunctionRunner">FunctionRunner</a></dd></dl></div>
     </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait():Unit"></a>
       <a id="wait():Unit"></a>
@@ -561,10 +544,14 @@
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="org.apache.gearpump.streaming.dsl.plan.functions.SingleInputFunction">
-              <h3>Inherited from <a href="SingleInputFunction.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.SingleInputFunction">SingleInputFunction</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.AndThen.IN">IN</span>, <span class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.AndThen.OUT">OUT</span>]</h3>
-            </div><div class="parent" name="scala.Serializable">
+        <div class="parent" name="scala.Serializable">
               <h3>Inherited from <span class="extype" name="scala.Serializable">Serializable</span></h3>
+            </div><div class="parent" name="scala.Product">
+              <h3>Inherited from <span class="extype" name="scala.Product">Product</span></h3>
+            </div><div class="parent" name="scala.Equals">
+              <h3>Inherited from <span class="extype" name="scala.Equals">Equals</span></h3>
+            </div><div class="parent" name="org.apache.gearpump.streaming.dsl.plan.functions.FunctionRunner">
+              <h3>Inherited from <a href="FunctionRunner.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.FunctionRunner">FunctionRunner</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.AndThen.IN">IN</span>, <span class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.AndThen.OUT">OUT</span>]</h3>
             </div><div class="parent" name="java.io.Serializable">
               <h3>Inherited from <span class="extype" name="java.io.Serializable">Serializable</span></h3>
             </div><div class="parent" name="scala.AnyRef">

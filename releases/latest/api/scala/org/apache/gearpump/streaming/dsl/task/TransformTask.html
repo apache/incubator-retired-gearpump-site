@@ -28,10 +28,12 @@
         </head>
         <body class="type">
       <div id="definition">
-        <img alt="Class" src="../../../../../../lib/class_big.png" />
+        <a href="TransformTask$.html" title="See companion object"><img alt="Class/Object" src="../../../../../../lib/class_to_object_big.png" /></a>
         <p id="owner"><a href="../../../../../package.html" class="extype" name="org">org</a>.<a href="../../../../package.html" class="extype" name="org.apache">apache</a>.<a href="../../../package.html" class="extype" name="org.apache.gearpump">gearpump</a>.<a href="../../package.html" class="extype" name="org.apache.gearpump.streaming">streaming</a>.<a href="../package.html" class="extype" name="org.apache.gearpump.streaming.dsl">dsl</a>.<a href="package.html" class="extype" name="org.apache.gearpump.streaming.dsl.task">task</a></p>
-        <h1>TransformTask</h1><h3><span class="morelinks"><div>Related Doc:
-            <a href="package.html" class="extype" name="org.apache.gearpump.streaming.dsl.task">package task</a>
+        <h1><a href="TransformTask$.html" title="See companion object">TransformTask</a></h1><h3><span class="morelinks"><div>
+            Related Docs:
+            <a href="TransformTask$.html" title="See companion object">object TransformTask</a>
+            | <a href="package.html" class="extype" name="org.apache.gearpump.streaming.dsl.task">package task</a>
           </div></span></h3><span class="permalink">
       <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.task.TransformTask" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
@@ -106,7 +108,7 @@
     </span>
       
     </li><li name="org.apache.gearpump.streaming.dsl.task.TransformTask#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="&lt;init&gt;(operator:Option[org.apache.gearpump.streaming.dsl.plan.functions.SingleInputFunction[IN,OUT]],taskContext:org.apache.gearpump.streaming.task.TaskContext,userConf:org.apache.gearpump.cluster.UserConfig):org.apache.gearpump.streaming.dsl.task.TransformTask[IN,OUT]"></a>
+      <a id="&lt;init&gt;(transform:org.apache.gearpump.streaming.dsl.task.TransformTask.Transform[IN,OUT],taskContext:org.apache.gearpump.streaming.task.TaskContext,userConf:org.apache.gearpump.cluster.UserConfig):org.apache.gearpump.streaming.dsl.task.TransformTask[IN,OUT]"></a>
       <a id="&lt;init&gt;:TransformTask[IN,OUT]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -114,10 +116,10 @@
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">TransformTask</span><span class="params">(<span name="operator">operator: <span class="extype" name="scala.Option">Option</span>[<a href="../plan/functions/SingleInputFunction.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.SingleInputFunction">SingleInputFunction</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.task.TransformTask.IN">IN</span>, <span class="extype" name="org.apache.gearpump.streaming.dsl.task.TransformTask.OUT">OUT</span>]]</span>, <span name="taskContext">taskContext: <a href="../../task/TaskContext.html" class="extype" name="org.apache.gearpump.streaming.task.TaskContext">TaskContext</a></span>, <span name="userConf">userConf: <a href="../../../cluster/UserConfig.html" class="extype" name="org.apache.gearpump.cluster.UserConfig">UserConfig</a></span>)</span>
+        <span class="name">TransformTask</span><span class="params">(<span name="transform">transform: <a href="TransformTask$$Transform.html" class="extype" name="org.apache.gearpump.streaming.dsl.task.TransformTask.Transform">Transform</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.task.TransformTask.IN">IN</span>, <span class="extype" name="org.apache.gearpump.streaming.dsl.task.TransformTask.OUT">OUT</span>]</span>, <span name="taskContext">taskContext: <a href="../../task/TaskContext.html" class="extype" name="org.apache.gearpump.streaming.task.TaskContext">TaskContext</a></span>, <span name="userConf">userConf: <a href="../../../cluster/UserConfig.html" class="extype" name="org.apache.gearpump.cluster.UserConfig">UserConfig</a></span>)</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.task.TransformTask@&lt;init&gt;(operator:Option[org.apache.gearpump.streaming.dsl.plan.functions.SingleInputFunction[IN,OUT]],taskContext:org.apache.gearpump.streaming.task.TaskContext,userConf:org.apache.gearpump.cluster.UserConfig):org.apache.gearpump.streaming.dsl.task.TransformTask[IN,OUT]" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.task.TransformTask@&lt;init&gt;(transform:org.apache.gearpump.streaming.dsl.task.TransformTask.Transform[IN,OUT],taskContext:org.apache.gearpump.streaming.task.TaskContext,userConf:org.apache.gearpump.cluster.UserConfig):org.apache.gearpump.streaming.dsl.task.TransformTask[IN,OUT]" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -416,7 +418,7 @@
     </span>
       <p class="shortcomment cmt">Method called for each message received.</p><div class="fullcomment"><div class="comment cmt"><p>Method called for each message received.
 </p></div><dl class="paramcmts block"><dt class="param">msg</dt><dd class="cmt"><p>Message send by upstream tasks</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="org.apache.gearpump.streaming.dsl.task.TransformTask">TransformTask</a> → <a href="../../task/Task.html" class="extype" name="org.apache.gearpump.streaming.task.Task">Task</a> → <a href="../../task/TaskInterface.html" class="extype" name="org.apache.gearpump.streaming.task.TaskInterface">TaskInterface</a></dd></dl></div>
-    </li><li name="org.apache.gearpump.streaming.task.Task#onStart" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+    </li><li name="org.apache.gearpump.streaming.dsl.task.TransformTask#onStart" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="onStart(startTime:java.time.Instant):Unit"></a>
       <a id="onStart(Instant):Unit"></a>
       <h4 class="signature">
@@ -434,8 +436,8 @@
     </span>
       <p class="shortcomment cmt">Method called with the task is initialized.</p><div class="fullcomment"><div class="comment cmt"><p>Method called with the task is initialized.</p></div><dl class="paramcmts block"><dt class="param">startTime</dt><dd class="cmt"><p>startTime that can be used to decide from when a source producer task should
                  replay the data source, or from when a processor task should recover its
-                 checkpoint data in to in-memory state.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../task/Task.html" class="extype" name="org.apache.gearpump.streaming.task.Task">Task</a> → <a href="../../task/TaskInterface.html" class="extype" name="org.apache.gearpump.streaming.task.TaskInterface">TaskInterface</a></dd></dl></div>
-    </li><li name="org.apache.gearpump.streaming.task.Task#onStop" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+                 checkpoint data in to in-memory state.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="org.apache.gearpump.streaming.dsl.task.TransformTask">TransformTask</a> → <a href="../../task/Task.html" class="extype" name="org.apache.gearpump.streaming.task.Task">Task</a> → <a href="../../task/TaskInterface.html" class="extype" name="org.apache.gearpump.streaming.task.TaskInterface">TaskInterface</a></dd></dl></div>
+    </li><li name="org.apache.gearpump.streaming.dsl.task.TransformTask#onStop" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="onStop():Unit"></a>
       <a id="onStop():Unit"></a>
       <h4 class="signature">
@@ -452,8 +454,8 @@
       </a>
     </span>
       <p class="shortcomment cmt">Method called when task is under clean up.</p><div class="fullcomment"><div class="comment cmt"><p>Method called when task is under clean up.</p><p>This can be used to cleanup resource when the application finished.
-</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../task/Task.html" class="extype" name="org.apache.gearpump.streaming.task.Task">Task</a> → <a href="../../task/TaskInterface.html" class="extype" name="org.apache.gearpump.streaming.task.TaskInterface">TaskInterface</a></dd></dl></div>
-    </li><li name="org.apache.gearpump.streaming.task.Task#onWatermarkProgress" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="org.apache.gearpump.streaming.dsl.task.TransformTask">TransformTask</a> → <a href="../../task/Task.html" class="extype" name="org.apache.gearpump.streaming.task.Task">Task</a> → <a href="../../task/TaskInterface.html" class="extype" name="org.apache.gearpump.streaming.task.TaskInterface">TaskInterface</a></dd></dl></div>
+    </li><li name="org.apache.gearpump.streaming.dsl.task.TransformTask#onWatermarkProgress" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="onWatermarkProgress(watermark:java.time.Instant):Unit"></a>
       <a id="onWatermarkProgress(Instant):Unit"></a>
       <h4 class="signature">
@@ -471,7 +473,7 @@
     </span>
       <p class="shortcomment cmt">Method called on watermark update.</p><div class="fullcomment"><div class="comment cmt"><p>Method called on watermark update.
 Usually safe to output or checkpoint states earlier than watermark.
-</p></div><dl class="paramcmts block"><dt class="param">watermark</dt><dd class="cmt"><p>represents event time progress.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../task/Task.html" class="extype" name="org.apache.gearpump.streaming.task.Task">Task</a> → <a href="../../task/TaskInterface.html" class="extype" name="org.apache.gearpump.streaming.task.TaskInterface">TaskInterface</a></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="param">watermark</dt><dd class="cmt"><p>represents event time progress.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="org.apache.gearpump.streaming.dsl.task.TransformTask">TransformTask</a> → <a href="../../task/Task.html" class="extype" name="org.apache.gearpump.streaming.task.Task">Task</a> → <a href="../../task/TaskInterface.html" class="extype" name="org.apache.gearpump.streaming.task.TaskInterface">TaskInterface</a></dd></dl></div>
     </li><li name="org.apache.gearpump.streaming.task.Task#receiveUnManagedMessage" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="receiveUnManagedMessage:akka.actor.Actor.Receive"></a>
       <a id="receiveUnManagedMessage:Receive"></a>
