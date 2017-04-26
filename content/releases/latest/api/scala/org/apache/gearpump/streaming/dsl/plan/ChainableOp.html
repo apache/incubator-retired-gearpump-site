@@ -45,7 +45,7 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <span class="name">ChainableOp</span><span class="tparams">[<span name="IN">IN</span>, <span name="OUT">OUT</span>]</span><span class="params">(<span name="fn">fn: <a href="functions/SingleInputFunction.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.SingleInputFunction">SingleInputFunction</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.plan.ChainableOp.IN">IN</span>, <span class="extype" name="org.apache.gearpump.streaming.dsl.plan.ChainableOp.OUT">OUT</span>]</span>)</span><span class="result"> extends <a href="Op.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.Op">Op</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <span class="name">ChainableOp</span><span class="tparams">[<span name="IN">IN</span>, <span name="OUT">OUT</span>]</span><span class="params">(<span name="fn">fn: <a href="functions/FunctionRunner.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.FunctionRunner">FunctionRunner</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.plan.ChainableOp.IN">IN</span>, <span class="extype" name="org.apache.gearpump.streaming.dsl.plan.ChainableOp.OUT">OUT</span>]</span>, <span name="userConfig">userConfig: <a href="../../../cluster/UserConfig.html" class="extype" name="org.apache.gearpump.cluster.UserConfig">UserConfig</a> = <span class="symbol"><span class="name"><a href="../../../../../package.html">UserConfig.empty</a></span></span></span>)</span><span class="result"> extends <a href="Op.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.Op">Op</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       
@@ -92,7 +92,7 @@ to another Op to be used
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
               <ol><li name="org.apache.gearpump.streaming.dsl.plan.ChainableOp#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="&lt;init&gt;(fn:org.apache.gearpump.streaming.dsl.plan.functions.SingleInputFunction[IN,OUT]):org.apache.gearpump.streaming.dsl.plan.ChainableOp[IN,OUT]"></a>
+      <a id="&lt;init&gt;(fn:org.apache.gearpump.streaming.dsl.plan.functions.FunctionRunner[IN,OUT],userConfig:org.apache.gearpump.cluster.UserConfig):org.apache.gearpump.streaming.dsl.plan.ChainableOp[IN,OUT]"></a>
       <a id="&lt;init&gt;:ChainableOp[IN,OUT]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -100,10 +100,10 @@ to another Op to be used
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">ChainableOp</span><span class="params">(<span name="fn">fn: <a href="functions/SingleInputFunction.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.SingleInputFunction">SingleInputFunction</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.plan.ChainableOp.IN">IN</span>, <span class="extype" name="org.apache.gearpump.streaming.dsl.plan.ChainableOp.OUT">OUT</span>]</span>)</span>
+        <span class="name">ChainableOp</span><span class="params">(<span name="fn">fn: <a href="functions/FunctionRunner.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.FunctionRunner">FunctionRunner</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.plan.ChainableOp.IN">IN</span>, <span class="extype" name="org.apache.gearpump.streaming.dsl.plan.ChainableOp.OUT">OUT</span>]</span>, <span name="userConfig">userConfig: <a href="../../../cluster/UserConfig.html" class="extype" name="org.apache.gearpump.cluster.UserConfig">UserConfig</a> = <span class="symbol"><span class="name"><a href="../../../../../package.html">UserConfig.empty</a></span></span></span>)</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.plan.ChainableOp@&lt;init&gt;(fn:org.apache.gearpump.streaming.dsl.plan.functions.SingleInputFunction[IN,OUT]):org.apache.gearpump.streaming.dsl.plan.ChainableOp[IN,OUT]" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.plan.ChainableOp@&lt;init&gt;(fn:org.apache.gearpump.streaming.dsl.plan.functions.FunctionRunner[IN,OUT],userConfig:org.apache.gearpump.cluster.UserConfig):org.apache.gearpump.streaming.dsl.plan.ChainableOp[IN,OUT]" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -283,18 +283,18 @@ to another Op to be used
               
         </dd></dl></div>
     </li><li name="org.apache.gearpump.streaming.dsl.plan.ChainableOp#fn" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="fn:org.apache.gearpump.streaming.dsl.plan.functions.SingleInputFunction[IN,OUT]"></a>
-      <a id="fn:SingleInputFunction[IN,OUT]"></a>
+      <a id="fn:org.apache.gearpump.streaming.dsl.plan.functions.FunctionRunner[IN,OUT]"></a>
+      <a id="fn:FunctionRunner[IN,OUT]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">fn</span><span class="result">: <a href="functions/SingleInputFunction.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.SingleInputFunction">SingleInputFunction</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.plan.ChainableOp.IN">IN</span>, <span class="extype" name="org.apache.gearpump.streaming.dsl.plan.ChainableOp.OUT">OUT</span>]</span>
+        <span class="name">fn</span><span class="result">: <a href="functions/FunctionRunner.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.FunctionRunner">FunctionRunner</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.plan.ChainableOp.IN">IN</span>, <span class="extype" name="org.apache.gearpump.streaming.dsl.plan.ChainableOp.OUT">OUT</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.plan.ChainableOp@fn:org.apache.gearpump.streaming.dsl.plan.functions.SingleInputFunction[IN,OUT]" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.plan.ChainableOp@fn:org.apache.gearpump.streaming.dsl.plan.functions.FunctionRunner[IN,OUT]" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -424,7 +424,7 @@ to another Op to be used
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">def</span>
+        <span class="kind">val</span>
       </span>
       <span class="symbol">
         <span class="name">userConfig</span><span class="result">: <a href="../../../cluster/UserConfig.html" class="extype" name="org.apache.gearpump.cluster.UserConfig">UserConfig</a></span>

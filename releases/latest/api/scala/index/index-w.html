@@ -30,16 +30,13 @@
       <div class="occurrences"><a href="../org/apache/gearpump/streaming/source/package.html" class="extype" name="org.apache.gearpump.streaming.source">source</a> </div>
     </div><div class="entry">
       <div class="name">Window</div>
-      <div class="occurrences"><a href="../org/apache/gearpump/streaming/dsl/window/api/package.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.api">api</a> <a href="../org/apache/gearpump/streaming/state/impl/package.html" class="extype" name="org.apache.gearpump.streaming.state.impl">impl</a> </div>
+      <div class="occurrences"><a href="../org/apache/gearpump/streaming/dsl/window/impl/package.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.impl">impl</a> <a href="../org/apache/gearpump/streaming/state/impl/package.html" class="extype" name="org.apache.gearpump.streaming.state.impl">impl</a> </div>
     </div><div class="entry">
       <div class="name">WindowConfig</div>
       <div class="occurrences"><a href="../org/apache/gearpump/streaming/state/impl/package.html" class="extype" name="org.apache.gearpump.streaming.state.impl">impl</a> </div>
     </div><div class="entry">
-      <div class="name">WindowFn</div>
+      <div class="name">WindowFunction</div>
       <div class="occurrences"><a href="../org/apache/gearpump/streaming/dsl/window/api/package.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.api">api</a> </div>
-    </div><div class="entry">
-      <div class="name">WindowGroup</div>
-      <div class="occurrences"><a href="../org/apache/gearpump/streaming/dsl/window/impl/DefaultWindowRunner$.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.impl.DefaultWindowRunner">DefaultWindowRunner</a> </div>
     </div><div class="entry">
       <div class="name">WindowRunner</div>
       <div class="occurrences"><a href="../org/apache/gearpump/streaming/dsl/window/impl/package.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.impl">impl</a> </div>
@@ -48,7 +45,10 @@
       <div class="occurrences"><a href="../org/apache/gearpump/streaming/state/impl/package.html" class="extype" name="org.apache.gearpump.streaming.state.impl">impl</a> </div>
     </div><div class="entry">
       <div class="name">WindowStream</div>
-      <div class="occurrences"><a href="../org/apache/gearpump/streaming/dsl/package.html" class="extype" name="org.apache.gearpump.streaming.dsl">dsl</a> </div>
+      <div class="occurrences"><a href="../org/apache/gearpump/streaming/dsl/scalaapi/package.html" class="extype" name="org.apache.gearpump.streaming.dsl.scalaapi">scalaapi</a> </div>
+    </div><div class="entry">
+      <div class="name">Windows</div>
+      <div class="occurrences"><a href="../org/apache/gearpump/streaming/dsl/window/api/package.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.api">api</a> </div>
     </div><div class="entry">
       <div class="name">Worker</div>
       <div class="occurrences"><a href="../org/apache/gearpump/cluster/main/package.html" class="extype" name="org.apache.gearpump.cluster.main">main</a> </div>
@@ -125,6 +125,9 @@
       <div class="name">waitForTaskRegistered</div>
       <div class="occurrences"><a href="../org/apache/gearpump/streaming/task/TaskActor.html" class="extype" name="org.apache.gearpump.streaming.task.TaskActor">TaskActor</a> </div>
     </div><div class="entry">
+      <div class="name">waitUntilFinish</div>
+      <div class="occurrences"><a href="../org/apache/gearpump/cluster/client/RunningApplication.html" class="extype" name="org.apache.gearpump.cluster.client.RunningApplication">RunningApplication</a> </div>
+    </div><div class="entry">
       <div class="name">watcher</div>
       <div class="occurrences"><a href="../org/apache/gearpump/cluster/master/MasterProxy$$WatchMaster.html" class="extype" name="org.apache.gearpump.cluster.master.MasterProxy.WatchMaster">WatchMaster</a> <a href="../org/apache/gearpump/streaming/appmaster/DagManager$$WatchChange.html" class="extype" name="org.apache.gearpump.streaming.appmaster.DagManager.WatchChange">WatchChange</a> </div>
     </div><div class="entry">
@@ -135,10 +138,10 @@
       <div class="occurrences"><a href="../org/apache/gearpump/streaming/kafka/lib/MessageAndWatermark.html" class="extype" name="org.apache.gearpump.streaming.kafka.lib.MessageAndWatermark">MessageAndWatermark</a> </div>
     </div><div class="entry">
       <div class="name">window</div>
-      <div class="occurrences"><a href="../org/apache/gearpump/streaming/dsl/Stream.html" class="extype" name="org.apache.gearpump.streaming.dsl.Stream">Stream</a> <a href="../org/apache/gearpump/streaming/dsl/javaapi/JavaStream.html" class="extype" name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream">JavaStream</a> <a href="../org/apache/gearpump/streaming/dsl/package.html" class="extype" name="org.apache.gearpump.streaming.dsl">dsl</a> <a href="../org/apache/gearpump/streaming/dsl/window/impl/GroupAlsoByWindow.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.impl.GroupAlsoByWindow">GroupAlsoByWindow</a> </div>
+      <div class="occurrences"><a href="../org/apache/gearpump/streaming/dsl/javaapi/JavaStream.html" class="extype" name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream">JavaStream</a> <a href="../org/apache/gearpump/streaming/dsl/scalaapi/Stream.html" class="extype" name="org.apache.gearpump.streaming.dsl.scalaapi.Stream">Stream</a> <a href="../org/apache/gearpump/streaming/dsl/package.html" class="extype" name="org.apache.gearpump.streaming.dsl">dsl</a> <a href="../org/apache/gearpump/streaming/dsl/window/impl/GroupAlsoByWindow.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.impl.GroupAlsoByWindow">GroupAlsoByWindow</a> </div>
     </div><div class="entry">
       <div class="name">windowFn</div>
-      <div class="occurrences"><a href="../org/apache/gearpump/streaming/dsl/window/api/Window.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.api.Window">Window</a> </div>
+      <div class="occurrences"><a href="../org/apache/gearpump/streaming/dsl/window/api/Windows.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.api.Windows">Windows</a> </div>
     </div><div class="entry">
       <div class="name">windowSize</div>
       <div class="occurrences"><a href="../org/apache/gearpump/streaming/state/impl/Window.html" class="extype" name="org.apache.gearpump.streaming.state.impl.Window">Window</a> <a href="../org/apache/gearpump/streaming/state/impl/WindowConfig.html" class="extype" name="org.apache.gearpump.streaming.state.impl.WindowConfig">WindowConfig</a> </div>
@@ -160,6 +163,9 @@
     </div><div class="entry">
       <div class="name">withDouble</div>
       <div class="occurrences"><a href="../org/apache/gearpump/cluster/UserConfig.html" class="extype" name="org.apache.gearpump.cluster.UserConfig">UserConfig</a> </div>
+    </div><div class="entry">
+      <div class="name">withEmitFn</div>
+      <div class="occurrences"><a href="../org/apache/gearpump/streaming/dsl/plan/functions/FunctionRunner$.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.FunctionRunner">FunctionRunner</a> </div>
     </div><div class="entry">
       <div class="name">withFloat</div>
       <div class="occurrences"><a href="../org/apache/gearpump/cluster/UserConfig.html" class="extype" name="org.apache.gearpump.cluster.UserConfig">UserConfig</a> </div>
@@ -183,7 +189,7 @@
       <div class="occurrences"><a href="../org/apache/gearpump/cluster/UserConfig.html" class="extype" name="org.apache.gearpump.cluster.UserConfig">UserConfig</a> </div>
     </div><div class="entry">
       <div class="name">worker</div>
-      <div class="occurrences"><a href="../org/apache/gearpump/cluster/ClusterConfig$.html" class="extype" name="org.apache.gearpump.cluster.ClusterConfig">ClusterConfig</a> <a href="../org/apache/gearpump/cluster/ClusterConfig$$Configs.html" class="extype" name="org.apache.gearpump.cluster.ClusterConfig.Configs">Configs</a> <a href="../org/apache/gearpump/cluster/ExecutorContext.html" class="extype" name="org.apache.gearpump.cluster.ExecutorContext">ExecutorContext</a> <a href="../org/apache/gearpump/cluster/MasterToClient$$ResolveWorkerIdResult.html" class="extype" name="org.apache.gearpump.cluster.MasterToClient.ResolveWorkerIdResult">ResolveWorkerIdResult</a> <a href="../org/apache/gearpump/cluster/WorkerToMaster$$ResourceUpdate.html" class="extype" name="org.apache.gearpump.cluster.WorkerToMaster.ResourceUpdate">ResourceUpdate</a> <a href="../org/apache/gearpump/cluster/appmaster/AppMasterRuntimeInfo.html" class="extype" name="org.apache.gearpump.cluster.appmaster.AppMasterRuntimeInfo">AppMasterRuntimeInfo</a> <a href="../org/apache/gearpump/cluster/appmaster/ExecutorSystem.html" class="extype" name="org.apache.gearpump.cluster.appmaster.ExecutorSystem">ExecutorSystem</a> <a href="../org/apache/gearpump/cluster/scheduler/ResourceAllocation.html" class="extype" name="org.apache.gearpump.cluster.scheduler.ResourceAllocation">ResourceAllocation</a> <a href="../org/apache/gearpump/cluster/package.html" class="extype" name="org.apache.gearpump.cluster">cluster</a> <a href="../org/apache/gearpump/streaming/ExecutorToAppMaster$$RegisterExecutor.html" class="extype" name="org.apache.gearpump.streaming.ExecutorToAppMaster.RegisterExecutor">RegisterExecutor</a> </div>
+      <div class="occurrences"><a href="../org/apache/gearpump/cluster/ClusterConfig$.html" class="extype" name="org.apache.gearpump.cluster.ClusterConfig">ClusterConfig</a> <a href="../org/apache/gearpump/cluster/ClusterConfig$$Configs.html" class="extype" name="org.apache.gearpump.cluster.ClusterConfig.Configs">Configs</a> <a href="../org/apache/gearpump/cluster/ExecutorContext.html" class="extype" name="org.apache.gearpump.cluster.ExecutorContext">ExecutorContext</a> <a href="../org/apache/gearpump/cluster/MasterToClient$$ResolveWorkerIdResult.html" class="extype" name="org.apache.gearpump.cluster.MasterToClient.ResolveWorkerIdResult">ResolveWorkerIdResult</a> <a href="../org/apache/gearpump/cluster/WorkerToMaster$$ResourceUpdate.html" class="extype" name="org.apache.gearpump.cluster.WorkerToMaster.ResourceUpdate">ResourceUpdate</a> <a href="../org/apache/gearpump/cluster/appmaster/ApplicationRuntimeInfo.html" class="extype" name="org.apache.gearpump.cluster.appmaster.ApplicationRuntimeInfo">ApplicationRuntimeInfo</a> <a href="../org/apache/gearpump/cluster/appmaster/ExecutorSystem.html" class="extype" name="org.apache.gearpump.cluster.appmaster.ExecutorSystem">ExecutorSystem</a> <a href="../org/apache/gearpump/cluster/scheduler/ResourceAllocation.html" class="extype" name="org.apache.gearpump.cluster.scheduler.ResourceAllocation">ResourceAllocation</a> <a href="../org/apache/gearpump/cluster/package.html" class="extype" name="org.apache.gearpump.cluster">cluster</a> <a href="../org/apache/gearpump/streaming/ExecutorToAppMaster$$RegisterExecutor.html" class="extype" name="org.apache.gearpump.streaming.ExecutorToAppMaster.RegisterExecutor">RegisterExecutor</a> </div>
     </div><div class="entry">
       <div class="name">workerContainerId</div>
       <div class="occurrences"><a href="../org/apache/gearpump/cluster/ClientToMaster$$RemoveWorker.html" class="extype" name="org.apache.gearpump.cluster.ClientToMaster.RemoveWorker">RemoveWorker</a> </div>
@@ -198,7 +204,7 @@
       <div class="occurrences"><a href="../org/apache/gearpump/cluster/worker/WorkerId$.html" class="extype" name="org.apache.gearpump.cluster.worker.WorkerId">WorkerId</a> </div>
     </div><div class="entry">
       <div class="name">workerInfo</div>
-      <div class="occurrences"><a href="../org/apache/gearpump/cluster/AppMasterContext.html" class="extype" name="org.apache.gearpump.cluster.AppMasterContext">AppMasterContext</a> </div>
+      <div class="occurrences"><a href="../org/apache/gearpump/cluster/AppMasterContext.html" class="extype" name="org.apache.gearpump.cluster.AppMasterContext">AppMasterContext</a> <a href="../org/apache/gearpump/cluster/AppMasterToMaster$$RegisterAppMaster.html" class="extype" name="org.apache.gearpump.cluster.AppMasterToMaster.RegisterAppMaster">RegisterAppMaster</a> </div>
     </div><div class="entry">
       <div class="name">workerPath</div>
       <div class="occurrences"><a href="../org/apache/gearpump/cluster/MasterToAppMaster$$AppMasterData.html" class="extype" name="org.apache.gearpump.cluster.MasterToAppMaster.AppMasterData">AppMasterData</a> </div>
@@ -207,7 +213,7 @@
       <div class="occurrences"><a href="../org/apache/gearpump/cluster/MasterToAppMaster$$WorkerList.html" class="extype" name="org.apache.gearpump.cluster.MasterToAppMaster.WorkerList">WorkerList</a> </div>
     </div><div class="entry">
       <div class="name">write</div>
-      <div class="occurrences"><a href="../org/apache/gearpump/external/hbase/HBaseSink.html" class="extype" name="org.apache.gearpump.external.hbase.HBaseSink">HBaseSink</a> <a href="../org/apache/gearpump/streaming/AckRequestSerializer.html" class="extype" name="org.apache.gearpump.streaming.AckRequestSerializer">AckRequestSerializer</a> <a href="../org/apache/gearpump/streaming/AckSerializer.html" class="extype" name="org.apache.gearpump.streaming.AckSerializer">AckSerializer</a> <a href="../org/apache/gearpump/streaming/InitialAckRequestSerializer.html" class="extype" name="org.apache.gearpump.streaming.InitialAckRequestSerializer">InitialAckRequestSerializer</a> <a href="../org/apache/gearpump/streaming/LatencyProbeSerializer.html" class="extype" name="org.apache.gearpump.streaming.LatencyProbeSerializer">LatencyProbeSerializer</a> <a href="../org/apache/gearpump/streaming/TaskIdSerializer.html" class="extype" name="org.apache.gearpump.streaming.TaskIdSerializer">TaskIdSerializer</a> <a href="../org/apache/gearpump/streaming/dsl/LoggerSink.html" class="extype" name="org.apache.gearpump.streaming.dsl.LoggerSink">LoggerSink</a> <a href="../org/apache/gearpump/streaming/hadoop/SequenceFileSink.html" class="extype" name="org.apache.gearpump.streaming.hadoop.SequenceFileSink">SequenceFileSink</a> <a href="../org/apache/gearpump/streaming/hadoop/lib/HadoopCheckpointStoreWriter.html" class="extype" name="org.apache.gearpump.streaming.hadoop.lib.HadoopCheckpointStoreWriter">HadoopCheckpointStoreWriter</a> <a href="../org/apache/gearpump/streaming/kafka/lib/sink/AbstractKafkaSink.html" class="extype" name="org.apache.gearpump.streaming.kafka.lib.sink.AbstractKafkaSink">AbstractKafkaSink</a> <a href="../org/apache/gearpump/streaming/sink/DataSink.html" class="extype" name="org.apache.gearpump.streaming.sink.DataSink">DataSink</a> <a href="../org/apache/gearpump/streaming/task/SerializedMessageSerializer.html" class="extype" name="org.apache.gearpump.streaming.task.SerializedMessageSerializer">SerializedMessageSerializer</a> <a href="../org/apache/gearpump/streaming/task/TaskMessageSerializer.html" class="extype" name="org.apache.gearpump.streaming.task.TaskMessageSerializer">TaskMessageSerializer</a> <a href="../org/apache/gearpump/util/FileUtils$.html" class="extype" name="org.apache.gearpump.util.FileUtils">FileUtils</a> </div>
+      <div class="occurrences"><a href="../org/apache/gearpump/external/hbase/HBaseSink.html" class="extype" name="org.apache.gearpump.external.hbase.HBaseSink">HBaseSink</a> <a href="../org/apache/gearpump/streaming/AckRequestSerializer.html" class="extype" name="org.apache.gearpump.streaming.AckRequestSerializer">AckRequestSerializer</a> <a href="../org/apache/gearpump/streaming/AckSerializer.html" class="extype" name="org.apache.gearpump.streaming.AckSerializer">AckSerializer</a> <a href="../org/apache/gearpump/streaming/InitialAckRequestSerializer.html" class="extype" name="org.apache.gearpump.streaming.InitialAckRequestSerializer">InitialAckRequestSerializer</a> <a href="../org/apache/gearpump/streaming/LatencyProbeSerializer.html" class="extype" name="org.apache.gearpump.streaming.LatencyProbeSerializer">LatencyProbeSerializer</a> <a href="../org/apache/gearpump/streaming/TaskIdSerializer.html" class="extype" name="org.apache.gearpump.streaming.TaskIdSerializer">TaskIdSerializer</a> <a href="../org/apache/gearpump/streaming/dsl/scalaapi/LoggerSink.html" class="extype" name="org.apache.gearpump.streaming.dsl.scalaapi.LoggerSink">LoggerSink</a> <a href="../org/apache/gearpump/streaming/hadoop/SequenceFileSink.html" class="extype" name="org.apache.gearpump.streaming.hadoop.SequenceFileSink">SequenceFileSink</a> <a href="../org/apache/gearpump/streaming/hadoop/lib/HadoopCheckpointStoreWriter.html" class="extype" name="org.apache.gearpump.streaming.hadoop.lib.HadoopCheckpointStoreWriter">HadoopCheckpointStoreWriter</a> <a href="../org/apache/gearpump/streaming/kafka/lib/sink/AbstractKafkaSink.html" class="extype" name="org.apache.gearpump.streaming.kafka.lib.sink.AbstractKafkaSink">AbstractKafkaSink</a> <a href="../org/apache/gearpump/streaming/sink/DataSink.html" class="extype" name="org.apache.gearpump.streaming.sink.DataSink">DataSink</a> <a href="../org/apache/gearpump/streaming/task/SerializedMessageSerializer.html" class="extype" name="org.apache.gearpump.streaming.task.SerializedMessageSerializer">SerializedMessageSerializer</a> <a href="../org/apache/gearpump/streaming/task/TaskMessageSerializer.html" class="extype" name="org.apache.gearpump.streaming.task.TaskMessageSerializer">TaskMessageSerializer</a> <a href="../org/apache/gearpump/util/FileUtils$.html" class="extype" name="org.apache.gearpump.util.FileUtils">FileUtils</a> </div>
     </div><div class="entry">
       <div class="name">writeByteArrayToFile</div>
       <div class="occurrences"><a href="../org/apache/gearpump/util/FileUtils$.html" class="extype" name="org.apache.gearpump.util.FileUtils">FileUtils</a> </div>

@@ -14,7 +14,7 @@
       <div class="name">EmbeddedCluster</div>
       <div class="occurrences"><a href="../org/apache/gearpump/cluster/embedded/package.html" class="extype" name="org.apache.gearpump.cluster.embedded">embedded</a> </div>
     </div><div class="entry">
-      <div class="name">EmitFunction</div>
+      <div class="name">Emit</div>
       <div class="occurrences"><a href="../org/apache/gearpump/streaming/dsl/plan/functions/package.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions">functions</a> </div>
     </div><div class="entry">
       <div class="name">EndProcessor</div>
@@ -22,6 +22,9 @@
     </div><div class="entry">
       <div class="name">EndTask</div>
       <div class="occurrences"><a href="../org/apache/gearpump/streaming/metrics/TaskFilterAggregator$.html" class="extype" name="org.apache.gearpump.streaming.metrics.TaskFilterAggregator">TaskFilterAggregator</a> </div>
+    </div><div class="entry">
+      <div class="name">EndingClock</div>
+      <div class="occurrences"><a href="../org/apache/gearpump/streaming/task/package.html" class="extype" name="org.apache.gearpump.streaming.task">task</a> </div>
     </div><div class="entry">
       <div class="name">EventTimeTrigger</div>
       <div class="occurrences"><a href="../org/apache/gearpump/streaming/dsl/window/api/package.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.api">api</a> </div>
@@ -55,9 +58,6 @@
     </div><div class="entry">
       <div class="name">ExecutorProcessLauncher</div>
       <div class="occurrences"><a href="../org/apache/gearpump/cluster/worker/package.html" class="extype" name="org.apache.gearpump.cluster.worker">worker</a> </div>
-    </div><div class="entry">
-      <div class="name">ExecutorRestartPolicy</div>
-      <div class="occurrences"><a href="../org/apache/gearpump/streaming/executor/package.html" class="extype" name="org.apache.gearpump.streaming.executor">executor</a> </div>
     </div><div class="entry">
       <div class="name">ExecutorSlots</div>
       <div class="occurrences"><a href="../org/apache/gearpump/cluster/worker/package.html" class="extype" name="org.apache.gearpump.cluster.worker">worker</a> </div>
@@ -95,6 +95,9 @@
       <div class="name">edgesOf</div>
       <div class="occurrences"><a href="../org/apache/gearpump/util/Graph.html" class="extype" name="org.apache.gearpump.util.Graph">Graph</a> </div>
     </div><div class="entry">
+      <div class="name">element</div>
+      <div class="occurrences"><a href="../org/apache/gearpump/streaming/dsl/window/api/WindowFunction$$Context.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.api.WindowFunction.Context">Context</a> </div>
+    </div><div class="entry">
       <div class="name">embedded</div>
       <div class="occurrences"><a href="../org/apache/gearpump/cluster/package.html" class="extype" name="org.apache.gearpump.cluster">cluster</a> </div>
     </div><div class="entry">
@@ -111,16 +114,16 @@
       <div class="occurrences"><a href="../org/apache/gearpump/streaming/metrics/TaskFilterAggregator$$Options.html" class="extype" name="org.apache.gearpump.streaming.metrics.TaskFilterAggregator.Options">Options</a> </div>
     </div><div class="entry">
       <div class="name">endTime</div>
-      <div class="occurrences"><a href="../org/apache/gearpump/streaming/dsl/window/impl/Bucket.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.impl.Bucket">Bucket</a> <a href="../org/apache/gearpump/streaming/state/impl/Interval.html" class="extype" name="org.apache.gearpump.streaming.state.impl.Interval">Interval</a> </div>
+      <div class="occurrences"><a href="../org/apache/gearpump/streaming/dsl/window/impl/Window.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.impl.Window">Window</a> <a href="../org/apache/gearpump/streaming/state/impl/Interval.html" class="extype" name="org.apache.gearpump.streaming.state.impl.Interval">Interval</a> </div>
     </div><div class="entry">
       <div class="name">equals</div>
-      <div class="occurrences"><a href="../org/apache/gearpump/cluster/appmaster/ApplicationState.html" class="extype" name="org.apache.gearpump.cluster.appmaster.ApplicationState">ApplicationState</a> <a href="../org/apache/gearpump/streaming/javaapi/Processor.html" class="extype" name="org.apache.gearpump.streaming.javaapi.Processor">Processor</a> <a href="../org/apache/gearpump/util/ReferenceEqual.html" class="extype" name="org.apache.gearpump.util.ReferenceEqual">ReferenceEqual</a> </div>
+      <div class="occurrences"><a href="../org/apache/gearpump/streaming/javaapi/Processor.html" class="extype" name="org.apache.gearpump.streaming.javaapi.Processor">Processor</a> <a href="../org/apache/gearpump/util/ReferenceEqual.html" class="extype" name="org.apache.gearpump.util.ReferenceEqual">ReferenceEqual</a> </div>
     </div><div class="entry">
       <div class="name">err</div>
       <div class="occurrences"><a href="../org/apache/gearpump/util/ProcessLogRedirector.html" class="extype" name="org.apache.gearpump.util.ProcessLogRedirector">ProcessLogRedirector</a> </div>
     </div><div class="entry">
       <div class="name">error</div>
-      <div class="occurrences"><a href="../org/apache/gearpump/cluster/MasterToClient$$LastFailure.html" class="extype" name="org.apache.gearpump.cluster.MasterToClient.LastFailure">LastFailure</a> <a href="../org/apache/gearpump/util/ConsoleOutput.html" class="extype" name="org.apache.gearpump.util.ConsoleOutput">ConsoleOutput</a> <a href="../org/apache/gearpump/util/ProcessLogRedirector.html" class="extype" name="org.apache.gearpump.util.ProcessLogRedirector">ProcessLogRedirector</a> </div>
+      <div class="occurrences"><a href="../org/apache/gearpump/cluster/AppMasterToMaster$$ApplicationStatusChanged.html" class="extype" name="org.apache.gearpump.cluster.AppMasterToMaster.ApplicationStatusChanged">ApplicationStatusChanged</a> <a href="../org/apache/gearpump/cluster/MasterToClient$$ApplicationFailed.html" class="extype" name="org.apache.gearpump.cluster.MasterToClient.ApplicationFailed">ApplicationFailed</a> <a href="../org/apache/gearpump/cluster/MasterToClient$$LastFailure.html" class="extype" name="org.apache.gearpump.cluster.MasterToClient.LastFailure">LastFailure</a> <a href="../org/apache/gearpump/util/ConsoleOutput.html" class="extype" name="org.apache.gearpump.util.ConsoleOutput">ConsoleOutput</a> <a href="../org/apache/gearpump/util/ProcessLogRedirector.html" class="extype" name="org.apache.gearpump.util.ProcessLogRedirector">ProcessLogRedirector</a> </div>
     </div><div class="entry">
       <div class="name">establishing</div>
       <div class="occurrences"><a href="../org/apache/gearpump/cluster/master/MasterProxy.html" class="extype" name="org.apache.gearpump.cluster.master.MasterProxy">MasterProxy</a> </div>
@@ -129,7 +132,7 @@
       <div class="occurrences"><a href="../org/apache/gearpump/cluster/master/MasterActivity.html" class="extype" name="org.apache.gearpump.cluster.master.MasterActivity">MasterActivity</a> </div>
     </div><div class="entry">
       <div class="name">ex</div>
-      <div class="occurrences"><a href="../org/apache/gearpump/cluster/MasterToWorker$$UpdateResourceFailed.html" class="extype" name="org.apache.gearpump.cluster.MasterToWorker.UpdateResourceFailed">UpdateResourceFailed</a> <a href="../org/apache/gearpump/cluster/WorkerToAppMaster$$ExecutorLaunchRejected.html" class="extype" name="org.apache.gearpump.cluster.WorkerToAppMaster.ExecutorLaunchRejected">ExecutorLaunchRejected</a> <a href="../org/apache/gearpump/cluster/WorkerToAppMaster$$ShutdownExecutorFailed.html" class="extype" name="org.apache.gearpump.cluster.WorkerToAppMaster.ShutdownExecutorFailed">ShutdownExecutorFailed</a> <a href="../org/apache/gearpump/cluster/master/InMemoryKVService$$GetKVFailed.html" class="extype" name="org.apache.gearpump.cluster.master.InMemoryKVService.GetKVFailed">GetKVFailed</a> <a href="../org/apache/gearpump/cluster/master/InMemoryKVService$$PutKVFailed.html" class="extype" name="org.apache.gearpump.cluster.master.InMemoryKVService.PutKVFailed">PutKVFailed</a> <a href="../org/apache/gearpump/streaming/AppMasterToExecutor$$TaskLocationsRejected.html" class="extype" name="org.apache.gearpump.streaming.AppMasterToExecutor.TaskLocationsRejected">TaskLocationsRejected</a> </div>
+      <div class="occurrences"><a href="../org/apache/gearpump/cluster/MasterToWorker$$UpdateResourceFailed.html" class="extype" name="org.apache.gearpump.cluster.MasterToWorker.UpdateResourceFailed">UpdateResourceFailed</a> <a href="../org/apache/gearpump/cluster/WorkerToAppMaster$$ExecutorLaunchRejected.html" class="extype" name="org.apache.gearpump.cluster.WorkerToAppMaster.ExecutorLaunchRejected">ExecutorLaunchRejected</a> <a href="../org/apache/gearpump/cluster/WorkerToAppMaster$$ShutdownExecutorFailed.html" class="extype" name="org.apache.gearpump.cluster.WorkerToAppMaster.ShutdownExecutorFailed">ShutdownExecutorFailed</a> <a href="../org/apache/gearpump/cluster/master/InMemoryKVService$$GetKVFailed.html" class="extype" name="org.apache.gearpump.cluster.master.InMemoryKVService.GetKVFailed">GetKVFailed</a> <a href="../org/apache/gearpump/cluster/master/InMemoryKVService$$PutKVFailed.html" class="extype" name="org.apache.gearpump.cluster.master.InMemoryKVService.PutKVFailed">PutKVFailed</a> <a href="../org/apache/gearpump/streaming/AppMasterToExecutor$$TaskLocationsRejected.html" class="extype" name="org.apache.gearpump.streaming.AppMasterToExecutor.TaskLocationsRejected">TaskLocationsRejected</a> <a href="../org/apache/gearpump/streaming/ExecutorToAppMaster$$MessageLoss.html" class="extype" name="org.apache.gearpump.streaming.ExecutorToAppMaster.MessageLoss">MessageLoss</a> </div>
     </div><div class="entry">
       <div class="name">exception</div>
       <div class="occurrences"><a href="../org/apache/gearpump/cluster/ClientToMaster$$CommandResult.html" class="extype" name="org.apache.gearpump.cluster.ClientToMaster.CommandResult">CommandResult</a> </div>

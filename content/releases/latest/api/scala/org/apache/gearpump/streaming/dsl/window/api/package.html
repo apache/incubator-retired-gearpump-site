@@ -83,56 +83,70 @@
       </a>
     </span>
       
-    </li><li name="org.apache.gearpump.streaming.dsl.window.api.CountWindowFn" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="CountWindowFnextendsWindowFnwithProductwithSerializable"></a>
-      <a id="CountWindowFn:CountWindowFn"></a>
+    </li><li name="org.apache.gearpump.streaming.dsl.window.api.CountWindowFunction" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="CountWindowFunction[T]extendsNonMergingWindowFunction[T]withProductwithSerializable"></a>
+      <a id="CountWindowFunction[T]:CountWindowFunction[T]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="CountWindowFn.html"><span class="name">CountWindowFn</span></a><span class="params">(<span name="size">size: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result"> extends <a href="WindowFn.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.api.WindowFn">WindowFn</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <a href="CountWindowFunction.html"><span class="name">CountWindowFunction</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="size">size: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result"> extends <a href="NonMergingWindowFunction.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.api.NonMergingWindowFunction">NonMergingWindowFunction</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.window.api.CountWindowFunction.T">T</span>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.window.api.package@CountWindowFnextendsWindowFnwithProductwithSerializable" title="Permalink" target="_top">
+      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.window.api.package@CountWindowFunction[T]extendsNonMergingWindowFunction[T]withProductwithSerializable" title="Permalink" target="_top">
         <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       
-    </li><li name="org.apache.gearpump.streaming.dsl.window.api.GroupByFn" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="GroupByFn[T,GROUP]extendsAnyRef"></a>
-      <a id="GroupByFn[T,GROUP]:GroupByFn[T,GROUP]"></a>
+    </li><li name="org.apache.gearpump.streaming.dsl.window.api.NonMergingWindowFunction" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="NonMergingWindowFunction[T]extendsWindowFunction[T]"></a>
+      <a id="NonMergingWindowFunction[T]:NonMergingWindowFunction[T]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">trait</span>
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <a href="GroupByFn.html"><span class="name">GroupByFn</span></a><span class="tparams">[<span name="T">T</span>, <span name="GROUP">GROUP</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+        <a href="NonMergingWindowFunction.html"><span class="name">NonMergingWindowFunction</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="WindowFunction.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.api.WindowFunction">WindowFunction</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.window.api.NonMergingWindowFunction.T">T</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.window.api.package@GroupByFn[T,GROUP]extendsAnyRef" title="Permalink" target="_top">
+      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.window.api.package@NonMergingWindowFunction[T]extendsWindowFunction[T]" title="Permalink" target="_top">
         <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Divides messages into groups according its payload and timestamp.</p><div class="fullcomment"><div class="comment cmt"><p>Divides messages into groups according its payload and timestamp.
-Check <a href="../impl/GroupAlsoByWindow.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.impl.GroupAlsoByWindow">org.apache.gearpump.streaming.dsl.window.impl.GroupAlsoByWindow</a>
-for default implementation.
-</p></div></div>
-    </li><li name="org.apache.gearpump.streaming.dsl.window.api.SlidingWindowFn" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="SlidingWindowFnextendsWindowFnwithProductwithSerializable"></a>
-      <a id="SlidingWindowFn:SlidingWindowFn"></a>
+      
+    </li><li name="org.apache.gearpump.streaming.dsl.window.api.SessionWindowFunction" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SessionWindowFunction[T]extendsWindowFunction[T]withProductwithSerializable"></a>
+      <a id="SessionWindowFunction[T]:SessionWindowFunction[T]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="SlidingWindowFn.html"><span class="name">SlidingWindowFn</span></a><span class="params">(<span name="size">size: <span class="extype" name="java.time.Duration">Duration</span></span>, <span name="step">step: <span class="extype" name="java.time.Duration">Duration</span></span>)</span><span class="result"> extends <a href="WindowFn.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.api.WindowFn">WindowFn</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <a href="SessionWindowFunction.html"><span class="name">SessionWindowFunction</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="gap">gap: <span class="extype" name="java.time.Duration">Duration</span></span>)</span><span class="result"> extends <a href="WindowFunction.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.api.WindowFunction">WindowFunction</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.window.api.SessionWindowFunction.T">T</span>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.window.api.package@SlidingWindowFnextendsWindowFnwithProductwithSerializable" title="Permalink" target="_top">
+      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.window.api.package@SessionWindowFunction[T]extendsWindowFunction[T]withProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.apache.gearpump.streaming.dsl.window.api.SlidingWindowFunction" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SlidingWindowFunction[T]extendsNonMergingWindowFunction[T]withProductwithSerializable"></a>
+      <a id="SlidingWindowFunction[T]:SlidingWindowFunction[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="SlidingWindowFunction.html"><span class="name">SlidingWindowFunction</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="size">size: <span class="extype" name="java.time.Duration">Duration</span></span>, <span name="step">step: <span class="extype" name="java.time.Duration">Duration</span></span>)</span><span class="result"> extends <a href="NonMergingWindowFunction.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.api.NonMergingWindowFunction">NonMergingWindowFunction</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.window.api.SlidingWindowFunction.T">T</span>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.window.api.package@SlidingWindowFunction[T]extendsNonMergingWindowFunction[T]withProductwithSerializable" title="Permalink" target="_top">
         <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -154,40 +168,41 @@ for default implementation.
       </a>
     </span>
       
-    </li><li name="org.apache.gearpump.streaming.dsl.window.api.Window" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="WindowextendsProductwithSerializable"></a>
-      <a id="Window:Window"></a>
+    </li><li name="org.apache.gearpump.streaming.dsl.window.api.WindowFunction" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="WindowFunction[T]extendsAnyRef"></a>
+      <a id="WindowFunction[T]:WindowFunction[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="WindowFunction.html"><span class="name">WindowFunction</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.window.api.package@WindowFunction[T]extendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.apache.gearpump.streaming.dsl.window.api.Windows" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="Windows[T]extendsProductwithSerializable"></a>
+      <a id="Windows[T]:Windows[T]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="Window.html"><span class="name">Window</span></a><span class="params">(<span name="windowFn">windowFn: <a href="WindowFn.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.api.WindowFn">WindowFn</a></span>, <span name="trigger">trigger: <a href="Trigger.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.api.Trigger">Trigger</a> = <span class="symbol"><span class="name"><a href="EventTimeTrigger$.html">EventTimeTrigger</a></span></span></span>, <span name="accumulationMode">accumulationMode: <a href="AccumulationMode.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.api.AccumulationMode">AccumulationMode</a> = <span class="symbol"><span class="name"><a href="Discarding$.html">Discarding</a></span></span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <a href="Windows.html"><span class="name">Windows</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="windowFn">windowFn: <a href="WindowFunction.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.api.WindowFunction">WindowFunction</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.window.api.Windows.T">T</span>]</span>, <span name="trigger">trigger: <a href="Trigger.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.api.Trigger">Trigger</a> = <span class="symbol"><span class="name"><a href="EventTimeTrigger$.html">EventTimeTrigger</a></span></span></span>, <span name="accumulationMode">accumulationMode: <a href="AccumulationMode.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.api.AccumulationMode">AccumulationMode</a> = <span class="symbol"><span class="name"><a href="Discarding$.html">Discarding</a></span></span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.window.api.package@WindowextendsProductwithSerializable" title="Permalink" target="_top">
+      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.window.api.package@Windows[T]extendsProductwithSerializable" title="Permalink" target="_top">
         <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt"></p>
-    </li><li name="org.apache.gearpump.streaming.dsl.window.api.WindowFn" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
-      <a id="WindowFnextendsAnyRef"></a>
-      <a id="WindowFn:WindowFn"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier">sealed </span>
-        <span class="kind">trait</span>
-      </span>
-      <span class="symbol">
-        <a href="WindowFn.html"><span class="name">WindowFn</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.window.api.package@WindowFnextendsAnyRef" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
+      <p class="shortcomment cmt">Defines how to apply window functions.</p><div class="fullcomment"><div class="comment cmt"><p>Defines how to apply window functions.
+</p></div><dl class="paramcmts block"><dt class="param">windowFn</dt><dd class="cmt"><p>how to divide windows</p></dd><dt class="param">trigger</dt><dd class="cmt"><p>when to trigger window result</p></dd><dt class="param">accumulationMode</dt><dd class="cmt"><p>whether to accumulate results across windows</p></dd></dl></div>
     </li></ol>
             </div>
 
@@ -229,19 +244,19 @@ for default implementation.
       </a>
     </span>
       
-    </li><li name="org.apache.gearpump.streaming.dsl.window.api.CountWindow" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="CountWindow"></a>
-      <a id="CountWindow:CountWindow"></a>
+    </li><li name="org.apache.gearpump.streaming.dsl.window.api.CountWindows" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="CountWindows"></a>
+      <a id="CountWindows:CountWindows"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a href="CountWindow$.html"><span class="name">CountWindow</span></a>
+        <a href="CountWindows$.html"><span class="name">CountWindows</span></a>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.window.api.package@CountWindow" title="Permalink" target="_top">
+      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.window.api.package@CountWindows" title="Permalink" target="_top">
         <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -280,19 +295,19 @@ for default implementation.
       </a>
     </span>
       
-    </li><li name="org.apache.gearpump.streaming.dsl.window.api.FixedWindow" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="FixedWindow"></a>
-      <a id="FixedWindow:FixedWindow"></a>
+    </li><li name="org.apache.gearpump.streaming.dsl.window.api.FixedWindows" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="FixedWindows"></a>
+      <a id="FixedWindows:FixedWindows"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a href="FixedWindow$.html"><span class="name">FixedWindow</span></a>
+        <a href="FixedWindows$.html"><span class="name">FixedWindows</span></a>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.window.api.package@FixedWindow" title="Permalink" target="_top">
+      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.window.api.package@FixedWindows" title="Permalink" target="_top">
         <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -314,19 +329,53 @@ for default implementation.
       </a>
     </span>
       
-    </li><li name="org.apache.gearpump.streaming.dsl.window.api.SlidingWindow" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="SlidingWindow"></a>
-      <a id="SlidingWindow:SlidingWindow"></a>
+    </li><li name="org.apache.gearpump.streaming.dsl.window.api.SessionWindows" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SessionWindows"></a>
+      <a id="SessionWindows:SessionWindows"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a href="SlidingWindow$.html"><span class="name">SlidingWindow</span></a>
+        <a href="SessionWindows$.html"><span class="name">SessionWindows</span></a>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.window.api.package@SlidingWindow" title="Permalink" target="_top">
+      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.window.api.package@SessionWindows" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.apache.gearpump.streaming.dsl.window.api.SlidingWindows" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SlidingWindows"></a>
+      <a id="SlidingWindows:SlidingWindows"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="SlidingWindows$.html"><span class="name">SlidingWindows</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.window.api.package@SlidingWindows" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.apache.gearpump.streaming.dsl.window.api.WindowFunction" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="WindowFunction"></a>
+      <a id="WindowFunction:WindowFunction"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="WindowFunction$.html"><span class="name">WindowFunction</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.window.api.package@WindowFunction" title="Permalink" target="_top">
         <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>

@@ -3,28 +3,31 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  
-  <link rel="shortcut icon" href="../../img/favicon.ico">
   <title>Gearpump Connectors - Apache Gearpump(incubating)</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
   <link rel="stylesheet" href="../../css/highlight.css">
+
   
   <script>
     // Current page data
     var mkdocs_page_name = "Gearpump Connectors";
-    var mkdocs_page_input_path = "dev/dev-connectors.md";
-    var mkdocs_page_url = "/dev/dev-connectors/index.html";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
   <script src="../../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+
   
 </head>
 
@@ -44,7 +47,7 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
+        <ul class="current">
           
             <li>
     <li class="toctree-l1 ">
@@ -341,8 +344,9 @@
     <li>Gearpump Connectors</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/apache/incubator-gearpump/edit/master/docs/dev/dev-connectors.md"
-          class="icon icon-github"> Edit on GitHub</a>
+        
+          <a href="https://github.com/apache/incubator-gearpump" class="icon icon-github"> Edit on GitHub</a>
+        
       
     </li>
   </ul>
@@ -402,14 +406,14 @@
 <h3 id="use-of-kafka-connectors">Use of Kafka connectors</h3>
 <p>To use Kafka connectors in your application, you first need to add the <code>gearpump-external-kafka</code> library dependency in your application:</p>
 <h4 id="sbt">SBT</h4>
-<pre class="codehilite"><code class="language-sbt">&quot;org.apache.gearpump&quot; %% &quot;gearpump-external-kafka&quot; % 0.8.2</code></pre>
+<pre class="codehilite"><code class="language-sbt">&quot;org.apache.gearpump&quot; %% &quot;gearpump-external-kafka&quot; % 0.8.3</code></pre>
 
 
 <h4 id="xml">XML</h4>
 <pre class="codehilite"><code class="language-xml">&lt;dependency&gt;
   &lt;groupId&gt;org.apache.gearpump&lt;/groupId&gt;
   &lt;artifactId&gt;gearpump-external-kafka&lt;/artifactId&gt;
-  &lt;version&gt;0.8.2&lt;/version&gt;
+  &lt;version&gt;0.8.3&lt;/version&gt;
 &lt;/dependency&gt;</code></pre>
 
 
@@ -578,14 +582,14 @@ Their configurations can be defined differently as below. </p>
 <h3 id="use-of-hbasesink">Use of <code>HBaseSink</code></h3>
 <p>To use <code>HBaseSink</code> in your application, you first need to add the <code>gearpump-external-hbase</code> library dependency in your application:</p>
 <h4 id="sbt_1">SBT</h4>
-<pre class="codehilite"><code class="language-sbt">&quot;org.apache.gearpump&quot; %% &quot;gearpump-external-hbase&quot; % 0.8.2</code></pre>
+<pre class="codehilite"><code class="language-sbt">&quot;org.apache.gearpump&quot; %% &quot;gearpump-external-hbase&quot; % 0.8.3</code></pre>
 
 
 <h4 id="xml_1">XML</h4>
 <pre class="codehilite"><code class="language-xml">&lt;dependency&gt;
   &lt;groupId&gt;org.apache.gearpump&lt;/groupId&gt;
   &lt;artifactId&gt;gearpump-external-hbase&lt;/artifactId&gt;
-  &lt;version&gt;0.8.2&lt;/version&gt;
+  &lt;version&gt;0.8.3&lt;/version&gt;
 &lt;/dependency&gt;</code></pre>
 
 
@@ -677,7 +681,7 @@ object HBaseDSLSink {
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../dev-storm/index.html" class="btn btn-neutral float-right" title="Storm Compatibility">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../dev-storm/index.html" class="btn btn-neutral float-right" title="Storm Compatibility"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../dev-custom-serializer/index.html" class="btn btn-neutral" title="Customized Message Passing"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -699,13 +703,13 @@ object HBaseDSLSink {
       </div>
 
     </section>
-    
+
   </div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
+<div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
-          <a href="https://github.com/apache/incubator-gearpump" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+          <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
         <span><a href="../dev-custom-serializer/index.html" style="color: #fcfcfc;">&laquo; Previous</a></span>
@@ -715,7 +719,6 @@ object HBaseDSLSink {
       
     </span>
 </div>
-    <script src="../../js/theme.js"></script>
 
 </body>
 </html>

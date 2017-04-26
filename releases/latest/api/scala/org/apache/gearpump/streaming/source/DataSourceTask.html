@@ -441,7 +441,7 @@ and application start time</li><li><code>DataSource.read()</code> in each <code>
     </span>
       <p class="shortcomment cmt">Method called when task is under clean up.</p><div class="fullcomment"><div class="comment cmt"><p>Method called when task is under clean up.</p><p>This can be used to cleanup resource when the application finished.
 </p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="org.apache.gearpump.streaming.source.DataSourceTask">DataSourceTask</a> → <a href="../task/Task.html" class="extype" name="org.apache.gearpump.streaming.task.Task">Task</a> → <a href="../task/TaskInterface.html" class="extype" name="org.apache.gearpump.streaming.task.TaskInterface">TaskInterface</a></dd></dl></div>
-    </li><li name="org.apache.gearpump.streaming.task.Task#onWatermarkProgress" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+    </li><li name="org.apache.gearpump.streaming.source.DataSourceTask#onWatermarkProgress" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="onWatermarkProgress(watermark:java.time.Instant):Unit"></a>
       <a id="onWatermarkProgress(Instant):Unit"></a>
       <h4 class="signature">
@@ -459,7 +459,7 @@ and application start time</li><li><code>DataSource.read()</code> in each <code>
     </span>
       <p class="shortcomment cmt">Method called on watermark update.</p><div class="fullcomment"><div class="comment cmt"><p>Method called on watermark update.
 Usually safe to output or checkpoint states earlier than watermark.
-</p></div><dl class="paramcmts block"><dt class="param">watermark</dt><dd class="cmt"><p>represents event time progress.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../task/Task.html" class="extype" name="org.apache.gearpump.streaming.task.Task">Task</a> → <a href="../task/TaskInterface.html" class="extype" name="org.apache.gearpump.streaming.task.TaskInterface">TaskInterface</a></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="param">watermark</dt><dd class="cmt"><p>represents event time progress.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="org.apache.gearpump.streaming.source.DataSourceTask">DataSourceTask</a> → <a href="../task/Task.html" class="extype" name="org.apache.gearpump.streaming.task.Task">Task</a> → <a href="../task/TaskInterface.html" class="extype" name="org.apache.gearpump.streaming.task.TaskInterface">TaskInterface</a></dd></dl></div>
     </li><li name="org.apache.gearpump.streaming.task.Task#receiveUnManagedMessage" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="receiveUnManagedMessage:akka.actor.Actor.Receive"></a>
       <a id="receiveUnManagedMessage:Receive"></a>

@@ -91,7 +91,7 @@ multiple retries, then we abort.
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
               <ol><li name="org.apache.gearpump.util.RestartPolicy#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="&lt;init&gt;(maxNrOfRetries:Int,withinTimeRange:scala.concurrent.duration.Duration):org.apache.gearpump.util.RestartPolicy"></a>
+      <a id="&lt;init&gt;(totalNrOfRetries:Int):org.apache.gearpump.util.RestartPolicy"></a>
       <a id="&lt;init&gt;:RestartPolicy"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -99,16 +99,16 @@ multiple retries, then we abort.
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">RestartPolicy</span><span class="params">(<span name="maxNrOfRetries">maxNrOfRetries: <span class="extype" name="scala.Int">Int</span></span>, <span name="withinTimeRange">withinTimeRange: <span class="extype" name="scala.concurrent.duration.Duration">Duration</span></span>)</span>
+        <span class="name">RestartPolicy</span><span class="params">(<span name="totalNrOfRetries">totalNrOfRetries: <span class="extype" name="scala.Int">Int</span></span>)</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#org.apache.gearpump.util.RestartPolicy@&lt;init&gt;(maxNrOfRetries:Int,withinTimeRange:scala.concurrent.duration.Duration):org.apache.gearpump.util.RestartPolicy" title="Permalink" target="_top">
+      <a href="../../../../index.html#org.apache.gearpump.util.RestartPolicy@&lt;init&gt;(totalNrOfRetries:Int):org.apache.gearpump.util.RestartPolicy" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">maxNrOfRetries</dt><dd class="cmt"><p>The number of times is allowed to be restarted, negative value means no
-                      limit, if the limit is exceeded the policy will not allow to restart</p></dd><dt class="param">withinTimeRange</dt><dd class="cmt"><p>Duration of the time window for maxNrOfRetries.
-                       Duration.Inf means no window</p></dd></dl></div>
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">totalNrOfRetries</dt><dd class="cmt"><p>The total number of times is allowed to be restarted, negative value
+                        means no limit, if the limit is exceeded the policy will not allow
+                        to restart</p></dd></dl></div>
     </li></ol>
             </div>
 

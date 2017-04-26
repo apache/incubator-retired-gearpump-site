@@ -147,6 +147,42 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="org.apache.gearpump.Message#apply" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="apply(msg:Any,timestamp:java.time.Instant):org.apache.gearpump.Message"></a>
+      <a id="apply(Any,Instant):Message"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">apply</span><span class="params">(<span name="msg">msg: <span class="extype" name="scala.Any">Any</span></span>, <span name="timestamp">timestamp: <span class="extype" name="java.time.Instant">Instant</span></span>)</span><span class="result">: <a href="Message.html" class="extype" name="org.apache.gearpump.Message">Message</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#org.apache.gearpump.Message$@apply(msg:Any,timestamp:java.time.Instant):org.apache.gearpump.Message" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">msg</dt><dd class="cmt"><p>Accept any type except Null, Nothing and Unit</p></dd><dt class="param">timestamp</dt><dd class="cmt"><p>timestamp cannot be larger than Instant.ofEpochMilli(Long.MaxValue)</p></dd></dl></div>
+    </li><li name="org.apache.gearpump.Message#apply" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="apply(msg:Any):org.apache.gearpump.Message"></a>
+      <a id="apply(Any):Message"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">apply</span><span class="params">(<span name="msg">msg: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="Message.html" class="extype" name="org.apache.gearpump.Message">Message</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#org.apache.gearpump.Message$@apply(msg:Any):org.apache.gearpump.Message" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Instant.EPOCH is used for default timestamp
+</p><div class="fullcomment"><div class="comment cmt"><p>Instant.EPOCH is used for default timestamp
+</p></div><dl class="paramcmts block"><dt class="param">msg</dt><dd class="cmt"><p>Accept any type except Null, Nothing and Uni</p></dd></dl></div>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <a id="asInstanceOf[T0]:T0"></a>
@@ -312,23 +348,6 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="org.apache.gearpump.Message#noTimeStamp" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="noTimeStamp:org.apache.gearpump.TimeStamp"></a>
-      <a id="noTimeStamp:TimeStamp"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">val</span>
-      </span>
-      <span class="symbol">
-        <span class="name">noTimeStamp</span><span class="result">: <a href="package.html#TimeStamp=Long" class="extmbr" name="org.apache.gearpump.TimeStamp">TimeStamp</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#org.apache.gearpump.Message$@noTimeStamp:org.apache.gearpump.TimeStamp" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
     </li><li name="scala.AnyRef#notify" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="notify():Unit"></a>
       <a id="notify():Unit"></a>

@@ -16,11 +16,14 @@ org.apache.gearpump.security
 org.apache.gearpump.serializer
 org.apache.gearpump.streaming
 org.apache.gearpump.streaming.appmaster
-org.apache.gearpump.streaming.dsl
+org.apache.gearpump.streaming.dsl.api.functions
 org.apache.gearpump.streaming.dsl.javaapi
+org.apache.gearpump.streaming.dsl.javaapi.functions
 org.apache.gearpump.streaming.dsl.partitioner
 org.apache.gearpump.streaming.dsl.plan
 org.apache.gearpump.streaming.dsl.plan.functions
+org.apache.gearpump.streaming.dsl.scalaapi
+org.apache.gearpump.streaming.dsl.scalaapi.functions
 org.apache.gearpump.streaming.dsl.task
 org.apache.gearpump.streaming.dsl.window.api
 org.apache.gearpump.streaming.dsl.window.impl
@@ -30,7 +33,6 @@ org.apache.gearpump.streaming.hadoop.lib
 org.apache.gearpump.streaming.hadoop.lib.format
 org.apache.gearpump.streaming.hadoop.lib.rotation
 org.apache.gearpump.streaming.javaapi
-org.apache.gearpump.streaming.javaapi.dsl.functions
 org.apache.gearpump.streaming.kafka
 org.apache.gearpump.streaming.kafka.dsl
 org.apache.gearpump.streaming.kafka.lib

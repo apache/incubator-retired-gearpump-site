@@ -65,7 +65,7 @@ a DataSource could be a message queue like kafka or simply data generation sourc
           <div class="superTypes hiddenContent"><span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div><div class="toggleContainer block">
             <span class="toggle">Known Subclasses</span>
-            <div class="subClasses hiddenContent"><a href="../kafka/lib/source/AbstractKafkaSource.html" class="extype" name="org.apache.gearpump.streaming.kafka.lib.source.AbstractKafkaSource">AbstractKafkaSource</a>, <a href="../dsl/CollectionDataSource.html" class="extype" name="org.apache.gearpump.streaming.dsl.CollectionDataSource">CollectionDataSource</a>, <a href="../kafka/KafkaSource.html" class="extype" name="org.apache.gearpump.streaming.kafka.KafkaSource">KafkaSource</a>, <a href="../transaction/api/TimeReplayableSource.html" class="extype" name="org.apache.gearpump.streaming.transaction.api.TimeReplayableSource">TimeReplayableSource</a></div>
+            <div class="subClasses hiddenContent"><a href="../kafka/lib/source/AbstractKafkaSource.html" class="extype" name="org.apache.gearpump.streaming.kafka.lib.source.AbstractKafkaSource">AbstractKafkaSource</a>, <a href="../dsl/scalaapi/CollectionDataSource.html" class="extype" name="org.apache.gearpump.streaming.dsl.scalaapi.CollectionDataSource">CollectionDataSource</a>, <a href="../kafka/KafkaSource.html" class="extype" name="org.apache.gearpump.streaming.kafka.KafkaSource">KafkaSource</a>, <a href="../transaction/api/TimeReplayableSource.html" class="extype" name="org.apache.gearpump.streaming.transaction.api.TimeReplayableSource">TimeReplayableSource</a></div>
           </div></div>
         
 
@@ -141,9 +141,8 @@ invoked in onStop() method of <a href="DataSourceTask.html" class="extype" name=
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Returns a watermark
-no timestamp earlier than the watermark
-should enter the system
+      <p class="shortcomment cmt">Returns a watermark such that no timestamp earlier than the watermark should enter the system
+Watermark.MAX mark the end of source data
 </p>
     </li><li name="org.apache.gearpump.streaming.source.DataSource#open" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="open(context:org.apache.gearpump.streaming.task.TaskContext,startTime:java.time.Instant):Unit"></a>

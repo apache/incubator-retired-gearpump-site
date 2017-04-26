@@ -64,155 +64,25 @@
         <div id="allMembers">
         
 
-        <div id="types" class="types members">
-              <h3>Type Members</h3>
-              <ol><li name="org.apache.gearpump.streaming.dsl.CollectionDataSource" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="CollectionDataSource[T]extendsDataSource"></a>
-      <a id="CollectionDataSource[T]:CollectionDataSource[T]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">class</span>
-      </span>
-      <span class="symbol">
-        <a href="CollectionDataSource.html"><span class="name">CollectionDataSource</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="../source/DataSource.html" class="extype" name="org.apache.gearpump.streaming.source.DataSource">DataSource</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../index.html#org.apache.gearpump.streaming.dsl.package@CollectionDataSource[T]extendsDataSource" title="Permalink" target="_top">
-        <img src="../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">A test message source which generated message sequence repeatedly.</p>
-    </li><li name="org.apache.gearpump.streaming.dsl.KVStream" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="KVStream[K,V]extendsAnyRef"></a>
-      <a id="KVStream[K,V]:KVStream[K,V]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">class</span>
-      </span>
-      <span class="symbol">
-        <a href="KVStream.html"><span class="name">KVStream</span></a><span class="tparams">[<span name="K">K</span>, <span name="V">V</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../index.html#org.apache.gearpump.streaming.dsl.package@KVStream[K,V]extendsAnyRef" title="Permalink" target="_top">
-        <img src="../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li><li name="org.apache.gearpump.streaming.dsl.LoggerSink" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="LoggerSink[T]extendsDataSink"></a>
-      <a id="LoggerSink[T]:LoggerSink[T]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">class</span>
-      </span>
-      <span class="symbol">
-        <a href="LoggerSink.html"><span class="name">LoggerSink</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="../sink/DataSink.html" class="extype" name="org.apache.gearpump.streaming.sink.DataSink">DataSink</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../index.html#org.apache.gearpump.streaming.dsl.package@LoggerSink[T]extendsDataSink" title="Permalink" target="_top">
-        <img src="../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li><li name="org.apache.gearpump.streaming.dsl.Stream" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="Stream[T]extendsAnyRef"></a>
-      <a id="Stream[T]:Stream[T]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">class</span>
-      </span>
-      <span class="symbol">
-        <a href="Stream.html"><span class="name">Stream</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../index.html#org.apache.gearpump.streaming.dsl.package@Stream[T]extendsAnyRef" title="Permalink" target="_top">
-        <img src="../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li><li name="org.apache.gearpump.streaming.dsl.StreamApp" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="StreamAppextendsAnyRef"></a>
-      <a id="StreamApp:StreamApp"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">class</span>
-      </span>
-      <span class="symbol">
-        <a href="StreamApp.html"><span class="name">StreamApp</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../index.html#org.apache.gearpump.streaming.dsl.package@StreamAppextendsAnyRef" title="Permalink" target="_top">
-        <img src="../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">Example:</p><div class="fullcomment"><div class="comment cmt"><p>Example:</p><pre><span class="kw">val</span> data = <span class="lit">"This is a good start, bingo!! bingo!!"</span>
-app.fromCollection(data.lines.toList).
-<span class="cmt">// word => (word, count)</span>
-flatMap(line <span class="kw">=&gt;</span> line.split(<span class="lit">"[\\s]+"</span>)).map((_, <span class="num">1</span>)).
-<span class="cmt">// (word, count1), (word, count2) => (word, count1 + count2)</span>
-groupBy(kv <span class="kw">=&gt;</span> kv._1).reduce(sum(_, _))
-
-<span class="kw">val</span> appId = context.submit(app)
-context.close()</pre></div></div>
-    </li><li name="org.apache.gearpump.streaming.dsl.WindowStream" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="WindowStream[T]extendsAnyRef"></a>
-      <a id="WindowStream[T]:WindowStream[T]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">class</span>
-      </span>
-      <span class="symbol">
-        <a href="WindowStream.html"><span class="name">WindowStream</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../index.html#org.apache.gearpump.streaming.dsl.package@WindowStream[T]extendsAnyRef" title="Permalink" target="_top">
-        <img src="../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li></ol>
-            </div>
+        
 
         
 
         <div id="values" class="values members">
               <h3>Value Members</h3>
-              <ol><li name="org.apache.gearpump.streaming.dsl.Stream" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="Stream"></a>
-      <a id="Stream:Stream"></a>
+              <ol><li name="org.apache.gearpump.streaming.dsl.api" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="api"></a>
+      <a id="api:api"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">object</span>
+        <span class="kind">package</span>
       </span>
       <span class="symbol">
-        <a href="Stream$.html"><span class="name">Stream</span></a>
+        <a href="api/package.html"><span class="name">api</span></a>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#org.apache.gearpump.streaming.dsl.package@Stream" title="Permalink" target="_top">
-        <img src="../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li><li name="org.apache.gearpump.streaming.dsl.StreamApp" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="StreamApp"></a>
-      <a id="StreamApp:StreamApp"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">object</span>
-      </span>
-      <span class="symbol">
-        <a href="StreamApp$.html"><span class="name">StreamApp</span></a>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../index.html#org.apache.gearpump.streaming.dsl.package@StreamApp" title="Permalink" target="_top">
+      <a href="../../../../../index.html#org.apache.gearpump.streaming.dsl.package@api" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -264,6 +134,23 @@ context.close()</pre></div></div>
       </span>
       </h4><span class="permalink">
       <a href="../../../../../index.html#org.apache.gearpump.streaming.dsl.package@plan" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.apache.gearpump.streaming.dsl.scalaapi" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="scalaapi"></a>
+      <a id="scalaapi:scalaapi"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <a href="scalaapi/package.html"><span class="name">scalaapi</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.apache.gearpump.streaming.dsl.package@scalaapi" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>

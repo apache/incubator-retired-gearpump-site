@@ -90,7 +90,7 @@
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
               <ol><li name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="&lt;init&gt;(stream:org.apache.gearpump.streaming.dsl.Stream[T]):org.apache.gearpump.streaming.dsl.javaapi.JavaStream[T]"></a>
+      <a id="&lt;init&gt;(stream:org.apache.gearpump.streaming.dsl.scalaapi.Stream[T]):org.apache.gearpump.streaming.dsl.javaapi.JavaStream[T]"></a>
       <a id="&lt;init&gt;:JavaStream[T]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -98,10 +98,10 @@
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">JavaStream</span><span class="params">(<span name="stream">stream: <a href="../Stream.html" class="extype" name="org.apache.gearpump.streaming.dsl.Stream">Stream</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream.T">T</span>]</span>)</span>
+        <span class="name">JavaStream</span><span class="params">(<span name="stream">stream: <a href="../scalaapi/Stream.html" class="extype" name="org.apache.gearpump.streaming.dsl.scalaapi.Stream">Stream</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream.T">T</span>]</span>)</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.javaapi.JavaStream@&lt;init&gt;(stream:org.apache.gearpump.streaming.dsl.Stream[T]):org.apache.gearpump.streaming.dsl.javaapi.JavaStream[T]" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.javaapi.JavaStream@&lt;init&gt;(stream:org.apache.gearpump.streaming.dsl.scalaapi.Stream[T]):org.apache.gearpump.streaming.dsl.javaapi.JavaStream[T]" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -241,7 +241,7 @@
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream#filter" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="filter(fn:org.apache.gearpump.streaming.javaapi.dsl.functions.FilterFunction[T],description:String):org.apache.gearpump.streaming.dsl.javaapi.JavaStream[T]"></a>
+      <a id="filter(fn:org.apache.gearpump.streaming.dsl.api.functions.FilterFunction[T],description:String):org.apache.gearpump.streaming.dsl.javaapi.JavaStream[T]"></a>
       <a id="filter(FilterFunction[T],String):JavaStream[T]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -249,10 +249,10 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">filter</span><span class="params">(<span name="fn">fn: <a href="../../javaapi/dsl/functions/FilterFunction.html" class="extype" name="org.apache.gearpump.streaming.javaapi.dsl.functions.FilterFunction">FilterFunction</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream.T">T</span>]</span>, <span name="description">description: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="" class="extype" name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream">JavaStream</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream.T">T</span>]</span>
+        <span class="name">filter</span><span class="params">(<span name="fn">fn: <a href="../api/functions/FilterFunction.html" class="extype" name="org.apache.gearpump.streaming.dsl.api.functions.FilterFunction">FilterFunction</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream.T">T</span>]</span>, <span name="description">description: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="" class="extype" name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream">JavaStream</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream.T">T</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.javaapi.JavaStream@filter(fn:org.apache.gearpump.streaming.javaapi.dsl.functions.FilterFunction[T],description:String):org.apache.gearpump.streaming.dsl.javaapi.JavaStream[T]" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.javaapi.JavaStream@filter(fn:org.apache.gearpump.streaming.dsl.api.functions.FilterFunction[T],description:String):org.apache.gearpump.streaming.dsl.javaapi.JavaStream[T]" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -281,7 +281,7 @@
               
         </dd></dl></div>
     </li><li name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream#flatMap" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="flatMap[R](fn:org.apache.gearpump.streaming.javaapi.dsl.functions.FlatMapFunction[T,R],description:String):org.apache.gearpump.streaming.dsl.javaapi.JavaStream[R]"></a>
+      <a id="flatMap[R](fn:org.apache.gearpump.streaming.dsl.javaapi.functions.FlatMapFunction[T,R],description:String):org.apache.gearpump.streaming.dsl.javaapi.JavaStream[R]"></a>
       <a id="flatMap[R](FlatMapFunction[T,R],String):JavaStream[R]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -289,14 +289,31 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">flatMap</span><span class="tparams">[<span name="R">R</span>]</span><span class="params">(<span name="fn">fn: <a href="../../javaapi/dsl/functions/FlatMapFunction.html" class="extype" name="org.apache.gearpump.streaming.javaapi.dsl.functions.FlatMapFunction">FlatMapFunction</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream.T">T</span>, <span class="extype" name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream.flatMap.R">R</span>]</span>, <span name="description">description: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="" class="extype" name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream">JavaStream</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream.flatMap.R">R</span>]</span>
+        <span class="name">flatMap</span><span class="tparams">[<span name="R">R</span>]</span><span class="params">(<span name="fn">fn: <a href="functions/FlatMapFunction.html" class="extype" name="org.apache.gearpump.streaming.dsl.javaapi.functions.FlatMapFunction">FlatMapFunction</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream.T">T</span>, <span class="extype" name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream.flatMap.R">R</span>]</span>, <span name="description">description: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="" class="extype" name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream">JavaStream</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream.flatMap.R">R</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.javaapi.JavaStream@flatMap[R](fn:org.apache.gearpump.streaming.javaapi.dsl.functions.FlatMapFunction[T,R],description:String):org.apache.gearpump.streaming.dsl.javaapi.JavaStream[R]" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.javaapi.JavaStream@flatMap[R](fn:org.apache.gearpump.streaming.dsl.javaapi.functions.FlatMapFunction[T,R],description:String):org.apache.gearpump.streaming.dsl.javaapi.JavaStream[R]" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">FlatMap on stream</p>
+    </li><li name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream#fold" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="fold[A](fn:org.apache.gearpump.streaming.dsl.api.functions.FoldFunction[T,A],description:String):org.apache.gearpump.streaming.dsl.javaapi.JavaStream[A]"></a>
+      <a id="fold[A](FoldFunction[T,A],String):JavaStream[A]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">fold</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="fn">fn: <a href="../api/functions/FoldFunction.html" class="extype" name="org.apache.gearpump.streaming.dsl.api.functions.FoldFunction">FoldFunction</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream.T">T</span>, <span class="extype" name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream.fold.A">A</span>]</span>, <span name="description">description: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="" class="extype" name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream">JavaStream</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream.fold.A">A</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.javaapi.JavaStream@fold[A](fn:org.apache.gearpump.streaming.dsl.api.functions.FoldFunction[T,A],description:String):org.apache.gearpump.streaming.dsl.javaapi.JavaStream[A]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
     </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getClass():Class[_]"></a>
       <a id="getClass():Class[_]"></a>
@@ -315,7 +332,7 @@
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream#groupBy" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="groupBy[GROUP](fn:org.apache.gearpump.streaming.javaapi.dsl.functions.GroupByFunction[T,GROUP],parallelism:Int,description:String):org.apache.gearpump.streaming.dsl.javaapi.JavaStream[T]"></a>
+      <a id="groupBy[GROUP](fn:org.apache.gearpump.streaming.dsl.javaapi.functions.GroupByFunction[T,GROUP],parallelism:Int,description:String):org.apache.gearpump.streaming.dsl.javaapi.JavaStream[T]"></a>
       <a id="groupBy[GROUP](GroupByFunction[T,GROUP],Int,String):JavaStream[T]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -323,10 +340,10 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">groupBy</span><span class="tparams">[<span name="GROUP">GROUP</span>]</span><span class="params">(<span name="fn">fn: <a href="../../javaapi/dsl/functions/GroupByFunction.html" class="extype" name="org.apache.gearpump.streaming.javaapi.dsl.functions.GroupByFunction">GroupByFunction</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream.T">T</span>, <span class="extype" name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream.groupBy.GROUP">GROUP</span>]</span>, <span name="parallelism">parallelism: <span class="extype" name="scala.Int">Int</span></span>, <span name="description">description: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="" class="extype" name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream">JavaStream</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream.T">T</span>]</span>
+        <span class="name">groupBy</span><span class="tparams">[<span name="GROUP">GROUP</span>]</span><span class="params">(<span name="fn">fn: <a href="functions/GroupByFunction.html" class="extype" name="org.apache.gearpump.streaming.dsl.javaapi.functions.GroupByFunction">GroupByFunction</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream.T">T</span>, <span class="extype" name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream.groupBy.GROUP">GROUP</span>]</span>, <span name="parallelism">parallelism: <span class="extype" name="scala.Int">Int</span></span>, <span name="description">description: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="" class="extype" name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream">JavaStream</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream.T">T</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.javaapi.JavaStream@groupBy[GROUP](fn:org.apache.gearpump.streaming.javaapi.dsl.functions.GroupByFunction[T,GROUP],parallelism:Int,description:String):org.apache.gearpump.streaming.dsl.javaapi.JavaStream[T]" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.javaapi.JavaStream@groupBy[GROUP](fn:org.apache.gearpump.streaming.dsl.javaapi.functions.GroupByFunction[T,GROUP],parallelism:Int,description:String):org.apache.gearpump.streaming.dsl.javaapi.JavaStream[T]" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -385,7 +402,7 @@ groupBy applies to sub-streams.
     </span>
       
     </li><li name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream#map" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="map[R](fn:org.apache.gearpump.streaming.javaapi.dsl.functions.MapFunction[T,R],description:String):org.apache.gearpump.streaming.dsl.javaapi.JavaStream[R]"></a>
+      <a id="map[R](fn:org.apache.gearpump.streaming.dsl.api.functions.MapFunction[T,R],description:String):org.apache.gearpump.streaming.dsl.javaapi.JavaStream[R]"></a>
       <a id="map[R](MapFunction[T,R],String):JavaStream[R]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -393,10 +410,10 @@ groupBy applies to sub-streams.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">map</span><span class="tparams">[<span name="R">R</span>]</span><span class="params">(<span name="fn">fn: <a href="../../javaapi/dsl/functions/MapFunction.html" class="extype" name="org.apache.gearpump.streaming.javaapi.dsl.functions.MapFunction">MapFunction</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream.T">T</span>, <span class="extype" name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream.map.R">R</span>]</span>, <span name="description">description: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="" class="extype" name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream">JavaStream</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream.map.R">R</span>]</span>
+        <span class="name">map</span><span class="tparams">[<span name="R">R</span>]</span><span class="params">(<span name="fn">fn: <a href="../api/functions/MapFunction.html" class="extype" name="org.apache.gearpump.streaming.dsl.api.functions.MapFunction">MapFunction</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream.T">T</span>, <span class="extype" name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream.map.R">R</span>]</span>, <span name="description">description: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="" class="extype" name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream">JavaStream</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream.map.R">R</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.javaapi.JavaStream@map[R](fn:org.apache.gearpump.streaming.javaapi.dsl.functions.MapFunction[T,R],description:String):org.apache.gearpump.streaming.dsl.javaapi.JavaStream[R]" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.javaapi.JavaStream@map[R](fn:org.apache.gearpump.streaming.dsl.api.functions.MapFunction[T,R],description:String):org.apache.gearpump.streaming.dsl.javaapi.JavaStream[R]" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -487,7 +504,7 @@ groupBy applies to sub-streams.
     </span>
       <p class="shortcomment cmt">Add a low level Processor to process messages</p>
     </li><li name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream#reduce" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="reduce(fn:org.apache.gearpump.streaming.javaapi.dsl.functions.ReduceFunction[T],description:String):org.apache.gearpump.streaming.dsl.javaapi.JavaStream[T]"></a>
+      <a id="reduce(fn:org.apache.gearpump.streaming.dsl.api.functions.ReduceFunction[T],description:String):org.apache.gearpump.streaming.dsl.javaapi.JavaStream[T]"></a>
       <a id="reduce(ReduceFunction[T],String):JavaStream[T]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -495,16 +512,16 @@ groupBy applies to sub-streams.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">reduce</span><span class="params">(<span name="fn">fn: <a href="../../javaapi/dsl/functions/ReduceFunction.html" class="extype" name="org.apache.gearpump.streaming.javaapi.dsl.functions.ReduceFunction">ReduceFunction</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream.T">T</span>]</span>, <span name="description">description: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="" class="extype" name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream">JavaStream</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream.T">T</span>]</span>
+        <span class="name">reduce</span><span class="params">(<span name="fn">fn: <a href="../api/functions/ReduceFunction.html" class="extype" name="org.apache.gearpump.streaming.dsl.api.functions.ReduceFunction">ReduceFunction</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream.T">T</span>]</span>, <span name="description">description: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="" class="extype" name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream">JavaStream</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream.T">T</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.javaapi.JavaStream@reduce(fn:org.apache.gearpump.streaming.javaapi.dsl.functions.ReduceFunction[T],description:String):org.apache.gearpump.streaming.dsl.javaapi.JavaStream[T]" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.javaapi.JavaStream@reduce(fn:org.apache.gearpump.streaming.dsl.api.functions.ReduceFunction[T],description:String):org.apache.gearpump.streaming.dsl.javaapi.JavaStream[T]" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">Does aggregation on the stream</p>
     </li><li name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream#stream" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="stream:org.apache.gearpump.streaming.dsl.Stream[T]"></a>
+      <a id="stream:org.apache.gearpump.streaming.dsl.scalaapi.Stream[T]"></a>
       <a id="stream:Stream[T]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -512,10 +529,10 @@ groupBy applies to sub-streams.
         <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">stream</span><span class="result">: <a href="../Stream.html" class="extype" name="org.apache.gearpump.streaming.dsl.Stream">Stream</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream.T">T</span>]</span>
+        <span class="name">stream</span><span class="result">: <a href="../scalaapi/Stream.html" class="extype" name="org.apache.gearpump.streaming.dsl.scalaapi.Stream">Stream</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream.T">T</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.javaapi.JavaStream@stream:org.apache.gearpump.streaming.dsl.Stream[T]" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.javaapi.JavaStream@stream:org.apache.gearpump.streaming.dsl.scalaapi.Stream[T]" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -624,18 +641,18 @@ groupBy applies to sub-streams.
               
         </dd></dl></div>
     </li><li name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream#window" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="window(win:org.apache.gearpump.streaming.dsl.window.api.Window,description:String):org.apache.gearpump.streaming.dsl.javaapi.JavaWindowStream[T]"></a>
-      <a id="window(Window,String):JavaWindowStream[T]"></a>
+      <a id="window(win:org.apache.gearpump.streaming.dsl.window.api.Windows[T],description:String):org.apache.gearpump.streaming.dsl.javaapi.JavaWindowStream[T]"></a>
+      <a id="window(Windows[T],String):JavaWindowStream[T]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">window</span><span class="params">(<span name="win">win: <a href="../window/api/Window.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.api.Window">Window</a></span>, <span name="description">description: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="JavaWindowStream.html" class="extype" name="org.apache.gearpump.streaming.dsl.javaapi.JavaWindowStream">JavaWindowStream</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream.T">T</span>]</span>
+        <span class="name">window</span><span class="params">(<span name="win">win: <a href="../window/api/Windows.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.api.Windows">Windows</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream.T">T</span>]</span>, <span name="description">description: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="JavaWindowStream.html" class="extype" name="org.apache.gearpump.streaming.dsl.javaapi.JavaWindowStream">JavaWindowStream</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.javaapi.JavaStream.T">T</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.javaapi.JavaStream@window(win:org.apache.gearpump.streaming.dsl.window.api.Window,description:String):org.apache.gearpump.streaming.dsl.javaapi.JavaWindowStream[T]" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.javaapi.JavaStream@window(win:org.apache.gearpump.streaming.dsl.window.api.Windows[T],description:String):org.apache.gearpump.streaming.dsl.javaapi.JavaWindowStream[T]" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>

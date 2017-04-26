@@ -90,24 +90,7 @@
 
         <div id="types" class="types members">
               <h3>Type Members</h3>
-              <ol><li name="org.apache.gearpump.cluster.AppMasterToMaster.ActivateAppMaster" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="ActivateAppMasterextendsProductwithSerializable"></a>
-      <a id="ActivateAppMaster:ActivateAppMaster"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">case class</span>
-      </span>
-      <span class="symbol">
-        <a href="AppMasterToMaster$$ActivateAppMaster.html"><span class="name">ActivateAppMaster</span></a><span class="params">(<span name="appId">appId: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../index.html#org.apache.gearpump.cluster.AppMasterToMaster$@ActivateAppMasterextendsProductwithSerializable" title="Permalink" target="_top">
-        <img src="../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">Activate the AppMaster when an application is ready to run.</p><div class="fullcomment"><div class="comment cmt"><p>Activate the AppMaster when an application is ready to run.</p></div><dl class="paramcmts block"><dt class="param">appId</dt><dd class="cmt"><p>application id</p></dd></dl></div>
-    </li><li name="org.apache.gearpump.cluster.AppMasterToMaster.AppMasterSummary" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+              <ol><li name="org.apache.gearpump.cluster.AppMasterToMaster.AppMasterSummary" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="AppMasterSummaryextendsAnyRef"></a>
       <a id="AppMasterSummary:AppMasterSummary"></a>
       <h4 class="signature">
@@ -126,6 +109,23 @@
       <p class="shortcomment cmt">AppMasterSummary returned to REST API query.</p><div class="fullcomment"><div class="comment cmt"><p>AppMasterSummary returned to REST API query. Streaming and Non-streaming
 have very different application info. AppMasterSummary is the common interface.
 </p></div></div>
+    </li><li name="org.apache.gearpump.cluster.AppMasterToMaster.ApplicationStatusChanged" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ApplicationStatusChangedextendsProductwithSerializable"></a>
+      <a id="ApplicationStatusChanged:ApplicationStatusChanged"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="AppMasterToMaster$$ApplicationStatusChanged.html"><span class="name">ApplicationStatusChanged</span></a><span class="params">(<span name="appId">appId: <span class="extype" name="scala.Int">Int</span></span>, <span name="newStatus">newStatus: <a href="ApplicationStatus.html" class="extype" name="org.apache.gearpump.cluster.ApplicationStatus">ApplicationStatus</a></span>, <span name="timeStamp">timeStamp: <a href="../package.html#TimeStamp=Long" class="extmbr" name="org.apache.gearpump.TimeStamp">TimeStamp</a></span>, <span name="error">error: <span class="extype" name="scala.Throwable">Throwable</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#org.apache.gearpump.cluster.AppMasterToMaster$@ApplicationStatusChangedextendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Denotes the application state change of an app.</p>
     </li><li name="org.apache.gearpump.cluster.AppMasterToMaster.GeneralAppMasterSummary" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="GeneralAppMasterSummaryextendsAppMasterToMaster.AppMasterSummarywithProductwithSerializable"></a>
       <a id="GeneralAppMasterSummary:GeneralAppMasterSummary"></a>
@@ -135,7 +135,7 @@ have very different application info. AppMasterSummary is the common interface.
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="AppMasterToMaster$$GeneralAppMasterSummary.html"><span class="name">GeneralAppMasterSummary</span></a><span class="params">(<span name="appId">appId: <span class="extype" name="scala.Int">Int</span></span>, <span name="appType">appType: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">&quot;general&quot;</span></span>, <span name="appName">appName: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">null</span></span>, <span name="actorPath">actorPath: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">null</span></span>, <span name="status">status: <a href="MasterToAppMaster$.html#AppMasterStatus=String" class="extmbr" name="org.apache.gearpump.cluster.MasterToAppMaster.AppMasterStatus">AppMasterStatus</a> = <span class="symbol"><span class="name"><a href="MasterToAppMaster$.html">MasterToAppMaster.AppMasterActive</a></span></span></span>, <span name="startTime">startTime: <a href="../package.html#TimeStamp=Long" class="extmbr" name="org.apache.gearpump.TimeStamp">TimeStamp</a> = <span class="symbol">0L</span></span>, <span name="uptime">uptime: <a href="../package.html#TimeStamp=Long" class="extmbr" name="org.apache.gearpump.TimeStamp">TimeStamp</a> = <span class="symbol">0L</span></span>, <span name="user">user: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">null</span></span>)</span><span class="result"> extends <a href="AppMasterToMaster$$AppMasterSummary.html" class="extype" name="org.apache.gearpump.cluster.AppMasterToMaster.AppMasterSummary">AppMasterSummary</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <a href="AppMasterToMaster$$GeneralAppMasterSummary.html"><span class="name">GeneralAppMasterSummary</span></a><span class="params">(<span name="appId">appId: <span class="extype" name="scala.Int">Int</span></span>, <span name="appType">appType: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">&quot;general&quot;</span></span>, <span name="appName">appName: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">null</span></span>, <span name="actorPath">actorPath: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">null</span></span>, <span name="status">status: <a href="ApplicationStatus.html" class="extype" name="org.apache.gearpump.cluster.ApplicationStatus">ApplicationStatus</a> = <span class="symbol"><span class="name"><a href="ApplicationStatus$.html">ApplicationStatus.ACTIVE</a></span></span></span>, <span name="startTime">startTime: <a href="../package.html#TimeStamp=Long" class="extmbr" name="org.apache.gearpump.TimeStamp">TimeStamp</a> = <span class="symbol">0L</span></span>, <span name="uptime">uptime: <a href="../package.html#TimeStamp=Long" class="extmbr" name="org.apache.gearpump.TimeStamp">TimeStamp</a> = <span class="symbol">0L</span></span>, <span name="user">user: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">null</span></span>)</span><span class="result"> extends <a href="AppMasterToMaster$$AppMasterSummary.html" class="extype" name="org.apache.gearpump.cluster.AppMasterToMaster.AppMasterSummary">AppMasterSummary</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../../index.html#org.apache.gearpump.cluster.AppMasterToMaster$@GeneralAppMasterSummaryextendsAppMasterToMaster.AppMasterSummarywithProductwithSerializable" title="Permalink" target="_top">
@@ -228,7 +228,7 @@ have very different application info. AppMasterSummary is the common interface.
       </a>
     </span>
       <p class="shortcomment cmt">Response to GetMasterData</p>
-    </li><li name="org.apache.gearpump.cluster.AppMasterToMaster.RegisterAppMaster" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+    </li><li name="org.apache.gearpump.cluster.AppMasterToMaster.RegisterAppMaster" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="RegisterAppMasterextendsProductwithSerializable"></a>
       <a id="RegisterAppMaster:RegisterAppMaster"></a>
       <h4 class="signature">
@@ -237,16 +237,15 @@ have very different application info. AppMasterSummary is the common interface.
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="AppMasterToMaster$$RegisterAppMaster.html"><span class="name">RegisterAppMaster</span></a><span class="params">(<span name="appMaster">appMaster: <span class="extype" name="akka.actor.ActorRef">ActorRef</span></span>, <span name="registerData">registerData: <a href="AppMasterRegisterData.html" class="extype" name="org.apache.gearpump.cluster.AppMasterRegisterData">AppMasterRegisterData</a></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <a href="AppMasterToMaster$$RegisterAppMaster.html"><span class="name">RegisterAppMaster</span></a><span class="params">(<span name="appId">appId: <span class="extype" name="scala.Int">Int</span></span>, <span name="appMaster">appMaster: <span class="extype" name="akka.actor.ActorRef">ActorRef</span></span>, <span name="workerInfo">workerInfo: <a href="appmaster/WorkerInfo.html" class="extype" name="org.apache.gearpump.cluster.appmaster.WorkerInfo">WorkerInfo</a></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../../index.html#org.apache.gearpump.cluster.AppMasterToMaster$@RegisterAppMasterextendsProductwithSerializable" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Register an AppMaster by providing a ActorRef, and registerData</p><div class="fullcomment"><div class="comment cmt"><p>Register an AppMaster by providing a ActorRef, and registerData</p></div><dl class="paramcmts block"><dt class="param">registerData</dt><dd class="cmt"><p>The registerData is provided by Master when starting the app master.
-                    App master should return the registerData back to master.
-                    Typically registerData hold some context information for this app Master.</p></dd></dl></div>
+      <p class="shortcomment cmt">Register an AppMaster by providing a ActorRef, and workerInfo which is running on
+</p>
     </li><li name="org.apache.gearpump.cluster.AppMasterToMaster.RequestResource" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="RequestResourceextendsProductwithSerializable"></a>
       <a id="RequestResource:RequestResource"></a>

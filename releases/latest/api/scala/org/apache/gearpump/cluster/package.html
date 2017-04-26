@@ -116,7 +116,7 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="AppMasterContext.html"><span class="name">AppMasterContext</span></a><span class="params">(<span name="appId">appId: <span class="extype" name="scala.Int">Int</span></span>, <span name="username">username: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="resource">resource: <a href="scheduler/Resource.html" class="extype" name="org.apache.gearpump.cluster.scheduler.Resource">Resource</a></span>, <span name="workerInfo">workerInfo: <a href="appmaster/WorkerInfo.html" class="extype" name="org.apache.gearpump.cluster.appmaster.WorkerInfo">WorkerInfo</a></span>, <span name="appJar">appJar: <span class="extype" name="scala.Option">Option</span>[<a href="AppJar.html" class="extype" name="org.apache.gearpump.cluster.AppJar">AppJar</a>]</span>, <span name="masterProxy">masterProxy: <span class="extype" name="akka.actor.ActorRef">ActorRef</span></span>, <span name="registerData">registerData: <a href="AppMasterRegisterData.html" class="extype" name="org.apache.gearpump.cluster.AppMasterRegisterData">AppMasterRegisterData</a></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <a href="AppMasterContext.html"><span class="name">AppMasterContext</span></a><span class="params">(<span name="appId">appId: <span class="extype" name="scala.Int">Int</span></span>, <span name="username">username: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="resource">resource: <a href="scheduler/Resource.html" class="extype" name="org.apache.gearpump.cluster.scheduler.Resource">Resource</a></span>, <span name="workerInfo">workerInfo: <a href="appmaster/WorkerInfo.html" class="extype" name="org.apache.gearpump.cluster.appmaster.WorkerInfo">WorkerInfo</a></span>, <span name="appJar">appJar: <span class="extype" name="scala.Option">Option</span>[<a href="AppJar.html" class="extype" name="org.apache.gearpump.cluster.AppJar">AppJar</a>]</span>, <span name="masterProxy">masterProxy: <span class="extype" name="akka.actor.ActorRef">ActorRef</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../../index.html#org.apache.gearpump.cluster.package@AppMasterContextextendsProductwithSerializable" title="Permalink" target="_top">
@@ -127,25 +127,7 @@
 </p><div class="fullcomment"><div class="comment cmt"><p>This contains context information when starting an AppMaster
 </p></div><dl class="paramcmts block"><dt class="param">appId</dt><dd class="cmt"><p>application instance id assigned, it is unique in the cluster</p></dd><dt class="param">username</dt><dd class="cmt"><p>The username who submitted this application</p></dd><dt class="param">resource</dt><dd class="cmt"><p>Resouce allocated to start this AppMaster daemon. AppMaster are allowed to
                 request more resource from Master.</p></dd><dt class="param">appJar</dt><dd class="cmt"><p>application Jar. If the jar is already in classpath, then it can be None.</p></dd><dt class="param">masterProxy</dt><dd class="cmt"><p>The proxy to master actor, it bridges the messages between appmaster
-                   and master</p></dd><dt class="param">registerData</dt><dd class="cmt"><p>AppMaster are required to send this data to Master by when doing
-                    RegisterAppMaster.</p></dd></dl></div>
-    </li><li name="org.apache.gearpump.cluster.AppMasterRegisterData" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
-      <a id="AppMasterRegisterDataextendsAnyRef"></a>
-      <a id="AppMasterRegisterData:AppMasterRegisterData"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">trait</span>
-      </span>
-      <span class="symbol">
-        <a href="AppMasterRegisterData.html"><span class="name">AppMasterRegisterData</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../index.html#org.apache.gearpump.cluster.package@AppMasterRegisterDataextendsAnyRef" title="Permalink" target="_top">
-        <img src="../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
+                   and master</p></dd></dl></div>
     </li><li name="org.apache.gearpump.cluster.Application" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="ApplicationextendsAnyRef"></a>
       <a id="Application:Application"></a>
@@ -183,6 +165,40 @@ The master uses this class to start AppMaster.
     </span>
       <p class="shortcomment cmt">Used for verification.</p><div class="fullcomment"><div class="comment cmt"><p>Used for verification. All AppMaster must extend this interface
 </p></div></div>
+    </li><li name="org.apache.gearpump.cluster.ApplicationStatus" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="ApplicationStatusextendsSerializable"></a>
+      <a id="ApplicationStatus:ApplicationStatus"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="ApplicationStatus.html"><span class="name">ApplicationStatus</span></a><span class="result"> extends <span class="extype" name="java.io.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#org.apache.gearpump.cluster.package@ApplicationStatusextendsSerializable" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.apache.gearpump.cluster.ApplicationTerminalStatus" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="ApplicationTerminalStatusextendsApplicationStatus"></a>
+      <a id="ApplicationTerminalStatus:ApplicationTerminalStatus"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="ApplicationTerminalStatus.html"><span class="name">ApplicationTerminalStatus</span></a><span class="result"> extends <a href="ApplicationStatus.html" class="extype" name="org.apache.gearpump.cluster.ApplicationStatus">ApplicationStatus</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#org.apache.gearpump.cluster.package@ApplicationTerminalStatusextendsApplicationStatus" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
     </li><li name="org.apache.gearpump.cluster.ClusterConfigSource" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="ClusterConfigSourceextendsSerializable"></a>
       <a id="ClusterConfigSource:ClusterConfigSource"></a>
@@ -312,6 +328,23 @@ The master uses this class to start AppMaster.
       </span>
       </h4><span class="permalink">
       <a href="../../../../index.html#org.apache.gearpump.cluster.package@Application" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.apache.gearpump.cluster.ApplicationStatus" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ApplicationStatus"></a>
+      <a id="ApplicationStatus:ApplicationStatus"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ApplicationStatus$.html"><span class="name">ApplicationStatus</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#org.apache.gearpump.cluster.package@ApplicationStatus" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>

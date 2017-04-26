@@ -51,7 +51,7 @@
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>All tasks of Gearpump runs inside a Actor. TaskActor is the Actor container for a task.
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>All tasks of Gearpump run inside an Actor. TaskActor is the Actor container for a task.
 </p></div><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><a href="../../util/TimeOutScheduler.html" class="extype" name="org.apache.gearpump.util.TimeOutScheduler">TimeOutScheduler</a>, <a href="ExpressTransport.html" class="extype" name="org.apache.gearpump.streaming.task.ExpressTransport">ExpressTransport</a>, <span class="extype" name="akka.actor.Actor">Actor</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
@@ -257,7 +257,7 @@
     </span>
       
     </li><li name="akka.actor.Actor#aroundPostRestart" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="aroundPostRestart(reason:&lt;?&gt;):Unit"></a>
+      <a id="aroundPostRestart(reason:Throwable):Unit"></a>
       <a id="aroundPostRestart(Throwable):Unit"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -291,7 +291,7 @@
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../akka/package.html" class="extype" name="akka">akka</a>] </dd><dt>Definition Classes</dt><dd>Actor</dd></dl></div>
     </li><li name="akka.actor.Actor#aroundPreRestart" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="aroundPreRestart(reason:&lt;?&gt;,message:&lt;?&gt;):Unit"></a>
+      <a id="aroundPreRestart(reason:Throwable,message:Option[Any]):Unit"></a>
       <a id="aroundPreRestart(Throwable,Option[Any]):Unit"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -325,7 +325,7 @@
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../akka/package.html" class="extype" name="akka">akka</a>] </dd><dt>Definition Classes</dt><dd>Actor</dd></dl></div>
     </li><li name="akka.actor.Actor#aroundReceive" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="aroundReceive(receive:&lt;?&gt;,msg:&lt;?&gt;):Unit"></a>
+      <a id="aroundReceive(receive:akka.actor.Actor.Receive,msg:Any):Unit"></a>
       <a id="aroundReceive(akka.actor.Actor.Receive,Any):Unit"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -381,23 +381,6 @@
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="org.apache.gearpump.streaming.task.TaskActor#config" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="config:com.typesafe.config.Config"></a>
-      <a id="config:Config"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">val</span>
-      </span>
-      <span class="symbol">
-        <span class="name">config</span><span class="result">: <span class="extype" name="com.typesafe.config.Config">Config</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../index.html#org.apache.gearpump.streaming.task.TaskActor@config:com.typesafe.config.Config" title="Permalink" target="_top">
-        <img src="../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
     </li><li name="akka.actor.Actor#context" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="context:akka.actor.ActorContext"></a>
       <a id="context:ActorContext"></a>
@@ -764,7 +747,7 @@
     </span>
       <p class="shortcomment cmt">output to a downstream by specifying a arrayIndex</p><div class="fullcomment"><div class="comment cmt"><p>output to a downstream by specifying a arrayIndex</p></div><dl class="paramcmts block"><dt class="param">arrayIndex</dt><dd class="cmt"><p>this is not same as ProcessorId</p></dd></dl></div>
     </li><li name="akka.actor.Actor#postRestart" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="postRestart(reason:&lt;?&gt;):Unit"></a>
+      <a id="postRestart(reason:Throwable):Unit"></a>
       <a id="postRestart(Throwable):Unit"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -1099,7 +1082,7 @@
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="ExpressTransport.html" class="extype" name="org.apache.gearpump.streaming.task.ExpressTransport">ExpressTransport</a></dd></dl></div>
     </li><li name="akka.actor.Actor#unhandled" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="unhandled(message:&lt;?&gt;):Unit"></a>
+      <a id="unhandled(message:Any):Unit"></a>
       <a id="unhandled(Any):Unit"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -1115,23 +1098,6 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Actor</dd></dl></div>
-    </li><li name="org.apache.gearpump.streaming.task.TaskActor#upstreamMinClock" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="upstreamMinClock:org.apache.gearpump.TimeStamp"></a>
-      <a id="upstreamMinClock:TimeStamp"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">var</span>
-      </span>
-      <span class="symbol">
-        <span class="name">upstreamMinClock</span><span class="result">: <a href="../../package.html#TimeStamp=Long" class="extmbr" name="org.apache.gearpump.TimeStamp">TimeStamp</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../index.html#org.apache.gearpump.streaming.task.TaskActor@upstreamMinClock:org.apache.gearpump.TimeStamp" title="Permalink" target="_top">
-        <img src="../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
     </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait():Unit"></a>
       <a id="wait():Unit"></a>

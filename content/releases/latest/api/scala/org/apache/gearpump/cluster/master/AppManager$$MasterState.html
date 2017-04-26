@@ -45,7 +45,7 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <span class="name">MasterState</span><span class="params">(<span name="maxId">maxId: <span class="extype" name="scala.Int">Int</span></span>, <span name="appMasterRegistry">appMasterRegistry: <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="scala.Int">Int</span>, (<span class="extype" name="akka.actor.ActorRef">ActorRef</span>, <a href="../appmaster/AppMasterRuntimeInfo.html" class="extype" name="org.apache.gearpump.cluster.appmaster.AppMasterRuntimeInfo">AppMasterRuntimeInfo</a>)]</span>, <span name="activeAppMasters">activeAppMasters: <span class="extype" name="scala.Predef.Set">Set</span>[<span class="extype" name="scala.Int">Int</span>]</span>, <span name="deadAppMasters">deadAppMasters: <span class="extype" name="scala.Predef.Set">Set</span>[<span class="extype" name="scala.Int">Int</span>]</span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <span class="name">MasterState</span><span class="params">(<span name="maxId">maxId: <span class="extype" name="scala.Int">Int</span></span>, <span name="applicationRegistry">applicationRegistry: <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="scala.Int">Int</span>, <a href="../appmaster/ApplicationRuntimeInfo.html" class="extype" name="org.apache.gearpump.cluster.appmaster.ApplicationRuntimeInfo">ApplicationRuntimeInfo</a>]</span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       
@@ -89,7 +89,7 @@
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
               <ol><li name="org.apache.gearpump.cluster.master.AppManager.MasterState#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="&lt;init&gt;(maxId:Int,appMasterRegistry:Map[Int,(akka.actor.ActorRef,org.apache.gearpump.cluster.appmaster.AppMasterRuntimeInfo)],activeAppMasters:Set[Int],deadAppMasters:Set[Int]):org.apache.gearpump.cluster.master.AppManager.MasterState"></a>
+      <a id="&lt;init&gt;(maxId:Int,applicationRegistry:Map[Int,org.apache.gearpump.cluster.appmaster.ApplicationRuntimeInfo]):org.apache.gearpump.cluster.master.AppManager.MasterState"></a>
       <a id="&lt;init&gt;:MasterState"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -97,10 +97,10 @@
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">MasterState</span><span class="params">(<span name="maxId">maxId: <span class="extype" name="scala.Int">Int</span></span>, <span name="appMasterRegistry">appMasterRegistry: <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="scala.Int">Int</span>, (<span class="extype" name="akka.actor.ActorRef">ActorRef</span>, <a href="../appmaster/AppMasterRuntimeInfo.html" class="extype" name="org.apache.gearpump.cluster.appmaster.AppMasterRuntimeInfo">AppMasterRuntimeInfo</a>)]</span>, <span name="activeAppMasters">activeAppMasters: <span class="extype" name="scala.Predef.Set">Set</span>[<span class="extype" name="scala.Int">Int</span>]</span>, <span name="deadAppMasters">deadAppMasters: <span class="extype" name="scala.Predef.Set">Set</span>[<span class="extype" name="scala.Int">Int</span>]</span>)</span>
+        <span class="name">MasterState</span><span class="params">(<span name="maxId">maxId: <span class="extype" name="scala.Int">Int</span></span>, <span name="applicationRegistry">applicationRegistry: <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="scala.Int">Int</span>, <a href="../appmaster/ApplicationRuntimeInfo.html" class="extype" name="org.apache.gearpump.cluster.appmaster.ApplicationRuntimeInfo">ApplicationRuntimeInfo</a>]</span>)</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#org.apache.gearpump.cluster.master.AppManager$$MasterState@&lt;init&gt;(maxId:Int,appMasterRegistry:Map[Int,(akka.actor.ActorRef,org.apache.gearpump.cluster.appmaster.AppMasterRuntimeInfo)],activeAppMasters:Set[Int],deadAppMasters:Set[Int]):org.apache.gearpump.cluster.master.AppManager.MasterState" title="Permalink" target="_top">
+      <a href="../../../../../index.html#org.apache.gearpump.cluster.master.AppManager$$MasterState@&lt;init&gt;(maxId:Int,applicationRegistry:Map[Int,org.apache.gearpump.cluster.appmaster.ApplicationRuntimeInfo]):org.apache.gearpump.cluster.master.AppManager.MasterState" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -165,36 +165,19 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="org.apache.gearpump.cluster.master.AppManager.MasterState#activeAppMasters" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="activeAppMasters:Set[Int]"></a>
-      <a id="activeAppMasters:Set[Int]"></a>
+    </li><li name="org.apache.gearpump.cluster.master.AppManager.MasterState#applicationRegistry" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="applicationRegistry:Map[Int,org.apache.gearpump.cluster.appmaster.ApplicationRuntimeInfo]"></a>
+      <a id="applicationRegistry:Map[Int,ApplicationRuntimeInfo]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">activeAppMasters</span><span class="result">: <span class="extype" name="scala.Predef.Set">Set</span>[<span class="extype" name="scala.Int">Int</span>]</span>
+        <span class="name">applicationRegistry</span><span class="result">: <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="scala.Int">Int</span>, <a href="../appmaster/ApplicationRuntimeInfo.html" class="extype" name="org.apache.gearpump.cluster.appmaster.ApplicationRuntimeInfo">ApplicationRuntimeInfo</a>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#org.apache.gearpump.cluster.master.AppManager$$MasterState@activeAppMasters:Set[Int]" title="Permalink" target="_top">
-        <img src="../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li><li name="org.apache.gearpump.cluster.master.AppManager.MasterState#appMasterRegistry" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="appMasterRegistry:Map[Int,(akka.actor.ActorRef,org.apache.gearpump.cluster.appmaster.AppMasterRuntimeInfo)]"></a>
-      <a id="appMasterRegistry:Map[Int,(ActorRef,AppMasterRuntimeInfo)]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">val</span>
-      </span>
-      <span class="symbol">
-        <span class="name">appMasterRegistry</span><span class="result">: <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="scala.Int">Int</span>, (<span class="extype" name="akka.actor.ActorRef">ActorRef</span>, <a href="../appmaster/AppMasterRuntimeInfo.html" class="extype" name="org.apache.gearpump.cluster.appmaster.AppMasterRuntimeInfo">AppMasterRuntimeInfo</a>)]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../index.html#org.apache.gearpump.cluster.master.AppManager$$MasterState@appMasterRegistry:Map[Int,(akka.actor.ActorRef,org.apache.gearpump.cluster.appmaster.AppMasterRuntimeInfo)]" title="Permalink" target="_top">
+      <a href="../../../../../index.html#org.apache.gearpump.cluster.master.AppManager$$MasterState@applicationRegistry:Map[Int,org.apache.gearpump.cluster.appmaster.ApplicationRuntimeInfo]" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -239,23 +222,6 @@
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="org.apache.gearpump.cluster.master.AppManager.MasterState#deadAppMasters" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="deadAppMasters:Set[Int]"></a>
-      <a id="deadAppMasters:Set[Int]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">val</span>
-      </span>
-      <span class="symbol">
-        <span class="name">deadAppMasters</span><span class="result">: <span class="extype" name="scala.Predef.Set">Set</span>[<span class="extype" name="scala.Int">Int</span>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../index.html#org.apache.gearpump.cluster.master.AppManager$$MasterState@deadAppMasters:Set[Int]" title="Permalink" target="_top">
-        <img src="../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a>
       <a id="eq(AnyRef):Boolean"></a>

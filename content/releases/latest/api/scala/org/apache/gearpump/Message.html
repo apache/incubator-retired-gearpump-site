@@ -47,12 +47,13 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <span class="name">Message</span><span class="params">(<span name="msg">msg: <span class="extype" name="scala.Any">Any</span></span>, <span name="timestamp">timestamp: <a href="package.html#TimeStamp=Long" class="extmbr" name="org.apache.gearpump.TimeStamp">TimeStamp</a> = <span class="symbol"><span class="name"><a href="Message$.html">Message.noTimeStamp</a></span></span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <span class="name">Message</span><span class="params">(<span name="msg">msg: <span class="extype" name="scala.Any">Any</span></span>, <span name="timeInMillis">timeInMillis: <a href="package.html#TimeStamp=Long" class="extmbr" name="org.apache.gearpump.TimeStamp">TimeStamp</a></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Each message contains a immutable timestamp.</p><p>For example, if you take a picture, the time you take the picture is the
-message's timestamp.</p></div><dl class="paramcmts block"><dt class="param">msg</dt><dd class="cmt"><p>Accept any type except Null, Nothing and Unit</p></dd></dl><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Each message contains an immutable timestamp.</p><p>For example, if you take a picture, the time you take the picture is the
+message's timestamp.
+</p></div><dl class="paramcmts block"><dt class="param">msg</dt><dd class="cmt"><p>Accept any type except Null, Nothing and Unit</p></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.Product">Product</span>, <span class="extype" name="scala.Equals">Equals</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
@@ -92,7 +93,7 @@ message's timestamp.</p></div><dl class="paramcmts block"><dt class="param">msg<
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
               <ol><li name="org.apache.gearpump.Message#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="&lt;init&gt;(msg:Any,timestamp:org.apache.gearpump.TimeStamp):org.apache.gearpump.Message"></a>
+      <a id="&lt;init&gt;(msg:Any):org.apache.gearpump.Message"></a>
       <a id="&lt;init&gt;:Message"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -100,10 +101,46 @@ message's timestamp.</p></div><dl class="paramcmts block"><dt class="param">msg<
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">Message</span><span class="params">(<span name="msg">msg: <span class="extype" name="scala.Any">Any</span></span>, <span name="timestamp">timestamp: <a href="package.html#TimeStamp=Long" class="extmbr" name="org.apache.gearpump.TimeStamp">TimeStamp</a> = <span class="symbol"><span class="name"><a href="Message$.html">Message.noTimeStamp</a></span></span></span>)</span>
+        <span class="name">Message</span><span class="params">(<span name="msg">msg: <span class="extype" name="scala.Any">Any</span></span>)</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#org.apache.gearpump.Message@&lt;init&gt;(msg:Any,timestamp:org.apache.gearpump.TimeStamp):org.apache.gearpump.Message" title="Permalink" target="_top">
+      <a href="../../../index.html#org.apache.gearpump.Message@&lt;init&gt;(msg:Any):org.apache.gearpump.Message" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Instant.EPOCH is used for default timestamp
+</p><div class="fullcomment"><div class="comment cmt"><p>Instant.EPOCH is used for default timestamp
+</p></div><dl class="paramcmts block"><dt class="param">msg</dt><dd class="cmt"><p>Accept any type except Null, Nothing and Uni</p></dd></dl></div>
+    </li><li name="org.apache.gearpump.Message#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="&lt;init&gt;(msg:Any,timestamp:java.time.Instant):org.apache.gearpump.Message"></a>
+      <a id="&lt;init&gt;:Message"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">new</span>
+      </span>
+      <span class="symbol">
+        <span class="name">Message</span><span class="params">(<span name="msg">msg: <span class="extype" name="scala.Any">Any</span></span>, <span name="timestamp">timestamp: <span class="extype" name="java.time.Instant">Instant</span></span>)</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#org.apache.gearpump.Message@&lt;init&gt;(msg:Any,timestamp:java.time.Instant):org.apache.gearpump.Message" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">msg</dt><dd class="cmt"><p>Accept any type except Null, Nothing and Unit</p></dd><dt class="param">timestamp</dt><dd class="cmt"><p>timestamp cannot be larger than Instant.ofEpochMilli(Long.MaxValue)</p></dd></dl></div>
+    </li><li name="org.apache.gearpump.Message#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="&lt;init&gt;(msg:Any,timeInMillis:org.apache.gearpump.TimeStamp):org.apache.gearpump.Message"></a>
+      <a id="&lt;init&gt;:Message"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">new</span>
+      </span>
+      <span class="symbol">
+        <span class="name">Message</span><span class="params">(<span name="msg">msg: <span class="extype" name="scala.Any">Any</span></span>, <span name="timeInMillis">timeInMillis: <a href="package.html#TimeStamp=Long" class="extmbr" name="org.apache.gearpump.TimeStamp">TimeStamp</a></span>)</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#org.apache.gearpump.Message@&lt;init&gt;(msg:Any,timeInMillis:org.apache.gearpump.TimeStamp):org.apache.gearpump.Message" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -367,19 +404,36 @@ message's timestamp.</p></div><dl class="paramcmts block"><dt class="param">msg<
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="org.apache.gearpump.Message#timestamp" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="timestamp:org.apache.gearpump.TimeStamp"></a>
-      <a id="timestamp:TimeStamp"></a>
+    </li><li name="org.apache.gearpump.Message#timeInMillis" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="timeInMillis:org.apache.gearpump.TimeStamp"></a>
+      <a id="timeInMillis:TimeStamp"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">timestamp</span><span class="result">: <a href="package.html#TimeStamp=Long" class="extmbr" name="org.apache.gearpump.TimeStamp">TimeStamp</a></span>
+        <span class="name">timeInMillis</span><span class="result">: <a href="package.html#TimeStamp=Long" class="extmbr" name="org.apache.gearpump.TimeStamp">TimeStamp</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#org.apache.gearpump.Message@timestamp:org.apache.gearpump.TimeStamp" title="Permalink" target="_top">
+      <a href="../../../index.html#org.apache.gearpump.Message@timeInMillis:org.apache.gearpump.TimeStamp" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.apache.gearpump.Message#timestamp" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="timestamp:java.time.Instant"></a>
+      <a id="timestamp:Instant"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">timestamp</span><span class="result">: <span class="extype" name="java.time.Instant">Instant</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#org.apache.gearpump.Message@timestamp:java.time.Instant" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
