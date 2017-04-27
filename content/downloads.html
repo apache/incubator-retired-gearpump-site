@@ -111,7 +111,7 @@
 
 <p>To program against this version, you need to add below artifact dependencies to your application&#8217;s Maven setting:</p>
 
-<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;dependencies&gt;</span>
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span></span><span class="nt">&lt;dependencies&gt;</span>
   <span class="nt">&lt;dependency&gt;</span>
     <span class="nt">&lt;groupId&gt;</span>org.apache.gearpump<span class="nt">&lt;/groupId&gt;</span>
     <span class="nt">&lt;artifactId&gt;</span>gearpump-core_2.11<span class="nt">&lt;/artifactId&gt;</span>
@@ -123,41 +123,6 @@
     <span class="nt">&lt;version&gt;</span>0.8.3<span class="nt">&lt;/version&gt;</span>
   <span class="nt">&lt;/dependency&gt;</span>
 <span class="nt">&lt;/dependencies&gt;</span></code></pre></figure>
-
-<p>To ensure above dependencies resolved, you will need to add the following repositories as well.</p>
-
-<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;repositories&gt;</span>
-  <span class="nt">&lt;repository&gt;</span>
-    <span class="nt">&lt;id&gt;</span>releases-oss.sonatype.org<span class="nt">&lt;/id&gt;</span>
-    <span class="nt">&lt;name&gt;</span>Sonatype Releases Repository<span class="nt">&lt;/name&gt;</span>
-    <span class="nt">&lt;url&gt;</span>http://oss.sonatype.org/content/repositories/releases/<span class="nt">&lt;/url&gt;</span>
-  <span class="nt">&lt;/repository&gt;</span>
-  <span class="nt">&lt;repository&gt;</span>
-    <span class="nt">&lt;id&gt;</span>akka-data-replication<span class="nt">&lt;/id&gt;</span>
-    <span class="nt">&lt;name&gt;</span>Patrik at Bintray<span class="nt">&lt;/name&gt;</span>
-    <span class="nt">&lt;url&gt;</span>http://dl.bintray.com/patriknw/maven<span class="nt">&lt;/url&gt;</span>
-  <span class="nt">&lt;/repository&gt;</span>
-  <span class="nt">&lt;repository&gt;</span>
-    <span class="nt">&lt;id&gt;</span>non<span class="nt">&lt;/id&gt;</span>
-    <span class="nt">&lt;name&gt;</span>non<span class="nt">&lt;/name&gt;</span>
-    <span class="nt">&lt;url&gt;</span>http://dl.bintray.com/non/maven<span class="nt">&lt;/url&gt;</span>
-  <span class="nt">&lt;/repository&gt;</span>
-  <span class="nt">&lt;repository&gt;</span>
-    <span class="nt">&lt;id&gt;</span>maven-repo<span class="nt">&lt;/id&gt;</span>
-    <span class="nt">&lt;name&gt;</span>maven-repo<span class="nt">&lt;/name&gt;</span>
-    <span class="nt">&lt;url&gt;</span>http://repo.maven.apache.org/maven2<span class="nt">&lt;/url&gt;</span>
-  <span class="nt">&lt;/repository&gt;</span>
-  <span class="nt">&lt;repository&gt;</span>
-    <span class="nt">&lt;id&gt;</span>maven1-repo<span class="nt">&lt;/id&gt;</span>
-    <span class="nt">&lt;name&gt;</span>maven1-repo<span class="nt">&lt;/name&gt;</span>
-    <span class="nt">&lt;url&gt;</span>http://repo1.maven.org/maven2<span class="nt">&lt;/url&gt;</span>
-  <span class="nt">&lt;/repository&gt;</span>
-  <span class="nt">&lt;repository&gt;</span>
-    <span class="nt">&lt;id&gt;</span>maven2-repo<span class="nt">&lt;/id&gt;</span>
-    <span class="nt">&lt;name&gt;</span>maven2-repo<span class="nt">&lt;/name&gt;</span>
-    <span class="nt">&lt;url&gt;</span>http://mvnrepository.com/artifact<span class="nt">&lt;/url&gt;</span>
-  <span class="nt">&lt;/repository&gt;</span>
-<span class="nt">&lt;/repositories&gt;</span></code></pre></figure>
 
 
   </div> <!-- /container -->
