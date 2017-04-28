@@ -6,7 +6,7 @@ description: Apache Gearpump GEARPUMP_VERSION documentation homepage
 ---
 
 ![gearpump-logo](/favicon.ico) 
-[![Release](https://img.shields.io/badge/Latest%20Release-v{{ site.GEARPUMP_VERSION }}-blue.svg)](https://dist.apache.org/repos/dist/release/incubator/gearpump/0.8.2-incubating/)
+[![Release](https://img.shields.io/badge/Latest%20Release-v{{ site.GEARPUMP_VERSION }}-blue.svg)](https://dist.apache.org/repos/dist/release/incubator/gearpump/{{ site.GEARPUMP_VERSION }}-incubating/)
 
 **Apache Gearpump** is a real-time big data streaming engine. The name Gearpump is a reference to the engineering term "gear pump" which is a super simple pump that consists of only two gears, but is very powerful at streaming water. Different to other streaming engines, Gearpump's engine is event/message based. Per initial benchmarks we are able to process 18 million messages per second (message length is 100 bytes) with a 8ms latency on a 4-node cluster. 
 
