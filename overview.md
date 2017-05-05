@@ -30,5 +30,8 @@ description: Apache Gearpump GEARPUMP_VERSION documentation homepage
 Apache Gearpump is an effort undergoing incubation at [The Apache Software Foundation (ASF)](http://www.apache.org/) sponsored by the Apache Incubator PMC. Incubation is required of all newly accepted projects until a further review indicates that the infrastructure, communications, and decision making process have stabilized in a manner consistent with other successful ASF projects. While incubation status is not necessarily a reflection of the completeness or stability of the code, it does indicate that the project has yet to be fully endorsed by the ASF.
 
 Apache Gearpump (incubating) is available under [Apache License, version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
+{: style="color:gray; font-size: 80%; text-align: center;"}
 
+{: style="text-align: center;"}
 ![incubator-logo](/img/incubator-logo.png)
+
