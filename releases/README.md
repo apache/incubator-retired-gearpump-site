@@ -9,5 +9,6 @@ directory structure
   |-- ...
 ```
 
-For each release, please run command "docs/build_doc.sh" under Gearpump repository, rename `latest` directory to name reflecting previous version number
-and copy the whole `docs/site` directory (from gearpump repo, after building) to release and rename `site` directory `latest`. 
+For each release, please run the command "docs/build_doc.sh" under Gearpump repository, 
+rename `latest` directory to a name reflecting previous version number 
+and copy the whole `docs/site` directory (from Gearpump repo, after having it built) to release and rename `site` directory to `latest`.
