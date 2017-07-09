@@ -66,28 +66,7 @@
 
         <div id="types" class="types members">
               <h3>Type Members</h3>
-              <ol><li name="org.apache.gearpump.streaming.dsl.plan.ChainableOp" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="ChainableOp[IN,OUT]extendsOpwithProductwithSerializable"></a>
-      <a id="ChainableOp[IN,OUT]:ChainableOp[IN,OUT]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">case class</span>
-      </span>
-      <span class="symbol">
-        <a href="ChainableOp.html"><span class="name">ChainableOp</span></a><span class="tparams">[<span name="IN">IN</span>, <span name="OUT">OUT</span>]</span><span class="params">(<span name="fn">fn: <a href="functions/FunctionRunner.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.FunctionRunner">FunctionRunner</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.plan.ChainableOp.IN">IN</span>, <span class="extype" name="org.apache.gearpump.streaming.dsl.plan.ChainableOp.OUT">OUT</span>]</span>, <span name="userConfig">userConfig: <a href="../../../cluster/UserConfig.html" class="extype" name="org.apache.gearpump.cluster.UserConfig">UserConfig</a> = <span class="symbol"><span class="name"><a href="../../../../../package.html">UserConfig.empty</a></span></span></span>)</span><span class="result"> extends <a href="Op.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.Op">Op</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.plan.package@ChainableOp[IN,OUT]extendsOpwithProductwithSerializable" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">This represents operations that can be chained together
-(e.g.</p><div class="fullcomment"><div class="comment cmt"><p>This represents operations that can be chained together
-(e.g. flatMap, map, filter, reduce) and further chained
-to another Op to be used
-</p></div></div>
-    </li><li name="org.apache.gearpump.streaming.dsl.plan.DataSinkOp" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+              <ol><li name="org.apache.gearpump.streaming.dsl.plan.DataSinkOp" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="DataSinkOpextendsOpwithProductwithSerializable"></a>
       <a id="DataSinkOp:DataSinkOp"></a>
       <h4 class="signature">
@@ -96,7 +75,7 @@ to another Op to be used
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="DataSinkOp.html"><span class="name">DataSinkOp</span></a><span class="params">(<span name="dataSink">dataSink: <a href="../../sink/DataSink.html" class="extype" name="org.apache.gearpump.streaming.sink.DataSink">DataSink</a></span>, <span name="parallelism">parallelism: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">1</span></span>, <span name="userConfig">userConfig: <a href="../../../cluster/UserConfig.html" class="extype" name="org.apache.gearpump.cluster.UserConfig">UserConfig</a> = <span class="symbol"><span class="name"><a href="../../../../../package.html">UserConfig.empty</a></span></span></span>, <span name="description">description: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">&quot;sink&quot;</span></span>)</span><span class="result"> extends <a href="Op.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.Op">Op</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <a href="DataSinkOp.html"><span class="name">DataSinkOp</span></a><span class="params">(<span name="dataSink">dataSink: <a href="../../sink/DataSink.html" class="extype" name="org.apache.gearpump.streaming.sink.DataSink">DataSink</a></span>, <span name="parallelism">parallelism: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">1</span></span>, <span name="description">description: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">&quot;sink&quot;</span></span>, <span name="userConfig">userConfig: <a href="../../../cluster/UserConfig.html" class="extype" name="org.apache.gearpump.cluster.UserConfig">UserConfig</a> = <span class="symbol"><span class="name"><a href="../../../../../package.html">UserConfig.empty</a></span></span></span>)</span><span class="result"> extends <a href="Op.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.Op">Op</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.plan.package@DataSinkOpextendsOpwithProductwithSerializable" title="Permalink" target="_top">
@@ -113,7 +92,7 @@ to another Op to be used
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="DataSourceOp.html"><span class="name">DataSourceOp</span></a><span class="params">(<span name="dataSource">dataSource: <a href="../../source/DataSource.html" class="extype" name="org.apache.gearpump.streaming.source.DataSource">DataSource</a></span>, <span name="parallelism">parallelism: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">1</span></span>, <span name="userConfig">userConfig: <a href="../../../cluster/UserConfig.html" class="extype" name="org.apache.gearpump.cluster.UserConfig">UserConfig</a> = <span class="symbol"><span class="name"><a href="../../../../../package.html">UserConfig.empty</a></span></span></span>, <span name="description">description: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">&quot;source&quot;</span></span>)</span><span class="result"> extends <a href="Op.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.Op">Op</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <a href="DataSourceOp.html"><span class="name">DataSourceOp</span></a><span class="params">(<span name="dataSource">dataSource: <a href="../../source/DataSource.html" class="extype" name="org.apache.gearpump.streaming.source.DataSource">DataSource</a></span>, <span name="parallelism">parallelism: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">1</span></span>, <span name="description">description: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">&quot;source&quot;</span></span>, <span name="userConfig">userConfig: <a href="../../../cluster/UserConfig.html" class="extype" name="org.apache.gearpump.cluster.UserConfig">UserConfig</a> = <span class="symbol"><span class="name"><a href="../../../../../package.html">UserConfig.empty</a></span></span></span>)</span><span class="result"> extends <a href="Op.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.Op">Op</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.plan.package@DataSourceOpextendsOpwithProductwithSerializable" title="Permalink" target="_top">
@@ -130,14 +109,14 @@ to another Op to be used
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="GroupByOp.html"><span class="name">GroupByOp</span></a><span class="tparams">[<span name="IN">IN</span>, <span name="GROUP">GROUP</span>]</span><span class="params">(<span name="groupBy">groupBy: <a href="../window/impl/GroupAlsoByWindow.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.impl.GroupAlsoByWindow">GroupAlsoByWindow</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.plan.GroupByOp.IN">IN</span>, <span class="extype" name="org.apache.gearpump.streaming.dsl.plan.GroupByOp.GROUP">GROUP</span>]</span>, <span name="parallelism">parallelism: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">1</span></span>, <span name="description">description: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">&quot;groupBy&quot;</span></span>, <span name="userConfig">userConfig: <a href="../../../cluster/UserConfig.html" class="extype" name="org.apache.gearpump.cluster.UserConfig">UserConfig</a> = <span class="symbol"><span class="name"><a href="../../../../../package.html">UserConfig.empty</a></span></span></span>)</span><span class="result"> extends <a href="Op.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.Op">Op</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <a href="GroupByOp.html"><span class="name">GroupByOp</span></a><span class="tparams">[<span name="IN">IN</span>, <span name="GROUP">GROUP</span>]</span><span class="result"> extends <a href="Op.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.Op">Op</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.plan.package@GroupByOp[IN,GROUP]extendsOpwithProductwithSerializable" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">This represents a Processor with window aggregation
+      <p class="shortcomment cmt">This represents a Processor with groupBy and window aggregation
 </p>
     </li><li name="org.apache.gearpump.streaming.dsl.plan.MergeOp" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="MergeOpextendsOpwithProductwithSerializable"></a>
@@ -148,7 +127,7 @@ to another Op to be used
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="MergeOp.html"><span class="name">MergeOp</span></a><span class="params">(<span name="description">description: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="userConfig">userConfig: <a href="../../../cluster/UserConfig.html" class="extype" name="org.apache.gearpump.cluster.UserConfig">UserConfig</a> = <span class="symbol"><span class="name"><a href="../../../../../package.html">UserConfig.empty</a></span></span></span>)</span><span class="result"> extends <a href="Op.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.Op">Op</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <a href="MergeOp.html"><span class="name">MergeOp</span></a><span class="params">(<span name="parallelism">parallelism: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">1</span></span>, <span name="description">description: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">&quot;merge&quot;</span></span>, <span name="userConfig">userConfig: <a href="../../../cluster/UserConfig.html" class="extype" name="org.apache.gearpump.cluster.UserConfig">UserConfig</a> = <span class="symbol"><span class="name"><a href="../../../../../package.html">UserConfig.empty</a></span></span></span>)</span><span class="result"> extends <a href="Op.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.Op">Op</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.plan.package@MergeOpextendsOpwithProductwithSerializable" title="Permalink" target="_top">
@@ -242,6 +221,85 @@ to another Op to be used
       </a>
     </span>
       <p class="shortcomment cmt">This represents a low level Processor.</p>
+    </li><li name="org.apache.gearpump.streaming.dsl.plan.TransformOp" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="TransformOp[IN,OUT]extendsOpwithProductwithSerializable"></a>
+      <a id="TransformOp[IN,OUT]:TransformOp[IN,OUT]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="TransformOp.html"><span class="name">TransformOp</span></a><span class="tparams">[<span name="IN">IN</span>, <span name="OUT">OUT</span>]</span><span class="params">(<span name="fn">fn: <a href="functions/FunctionRunner.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.functions.FunctionRunner">FunctionRunner</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.plan.TransformOp.IN">IN</span>, <span class="extype" name="org.apache.gearpump.streaming.dsl.plan.TransformOp.OUT">OUT</span>]</span>, <span name="userConfig">userConfig: <a href="../../../cluster/UserConfig.html" class="extype" name="org.apache.gearpump.cluster.UserConfig">UserConfig</a> = <span class="symbol"><span class="name"><a href="../../../../../package.html">UserConfig.empty</a></span></span></span>)</span><span class="result"> extends <a href="Op.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.Op">Op</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.plan.package@TransformOp[IN,OUT]extendsOpwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">This represents operations that can be chained together
+(e.g.</p><div class="fullcomment"><div class="comment cmt"><p>This represents operations that can be chained together
+(e.g. flatMap, map, filter, reduce) and further chained
+to another Op to be used
+</p></div></div>
+    </li><li name="org.apache.gearpump.streaming.dsl.plan.TransformWindowTransformOp" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="TransformWindowTransformOp[IN,MIDDLE,OUT]extendsOpwithProductwithSerializable"></a>
+      <a id="TransformWindowTransformOp[IN,MIDDLE,OUT]:TransformWindowTransformOp[IN,MIDDLE,OUT]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="TransformWindowTransformOp.html"><span class="name">TransformWindowTransformOp</span></a><span class="tparams">[<span name="IN">IN</span>, <span name="MIDDLE">MIDDLE</span>, <span name="OUT">OUT</span>]</span><span class="params">(<span name="transformOp">transformOp: <a href="TransformOp.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.TransformOp">TransformOp</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.plan.TransformWindowTransformOp.IN">IN</span>, <span class="extype" name="org.apache.gearpump.streaming.dsl.plan.TransformWindowTransformOp.MIDDLE">MIDDLE</span>]</span>, <span name="windowTransformOp">windowTransformOp: <a href="WindowTransformOp.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.WindowTransformOp">WindowTransformOp</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.plan.TransformWindowTransformOp.MIDDLE">MIDDLE</span>, <span class="extype" name="org.apache.gearpump.streaming.dsl.plan.TransformWindowTransformOp.OUT">OUT</span>]</span>)</span><span class="result"> extends <a href="Op.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.Op">Op</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.plan.package@TransformWindowTransformOp[IN,MIDDLE,OUT]extendsOpwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">This is an intermediate operation, produced by chaining TransformOp and WindowOp.</p><div class="fullcomment"><div class="comment cmt"><p>This is an intermediate operation, produced by chaining TransformOp and WindowOp.
+It will later be chained to a WindowOp, which results in two WindowTransformOps.
+Finally, they will be chained to a single WindowTransformOp.
+</p></div></div>
+    </li><li name="org.apache.gearpump.streaming.dsl.plan.WindowOp" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="WindowOpextendsOpwithProductwithSerializable"></a>
+      <a id="WindowOp:WindowOp"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="WindowOp.html"><span class="name">WindowOp</span></a><span class="params">(<span name="windows">windows: <a href="../window/api/Windows.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.api.Windows">Windows</a></span>, <span name="userConfig">userConfig: <a href="../../../cluster/UserConfig.html" class="extype" name="org.apache.gearpump.cluster.UserConfig">UserConfig</a> = <span class="symbol"><span class="name"><a href="../../../../../package.html">UserConfig.empty</a></span></span></span>)</span><span class="result"> extends <a href="Op.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.Op">Op</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.plan.package@WindowOpextendsOpwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">This represents a window aggregation, together with a following TransformOp
+</p>
+    </li><li name="org.apache.gearpump.streaming.dsl.plan.WindowTransformOp" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="WindowTransformOp[IN,OUT]extendsOpwithProductwithSerializable"></a>
+      <a id="WindowTransformOp[IN,OUT]:WindowTransformOp[IN,OUT]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="WindowTransformOp.html"><span class="name">WindowTransformOp</span></a><span class="tparams">[<span name="IN">IN</span>, <span name="OUT">OUT</span>]</span><span class="params">(<span name="windowRunner">windowRunner: <a href="../window/impl/WindowRunner.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.impl.WindowRunner">WindowRunner</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.plan.WindowTransformOp.IN">IN</span>, <span class="extype" name="org.apache.gearpump.streaming.dsl.plan.WindowTransformOp.OUT">OUT</span>]</span>, <span name="description">description: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="userConfig">userConfig: <a href="../../../cluster/UserConfig.html" class="extype" name="org.apache.gearpump.cluster.UserConfig">UserConfig</a></span>)</span><span class="result"> extends <a href="Op.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.Op">Op</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.plan.package@WindowTransformOp[IN,OUT]extendsOpwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">This is an intermediate operation, produced by chaining WindowOp and TransformOp.</p><div class="fullcomment"><div class="comment cmt"><p>This is an intermediate operation, produced by chaining WindowOp and TransformOp.
+Usually, it will be chained to a DataSourceOp, GroupByOp or MergeOp.
+Otherwise, it will be translated to a Processor of TransformTask.
+</p></div></div>
     </li></ol>
             </div>
 
@@ -266,8 +324,25 @@ to another Op to be used
       </a>
     </span>
       <p class="shortcomment cmt">The upstream OP and downstream OP doesn't require network data shuffle.</p><div class="fullcomment"><div class="comment cmt"><p>The upstream OP and downstream OP doesn't require network data shuffle.
-e.g. ChainableOp
+e.g. TransformOp
 </p></div></div>
+    </li><li name="org.apache.gearpump.streaming.dsl.plan.Op" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Op"></a>
+      <a id="Op:Op"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Op$.html"><span class="name">Op</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.plan.package@Op" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
     </li><li name="org.apache.gearpump.streaming.dsl.plan.Shuffle" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="Shuffle"></a>
       <a id="Shuffle:Shuffle"></a>

@@ -28,10 +28,12 @@
         </head>
         <body class="type">
       <div id="definition">
-        <img alt="Trait" src="../../../../../../lib/trait_big.png" />
+        <a href="Op$.html" title="See companion object"><img alt="Trait/Object" src="../../../../../../lib/trait_to_object_big.png" /></a>
         <p id="owner"><a href="../../../../../package.html" class="extype" name="org">org</a>.<a href="../../../../package.html" class="extype" name="org.apache">apache</a>.<a href="../../../package.html" class="extype" name="org.apache.gearpump">gearpump</a>.<a href="../../package.html" class="extype" name="org.apache.gearpump.streaming">streaming</a>.<a href="../package.html" class="extype" name="org.apache.gearpump.streaming.dsl">dsl</a>.<a href="package.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan">plan</a></p>
-        <h1>Op</h1><h3><span class="morelinks"><div>Related Doc:
-            <a href="package.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan">package plan</a>
+        <h1><a href="Op$.html" title="See companion object">Op</a></h1><h3><span class="morelinks"><div>
+            Related Docs:
+            <a href="Op$.html" title="See companion object">object Op</a>
+            | <a href="package.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan">package plan</a>
           </div></span></h3><span class="permalink">
       <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.plan.Op" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
@@ -55,7 +57,7 @@
           <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div><div class="toggleContainer block">
             <span class="toggle">Known Subclasses</span>
-            <div class="subClasses hiddenContent"><a href="ChainableOp.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.ChainableOp">ChainableOp</a>, <a href="DataSinkOp.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.DataSinkOp">DataSinkOp</a>, <a href="DataSourceOp.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.DataSourceOp">DataSourceOp</a>, <a href="GroupByOp.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.GroupByOp">GroupByOp</a>, <a href="MergeOp.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.MergeOp">MergeOp</a>, <a href="ProcessorOp.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.ProcessorOp">ProcessorOp</a></div>
+            <div class="subClasses hiddenContent"><a href="DataSinkOp.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.DataSinkOp">DataSinkOp</a>, <a href="DataSourceOp.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.DataSourceOp">DataSourceOp</a>, <a href="GroupByOp.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.GroupByOp">GroupByOp</a>, <a href="MergeOp.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.MergeOp">MergeOp</a>, <a href="ProcessorOp.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.ProcessorOp">ProcessorOp</a>, <a href="TransformOp.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.TransformOp">TransformOp</a>, <a href="TransformWindowTransformOp.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.TransformWindowTransformOp">TransformWindowTransformOp</a>, <a href="WindowOp.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.WindowOp">WindowOp</a>, <a href="WindowTransformOp.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.WindowTransformOp">WindowTransformOp</a></div>
           </div></div>
         
 
@@ -130,19 +132,19 @@
       </a>
     </span>
       
-    </li><li name="org.apache.gearpump.streaming.dsl.plan.Op#getProcessor" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
-      <a id="getProcessor(implicitsystem:akka.actor.ActorSystem):org.apache.gearpump.streaming.Processor[_&lt;:org.apache.gearpump.streaming.task.Task]"></a>
-      <a id="getProcessor(ActorSystem):Processor[_&lt;:Task]"></a>
+    </li><li name="org.apache.gearpump.streaming.dsl.plan.Op#toProcessor" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="toProcessor(implicitsystem:akka.actor.ActorSystem):org.apache.gearpump.streaming.Processor[_&lt;:org.apache.gearpump.streaming.task.Task]"></a>
+      <a id="toProcessor(ActorSystem):Processor[_&lt;:Task]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier">abstract </span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">getProcessor</span><span class="params">(<span class="implicit">implicit </span><span name="system">system: <span class="extype" name="akka.actor.ActorSystem">ActorSystem</span></span>)</span><span class="result">: <a href="../../Processor.html" class="extype" name="org.apache.gearpump.streaming.Processor">Processor</a>[_ &lt;: <a href="../../task/Task.html" class="extype" name="org.apache.gearpump.streaming.task.Task">Task</a>]</span>
+        <span class="name">toProcessor</span><span class="params">(<span class="implicit">implicit </span><span name="system">system: <span class="extype" name="akka.actor.ActorSystem">ActorSystem</span></span>)</span><span class="result">: <a href="../../Processor.html" class="extype" name="org.apache.gearpump.streaming.Processor">Processor</a>[_ &lt;: <a href="../../task/Task.html" class="extype" name="org.apache.gearpump.streaming.task.Task">Task</a>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.plan.Op@getProcessor(implicitsystem:akka.actor.ActorSystem):org.apache.gearpump.streaming.Processor[_&lt;:org.apache.gearpump.streaming.task.Task]" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.plan.Op@toProcessor(implicitsystem:akka.actor.ActorSystem):org.apache.gearpump.streaming.Processor[_&lt;:org.apache.gearpump.streaming.task.Task]" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>

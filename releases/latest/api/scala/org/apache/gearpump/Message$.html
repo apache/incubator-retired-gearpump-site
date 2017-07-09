@@ -28,11 +28,11 @@
         </head>
         <body class="value">
       <div id="definition">
-        <a href="Message.html" title="See companion class"><img alt="Object/Class" src="../../../lib/object_to_class_big.png" /></a>
+        <a href="Message.html" title="See companion trait"><img alt="Object/Trait" src="../../../lib/object_to_trait_big.png" /></a>
         <p id="owner"><a href="../../package.html" class="extype" name="org">org</a>.<a href="../package.html" class="extype" name="org.apache">apache</a>.<a href="package.html" class="extype" name="org.apache.gearpump">gearpump</a></p>
-        <h1><a href="Message.html" title="See companion class">Message</a></h1><h3><span class="morelinks"><div>
+        <h1><a href="Message.html" title="See companion trait">Message</a></h1><h3><span class="morelinks"><div>
             Related Docs:
-            <a href="Message.html" title="See companion class">class Message</a>
+            <a href="Message.html" title="See companion trait">trait Message</a>
             | <a href="package.html" class="extype" name="org.apache.gearpump">package gearpump</a>
           </div></span></h3><span class="permalink">
       <a href="../../../index.html#org.apache.gearpump.Message$" title="Permalink" target="_top">
@@ -47,13 +47,13 @@
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <span class="name">Message</span><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <span class="name">Message</span>
       </span>
       </h4>
       
           <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+          <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
         
 
@@ -71,7 +71,7 @@
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="org.apache.gearpump.Message"><span>Message</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="org.apache.gearpump.Message"><span>Message</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                 </ol>
               </div><div id="ancestors">
             <span class="filtertype"></span>
@@ -148,7 +148,7 @@
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="org.apache.gearpump.Message#apply" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="apply(msg:Any,timestamp:java.time.Instant):org.apache.gearpump.Message"></a>
+      <a id="apply(value:Any,timestamp:java.time.Instant):org.apache.gearpump.Message"></a>
       <a id="apply(Any,Instant):Message"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -156,16 +156,33 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">apply</span><span class="params">(<span name="msg">msg: <span class="extype" name="scala.Any">Any</span></span>, <span name="timestamp">timestamp: <span class="extype" name="java.time.Instant">Instant</span></span>)</span><span class="result">: <a href="Message.html" class="extype" name="org.apache.gearpump.Message">Message</a></span>
+        <span class="name">apply</span><span class="params">(<span name="value">value: <span class="extype" name="scala.Any">Any</span></span>, <span name="timestamp">timestamp: <span class="extype" name="java.time.Instant">Instant</span></span>)</span><span class="result">: <a href="Message.html" class="extype" name="org.apache.gearpump.Message">Message</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#org.apache.gearpump.Message$@apply(msg:Any,timestamp:java.time.Instant):org.apache.gearpump.Message" title="Permalink" target="_top">
+      <a href="../../../index.html#org.apache.gearpump.Message$@apply(value:Any,timestamp:java.time.Instant):org.apache.gearpump.Message" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">msg</dt><dd class="cmt"><p>Accept any type except Null, Nothing and Unit</p></dd><dt class="param">timestamp</dt><dd class="cmt"><p>timestamp cannot be larger than Instant.ofEpochMilli(Long.MaxValue)</p></dd></dl></div>
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">value</dt><dd class="cmt"><p>Accept any type except Null, Nothing and Unit</p></dd><dt class="param">timestamp</dt><dd class="cmt"><p>timestamp must be smaller than Instant.ofEpochMilli(Long.MaxValue)</p></dd></dl></div>
     </li><li name="org.apache.gearpump.Message#apply" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="apply(msg:Any):org.apache.gearpump.Message"></a>
+      <a id="apply(value:Any,timestamp:org.apache.gearpump.TimeStamp):org.apache.gearpump.Message"></a>
+      <a id="apply(Any,TimeStamp):Message"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">apply</span><span class="params">(<span name="value">value: <span class="extype" name="scala.Any">Any</span></span>, <span name="timestamp">timestamp: <a href="package.html#TimeStamp=Long" class="extmbr" name="org.apache.gearpump.TimeStamp">TimeStamp</a></span>)</span><span class="result">: <a href="Message.html" class="extype" name="org.apache.gearpump.Message">Message</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#org.apache.gearpump.Message$@apply(value:Any,timestamp:org.apache.gearpump.TimeStamp):org.apache.gearpump.Message" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">value</dt><dd class="cmt"><p>Accept any type except Null, Nothing and Unit</p></dd><dt class="param">timestamp</dt><dd class="cmt"><p>timestamp must be smaller than Long.MaxValue</p></dd></dl></div>
+    </li><li name="org.apache.gearpump.Message#apply" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="apply(value:Any):org.apache.gearpump.Message"></a>
       <a id="apply(Any):Message"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -173,16 +190,16 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">apply</span><span class="params">(<span name="msg">msg: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="Message.html" class="extype" name="org.apache.gearpump.Message">Message</a></span>
+        <span class="name">apply</span><span class="params">(<span name="value">value: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="Message.html" class="extype" name="org.apache.gearpump.Message">Message</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#org.apache.gearpump.Message$@apply(msg:Any):org.apache.gearpump.Message" title="Permalink" target="_top">
+      <a href="../../../index.html#org.apache.gearpump.Message$@apply(value:Any):org.apache.gearpump.Message" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">Instant.EPOCH is used for default timestamp
 </p><div class="fullcomment"><div class="comment cmt"><p>Instant.EPOCH is used for default timestamp
-</p></div><dl class="paramcmts block"><dt class="param">msg</dt><dd class="cmt"><p>Accept any type except Null, Nothing and Uni</p></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="param">value</dt><dd class="cmt"><p>Accept any type except Null, Nothing and Unit</p></dd></dl></div>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <a id="asInstanceOf[T0]:T0"></a>
@@ -494,11 +511,7 @@
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="scala.Serializable">
-              <h3>Inherited from <span class="extype" name="scala.Serializable">Serializable</span></h3>
-            </div><div class="parent" name="java.io.Serializable">
-              <h3>Inherited from <span class="extype" name="java.io.Serializable">Serializable</span></h3>
-            </div><div class="parent" name="scala.AnyRef">
+        <div class="parent" name="scala.AnyRef">
               <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
             </div><div class="parent" name="scala.Any">
               <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>

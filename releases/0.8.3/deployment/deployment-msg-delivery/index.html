@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Reliable Message Delivery - Apache Gearpump(incubating)</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Reliable Message Delivery";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../../index.html" class="icon icon-home"> Apache Gearpump(incubating)</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../index.html">Overview</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Introduction</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../introduction/submit-your-1st-application/index.html">Submit Your 1st Application</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../introduction/commandline/index.html">Client Command Line</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../introduction/basic-concepts/index.html">Basic Concepts</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../introduction/features/index.html">Technical Highlights</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../introduction/message-delivery/index.html">Reliable Message Delivery</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../introduction/performance-report/index.html">Performance</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../introduction/gearpump-internals/index.html">Gearpump Internals</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Deployment</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../deployment-local/index.html">Local Mode</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../deployment-standalone/index.html">Standalone Mode</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../deployment-yarn/index.html">YARN Mode</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../deployment-docker/index.html">Docker Mode</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../deployment-ui-authentication/index.html">UI Authentication</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../deployment-ha/index.html">High Availability</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="index.html">Reliable Message Delivery</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#how-to-deploy-for-at-least-once-message-delivery">How to deploy for At Least Once Message Delivery?</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#how-to-deploy-for-exactly-once-message-delivery">How to deploy for Exactly Once Message Delivery?</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../deployment-configuration/index.html">Configuration</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../deployment-resource-isolation/index.html">Resource Isolation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../deployment-security/index.html">YARN Security Guide</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../get-gearpump-distribution/index.html">How to Get Your Gearpump Distribution</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../hardware-requirement/index.html">Hardware Requirement</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Programming Guide</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../dev/dev-write-1st-app/index.html">Write Your 1st App</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../dev/dev-custom-serializer/index.html">Customized Message Passing</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../dev/dev-connectors/index.html">Gearpump Connectors</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../dev/dev-storm/index.html">Storm Compatibility</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../dev/dev-ide-setup/index.html">IDE Setup</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../dev/dev-non-streaming-example/index.html">Non Streaming Examples</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../dev/dev-rest-api/index.html">REST API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/scala/index.html">Scala API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/java/index.html">Java API</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Apache Gearpump(incubating)</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Deployment &raquo;</li>
+        
+      
+    
+    <li>Reliable Message Delivery</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/apache/incubator-gearpump" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="how-to-deploy-for-at-least-once-message-delivery">How to deploy for At Least Once Message Delivery?</h2>
+<p>As introduced in the <a href="../../introduction/message-delivery#what-is-at-least-once-message-delivery">What is At Least Once Message Delivery</a>, Gearpump has a built in KafkaSource. To get at least once message delivery, users should deploy a Kafka cluster as the offset store along with the Gearpump cluster. </p>
+<p>Here's an example to deploy a local Kafka cluster. </p>
+<ol>
+<li>
+<p>download the latest Kafka from the official website and extract to a local directory (<code>$KAFKA_HOME</code>)</p>
+</li>
+<li>
+<p>Boot up the single-node Zookeeper instance packaged with Kafka. </p>
+<pre class="codehilite"><code class="language-bash">$KAFKA_HOME/bin/zookeeper-server-start.sh $KAFKA_HOME/config/zookeeper.properties</code></pre>
+
+
+</li>
+<li>
+<p>Start a Kafka broker</p>
+<pre class="codehilite"><code class="language-bash">$KAFKA_HOME/bin/kafka-server-start.sh $KAFKA_HOME/config/kafka.properties</code></pre>
+
+
+</li>
+<li>
+<p>When creating a offset store for <code>KafkaSource</code>, set the zookeeper connect string to <code>localhost:2181</code> and broker list to <code>localhost:9092</code> in <code>KafkaStorageFactory</code>.</p>
+<pre class="codehilite"><code class="language-scala">val offsetStorageFactory = new KafkaStorageFactory(&quot;localhost:2181&quot;, &quot;localhost:9092&quot;)
+val source = new KafkaSource(&quot;topic1&quot;, &quot;localhost:2181&quot;, offsetStorageFactory)</code></pre>
+
+
+</li>
+</ol>
+<h2 id="how-to-deploy-for-exactly-once-message-delivery">How to deploy for Exactly Once Message Delivery?</h2>
+<p>Exactly Once Message Delivery requires both an offset store and a checkpoint store. For the offset store, a Kafka cluster should be deployed as in the previous section. As for the checkpoint store, Gearpump has built-in support for Hadoop file systems, like HDFS. Hence, users should deploy a HDFS cluster alongside the Gearpump cluster. </p>
+<p>Here's an example to deploy a local HDFS cluster.</p>
+<ol>
+<li>
+<p>download Hadoop 2.6 from the official website and extracts it to a local directory <code>HADOOP_HOME</code></p>
+</li>
+<li>
+<p>add following configuration to <code>$HADOOP_HOME/etc/core-site.xml</code></p>
+<pre class="codehilite"><code class="language-xml">&lt;configuration&gt;
+  &lt;property&gt;
+    &lt;name&gt;fs.defaultFS&lt;/name&gt;
+    &lt;value&gt;hdfs://localhost:9000&lt;/value&gt;
+  &lt;/property&gt;
+&lt;/configuration&gt;</code></pre>
+
+
+</li>
+<li>
+<p>start HDFS</p>
+<pre class="codehilite"><code class="language-bash">$HADOOP_HOME/sbin/start-dfs.sh</code></pre>
+
+
+</li>
+<li>
+<p>When creating a <code>HadoopCheckpointStore</code>, set the hadoop configuration as in the <code>core-site.xml</code></p>
+<pre class="codehilite"><code class="language-scala">val hadoopConfig = new Configuration
+hadoopConfig.set(&quot;fs.defaultFS&quot;, &quot;hdfs://localhost:9000&quot;)
+val checkpointStoreFactory = new HadoopCheckpointStoreFactory(&quot;MessageCount&quot;, hadoopConfig, new FileSizeRotation(1000))</code></pre>
+
+
+</li>
+</ol>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../deployment-configuration/index.html" class="btn btn-neutral float-right" title="Configuration"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../deployment-ha/index.html" class="btn btn-neutral" title="High Availability"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../deployment-ha/index.html" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../deployment-configuration/index.html" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

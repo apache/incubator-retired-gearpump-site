@@ -102,6 +102,29 @@
       <p class="shortcomment cmt">Will have the same parallelism with last processor
 And each task in current processor will co-locate with task of last processor
 </p>
+    </li><li name="org.apache.gearpump.streaming.partitioner.GroupByPartitioner" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="GroupByPartitioner[T,GROUP]extendsUnicastPartitioner"></a>
+      <a id="GroupByPartitioner[T,GROUP]:GroupByPartitioner[T,GROUP]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="GroupByPartitioner.html"><span class="name">GroupByPartitioner</span></a><span class="tparams">[<span name="T">T</span>, <span name="GROUP">GROUP</span>]</span><span class="result"> extends <a href="UnicastPartitioner.html" class="extype" name="org.apache.gearpump.streaming.partitioner.UnicastPartitioner">UnicastPartitioner</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.apache.gearpump.streaming.partitioner.package@GroupByPartitioner[T,GROUP]extendsUnicastPartitioner" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Partition messages by applying group by function first.</p><div class="fullcomment"><div class="comment cmt"><p>Partition messages by applying group by function first.</p><p>For example:</p><pre><span class="kw">case</span> <span class="kw">class</span> People(name: <span class="std">String</span>, gender: <span class="std">String</span>)
+
+<span class="kw">object</span> Test{
+
+  <span class="kw">val</span> groupBy: (People <span class="kw">=&gt;</span> <span class="std">String</span>) = people <span class="kw">=&gt;</span> people.gender
+  <span class="kw">val</span> partitioner = GroupByPartitioner(groupBy)
+}</pre></div></div>
     </li><li name="org.apache.gearpump.streaming.partitioner.HashPartitioner" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="HashPartitionerextendsUnicastPartitioner"></a>
       <a id="HashPartitioner:HashPartitioner"></a>

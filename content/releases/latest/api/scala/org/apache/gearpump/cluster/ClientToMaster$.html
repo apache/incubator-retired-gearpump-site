@@ -141,26 +141,6 @@
       </a>
     </span>
       <p class="shortcomment cmt">Request app master for a short list of cluster app that administrators should be aware of.</p>
-    </li><li name="org.apache.gearpump.cluster.ClientToMaster.GetStallingTasks" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="GetStallingTasksextendsProductwithSerializable"></a>
-      <a id="GetStallingTasks:GetStallingTasks"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">case class</span>
-      </span>
-      <span class="symbol">
-        <a href="ClientToMaster$$GetStallingTasks.html"><span class="name">GetStallingTasks</span></a><span class="params">(<span name="appId">appId: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../index.html#org.apache.gearpump.cluster.ClientToMaster$@GetStallingTasksextendsProductwithSerializable" title="Permalink" target="_top">
-        <img src="../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">If there are message loss, the clock would pause for a while.</p><div class="fullcomment"><div class="comment cmt"><p>If there are message loss, the clock would pause for a while. This message is used to
-pin-point which task has stalling clock value, and usually it means something wrong on
-that machine.
-</p></div></div>
     </li><li name="org.apache.gearpump.cluster.ClientToMaster.JarStoreServerAddress" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="JarStoreServerAddressextendsProductwithSerializable"></a>
       <a id="JarStoreServerAddress:JarStoreServerAddress"></a>
@@ -458,6 +438,26 @@ that machine.
       </a>
     </span>
       <p class="shortcomment cmt">Get an active Jar store to upload job jars, like wordcount.jar</p>
+    </li><li name="org.apache.gearpump.cluster.ClientToMaster.GetStallingTasks" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="GetStallingTasks"></a>
+      <a id="GetStallingTasks:GetStallingTasks"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ClientToMaster$$GetStallingTasks$.html"><span class="name">GetStallingTasks</span></a><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#org.apache.gearpump.cluster.ClientToMaster$@GetStallingTasks" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">If there are message loss, the clock would pause for a while.</p><div class="fullcomment"><div class="comment cmt"><p>If there are message loss, the clock would pause for a while. This message is used to
+pin-point which task has stalling clock value, and usually it means something wrong on
+that machine.
+</p></div></div>
     </li><li name="org.apache.gearpump.cluster.ClientToMaster.QueryMasterConfig" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="QueryMasterConfig"></a>
       <a id="QueryMasterConfig:QueryMasterConfig"></a>
