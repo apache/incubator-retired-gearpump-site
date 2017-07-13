@@ -45,11 +45,11 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <span class="name">GroupByOp</span><span class="tparams">[<span name="IN">IN</span>, <span name="GROUP">GROUP</span>]</span><span class="params">(<span name="groupBy">groupBy: <a href="../window/impl/GroupAlsoByWindow.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.impl.GroupAlsoByWindow">GroupAlsoByWindow</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.plan.GroupByOp.IN">IN</span>, <span class="extype" name="org.apache.gearpump.streaming.dsl.plan.GroupByOp.GROUP">GROUP</span>]</span>, <span name="parallelism">parallelism: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">1</span></span>, <span name="description">description: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">&quot;groupBy&quot;</span></span>, <span name="userConfig">userConfig: <a href="../../../cluster/UserConfig.html" class="extype" name="org.apache.gearpump.cluster.UserConfig">UserConfig</a> = <span class="symbol"><span class="name"><a href="../../../../../package.html">UserConfig.empty</a></span></span></span>)</span><span class="result"> extends <a href="Op.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.Op">Op</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <span class="name">GroupByOp</span><span class="tparams">[<span name="IN">IN</span>, <span name="GROUP">GROUP</span>]</span><span class="result"> extends <a href="Op.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.Op">Op</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>This represents a Processor with window aggregation
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>This represents a Processor with groupBy and window aggregation
 </p></div><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.Product">Product</span>, <span class="extype" name="scala.Equals">Equals</span>, <a href="Op.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.Op">Op</a>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
@@ -87,27 +87,7 @@
 
       <div id="template">
         <div id="allMembers">
-        <div id="constructors" class="members">
-              <h3>Instance Constructors</h3>
-              <ol><li name="org.apache.gearpump.streaming.dsl.plan.GroupByOp#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="&lt;init&gt;(groupBy:org.apache.gearpump.streaming.dsl.window.impl.GroupAlsoByWindow[IN,GROUP],parallelism:Int,description:String,userConfig:org.apache.gearpump.cluster.UserConfig):org.apache.gearpump.streaming.dsl.plan.GroupByOp[IN,GROUP]"></a>
-      <a id="&lt;init&gt;:GroupByOp[IN,GROUP]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">new</span>
-      </span>
-      <span class="symbol">
-        <span class="name">GroupByOp</span><span class="params">(<span name="groupBy">groupBy: <a href="../window/impl/GroupAlsoByWindow.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.impl.GroupAlsoByWindow">GroupAlsoByWindow</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.plan.GroupByOp.IN">IN</span>, <span class="extype" name="org.apache.gearpump.streaming.dsl.plan.GroupByOp.GROUP">GROUP</span>]</span>, <span name="parallelism">parallelism: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">1</span></span>, <span name="description">description: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">&quot;groupBy&quot;</span></span>, <span name="userConfig">userConfig: <a href="../../../cluster/UserConfig.html" class="extype" name="org.apache.gearpump.cluster.UserConfig">UserConfig</a> = <span class="symbol"><span class="name"><a href="../../../../../package.html">UserConfig.empty</a></span></span></span>)</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.plan.GroupByOp@&lt;init&gt;(groupBy:org.apache.gearpump.streaming.dsl.window.impl.GroupAlsoByWindow[IN,GROUP],parallelism:Int,description:String,userConfig:org.apache.gearpump.cluster.UserConfig):org.apache.gearpump.streaming.dsl.plan.GroupByOp[IN,GROUP]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li></ol>
-            </div>
+        
 
         
 
@@ -297,36 +277,19 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="org.apache.gearpump.streaming.dsl.plan.GroupByOp#getProcessor" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="getProcessor(implicitsystem:akka.actor.ActorSystem):org.apache.gearpump.streaming.Processor[_&lt;:org.apache.gearpump.streaming.task.Task]"></a>
-      <a id="getProcessor(ActorSystem):Processor[_&lt;:Task]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">getProcessor</span><span class="params">(<span class="implicit">implicit </span><span name="system">system: <span class="extype" name="akka.actor.ActorSystem">ActorSystem</span></span>)</span><span class="result">: <a href="../../Processor.html" class="extype" name="org.apache.gearpump.streaming.Processor">Processor</a>[_ &lt;: <a href="../../task/Task.html" class="extype" name="org.apache.gearpump.streaming.task.Task">Task</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.plan.GroupByOp@getProcessor(implicitsystem:akka.actor.ActorSystem):org.apache.gearpump.streaming.Processor[_&lt;:org.apache.gearpump.streaming.task.Task]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="org.apache.gearpump.streaming.dsl.plan.GroupByOp">GroupByOp</a> → <a href="Op.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.Op">Op</a></dd></dl></div>
     </li><li name="org.apache.gearpump.streaming.dsl.plan.GroupByOp#groupBy" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="groupBy:org.apache.gearpump.streaming.dsl.window.impl.GroupAlsoByWindow[IN,GROUP]"></a>
-      <a id="groupBy:GroupAlsoByWindow[IN,GROUP]"></a>
+      <a id="groupBy:IN=&gt;GROUP"></a>
+      <a id="groupBy:(IN)⇒GROUP"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">groupBy</span><span class="result">: <a href="../window/impl/GroupAlsoByWindow.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.impl.GroupAlsoByWindow">GroupAlsoByWindow</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.plan.GroupByOp.IN">IN</span>, <span class="extype" name="org.apache.gearpump.streaming.dsl.plan.GroupByOp.GROUP">GROUP</span>]</span>
+        <span class="name">groupBy</span><span class="result">: (<span class="extype" name="org.apache.gearpump.streaming.dsl.plan.GroupByOp.IN">IN</span>) ⇒ <span class="extype" name="org.apache.gearpump.streaming.dsl.plan.GroupByOp.GROUP">GROUP</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.plan.GroupByOp@groupBy:org.apache.gearpump.streaming.dsl.window.impl.GroupAlsoByWindow[IN,GROUP]" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.plan.GroupByOp@groupBy:IN=&gt;GROUP" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -433,6 +396,23 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="org.apache.gearpump.streaming.dsl.plan.GroupByOp#toProcessor" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toProcessor(implicitsystem:akka.actor.ActorSystem):org.apache.gearpump.streaming.Processor[_&lt;:org.apache.gearpump.streaming.task.Task]"></a>
+      <a id="toProcessor(ActorSystem):Processor[_&lt;:Task]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toProcessor</span><span class="params">(<span class="implicit">implicit </span><span name="system">system: <span class="extype" name="akka.actor.ActorSystem">ActorSystem</span></span>)</span><span class="result">: <a href="../../Processor.html" class="extype" name="org.apache.gearpump.streaming.Processor">Processor</a>[_ &lt;: <a href="../../task/Task.html" class="extype" name="org.apache.gearpump.streaming.task.Task">Task</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.plan.GroupByOp@toProcessor(implicitsystem:akka.actor.ActorSystem):org.apache.gearpump.streaming.Processor[_&lt;:org.apache.gearpump.streaming.task.Task]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="org.apache.gearpump.streaming.dsl.plan.GroupByOp">GroupByOp</a> → <a href="Op.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.Op">Op</a></dd></dl></div>
     </li><li name="org.apache.gearpump.streaming.dsl.plan.GroupByOp#userConfig" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="userConfig:org.apache.gearpump.cluster.UserConfig"></a>
       <a id="userConfig:UserConfig"></a>

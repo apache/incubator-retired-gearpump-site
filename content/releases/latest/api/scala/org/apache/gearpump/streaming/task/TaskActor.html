@@ -489,6 +489,23 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="org.apache.gearpump.streaming.task.TaskActor#getProcessingWatermark" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="getProcessingWatermark:java.time.Instant"></a>
+      <a id="getProcessingWatermark:Instant"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getProcessingWatermark</span><span class="result">: <span class="extype" name="java.time.Instant">Instant</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.apache.gearpump.streaming.task.TaskActor@getProcessingWatermark:java.time.Instant" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
     </li><li name="org.apache.gearpump.streaming.task.TaskActor#getUpstreamMinClock" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="getUpstreamMinClock:org.apache.gearpump.TimeStamp"></a>
       <a id="getUpstreamMinClock:TimeStamp"></a>
@@ -575,24 +592,6 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="ExpressTransport.html" class="extype" name="org.apache.gearpump.streaming.task.ExpressTransport">ExpressTransport</a></dd></dl></div>
-    </li><li name="org.apache.gearpump.streaming.task.TaskActor#minClock" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="minClock:org.apache.gearpump.TimeStamp"></a>
-      <a id="minClock:TimeStamp"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">minClock</span><span class="result">: <a href="../../package.html#TimeStamp=Long" class="extmbr" name="org.apache.gearpump.TimeStamp">TimeStamp</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../index.html#org.apache.gearpump.streaming.task.TaskActor@minClock:org.apache.gearpump.TimeStamp" title="Permalink" target="_top">
-        <img src="../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">Returns min clock of this task
-</p>
     </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a>
       <a id="ne(AnyRef):Boolean"></a>
@@ -1098,6 +1097,23 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Actor</dd></dl></div>
+    </li><li name="org.apache.gearpump.streaming.task.TaskActor#updateWatermark" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="updateWatermark(watermark:java.time.Instant):Unit"></a>
+      <a id="updateWatermark(Instant):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">updateWatermark</span><span class="params">(<span name="watermark">watermark: <span class="extype" name="java.time.Instant">Instant</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.apache.gearpump.streaming.task.TaskActor@updateWatermark(watermark:java.time.Instant):Unit" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
     </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait():Unit"></a>
       <a id="wait():Unit"></a>
@@ -1167,19 +1183,19 @@
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="org.apache.gearpump.streaming.task.TaskActor#waitForStartClock" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="waitForStartClock:TaskActor.this.Receive"></a>
-      <a id="waitForStartClock:Receive"></a>
+    </li><li name="org.apache.gearpump.streaming.task.TaskActor#waitForStartTask" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="waitForStartTask(startClock:org.apache.gearpump.TimeStamp):TaskActor.this.Receive"></a>
+      <a id="waitForStartTask(TimeStamp):Receive"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">waitForStartClock</span><span class="result">: <a href="#Receive=akka.actor.Actor.Receive" class="extmbr" name="org.apache.gearpump.streaming.task.TaskActor.Receive">Receive</a></span>
+        <span class="name">waitForStartTask</span><span class="params">(<span name="startClock">startClock: <a href="../../package.html#TimeStamp=Long" class="extmbr" name="org.apache.gearpump.TimeStamp">TimeStamp</a></span>)</span><span class="result">: <a href="#Receive=akka.actor.Actor.Receive" class="extmbr" name="org.apache.gearpump.streaming.task.TaskActor.Receive">Receive</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#org.apache.gearpump.streaming.task.TaskActor@waitForStartClock:TaskActor.this.Receive" title="Permalink" target="_top">
+      <a href="../../../../../index.html#org.apache.gearpump.streaming.task.TaskActor@waitForStartTask(startClock:org.apache.gearpump.TimeStamp):TaskActor.this.Receive" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>

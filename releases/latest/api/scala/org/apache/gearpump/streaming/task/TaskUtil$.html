@@ -311,6 +311,40 @@
     </span>
       <p class="shortcomment cmt">Resolves a classname to a Task class.</p><div class="fullcomment"><div class="comment cmt"><p>Resolves a classname to a Task class.
 </p></div><dl class="paramcmts block"><dt class="param">className</dt><dd class="cmt"><p>the class name to resolve</p></dd><dt>returns</dt><dd class="cmt"><p>resolved class</p></dd></dl></div>
+    </li><li name="org.apache.gearpump.streaming.task.TaskUtil#max" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="max(t1:java.time.Instant,t2:java.time.Instant):java.time.Instant"></a>
+      <a id="max(Instant,Instant):Instant"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">max</span><span class="params">(<span name="t1">t1: <span class="extype" name="java.time.Instant">Instant</span></span>, <span name="t2">t2: <span class="extype" name="java.time.Instant">Instant</span></span>)</span><span class="result">: <span class="extype" name="java.time.Instant">Instant</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.apache.gearpump.streaming.task.TaskUtil$@max(t1:java.time.Instant,t2:java.time.Instant):java.time.Instant" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>t1 if t1 is not smaller than t2 and t2 otherwise</p></dd></dl></div>
+    </li><li name="org.apache.gearpump.streaming.task.TaskUtil#min" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="min(t1:java.time.Instant,t2:java.time.Instant):java.time.Instant"></a>
+      <a id="min(Instant,Instant):Instant"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">min</span><span class="params">(<span name="t1">t1: <span class="extype" name="java.time.Instant">Instant</span></span>, <span name="t2">t2: <span class="extype" name="java.time.Instant">Instant</span></span>)</span><span class="result">: <span class="extype" name="java.time.Instant">Instant</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.apache.gearpump.streaming.task.TaskUtil$@min(t1:java.time.Instant,t2:java.time.Instant):java.time.Instant" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>t1 if t1 is not larger than t2 and t2 otherwise</p></dd></dl></div>
     </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a>
       <a id="ne(AnyRef):Boolean"></a>
@@ -396,6 +430,23 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="org.apache.gearpump.streaming.task.TaskUtil#trigger" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="trigger[IN,OUT](watermark:java.time.Instant,runner:org.apache.gearpump.streaming.dsl.window.impl.WindowRunner[IN,OUT],context:org.apache.gearpump.streaming.task.TaskContext):Unit"></a>
+      <a id="trigger[IN,OUT](Instant,WindowRunner[IN,OUT],TaskContext):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">trigger</span><span class="tparams">[<span name="IN">IN</span>, <span name="OUT">OUT</span>]</span><span class="params">(<span name="watermark">watermark: <span class="extype" name="java.time.Instant">Instant</span></span>, <span name="runner">runner: <a href="../dsl/window/impl/WindowRunner.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.impl.WindowRunner">WindowRunner</a>[<span class="extype" name="org.apache.gearpump.streaming.task.TaskUtil.trigger.IN">IN</span>, <span class="extype" name="org.apache.gearpump.streaming.task.TaskUtil.trigger.OUT">OUT</span>]</span>, <span name="context">context: <a href="TaskContext.html" class="extype" name="org.apache.gearpump.streaming.task.TaskContext">TaskContext</a></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.apache.gearpump.streaming.task.TaskUtil$@trigger[IN,OUT](watermark:java.time.Instant,runner:org.apache.gearpump.streaming.dsl.window.impl.WindowRunner[IN,OUT],context:org.apache.gearpump.streaming.task.TaskContext):Unit" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
     </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait():Unit"></a>
       <a id="wait():Unit"></a>

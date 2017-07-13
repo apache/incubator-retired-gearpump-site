@@ -91,7 +91,7 @@
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
               <ol><li name="org.apache.gearpump.streaming.dsl.scalaapi.Stream#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="&lt;init&gt;(graph:org.apache.gearpump.util.Graph[org.apache.gearpump.streaming.dsl.plan.Op,org.apache.gearpump.streaming.dsl.plan.OpEdge],thisNode:org.apache.gearpump.streaming.dsl.plan.Op,edge:Option[org.apache.gearpump.streaming.dsl.plan.OpEdge]):org.apache.gearpump.streaming.dsl.scalaapi.Stream[T]"></a>
+      <a id="&lt;init&gt;(graph:org.apache.gearpump.util.Graph[org.apache.gearpump.streaming.dsl.plan.Op,org.apache.gearpump.streaming.dsl.plan.OpEdge],thisNode:org.apache.gearpump.streaming.dsl.plan.Op,edge:Option[org.apache.gearpump.streaming.dsl.plan.OpEdge],windows:org.apache.gearpump.streaming.dsl.window.api.Windows):org.apache.gearpump.streaming.dsl.scalaapi.Stream[T]"></a>
       <a id="&lt;init&gt;:Stream[T]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -99,10 +99,10 @@
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">Stream</span><span class="params">(<span name="graph">graph: <a href="../../../util/Graph.html" class="extype" name="org.apache.gearpump.util.Graph">Graph</a>[<a href="../plan/Op.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.Op">Op</a>, <a href="../plan/OpEdge.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.OpEdge">OpEdge</a>]</span>, <span name="thisNode">thisNode: <a href="../plan/Op.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.Op">Op</a></span>, <span name="edge">edge: <span class="extype" name="scala.Option">Option</span>[<a href="../plan/OpEdge.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.OpEdge">OpEdge</a>] = <span class="symbol">None</span></span>)</span>
+        <span class="name">Stream</span><span class="params">(<span name="graph">graph: <a href="../../../util/Graph.html" class="extype" name="org.apache.gearpump.util.Graph">Graph</a>[<a href="../plan/Op.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.Op">Op</a>, <a href="../plan/OpEdge.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.OpEdge">OpEdge</a>]</span>, <span name="thisNode">thisNode: <a href="../plan/Op.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.Op">Op</a></span>, <span name="edge">edge: <span class="extype" name="scala.Option">Option</span>[<a href="../plan/OpEdge.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.OpEdge">OpEdge</a>] = <span class="symbol">None</span></span>, <span name="windows">windows: <a href="../window/api/Windows.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.api.Windows">Windows</a> = <span class="symbol"><span class="name"><a href="../../../../../package.html">GlobalWindows()</a></span></span></span>)</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.scalaapi.Stream@&lt;init&gt;(graph:org.apache.gearpump.util.Graph[org.apache.gearpump.streaming.dsl.plan.Op,org.apache.gearpump.streaming.dsl.plan.OpEdge],thisNode:org.apache.gearpump.streaming.dsl.plan.Op,edge:Option[org.apache.gearpump.streaming.dsl.plan.OpEdge]):org.apache.gearpump.streaming.dsl.scalaapi.Stream[T]" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.scalaapi.Stream@&lt;init&gt;(graph:org.apache.gearpump.util.Graph[org.apache.gearpump.streaming.dsl.plan.Op,org.apache.gearpump.streaming.dsl.plan.OpEdge],thisNode:org.apache.gearpump.streaming.dsl.plan.Op,edge:Option[org.apache.gearpump.streaming.dsl.plan.OpEdge],windows:org.apache.gearpump.streaming.dsl.window.api.Windows):org.apache.gearpump.streaming.dsl.scalaapi.Stream[T]" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -483,18 +483,18 @@ groupBy[People](_.gender) will group the people by gender.</p><p>You can append 
       <p class="shortcomment cmt">Returns a new stream by applying a map function to each element.</p><div class="fullcomment"><div class="comment cmt"><p>Returns a new stream by applying a map function to each element.
 </p></div><dl class="paramcmts block"><dt class="param">fn</dt><dd class="cmt"><p>map function</p></dd><dt>returns</dt><dd class="cmt"><p>A new stream with type [R]</p></dd></dl></div>
     </li><li name="org.apache.gearpump.streaming.dsl.scalaapi.Stream#merge" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="merge(other:org.apache.gearpump.streaming.dsl.scalaapi.Stream[T],description:String):org.apache.gearpump.streaming.dsl.scalaapi.Stream[T]"></a>
-      <a id="merge(Stream[T],String):Stream[T]"></a>
+      <a id="merge(other:org.apache.gearpump.streaming.dsl.scalaapi.Stream[T],parallelism:Int,description:String):org.apache.gearpump.streaming.dsl.scalaapi.Stream[T]"></a>
+      <a id="merge(Stream[T],Int,String):Stream[T]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">merge</span><span class="params">(<span name="other">other: <a href="" class="extype" name="org.apache.gearpump.streaming.dsl.scalaapi.Stream">Stream</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.scalaapi.Stream.T">T</span>]</span>, <span name="description">description: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">&quot;merge&quot;</span></span>)</span><span class="result">: <a href="" class="extype" name="org.apache.gearpump.streaming.dsl.scalaapi.Stream">Stream</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.scalaapi.Stream.T">T</span>]</span>
+        <span class="name">merge</span><span class="params">(<span name="other">other: <a href="" class="extype" name="org.apache.gearpump.streaming.dsl.scalaapi.Stream">Stream</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.scalaapi.Stream.T">T</span>]</span>, <span name="parallelism">parallelism: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">1</span></span>, <span name="description">description: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">&quot;merge&quot;</span></span>)</span><span class="result">: <a href="" class="extype" name="org.apache.gearpump.streaming.dsl.scalaapi.Stream">Stream</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.scalaapi.Stream.T">T</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.scalaapi.Stream@merge(other:org.apache.gearpump.streaming.dsl.scalaapi.Stream[T],description:String):org.apache.gearpump.streaming.dsl.scalaapi.Stream[T]" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.scalaapi.Stream@merge(other:org.apache.gearpump.streaming.dsl.scalaapi.Stream[T],parallelism:Int,description:String):org.apache.gearpump.streaming.dsl.scalaapi.Stream[T]" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -711,24 +711,24 @@ groupBy[People](_.gender) will group the people by gender.</p><p>You can append 
               
         </dd></dl></div>
     </li><li name="org.apache.gearpump.streaming.dsl.scalaapi.Stream#window" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="window(win:org.apache.gearpump.streaming.dsl.window.api.Windows[T],description:String):org.apache.gearpump.streaming.dsl.scalaapi.WindowStream[T]"></a>
-      <a id="window(Windows[T],String):WindowStream[T]"></a>
+      <a id="window(windows:org.apache.gearpump.streaming.dsl.window.api.Windows):org.apache.gearpump.streaming.dsl.scalaapi.Stream[T]"></a>
+      <a id="window(Windows):Stream[T]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">window</span><span class="params">(<span name="win">win: <a href="../window/api/Windows.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.api.Windows">Windows</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.scalaapi.Stream.T">T</span>]</span>, <span name="description">description: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">&quot;window&quot;</span></span>)</span><span class="result">: <a href="WindowStream.html" class="extype" name="org.apache.gearpump.streaming.dsl.scalaapi.WindowStream">WindowStream</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.scalaapi.Stream.T">T</span>]</span>
+        <span class="name">window</span><span class="params">(<span name="windows">windows: <a href="../window/api/Windows.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.api.Windows">Windows</a></span>)</span><span class="result">: <a href="" class="extype" name="org.apache.gearpump.streaming.dsl.scalaapi.Stream">Stream</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.scalaapi.Stream.T">T</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.scalaapi.Stream@window(win:org.apache.gearpump.streaming.dsl.window.api.Windows[T],description:String):org.apache.gearpump.streaming.dsl.scalaapi.WindowStream[T]" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.scalaapi.Stream@window(windows:org.apache.gearpump.streaming.dsl.window.api.Windows):org.apache.gearpump.streaming.dsl.scalaapi.Stream[T]" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">Window function
 </p><div class="fullcomment"><div class="comment cmt"><p>Window function
-</p></div><dl class="paramcmts block"><dt class="param">win</dt><dd class="cmt"><p>window definition</p></dd><dt class="param">description</dt><dd class="cmt"><p>window description</p></dd><dt>returns</dt><dd class="cmt"><p><a href="WindowStream.html" class="extype" name="org.apache.gearpump.streaming.dsl.scalaapi.WindowStream">WindowStream</a> where groupBy could be applied</p></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="param">windows</dt><dd class="cmt"><p>window definition</p></dd><dt>returns</dt><dd class="cmt"><p>the windowed <a href="" class="extype" name="org.apache.gearpump.streaming.dsl.scalaapi.Stream">Stream</a></p></dd></dl></div>
     </li></ol>
             </div>
 

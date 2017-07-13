@@ -45,7 +45,7 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <span class="name">MergeOp</span><span class="params">(<span name="description">description: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="userConfig">userConfig: <a href="../../../cluster/UserConfig.html" class="extype" name="org.apache.gearpump.cluster.UserConfig">UserConfig</a> = <span class="symbol"><span class="name"><a href="../../../../../package.html">UserConfig.empty</a></span></span></span>)</span><span class="result"> extends <a href="Op.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.Op">Op</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <span class="name">MergeOp</span><span class="params">(<span name="parallelism">parallelism: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">1</span></span>, <span name="description">description: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">&quot;merge&quot;</span></span>, <span name="userConfig">userConfig: <a href="../../../cluster/UserConfig.html" class="extype" name="org.apache.gearpump.cluster.UserConfig">UserConfig</a> = <span class="symbol"><span class="name"><a href="../../../../../package.html">UserConfig.empty</a></span></span></span>)</span><span class="result"> extends <a href="Op.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.Op">Op</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       
@@ -90,7 +90,7 @@
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
               <ol><li name="org.apache.gearpump.streaming.dsl.plan.MergeOp#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="&lt;init&gt;(description:String,userConfig:org.apache.gearpump.cluster.UserConfig):org.apache.gearpump.streaming.dsl.plan.MergeOp"></a>
+      <a id="&lt;init&gt;(parallelism:Int,description:String,userConfig:org.apache.gearpump.cluster.UserConfig):org.apache.gearpump.streaming.dsl.plan.MergeOp"></a>
       <a id="&lt;init&gt;:MergeOp"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -98,10 +98,10 @@
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">MergeOp</span><span class="params">(<span name="description">description: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="userConfig">userConfig: <a href="../../../cluster/UserConfig.html" class="extype" name="org.apache.gearpump.cluster.UserConfig">UserConfig</a> = <span class="symbol"><span class="name"><a href="../../../../../package.html">UserConfig.empty</a></span></span></span>)</span>
+        <span class="name">MergeOp</span><span class="params">(<span name="parallelism">parallelism: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">1</span></span>, <span name="description">description: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">&quot;merge&quot;</span></span>, <span name="userConfig">userConfig: <a href="../../../cluster/UserConfig.html" class="extype" name="org.apache.gearpump.cluster.UserConfig">UserConfig</a> = <span class="symbol"><span class="name"><a href="../../../../../package.html">UserConfig.empty</a></span></span></span>)</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.plan.MergeOp@&lt;init&gt;(description:String,userConfig:org.apache.gearpump.cluster.UserConfig):org.apache.gearpump.streaming.dsl.plan.MergeOp" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.plan.MergeOp@&lt;init&gt;(parallelism:Int,description:String,userConfig:org.apache.gearpump.cluster.UserConfig):org.apache.gearpump.streaming.dsl.plan.MergeOp" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -297,23 +297,6 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="org.apache.gearpump.streaming.dsl.plan.MergeOp#getProcessor" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="getProcessor(implicitsystem:akka.actor.ActorSystem):org.apache.gearpump.streaming.Processor[_&lt;:org.apache.gearpump.streaming.task.Task]"></a>
-      <a id="getProcessor(ActorSystem):Processor[_&lt;:Task]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">getProcessor</span><span class="params">(<span class="implicit">implicit </span><span name="system">system: <span class="extype" name="akka.actor.ActorSystem">ActorSystem</span></span>)</span><span class="result">: <a href="../../Processor.html" class="extype" name="org.apache.gearpump.streaming.Processor">Processor</a>[_ &lt;: <a href="../../task/Task.html" class="extype" name="org.apache.gearpump.streaming.task.Task">Task</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.plan.MergeOp@getProcessor(implicitsystem:akka.actor.ActorSystem):org.apache.gearpump.streaming.Processor[_&lt;:org.apache.gearpump.streaming.task.Task]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="org.apache.gearpump.streaming.dsl.plan.MergeOp">MergeOp</a> → <a href="Op.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.Op">Op</a></dd></dl></div>
     </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="isInstanceOf[T0]:Boolean"></a>
       <a id="isInstanceOf[T0]:Boolean"></a>
@@ -382,6 +365,23 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="org.apache.gearpump.streaming.dsl.plan.MergeOp#parallelism" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="parallelism:Int"></a>
+      <a id="parallelism:Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">parallelism</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.plan.MergeOp@parallelism:Int" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>
@@ -399,6 +399,23 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="org.apache.gearpump.streaming.dsl.plan.MergeOp#toProcessor" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toProcessor(implicitsystem:akka.actor.ActorSystem):org.apache.gearpump.streaming.Processor[_&lt;:org.apache.gearpump.streaming.task.Task]"></a>
+      <a id="toProcessor(ActorSystem):Processor[_&lt;:Task]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toProcessor</span><span class="params">(<span class="implicit">implicit </span><span name="system">system: <span class="extype" name="akka.actor.ActorSystem">ActorSystem</span></span>)</span><span class="result">: <a href="../../Processor.html" class="extype" name="org.apache.gearpump.streaming.Processor">Processor</a>[_ &lt;: <a href="../../task/Task.html" class="extype" name="org.apache.gearpump.streaming.task.Task">Task</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.plan.MergeOp@toProcessor(implicitsystem:akka.actor.ActorSystem):org.apache.gearpump.streaming.Processor[_&lt;:org.apache.gearpump.streaming.task.Task]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="org.apache.gearpump.streaming.dsl.plan.MergeOp">MergeOp</a> → <a href="Op.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.Op">Op</a></dd></dl></div>
     </li><li name="org.apache.gearpump.streaming.dsl.plan.MergeOp#userConfig" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="userConfig:org.apache.gearpump.cluster.UserConfig"></a>
       <a id="userConfig:UserConfig"></a>

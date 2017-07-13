@@ -66,57 +66,23 @@
 
         <div id="types" class="types members">
               <h3>Type Members</h3>
-              <ol><li name="org.apache.gearpump.streaming.dsl.task.CountTriggerTask" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="CountTriggerTask[IN,GROUP]extendsTask"></a>
-      <a id="CountTriggerTask[IN,GROUP]:CountTriggerTask[IN,GROUP]"></a>
+              <ol><li name="org.apache.gearpump.streaming.dsl.task.GroupByTask" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="GroupByTask[IN,GROUP,OUT]extendsTask"></a>
+      <a id="GroupByTask[IN,GROUP,OUT]:GroupByTask[IN,GROUP,OUT]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <a href="CountTriggerTask.html"><span class="name">CountTriggerTask</span></a><span class="tparams">[<span name="IN">IN</span>, <span name="GROUP">GROUP</span>]</span><span class="result"> extends <a href="../../task/Task.html" class="extype" name="org.apache.gearpump.streaming.task.Task">Task</a></span>
+        <a href="GroupByTask.html"><span class="name">GroupByTask</span></a><span class="tparams">[<span name="IN">IN</span>, <span name="GROUP">GROUP</span>, <span name="OUT">OUT</span>]</span><span class="result"> extends <a href="../../task/Task.html" class="extype" name="org.apache.gearpump.streaming.task.Task">Task</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.task.package@CountTriggerTask[IN,GROUP]extendsTask" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.task.package@GroupByTask[IN,GROUP,OUT]extendsTask" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">This task triggers output on number of messages in a window.</p>
-    </li><li name="org.apache.gearpump.streaming.dsl.task.EventTimeTriggerTask" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="EventTimeTriggerTask[IN,GROUP]extendsTask"></a>
-      <a id="EventTimeTriggerTask[IN,GROUP]:EventTimeTriggerTask[IN,GROUP]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">class</span>
-      </span>
-      <span class="symbol">
-        <a href="EventTimeTriggerTask.html"><span class="name">EventTimeTriggerTask</span></a><span class="tparams">[<span name="IN">IN</span>, <span name="GROUP">GROUP</span>]</span><span class="result"> extends <a href="../../task/Task.html" class="extype" name="org.apache.gearpump.streaming.task.Task">Task</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.task.package@EventTimeTriggerTask[IN,GROUP]extendsTask" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">This task triggers output on watermark progress.</p>
-    </li><li name="org.apache.gearpump.streaming.dsl.task.ProcessingTimeTriggerTask" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="ProcessingTimeTriggerTask[IN,GROUP]extendsTask"></a>
-      <a id="ProcessingTimeTriggerTask[IN,GROUP]:ProcessingTimeTriggerTask[IN,GROUP]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">class</span>
-      </span>
-      <span class="symbol">
-        <a href="ProcessingTimeTriggerTask.html"><span class="name">ProcessingTimeTriggerTask</span></a><span class="tparams">[<span name="IN">IN</span>, <span name="GROUP">GROUP</span>]</span><span class="result"> extends <a href="../../task/Task.html" class="extype" name="org.apache.gearpump.streaming.task.Task">Task</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.task.package@ProcessingTimeTriggerTask[IN,GROUP]extendsTask" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">This task triggers output on scheduled system time interval.</p>
+      <p class="shortcomment cmt">Processes messages in groups as defined by groupBy function.</p>
     </li><li name="org.apache.gearpump.streaming.dsl.task.TransformTask" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="TransformTask[IN,OUT]extendsTask"></a>
       <a id="TransformTask[IN,OUT]:TransformTask[IN,OUT]"></a>
@@ -139,44 +105,7 @@
 
         
 
-        <div id="values" class="values members">
-              <h3>Value Members</h3>
-              <ol><li name="org.apache.gearpump.streaming.dsl.task.ProcessingTimeTriggerTask" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="ProcessingTimeTriggerTask"></a>
-      <a id="ProcessingTimeTriggerTask:ProcessingTimeTriggerTask"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">object</span>
-      </span>
-      <span class="symbol">
-        <a href="ProcessingTimeTriggerTask$.html"><span class="name">ProcessingTimeTriggerTask</span></a>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.task.package@ProcessingTimeTriggerTask" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li><li name="org.apache.gearpump.streaming.dsl.task.TransformTask" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="TransformTask"></a>
-      <a id="TransformTask:TransformTask"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">object</span>
-      </span>
-      <span class="symbol">
-        <a href="TransformTask$.html"><span class="name">TransformTask</span></a>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.task.package@TransformTask" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li></ol>
-            </div>
+        
 
         
 

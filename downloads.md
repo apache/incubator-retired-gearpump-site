@@ -6,7 +6,7 @@ layout: global
 
 ### Current {{ site.GEARPUMP_VERSION }} Release (v{{ site.GEARPUMP_VERSION }}) 
 
-[Release Notes](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12319920&version=12338681)
+[Release Notes](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12319920&version=12340225)
 
 * [The source and binary tarballs, including signatures, digests, etc.](https://dist.apache.org/repos/dist/release/incubator/gearpump/{{ site.GEARPUMP_VERSION }}-incubating/)
 

@@ -88,25 +88,42 @@
 
         <div id="types" class="types members">
               <h3>Type Members</h3>
-              <ol><li name="org.apache.gearpump.Message" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="MessageextendsProductwithSerializable"></a>
-      <a id="Message:Message"></a>
+              <ol><li name="org.apache.gearpump.DefaultMessage" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="DefaultMessageextendsMessagewithProductwithSerializable"></a>
+      <a id="DefaultMessage:DefaultMessage"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="Message.html"><span class="name">Message</span></a><span class="params">(<span name="msg">msg: <span class="extype" name="scala.Any">Any</span></span>, <span name="timeInMillis">timeInMillis: <a href="#TimeStamp=Long" class="extmbr" name="org.apache.gearpump.TimeStamp">TimeStamp</a></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <a href="DefaultMessage.html"><span class="name">DefaultMessage</span></a><span class="params">(<span name="value">value: <span class="extype" name="scala.Any">Any</span></span>, <span name="timeInMillis">timeInMillis: <a href="#TimeStamp=Long" class="extmbr" name="org.apache.gearpump.TimeStamp">TimeStamp</a></span>)</span><span class="result"> extends <a href="Message.html" class="extype" name="org.apache.gearpump.Message">Message</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#org.apache.gearpump.package@MessageextendsProductwithSerializable" title="Permalink" target="_top">
+      <a href="../../../index.html#org.apache.gearpump.package@DefaultMessageextendsMessagewithProductwithSerializable" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">Each message contains an immutable timestamp.</p><div class="fullcomment"><div class="comment cmt"><p>Each message contains an immutable timestamp.</p><p>For example, if you take a picture, the time you take the picture is the
 message's timestamp.
-</p></div><dl class="paramcmts block"><dt class="param">msg</dt><dd class="cmt"><p>Accept any type except Null, Nothing and Unit</p></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="param">value</dt><dd class="cmt"><p>Accept any type except Null, Nothing and Unit</p></dd></dl></div>
+    </li><li name="org.apache.gearpump.Message" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="MessageextendsAnyRef"></a>
+      <a id="Message:Message"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="Message.html"><span class="name">Message</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#org.apache.gearpump.package@MessageextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
     </li><li name="org.apache.gearpump.TimeStamp" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="TimeStamp=Long"></a>
       <a id="TimeStamp:TimeStamp"></a>
@@ -174,7 +191,7 @@ message's timestamp.
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a href="Message$.html"><span class="name">Message</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <a href="Message$.html"><span class="name">Message</span></a>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#org.apache.gearpump.package@Message" title="Permalink" target="_top">

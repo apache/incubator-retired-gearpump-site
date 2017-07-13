@@ -66,36 +66,36 @@
 
         <div id="types" class="types members">
               <h3>Type Members</h3>
-              <ol><li name="org.apache.gearpump.streaming.dsl.window.impl.DefaultWindowRunner" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="DefaultWindowRunner[IN,GROUP,OUT]extendsWindowRunner"></a>
-      <a id="DefaultWindowRunner[IN,GROUP,OUT]:DefaultWindowRunner[IN,GROUP,OUT]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">class</span>
-      </span>
-      <span class="symbol">
-        <a href="DefaultWindowRunner.html"><span class="name">DefaultWindowRunner</span></a><span class="tparams">[<span name="IN">IN</span>, <span name="GROUP">GROUP</span>, <span name="OUT">OUT</span>]</span><span class="result"> extends <a href="WindowRunner.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.impl.WindowRunner">WindowRunner</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.window.impl.package@DefaultWindowRunner[IN,GROUP,OUT]extendsWindowRunner" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li><li name="org.apache.gearpump.streaming.dsl.window.impl.GroupAlsoByWindow" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="GroupAlsoByWindow[T,GROUP]extendsProductwithSerializable"></a>
-      <a id="GroupAlsoByWindow[T,GROUP]:GroupAlsoByWindow[T,GROUP]"></a>
+              <ol><li name="org.apache.gearpump.streaming.dsl.window.impl.AndThen" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="AndThen[IN,MIDDLE,OUT]extendsWindowRunner[IN,OUT]withProductwithSerializable"></a>
+      <a id="AndThen[IN,MIDDLE,OUT]:AndThen[IN,MIDDLE,OUT]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="GroupAlsoByWindow.html"><span class="name">GroupAlsoByWindow</span></a><span class="tparams">[<span name="T">T</span>, <span name="GROUP">GROUP</span>]</span><span class="params">(<span name="groupByFn">groupByFn: (<span class="extype" name="org.apache.gearpump.streaming.dsl.window.impl.GroupAlsoByWindow.T">T</span>) ⇒ <span class="extype" name="org.apache.gearpump.streaming.dsl.window.impl.GroupAlsoByWindow.GROUP">GROUP</span></span>, <span name="window">window: <a href="../api/Windows.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.api.Windows">Windows</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.window.impl.GroupAlsoByWindow.T">T</span>]</span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <a href="AndThen.html"><span class="name">AndThen</span></a><span class="tparams">[<span name="IN">IN</span>, <span name="MIDDLE">MIDDLE</span>, <span name="OUT">OUT</span>]</span><span class="params">(<span name="left">left: <a href="WindowRunner.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.impl.WindowRunner">WindowRunner</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.window.impl.AndThen.IN">IN</span>, <span class="extype" name="org.apache.gearpump.streaming.dsl.window.impl.AndThen.MIDDLE">MIDDLE</span>]</span>, <span name="right">right: <a href="WindowRunner.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.impl.WindowRunner">WindowRunner</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.window.impl.AndThen.MIDDLE">MIDDLE</span>, <span class="extype" name="org.apache.gearpump.streaming.dsl.window.impl.AndThen.OUT">OUT</span>]</span>)</span><span class="result"> extends <a href="WindowRunner.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.impl.WindowRunner">WindowRunner</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.window.impl.AndThen.IN">IN</span>, <span class="extype" name="org.apache.gearpump.streaming.dsl.window.impl.AndThen.OUT">OUT</span>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.window.impl.package@GroupAlsoByWindow[T,GROUP]extendsProductwithSerializable" title="Permalink" target="_top">
+      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.window.impl.package@AndThen[IN,MIDDLE,OUT]extendsWindowRunner[IN,OUT]withProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.apache.gearpump.streaming.dsl.window.impl.DefaultWindowRunner" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DefaultWindowRunner[IN,OUT]extendsWindowRunner[IN,OUT]"></a>
+      <a id="DefaultWindowRunner[IN,OUT]:DefaultWindowRunner[IN,OUT]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="DefaultWindowRunner.html"><span class="name">DefaultWindowRunner</span></a><span class="tparams">[<span name="IN">IN</span>, <span name="OUT">OUT</span>]</span><span class="result"> extends <a href="WindowRunner.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.impl.WindowRunner">WindowRunner</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.window.impl.DefaultWindowRunner.IN">IN</span>, <span class="extype" name="org.apache.gearpump.streaming.dsl.window.impl.DefaultWindowRunner.OUT">OUT</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.window.impl.package@DefaultWindowRunner[IN,OUT]extendsWindowRunner[IN,OUT]" title="Permalink" target="_top">
         <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -113,6 +113,40 @@
       </span>
       </h4><span class="permalink">
       <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.window.impl.package@ReduceFnRunnerextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.apache.gearpump.streaming.dsl.window.impl.TimestampedValue" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="TimestampedValue[T]extendsProductwithSerializable"></a>
+      <a id="TimestampedValue[T]:TimestampedValue[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="TimestampedValue.html"><span class="name">TimestampedValue</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="value">value: <span class="extype" name="org.apache.gearpump.streaming.dsl.window.impl.TimestampedValue.T">T</span></span>, <span name="timestamp">timestamp: <span class="extype" name="java.time.Instant">Instant</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.window.impl.package@TimestampedValue[T]extendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.apache.gearpump.streaming.dsl.window.impl.TriggeredOutputs" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="TriggeredOutputs[T]extendsProductwithSerializable"></a>
+      <a id="TriggeredOutputs[T]:TriggeredOutputs[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="TriggeredOutputs.html"><span class="name">TriggeredOutputs</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="outputs">outputs: <span class="extype" name="scala.TraversableOnce">TraversableOnce</span>[<a href="TimestampedValue.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.impl.TimestampedValue">TimestampedValue</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.window.impl.TriggeredOutputs.T">T</span>]]</span>, <span name="watermark">watermark: <span class="extype" name="java.time.Instant">Instant</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.window.impl.package@TriggeredOutputs[T]extendsProductwithSerializable" title="Permalink" target="_top">
         <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -135,18 +169,18 @@
     </span>
       <p class="shortcomment cmt">A window unit including startTime and excluding endTime.</p>
     </li><li name="org.apache.gearpump.streaming.dsl.window.impl.WindowRunner" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
-      <a id="WindowRunnerextendsAnyRef"></a>
-      <a id="WindowRunner:WindowRunner"></a>
+      <a id="WindowRunner[IN,OUT]extendsSerializable"></a>
+      <a id="WindowRunner[IN,OUT]:WindowRunner[IN,OUT]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <a href="WindowRunner.html"><span class="name">WindowRunner</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+        <a href="WindowRunner.html"><span class="name">WindowRunner</span></a><span class="tparams">[<span name="IN">IN</span>, <span name="OUT">OUT</span>]</span><span class="result"> extends <span class="extype" name="java.io.Serializable">Serializable</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.window.impl.package@WindowRunnerextendsAnyRef" title="Permalink" target="_top">
+      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.window.impl.package@WindowRunner[IN,OUT]extendsSerializable" title="Permalink" target="_top">
         <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -158,24 +192,7 @@
 
         <div id="values" class="values members">
               <h3>Value Members</h3>
-              <ol><li name="org.apache.gearpump.streaming.dsl.window.impl.DefaultWindowRunner" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="DefaultWindowRunner"></a>
-      <a id="DefaultWindowRunner:DefaultWindowRunner"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">object</span>
-      </span>
-      <span class="symbol">
-        <a href="DefaultWindowRunner$.html"><span class="name">DefaultWindowRunner</span></a>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.window.impl.package@DefaultWindowRunner" title="Permalink" target="_top">
-        <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li><li name="org.apache.gearpump.streaming.dsl.window.impl.Window" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+              <ol><li name="org.apache.gearpump.streaming.dsl.window.impl.Window" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="Window"></a>
       <a id="Window:Window"></a>
       <h4 class="signature">

@@ -47,7 +47,7 @@
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <span class="name">WindowFunction</span><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+        <span class="name">WindowFunction</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
       </h4>
       
@@ -56,7 +56,7 @@
           <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div><div class="toggleContainer block">
             <span class="toggle">Known Subclasses</span>
-            <div class="subClasses hiddenContent"><a href="CountWindowFunction.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.api.CountWindowFunction">CountWindowFunction</a>, <a href="NonMergingWindowFunction.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.api.NonMergingWindowFunction">NonMergingWindowFunction</a>, <a href="SessionWindowFunction.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.api.SessionWindowFunction">SessionWindowFunction</a>, <a href="SlidingWindowFunction.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.api.SlidingWindowFunction">SlidingWindowFunction</a></div>
+            <div class="subClasses hiddenContent"><a href="GlobalWindowFunction.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.api.GlobalWindowFunction">GlobalWindowFunction</a>, <a href="NonMergingWindowFunction.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.api.NonMergingWindowFunction">NonMergingWindowFunction</a>, <a href="../../../source/DataSourceProcessor$$PerElementWindowFunction$.html" class="extype" name="org.apache.gearpump.streaming.source.DataSourceProcessor.PerElementWindowFunction">PerElementWindowFunction</a>, <a href="SessionWindowFunction.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.api.SessionWindowFunction">SessionWindowFunction</a>, <a href="SlidingWindowFunction.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.api.SlidingWindowFunction">SlidingWindowFunction</a></div>
           </div></div>
         
 
@@ -98,18 +98,18 @@
         <div id="values" class="values members">
               <h3>Abstract Value Members</h3>
               <ol><li name="org.apache.gearpump.streaming.dsl.window.api.WindowFunction#apply" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
-      <a id="apply(context:org.apache.gearpump.streaming.dsl.window.api.WindowFunction.Context[T]):Array[org.apache.gearpump.streaming.dsl.window.impl.Window]"></a>
-      <a id="apply(Context[T]):Array[Window]"></a>
+      <a id="apply[T](context:org.apache.gearpump.streaming.dsl.window.api.WindowFunction.Context[T]):Array[org.apache.gearpump.streaming.dsl.window.impl.Window]"></a>
+      <a id="apply[T](Context[T]):Array[Window]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier">abstract </span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">apply</span><span class="params">(<span name="context">context: <a href="WindowFunction$$Context.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.api.WindowFunction.Context">Context</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.window.api.WindowFunction.T">T</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Array">Array</span>[<a href="../impl/Window.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.impl.Window">Window</a>]</span>
+        <span class="name">apply</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="context">context: <a href="WindowFunction$$Context.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.api.WindowFunction.Context">Context</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.window.api.WindowFunction.apply.T">T</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Array">Array</span>[<a href="../impl/Window.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.impl.Window">Window</a>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.window.api.WindowFunction@apply(context:org.apache.gearpump.streaming.dsl.window.api.WindowFunction.Context[T]):Array[org.apache.gearpump.streaming.dsl.window.impl.Window]" title="Permalink" target="_top">
+      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.window.api.WindowFunction@apply[T](context:org.apache.gearpump.streaming.dsl.window.api.WindowFunction.Context[T]):Array[org.apache.gearpump.streaming.dsl.window.impl.Window]" title="Permalink" target="_top">
         <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
