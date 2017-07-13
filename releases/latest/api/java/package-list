@@ -19,7 +19,6 @@ org.apache.gearpump.streaming.appmaster
 org.apache.gearpump.streaming.dsl.api.functions
 org.apache.gearpump.streaming.dsl.javaapi
 org.apache.gearpump.streaming.dsl.javaapi.functions
-org.apache.gearpump.streaming.dsl.partitioner
 org.apache.gearpump.streaming.dsl.plan
 org.apache.gearpump.streaming.dsl.plan.functions
 org.apache.gearpump.streaming.dsl.scalaapi

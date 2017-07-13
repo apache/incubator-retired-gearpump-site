@@ -45,13 +45,13 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <span class="name">SessionWindowFunction</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="gap">gap: <span class="extype" name="java.time.Duration">Duration</span></span>)</span><span class="result"> extends <a href="WindowFunction.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.api.WindowFunction">WindowFunction</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.window.api.SessionWindowFunction.T">T</span>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <span class="name">SessionWindowFunction</span><span class="params">(<span name="gap">gap: <span class="extype" name="java.time.Duration">Duration</span></span>)</span><span class="result"> extends <a href="WindowFunction.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.api.WindowFunction">WindowFunction</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       
           <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.Product">Product</span>, <span class="extype" name="scala.Equals">Equals</span>, <a href="WindowFunction.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.api.WindowFunction">WindowFunction</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.window.api.SessionWindowFunction.T">T</span>], <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+          <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.Product">Product</span>, <span class="extype" name="scala.Equals">Equals</span>, <a href="WindowFunction.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.api.WindowFunction">WindowFunction</a>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
         
 
@@ -89,8 +89,8 @@
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
               <ol><li name="org.apache.gearpump.streaming.dsl.window.api.SessionWindowFunction#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="&lt;init&gt;(gap:java.time.Duration):org.apache.gearpump.streaming.dsl.window.api.SessionWindowFunction[T]"></a>
-      <a id="&lt;init&gt;:SessionWindowFunction[T]"></a>
+      <a id="&lt;init&gt;(gap:java.time.Duration):org.apache.gearpump.streaming.dsl.window.api.SessionWindowFunction"></a>
+      <a id="&lt;init&gt;:SessionWindowFunction"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
@@ -100,7 +100,7 @@
         <span class="name">SessionWindowFunction</span><span class="params">(<span name="gap">gap: <span class="extype" name="java.time.Duration">Duration</span></span>)</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.window.api.SessionWindowFunction@&lt;init&gt;(gap:java.time.Duration):org.apache.gearpump.streaming.dsl.window.api.SessionWindowFunction[T]" title="Permalink" target="_top">
+      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.window.api.SessionWindowFunction@&lt;init&gt;(gap:java.time.Duration):org.apache.gearpump.streaming.dsl.window.api.SessionWindowFunction" title="Permalink" target="_top">
         <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -166,18 +166,18 @@
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="org.apache.gearpump.streaming.dsl.window.api.SessionWindowFunction#apply" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="apply(context:org.apache.gearpump.streaming.dsl.window.api.WindowFunction.Context[T]):Array[org.apache.gearpump.streaming.dsl.window.impl.Window]"></a>
-      <a id="apply(Context[T]):Array[Window]"></a>
+      <a id="apply[T](context:org.apache.gearpump.streaming.dsl.window.api.WindowFunction.Context[T]):Array[org.apache.gearpump.streaming.dsl.window.impl.Window]"></a>
+      <a id="apply[T](Context[T]):Array[Window]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">apply</span><span class="params">(<span name="context">context: <a href="WindowFunction$$Context.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.api.WindowFunction.Context">Context</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.window.api.SessionWindowFunction.T">T</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Array">Array</span>[<a href="../impl/Window.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.impl.Window">Window</a>]</span>
+        <span class="name">apply</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="context">context: <a href="WindowFunction$$Context.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.api.WindowFunction.Context">Context</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.window.api.SessionWindowFunction.apply.T">T</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Array">Array</span>[<a href="../impl/Window.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.impl.Window">Window</a>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.window.api.SessionWindowFunction@apply(context:org.apache.gearpump.streaming.dsl.window.api.WindowFunction.Context[T]):Array[org.apache.gearpump.streaming.dsl.window.impl.Window]" title="Permalink" target="_top">
+      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.window.api.SessionWindowFunction@apply[T](context:org.apache.gearpump.streaming.dsl.window.api.WindowFunction.Context[T]):Array[org.apache.gearpump.streaming.dsl.window.impl.Window]" title="Permalink" target="_top">
         <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -485,7 +485,7 @@
             </div><div class="parent" name="scala.Equals">
               <h3>Inherited from <span class="extype" name="scala.Equals">Equals</span></h3>
             </div><div class="parent" name="org.apache.gearpump.streaming.dsl.window.api.WindowFunction">
-              <h3>Inherited from <a href="WindowFunction.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.api.WindowFunction">WindowFunction</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.window.api.SessionWindowFunction.T">T</span>]</h3>
+              <h3>Inherited from <a href="WindowFunction.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.api.WindowFunction">WindowFunction</a></h3>
             </div><div class="parent" name="scala.AnyRef">
               <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
             </div><div class="parent" name="scala.Any">

@@ -51,7 +51,7 @@
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Manges the output and message clock for single downstream processor
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Manages the output and message clock for single downstream processor
 </p></div><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
@@ -92,7 +92,7 @@
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
               <ol><li name="org.apache.gearpump.streaming.task.Subscription#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="&lt;init&gt;(appId:Int,executorId:Int,taskId:org.apache.gearpump.streaming.task.TaskId,subscriber:org.apache.gearpump.streaming.task.Subscriber,sessionId:Int,transport:org.apache.gearpump.streaming.task.ExpressTransport,maxPendingMessageCount:Int,ackOnceEveryMessageCount:Int):org.apache.gearpump.streaming.task.Subscription"></a>
+      <a id="&lt;init&gt;(appId:Int,executorId:Int,taskId:org.apache.gearpump.streaming.task.TaskId,subscriber:org.apache.gearpump.streaming.task.Subscriber,sessionId:Int,publisher:org.apache.gearpump.streaming.task.TaskActor,maxPendingMessageCount:Int,ackOnceEveryMessageCount:Int):org.apache.gearpump.streaming.task.Subscription"></a>
       <a id="&lt;init&gt;:Subscription"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -100,10 +100,10 @@
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">Subscription</span><span class="params">(<span name="appId">appId: <span class="extype" name="scala.Int">Int</span></span>, <span name="executorId">executorId: <span class="extype" name="scala.Int">Int</span></span>, <span name="taskId">taskId: <a href="TaskId.html" class="extype" name="org.apache.gearpump.streaming.task.TaskId">TaskId</a></span>, <span name="subscriber">subscriber: <a href="Subscriber.html" class="extype" name="org.apache.gearpump.streaming.task.Subscriber">Subscriber</a></span>, <span name="sessionId">sessionId: <span class="extype" name="scala.Int">Int</span></span>, <span name="transport">transport: <a href="ExpressTransport.html" class="extype" name="org.apache.gearpump.streaming.task.ExpressTransport">ExpressTransport</a></span>, <span name="maxPendingMessageCount">maxPendingMessageCount: <span class="extype" name="scala.Int">Int</span> = <span class="symbol"><span class="name"><a href="../../../../package.html">MAX_PENDING_MESSAGE_COUNT</a></span></span></span>, <span name="ackOnceEveryMessageCount">ackOnceEveryMessageCount: <span class="extype" name="scala.Int">Int</span> = <span class="symbol"><span class="name"><a href="../../../../package.html">ONE_ACKREQUEST_EVERY_MESSAGE_COUNT</a></span></span></span>)</span>
+        <span class="name">Subscription</span><span class="params">(<span name="appId">appId: <span class="extype" name="scala.Int">Int</span></span>, <span name="executorId">executorId: <span class="extype" name="scala.Int">Int</span></span>, <span name="taskId">taskId: <a href="TaskId.html" class="extype" name="org.apache.gearpump.streaming.task.TaskId">TaskId</a></span>, <span name="subscriber">subscriber: <a href="Subscriber.html" class="extype" name="org.apache.gearpump.streaming.task.Subscriber">Subscriber</a></span>, <span name="sessionId">sessionId: <span class="extype" name="scala.Int">Int</span></span>, <span name="publisher">publisher: <a href="TaskActor.html" class="extype" name="org.apache.gearpump.streaming.task.TaskActor">TaskActor</a></span>, <span name="maxPendingMessageCount">maxPendingMessageCount: <span class="extype" name="scala.Int">Int</span> = <span class="symbol"><span class="name"><a href="../../../../package.html">MAX_PENDING_MESSAGE_COUNT</a></span></span></span>, <span name="ackOnceEveryMessageCount">ackOnceEveryMessageCount: <span class="extype" name="scala.Int">Int</span> = <span class="symbol"><span class="name"><a href="../../../../package.html">ONE_ACKREQUEST_EVERY_MESSAGE_COUNT</a></span></span></span>)</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#org.apache.gearpump.streaming.task.Subscription@&lt;init&gt;(appId:Int,executorId:Int,taskId:org.apache.gearpump.streaming.task.TaskId,subscriber:org.apache.gearpump.streaming.task.Subscriber,sessionId:Int,transport:org.apache.gearpump.streaming.task.ExpressTransport,maxPendingMessageCount:Int,ackOnceEveryMessageCount:Int):org.apache.gearpump.streaming.task.Subscription" title="Permalink" target="_top">
+      <a href="../../../../../index.html#org.apache.gearpump.streaming.task.Subscription@&lt;init&gt;(appId:Int,executorId:Int,taskId:org.apache.gearpump.streaming.task.TaskId,subscriber:org.apache.gearpump.streaming.task.Subscriber,sessionId:Int,publisher:org.apache.gearpump.streaming.task.TaskActor,maxPendingMessageCount:Int,ackOnceEveryMessageCount:Int):org.apache.gearpump.streaming.task.Subscription" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -351,23 +351,6 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
-    </li><li name="org.apache.gearpump.streaming.task.Subscription#minClock" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="minClock:org.apache.gearpump.TimeStamp"></a>
-      <a id="minClock:TimeStamp"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">minClock</span><span class="result">: <a href="../../package.html#TimeStamp=Long" class="extmbr" name="org.apache.gearpump.TimeStamp">TimeStamp</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../index.html#org.apache.gearpump.streaming.task.Subscription@minClock:org.apache.gearpump.TimeStamp" title="Permalink" target="_top">
-        <img src="../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
     </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a>
       <a id="ne(AnyRef):Boolean"></a>
@@ -419,6 +402,23 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="org.apache.gearpump.streaming.task.Subscription#onStallingTime" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="onStallingTime(stallingTime:org.apache.gearpump.TimeStamp):Unit"></a>
+      <a id="onStallingTime(TimeStamp):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">onStallingTime</span><span class="params">(<span name="stallingTime">stallingTime: <a href="../../package.html#TimeStamp=Long" class="extmbr" name="org.apache.gearpump.TimeStamp">TimeStamp</a></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.apache.gearpump.streaming.task.Subscription@onStallingTime(stallingTime:org.apache.gearpump.TimeStamp):Unit" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
     </li><li name="org.apache.gearpump.streaming.task.Subscription#receiveAck" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="receiveAck(ack:org.apache.gearpump.streaming.task.Ack):Unit"></a>
       <a id="receiveAck(Ack):Unit"></a>
@@ -437,23 +437,6 @@
     </span>
       <p class="shortcomment cmt">Handles acknowledge message.</p><div class="fullcomment"><div class="comment cmt"><p>Handles acknowledge message. Throw MessageLossException if required.
 </p></div><dl class="paramcmts block"><dt class="param">ack</dt><dd class="cmt"><p>acknowledge message received</p></dd></dl></div>
-    </li><li name="org.apache.gearpump.streaming.task.Subscription#sendAckRequestOnStallingTime" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="sendAckRequestOnStallingTime(stallingTime:org.apache.gearpump.TimeStamp):Unit"></a>
-      <a id="sendAckRequestOnStallingTime(TimeStamp):Unit"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">sendAckRequestOnStallingTime</span><span class="params">(<span name="stallingTime">stallingTime: <a href="../../package.html#TimeStamp=Long" class="extmbr" name="org.apache.gearpump.TimeStamp">TimeStamp</a></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../index.html#org.apache.gearpump.streaming.task.Subscription@sendAckRequestOnStallingTime(stallingTime:org.apache.gearpump.TimeStamp):Unit" title="Permalink" target="_top">
-        <img src="../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
     </li><li name="org.apache.gearpump.streaming.task.Subscription#sendMessage" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="sendMessage(msg:org.apache.gearpump.Message,partition:Int):Int"></a>
       <a id="sendMessage(Message,Int):Int"></a>
@@ -610,6 +593,23 @@
     </span>)</span>
               
         </dd></dl></div>
+    </li><li name="org.apache.gearpump.streaming.task.Subscription#watermark" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="watermark:org.apache.gearpump.TimeStamp"></a>
+      <a id="watermark:TimeStamp"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">watermark</span><span class="result">: <a href="../../package.html#TimeStamp=Long" class="extmbr" name="org.apache.gearpump.TimeStamp">TimeStamp</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.apache.gearpump.streaming.task.Subscription@watermark:org.apache.gearpump.TimeStamp" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
     </li></ol>
             </div>
 

@@ -167,19 +167,36 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="org.apache.gearpump.streaming.dsl.scalaapi.Stream#apply" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="apply[T](graph:org.apache.gearpump.util.Graph[org.apache.gearpump.streaming.dsl.plan.Op,org.apache.gearpump.streaming.dsl.plan.OpEdge],node:org.apache.gearpump.streaming.dsl.plan.Op,edge:Option[org.apache.gearpump.streaming.dsl.plan.OpEdge]):org.apache.gearpump.streaming.dsl.scalaapi.Stream[T]"></a>
-      <a id="apply[T](Graph[Op,OpEdge],Op,Option[OpEdge]):Stream[T]"></a>
+    </li><li name="org.apache.gearpump.streaming.dsl.scalaapi.Stream#addWindowOp" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="addWindowOp(graph:org.apache.gearpump.util.Graph[org.apache.gearpump.streaming.dsl.plan.Op,org.apache.gearpump.streaming.dsl.plan.OpEdge],op:org.apache.gearpump.streaming.dsl.plan.Op,win:org.apache.gearpump.streaming.dsl.window.api.Windows):org.apache.gearpump.streaming.dsl.plan.Op"></a>
+      <a id="addWindowOp(Graph[Op,OpEdge],Op,Windows):Op"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">apply</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="graph">graph: <a href="../../../util/Graph.html" class="extype" name="org.apache.gearpump.util.Graph">Graph</a>[<a href="../plan/Op.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.Op">Op</a>, <a href="../plan/OpEdge.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.OpEdge">OpEdge</a>]</span>, <span name="node">node: <a href="../plan/Op.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.Op">Op</a></span>, <span name="edge">edge: <span class="extype" name="scala.Option">Option</span>[<a href="../plan/OpEdge.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.OpEdge">OpEdge</a>]</span>)</span><span class="result">: <a href="Stream.html" class="extype" name="org.apache.gearpump.streaming.dsl.scalaapi.Stream">Stream</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.scalaapi.Stream.apply.T">T</span>]</span>
+        <span class="name">addWindowOp</span><span class="params">(<span name="graph">graph: <a href="../../../util/Graph.html" class="extype" name="org.apache.gearpump.util.Graph">Graph</a>[<a href="../plan/Op.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.Op">Op</a>, <a href="../plan/OpEdge.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.OpEdge">OpEdge</a>]</span>, <span name="op">op: <a href="../plan/Op.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.Op">Op</a></span>, <span name="win">win: <a href="../window/api/Windows.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.api.Windows">Windows</a></span>)</span><span class="result">: <a href="../plan/Op.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.Op">Op</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.scalaapi.Stream$@apply[T](graph:org.apache.gearpump.util.Graph[org.apache.gearpump.streaming.dsl.plan.Op,org.apache.gearpump.streaming.dsl.plan.OpEdge],node:org.apache.gearpump.streaming.dsl.plan.Op,edge:Option[org.apache.gearpump.streaming.dsl.plan.OpEdge]):org.apache.gearpump.streaming.dsl.scalaapi.Stream[T]" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.scalaapi.Stream$@addWindowOp(graph:org.apache.gearpump.util.Graph[org.apache.gearpump.streaming.dsl.plan.Op,org.apache.gearpump.streaming.dsl.plan.OpEdge],op:org.apache.gearpump.streaming.dsl.plan.Op,win:org.apache.gearpump.streaming.dsl.window.api.Windows):org.apache.gearpump.streaming.dsl.plan.Op" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.apache.gearpump.streaming.dsl.scalaapi.Stream#apply" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="apply[T](graph:org.apache.gearpump.util.Graph[org.apache.gearpump.streaming.dsl.plan.Op,org.apache.gearpump.streaming.dsl.plan.OpEdge],node:org.apache.gearpump.streaming.dsl.plan.Op,edge:Option[org.apache.gearpump.streaming.dsl.plan.OpEdge],windows:org.apache.gearpump.streaming.dsl.window.api.Windows):org.apache.gearpump.streaming.dsl.scalaapi.Stream[T]"></a>
+      <a id="apply[T](Graph[Op,OpEdge],Op,Option[OpEdge],Windows):Stream[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">apply</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="graph">graph: <a href="../../../util/Graph.html" class="extype" name="org.apache.gearpump.util.Graph">Graph</a>[<a href="../plan/Op.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.Op">Op</a>, <a href="../plan/OpEdge.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.OpEdge">OpEdge</a>]</span>, <span name="node">node: <a href="../plan/Op.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.Op">Op</a></span>, <span name="edge">edge: <span class="extype" name="scala.Option">Option</span>[<a href="../plan/OpEdge.html" class="extype" name="org.apache.gearpump.streaming.dsl.plan.OpEdge">OpEdge</a>]</span>, <span name="windows">windows: <a href="../window/api/Windows.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.api.Windows">Windows</a></span>)</span><span class="result">: <a href="Stream.html" class="extype" name="org.apache.gearpump.streaming.dsl.scalaapi.Stream">Stream</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.scalaapi.Stream.apply.T">T</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.apache.gearpump.streaming.dsl.scalaapi.Stream$@apply[T](graph:org.apache.gearpump.util.Graph[org.apache.gearpump.streaming.dsl.plan.Op,org.apache.gearpump.streaming.dsl.plan.OpEdge],node:org.apache.gearpump.streaming.dsl.plan.Op,edge:Option[org.apache.gearpump.streaming.dsl.plan.OpEdge],windows:org.apache.gearpump.streaming.dsl.window.api.Windows):org.apache.gearpump.streaming.dsl.scalaapi.Stream[T]" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>

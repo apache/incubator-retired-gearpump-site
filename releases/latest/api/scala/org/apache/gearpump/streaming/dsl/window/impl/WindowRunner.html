@@ -45,16 +45,16 @@
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <span class="name">WindowRunner</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+        <span class="name">WindowRunner</span><span class="tparams">[<span name="IN">IN</span>, <span name="OUT">OUT</span>]</span><span class="result"> extends <span class="extype" name="java.io.Serializable">Serializable</span></span>
       </span>
       </h4>
       
           <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+          <div class="superTypes hiddenContent"><span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div><div class="toggleContainer block">
             <span class="toggle">Known Subclasses</span>
-            <div class="subClasses hiddenContent"><a href="DefaultWindowRunner.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.impl.DefaultWindowRunner">DefaultWindowRunner</a></div>
+            <div class="subClasses hiddenContent"><a href="AndThen.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.impl.AndThen">AndThen</a>, <a href="DefaultWindowRunner.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.impl.DefaultWindowRunner">DefaultWindowRunner</a></div>
           </div></div>
         
 
@@ -72,7 +72,7 @@
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="org.apache.gearpump.streaming.dsl.window.impl.WindowRunner"><span>WindowRunner</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="org.apache.gearpump.streaming.dsl.window.impl.WindowRunner"><span>WindowRunner</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                 </ol>
               </div><div id="ancestors">
             <span class="filtertype"></span>
@@ -96,35 +96,35 @@
         <div id="values" class="values members">
               <h3>Abstract Value Members</h3>
               <ol><li name="org.apache.gearpump.streaming.dsl.window.impl.WindowRunner#process" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
-      <a id="process(message:org.apache.gearpump.Message):Unit"></a>
-      <a id="process(Message):Unit"></a>
+      <a id="process(timestampedValue:org.apache.gearpump.streaming.dsl.window.impl.TimestampedValue[IN]):Unit"></a>
+      <a id="process(TimestampedValue[IN]):Unit"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier">abstract </span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">process</span><span class="params">(<span name="message">message: <a href="../../../../Message.html" class="extype" name="org.apache.gearpump.Message">Message</a></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">process</span><span class="params">(<span name="timestampedValue">timestampedValue: <a href="TimestampedValue.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.impl.TimestampedValue">TimestampedValue</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.window.impl.WindowRunner.IN">IN</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.window.impl.WindowRunner@process(message:org.apache.gearpump.Message):Unit" title="Permalink" target="_top">
+      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.window.impl.WindowRunner@process(timestampedValue:org.apache.gearpump.streaming.dsl.window.impl.TimestampedValue[IN]):Unit" title="Permalink" target="_top">
         <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       
     </li><li name="org.apache.gearpump.streaming.dsl.window.impl.WindowRunner#trigger" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
-      <a id="trigger(time:java.time.Instant):Unit"></a>
-      <a id="trigger(Instant):Unit"></a>
+      <a id="trigger(time:java.time.Instant):org.apache.gearpump.streaming.dsl.window.impl.TriggeredOutputs[OUT]"></a>
+      <a id="trigger(Instant):TriggeredOutputs[OUT]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier">abstract </span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">trigger</span><span class="params">(<span name="time">time: <span class="extype" name="java.time.Instant">Instant</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">trigger</span><span class="params">(<span name="time">time: <span class="extype" name="java.time.Instant">Instant</span></span>)</span><span class="result">: <a href="TriggeredOutputs.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.impl.TriggeredOutputs">TriggeredOutputs</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.window.impl.WindowRunner.OUT">OUT</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.window.impl.WindowRunner@trigger(time:java.time.Instant):Unit" title="Permalink" target="_top">
+      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.window.impl.WindowRunner@trigger(time:java.time.Instant):org.apache.gearpump.streaming.dsl.window.impl.TriggeredOutputs[OUT]" title="Permalink" target="_top">
         <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -496,7 +496,9 @@
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="scala.AnyRef">
+        <div class="parent" name="java.io.Serializable">
+              <h3>Inherited from <span class="extype" name="java.io.Serializable">Serializable</span></h3>
+            </div><div class="parent" name="scala.AnyRef">
               <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
             </div><div class="parent" name="scala.Any">
               <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>

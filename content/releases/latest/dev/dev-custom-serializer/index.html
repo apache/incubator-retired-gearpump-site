@@ -3,31 +3,28 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Customized Message Passing - Apache Gearpump(incubating)</title>
   
-
   <link rel="shortcut icon" href="../../img/favicon.ico">
-
-  
+  <title>Customized Message Passing - Apache Gearpump(incubating)</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
   <link rel="stylesheet" href="../../css/highlight.css">
-
   
   <script>
     // Current page data
     var mkdocs_page_name = "Customized Message Passing";
+    var mkdocs_page_input_path = "dev/dev-custom-serializer.md";
+    var mkdocs_page_url = "/dev/dev-custom-serializer/index.html";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
   <script src="../../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
-  <script src="../../js/theme.js"></script> 
-
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
   
 </head>
 
@@ -47,251 +44,173 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-        <ul class="current">
+	<ul class="current">
+	  
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../../index.html">Overview</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../../index.html">Overview</a>
+	    </li>
           
-            <li>
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Introduction</span>
     <ul class="subnav">
-    <li><span>Introduction</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../introduction/submit-your-1st-application/index.html">Submit Your 1st Application</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../introduction/commandline/index.html">Client Command Line</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../introduction/basic-concepts/index.html">Basic Concepts</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../introduction/features/index.html">Technical Highlights</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../introduction/message-delivery/index.html">Reliable Message Delivery</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../introduction/performance-report/index.html">Performance</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../introduction/gearpump-internals/index.html">Gearpump Internals</a>
-        
-    </li>
-
-        
+                <li class="">
+                    
+    <a class="" href="../../introduction/submit-your-1st-application/index.html">Submit Your 1st Application</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../introduction/commandline/index.html">Client Command Line</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../introduction/basic-concepts/index.html">Basic Concepts</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../introduction/features/index.html">Technical Highlights</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../introduction/message-delivery/index.html">Reliable Message Delivery</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../introduction/performance-report/index.html">Performance</a>
+                </li>
     </ul>
-<li>
+	    </li>
           
-            <li>
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Deployment</span>
     <ul class="subnav">
-    <li><span>Deployment</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../deployment/deployment-local/index.html">Local Mode</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../deployment/deployment-standalone/index.html">Standalone Mode</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../deployment/deployment-yarn/index.html">YARN Mode</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../deployment/deployment-docker/index.html">Docker Mode</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../deployment/deployment-ui-authentication/index.html">UI Authentication</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../deployment/deployment-ha/index.html">High Availability</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../deployment/deployment-msg-delivery/index.html">Reliable Message Delivery</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../deployment/deployment-configuration/index.html">Configuration</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../deployment/deployment-resource-isolation/index.html">Resource Isolation</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../deployment/deployment-security/index.html">YARN Security Guide</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../deployment/get-gearpump-distribution/index.html">How to Get Your Gearpump Distribution</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../deployment/hardware-requirement/index.html">Hardware Requirement</a>
-        
-    </li>
-
-        
+                <li class="">
+                    
+    <a class="" href="../../deployment/deployment-local/index.html">Local Mode</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../deployment/deployment-standalone/index.html">Standalone Mode</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../deployment/deployment-yarn/index.html">YARN Mode</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../deployment/deployment-docker/index.html">Docker Mode</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../deployment/deployment-ui-authentication/index.html">UI Authentication</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../deployment/deployment-ha/index.html">High Availability</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../deployment/deployment-msg-delivery/index.html">Reliable Message Delivery</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../deployment/deployment-configuration/index.html">Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../deployment/deployment-resource-isolation/index.html">Resource Isolation</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../deployment/deployment-security/index.html">YARN Security Guide</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../deployment/get-gearpump-distribution/index.html">How to Get Your Gearpump Distribution</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../deployment/hardware-requirement/index.html">Hardware Requirement</a>
+                </li>
     </ul>
-<li>
+	    </li>
           
-            <li>
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Programming Guide</span>
     <ul class="subnav">
-    <li><span>Programming Guide</span></li>
+                <li class="">
+                    
+    <a class="" href="../dev-write-1st-app/index.html">Write Your 1st App</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="index.html">Customized Message Passing</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#register-a-class-before-serialization">Register a class before serialization.</a></li>
+    
 
+    <li class="toctree-l3"><a href="#how-to-define-a-custom-serializer-for-built-in-kryo-serialization-framework">How to define a custom serializer for built-in kryo serialization framework</a></li>
+    
+        <ul>
         
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../dev-write-1st-app/index.html">Write Your 1st App</a>
+            <li><a class="toctree-l4" href="#system-level-serializer">System Level Serializer</a></li>
         
-    </li>
+            <li><a class="toctree-l4" href="#define-application-level-custom-serializer">Define Application level custom serializer</a></li>
+        
+        </ul>
+    
 
-        
-            
-    <li class="toctree-l1 current">
-        <a class="current" href="index.html">Customized Message Passing</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#register-a-class-before-serialization">Register a class before serialization.</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#how-to-define-a-custom-serializer-for-built-in-kryo-serialization-framework">How to define a custom serializer for built-in kryo serialization framework</a></li>
-                
-                    <li><a class="toctree-l4" href="#system-level-serializer">System Level Serializer</a></li>
-                
-                    <li><a class="toctree-l4" href="#define-application-level-custom-serializer">Define Application level custom serializer</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#advanced-choose-another-serialization-framework">Advanced: Choose another serialization framework</a></li>
-                
-            
-            </ul>
-        
-    </li>
+    <li class="toctree-l3"><a href="#advanced-choose-another-serialization-framework">Advanced: Choose another serialization framework</a></li>
+    
 
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../dev-connectors/index.html">Gearpump Connectors</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../dev-storm/index.html">Storm Compatibility</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../dev-ide-setup/index.html">IDE Setup</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../dev-non-streaming-example/index.html">Non Streaming Examples</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../dev-rest-api/index.html">REST API</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../api/scala/index.html">Scala API</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../api/java/index.html">Java API</a>
-        
-    </li>
-
-        
     </ul>
-<li>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../dev-connectors/index.html">Gearpump Connectors</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../dev-storm/index.html">Storm Compatibility</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../dev-ide-setup/index.html">IDE Setup</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../dev-non-streaming-example/index.html">Non Streaming Examples</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../dev-rest-api/index.html">REST API</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../api/scala/index.html">Scala API</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../api/java/index.html">Java API</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Internals</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../internals/gearpump-internals/index.html">Gearpump Internals</a>
+                </li>
+    </ul>
+	    </li>
           
         </ul>
       </div>
@@ -322,9 +241,8 @@
     <li>Customized Message Passing</li>
     <li class="wy-breadcrumbs-aside">
       
-        
-          <a href="https://github.com/apache/incubator-gearpump" class="icon icon-github"> Edit on GitHub</a>
-        
+        <a href="https://github.com/apache/incubator-gearpump/edit/master/docs/contents/dev/dev-custom-serializer.md"
+          class="icon icon-github"> Edit on GitHub</a>
       
     </li>
   </ul>
@@ -444,7 +362,7 @@ gearpump {
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../dev-connectors/index.html" class="btn btn-neutral float-right" title="Gearpump Connectors"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../dev-connectors/index.html" class="btn btn-neutral float-right" title="Gearpump Connectors">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../dev-write-1st-app/index.html" class="btn btn-neutral" title="Write Your 1st App"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -466,13 +384,13 @@ gearpump {
       </div>
 
     </section>
-
+    
   </div>
 
-<div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
-          <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+          <a href="https://github.com/apache/incubator-gearpump" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
         <span><a href="../dev-write-1st-app/index.html" style="color: #fcfcfc;">&laquo; Previous</a></span>
@@ -482,6 +400,7 @@ gearpump {
       
     </span>
 </div>
+    <script src="../../js/theme.js"></script>
 
 </body>
 </html>

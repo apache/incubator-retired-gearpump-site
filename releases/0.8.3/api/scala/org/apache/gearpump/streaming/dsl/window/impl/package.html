@@ -1,0 +1,223 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>impl - org.apache.gearpump.streaming.dsl.window.impl</title>
+          <meta name="description" content="impl - org.apache.gearpump.streaming.dsl.window.impl" />
+          <meta name="keywords" content="impl org.apache.gearpump.streaming.dsl.window.impl" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../../../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../../../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../../../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../../../../../lib/tools.tooltip.js"></script>
+      
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../../../../../index.html';
+            var hash = 'org.apache.gearpump.streaming.dsl.window.impl.package';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="value">
+      <div id="definition">
+        <img alt="Package" src="../../../../../../../lib/package_big.png" />
+        <p id="owner"><a href="../../../../../../package.html" class="extype" name="org">org</a>.<a href="../../../../../package.html" class="extype" name="org.apache">apache</a>.<a href="../../../../package.html" class="extype" name="org.apache.gearpump">gearpump</a>.<a href="../../../package.html" class="extype" name="org.apache.gearpump.streaming">streaming</a>.<a href="../../package.html" class="extype" name="org.apache.gearpump.streaming.dsl">dsl</a>.<a href="../package.html" class="extype" name="org.apache.gearpump.streaming.dsl.window">window</a></p>
+        <h1>impl</h1><span class="permalink">
+      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.window.impl.package" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <span class="name">impl</span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        
+        
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="org.apache.gearpump.streaming.dsl.window.impl.DefaultWindowRunner" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DefaultWindowRunner[IN,GROUP,OUT]extendsWindowRunner"></a>
+      <a id="DefaultWindowRunner[IN,GROUP,OUT]:DefaultWindowRunner[IN,GROUP,OUT]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="DefaultWindowRunner.html"><span class="name">DefaultWindowRunner</span></a><span class="tparams">[<span name="IN">IN</span>, <span name="GROUP">GROUP</span>, <span name="OUT">OUT</span>]</span><span class="result"> extends <a href="WindowRunner.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.impl.WindowRunner">WindowRunner</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.window.impl.package@DefaultWindowRunner[IN,GROUP,OUT]extendsWindowRunner" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.apache.gearpump.streaming.dsl.window.impl.GroupAlsoByWindow" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="GroupAlsoByWindow[T,GROUP]extendsProductwithSerializable"></a>
+      <a id="GroupAlsoByWindow[T,GROUP]:GroupAlsoByWindow[T,GROUP]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="GroupAlsoByWindow.html"><span class="name">GroupAlsoByWindow</span></a><span class="tparams">[<span name="T">T</span>, <span name="GROUP">GROUP</span>]</span><span class="params">(<span name="groupByFn">groupByFn: (<span class="extype" name="org.apache.gearpump.streaming.dsl.window.impl.GroupAlsoByWindow.T">T</span>) ⇒ <span class="extype" name="org.apache.gearpump.streaming.dsl.window.impl.GroupAlsoByWindow.GROUP">GROUP</span></span>, <span name="window">window: <a href="../api/Windows.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.api.Windows">Windows</a>[<span class="extype" name="org.apache.gearpump.streaming.dsl.window.impl.GroupAlsoByWindow.T">T</span>]</span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.window.impl.package@GroupAlsoByWindow[T,GROUP]extendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.apache.gearpump.streaming.dsl.window.impl.ReduceFnRunner" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="ReduceFnRunnerextendsAnyRef"></a>
+      <a id="ReduceFnRunner:ReduceFnRunner"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="ReduceFnRunner.html"><span class="name">ReduceFnRunner</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.window.impl.package@ReduceFnRunnerextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.apache.gearpump.streaming.dsl.window.impl.Window" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="WindowextendsComparable[org.apache.gearpump.streaming.dsl.window.impl.Window]withProductwithSerializable"></a>
+      <a id="Window:Window"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Window.html"><span class="name">Window</span></a><span class="params">(<span name="startTime">startTime: <span class="extype" name="java.time.Instant">Instant</span></span>, <span name="endTime">endTime: <span class="extype" name="java.time.Instant">Instant</span></span>)</span><span class="result"> extends <span class="extype" name="java.lang.Comparable">Comparable</span>[<a href="Window.html" class="extype" name="org.apache.gearpump.streaming.dsl.window.impl.Window">Window</a>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.window.impl.package@WindowextendsComparable[org.apache.gearpump.streaming.dsl.window.impl.Window]withProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A window unit including startTime and excluding endTime.</p>
+    </li><li name="org.apache.gearpump.streaming.dsl.window.impl.WindowRunner" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="WindowRunnerextendsAnyRef"></a>
+      <a id="WindowRunner:WindowRunner"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="WindowRunner.html"><span class="name">WindowRunner</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.window.impl.package@WindowRunnerextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="org.apache.gearpump.streaming.dsl.window.impl.DefaultWindowRunner" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DefaultWindowRunner"></a>
+      <a id="DefaultWindowRunner:DefaultWindowRunner"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="DefaultWindowRunner$.html"><span class="name">DefaultWindowRunner</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.window.impl.package@DefaultWindowRunner" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.apache.gearpump.streaming.dsl.window.impl.Window" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Window"></a>
+      <a id="Window:Window"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Window$.html"><span class="name">Window</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#org.apache.gearpump.streaming.dsl.window.impl.package@Window" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>
