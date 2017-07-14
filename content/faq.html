@@ -147,6 +147,8 @@
 <h3 id="relation-with-storm-and-spark-streaming">Relation with Storm and Spark Streaming</h3>
 <p>Storm and Spark Streaming are proven platforms. There are many production deployments. Compared with them, Gearpump is not than proven and there is no production deployment yet. However, there is no single platform that can cover every use case. Gearpump has its own +1 points in some unique use cases. For instance, for the IOT use cases, Gearpump may be considered convenient because the topology can be deployed to edge device with feature of location transparency. For another example, when users want to upgrade the application online without service interruption, Gearpump may be suitable as it can dynamically modify the computation DAG on the fly. To explore more good use cases that are suitable for Gearpump, please check the section <a href="usecases.html">What is a good use case for Gearpump</a>.</p>
 
+<h2 id="technical-internals">Technical Internals</h2>
+
 <h3 id="why-not-using-akka-persistence-to-store-the-checkpoint-file">Why not using Akka persistence to store the checkpoint file?</h3>
 
 <ol>
